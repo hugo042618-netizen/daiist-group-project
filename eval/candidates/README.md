@@ -13,9 +13,15 @@ Real TED notices collected by `scripts/fetch_candidates.py` (TED Search API, pub
 | `reference_pool.csv` | 45 Spanish notices defined like `typical.csv` (open, one lot, €100k-2M), none of them in the files above | already copied to `eval/reference.csv`; swap rows if you wish |
 | `shifted_pool.csv` | 10 Portuguese and 10 French notices | already copied to `eval/shifted.csv` |
 
+**`used_in` tells you which notices are already taken.** All 45 notices of `reference_pool.csv` are marked
+`reference.csv` and all 20 of `shifted_pool.csv` are marked `shifted.csv`: do not use them in `eval/cases.csv`.
+After you edit `cases.csv`, `reference.csv` or `shifted.csv`, run
+`uv run python scripts/fetch_candidates.py --annotate` to refresh the column (it fetches no new notices), and
+`main.py evaluate` warns if a case is also a reference input.
+
 Columns: `text` is what you would paste into the app. The other columns are TED's official fields for
 the same notice (`cpv_code`, `contract_type`, `estimated_value_eur`, `duration_months`, `procedure`,
-`lots_number`, `price_weight_pct`, `is_framework_agreement`, `region`) and `offers`, the number of
+`lots_number`, `price_weight_pct`, `is_framework_agreement`, `region`, `buyer_type`) and `offers`, the number of
 tenders actually received (the median across lots). `url` opens the notice on TED.
 
 How `text` is built: the API returns each notice as separate fields, not as a document. The text is

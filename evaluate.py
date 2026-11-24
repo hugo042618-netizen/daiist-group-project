@@ -97,6 +97,7 @@ FIELD_CHECKS = {
     "price_weight_pct (within 2)": lambda got, truth: _close(got, truth["price_weight_pct"], 2.0),
     "is_framework_agreement": lambda got, truth: bool(got) == (str(truth["is_framework_agreement"]).lower() == "true"),
     "region": lambda got, truth: got == truth["region"],
+    "buyer_type": lambda got, truth: got == truth["buyer_type"],
 }
 TRUTH_COLUMN = {"cpv_division": "cpv_code", "cpv_group (3 digits)": "cpv_code"}
 AGENT_FIELD = {"cpv_division": "cpv_code", "cpv_group (3 digits)": "cpv_code"}
@@ -129,7 +130,8 @@ def evaluate_agent() -> dict:
                     "region": truth["region"], "estimated_value_eur": truth["estimated_value_eur"] or None,
                     "duration_months": truth["duration_months"] or None, "lots_number": truth["lots_number"] or None,
                     "price_weight_pct": truth["price_weight_pct"] or None,
-                    "is_framework_agreement": str(truth["is_framework_agreement"]).lower() == "true"}
+                    "is_framework_agreement": str(truth["is_framework_agreement"]).lower() == "true",
+                    "buyer_type": truth.get("buyer_type") or None}
         row["bidders_from_agent_fields"] = model.predict(values)["expected_bidders"]
         row["bidders_from_official_fields"] = model.predict(official)["expected_bidders"]
         row["bidders_baseline"] = model.baseline_bidders(official["cpv_code"])
@@ -166,6 +168,10 @@ def evaluate_cases() -> dict:
     if not cases:
         print("  eval/cases.csv has no cases yet. The team writes them (see eval/candidates/README.md).")
         return {}
+    squash = lambda text: " ".join(str(text).split())  # noqa: E731
+    reference = {squash(r.get("input", "")) for r in read_rows(ROOT / "eval" / "reference.csv")}
+    if reused := [c["id"] for c in cases if squash(c["input"]) in reference]:
+        print(f"  WARNING: {len(reused)} cases are also in eval/reference.csv ({', '.join(reused[:8])}): the reference set must not hold test cases.")
     rows = []
     for i, case in enumerate(cases, 1):
         print(f"  {i}/{len(cases)}", end="\r", flush=True)

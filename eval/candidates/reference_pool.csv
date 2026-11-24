@@ -1,29 +1,29 @@
-id,group,notice_type,published,language,text,cpv_code,contract_type,estimated_value_eur,duration_months,procedure,lots_number,price_weight_pct,is_framework_agreement,region,offers,url
-160656-2026,reference_pool,can-standard,2026-03-09,es,"Título: Contratación de servicios de consultoría y definición de los catálogos terminológicos y su modelo de mantenimiento/gobernanza para la normalización semántica de la información de la historia clínica corporativa y desarrollo del modelo de interoperabilidad semántica con el SNS. Dentro del Plan de Recuperación, Transformación y Resiliencia. Financiado por la Unión Europea NEXTGENERATIONEU
+id,group,used_in,notice_type,published,language,text,cpv_code,contract_type,estimated_value_eur,duration_months,procedure,lots_number,price_weight_pct,is_framework_agreement,region,buyer_type,offers,url
+160656-2026,reference_pool,reference.csv,can-standard,2026-03-09,es,"Título: Contratación de servicios de consultoría y definición de los catálogos terminológicos y su modelo de mantenimiento/gobernanza para la normalización semántica de la información de la historia clínica corporativa y desarrollo del modelo de interoperabilidad semántica con el SNS. Dentro del Plan de Recuperación, Transformación y Resiliencia. Financiado por la Unión Europea NEXTGENERATIONEU
 Órgano de contratación: Servicio Gallego de Salud
 Valor estimado sin IVA: 774 144,00 EUR
 Duración del contrato: 8 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES111 (Galicia)
-Criterios de adjudicación: precio 50 %, calidad 50 %",72240000,services,774144.0,8.0,open,1,50.0,False,ES11,4.0,https://ted.europa.eu/es/notice/-/detail/160656-2026
-96540-2026,reference_pool,can-standard,2026-02-10,es,"Título: 2025-148 Suministro de licencias del software VMWARE para el Hospital Clínic de Barcelona.
+Criterios de adjudicación: precio 50 %, calidad 50 %",72240000,services,774144.0,8.0,open,1,50.0,False,ES11,regional_government,4.0,https://ted.europa.eu/es/notice/-/detail/160656-2026
+96540-2026,reference_pool,reference.csv,can-standard,2026-02-10,es,"Título: 2025-148 Suministro de licencias del software VMWARE para el Hospital Clínic de Barcelona.
 Órgano de contratación: CONSORCI HOSPITAL CLÍNIC DE BARCELONA (HCB)
 Descripción: Suministro de licencias del software VMWARE para el Hospital Clínic de Barcelona.
 Valor estimado sin IVA: 287 148,00 EUR
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
-Criterios de adjudicación: precio 100 %, calidad 0 %",48218000,supplies,287148.0,,open,1,100.0,False,ES51,4.0,https://ted.europa.eu/es/notice/-/detail/96540-2026
-150960-2026,reference_pool,can-standard,2026-03-04,es,"Título: Contratación del servicio de redacción de proyecto y dirección de obra para la construcción de un edificio para alojamientos compartidos, zonas comunes, garajes y trasteros en la avenida de Xoan XXIII, esquina con costa vella de arriba, Santiago de Compostela (A Coruña).
+Criterios de adjudicación: precio 100 %, calidad 0 %",48218000,supplies,287148.0,,open,1,100.0,False,ES51,other,4.0,https://ted.europa.eu/es/notice/-/detail/96540-2026
+150960-2026,reference_pool,reference.csv,can-standard,2026-03-04,es,"Título: Contratación del servicio de redacción de proyecto y dirección de obra para la construcción de un edificio para alojamientos compartidos, zonas comunes, garajes y trasteros en la avenida de Xoan XXIII, esquina con costa vella de arriba, Santiago de Compostela (A Coruña).
 Órgano de contratación: Instituto Gallego de la Vivienda y Suelo- Xunta de Galicia
 Descripción: El objeto es la contratación de los servicios de redacción de proyecto y dirección de obra para la construcción de un edificio para alojamientos compartidos, zonas comunes, garajes y trasteros en la avenida de Xoan XXIII, esquina con costa vella de arriba, Santiago de Compostela (A Coruña).
 Valor estimado sin IVA: 266 225,15 EUR
 Duración del contrato: 37 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Lugar de ejecución: ES111 (Galicia)",71221000,services,266225.15,37.0,open,1,,False,ES11,23.0,https://ted.europa.eu/es/notice/-/detail/150960-2026
-157738-2026,reference_pool,can-standard,2026-03-06,es,"Título: SERVICIO DE TRANSPORTE Y DISTRIBUCIÓN INTERCENTROS DE PRODUCTOS FARMACÉUTICOS, MATERIAL DE ESTERILIZACIÓN, MATERIAL SANITARIO, DOCUMENTACIÓN CLÍNICA Y OTRAS MERCANCÍAS DEL ÁREA SANITARIA DE PONTEVEDRA Y O SALNÉS
+Lugar de ejecución: ES111 (Galicia)",71221000,services,266225.15,37.0,open,1,,False,ES11,regional_government,23.0,https://ted.europa.eu/es/notice/-/detail/150960-2026
+157738-2026,reference_pool,reference.csv,can-standard,2026-03-06,es,"Título: SERVICIO DE TRANSPORTE Y DISTRIBUCIÓN INTERCENTROS DE PRODUCTOS FARMACÉUTICOS, MATERIAL DE ESTERILIZACIÓN, MATERIAL SANITARIO, DOCUMENTACIÓN CLÍNICA Y OTRAS MERCANCÍAS DEL ÁREA SANITARIA DE PONTEVEDRA Y O SALNÉS
 Órgano de contratación: XUNTA DE GALICIA/CONSELLERIA DE SANIDADE/SERGAS/ÁREA SANITARIA DE PONTEVEDRA E O SALNÉS
 Descripción: el servicio de transporte y distribución intercentros de productos farmacéuticos, material de esterilización, material sanitario, documentación clínica y otras mercancías y destinos esporádicos (entrega sillas especiales en domicilios, recogida/entrega de muestras en cadena de custodia) entre los centros pertenecientes al Área Sanitaria de Pontevedra y O Salnés (en adelante ASPS), para su posterior traslado a los laboratorios de referencia. Asimismo la recogida/entrega y distribución de mensajería entre los Centros de Salud y los demás Centros del ASPS y sobre la base de las siguientes actuaciones generales: - Transporte interhospitales de productos farmacéuticos, material de esterilización, material sanitario, documentación clínica y otras mercancías. En el Hospital del Salnés se realizará su distribución en cada una de las unidades de consumo allí definidas. - Transporte a Centros de Salud y Residencias Sociosanitarias de productos farmacéuticos, productos dietoterápicos y de nutrición enteral domiciliaria, material sanitario y otras mercancías.
 Valor estimado sin IVA: 512 748,44 EUR
@@ -31,38 +31,38 @@ Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES114 (Galicia)
-Criterios de adjudicación: precio 100 %, calidad 0 %",60100000,services,512748.44,24.0,open,1,100.0,False,ES11,1.0,https://ted.europa.eu/es/notice/-/detail/157738-2026
-152013-2026,reference_pool,can-standard,2026-03-04,es,"Título: Suministro de dispositivos limitadores de tensión tipo VLD-F
+Criterios de adjudicación: precio 100 %, calidad 0 %",60100000,services,512748.44,24.0,open,1,100.0,False,ES11,regional_government,1.0,https://ted.europa.eu/es/notice/-/detail/157738-2026
+152013-2026,reference_pool,reference.csv,can-standard,2026-03-04,es,"Título: Suministro de dispositivos limitadores de tensión tipo VLD-F
 Órgano de contratación: Administrador de Infraestructuras Ferroviarias
 Valor estimado sin IVA: 1 485 000,00 EUR
 Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Criterios de adjudicación: precio 100 %, calidad 0 %",31600000,supplies,1485000.0,24.0,open,1,100.0,False,,8.0,https://ted.europa.eu/es/notice/-/detail/152013-2026
-97584-2026,reference_pool,can-standard,2026-02-11,es,"Título: Renovación del sistema de información al viajero y CCTV en las unidades de la serie 600 de Metro Bilbao
+Criterios de adjudicación: precio 100 %, calidad 0 %",31600000,supplies,1485000.0,24.0,open,1,100.0,False,,other,8.0,https://ted.europa.eu/es/notice/-/detail/152013-2026
+97584-2026,reference_pool,reference.csv,can-standard,2026-02-11,es,"Título: Renovación del sistema de información al viajero y CCTV en las unidades de la serie 600 de Metro Bilbao
 Órgano de contratación: Consorcio de Transportes de Bizkaia - Consorcio de Transportes de Bizkaia
 Valor estimado sin IVA: 1 540 516,20 EUR
 Duración del contrato: 20 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES213 (País Vasco)
-Criterios de adjudicación: precio 100 %, calidad 0 %",48813000,supplies,1540516.2,20.0,open,1,100.0,False,ES21,2.0,https://ted.europa.eu/es/notice/-/detail/97584-2026
-149415-2026,reference_pool,can-standard,2026-03-04,es,"Título: SERVICIOS DE TRASLADO DE LAS RESERVAS Y COLECCIONES DEL MUSEO FREDERIC MARÈS DEL BARRIO GÓTICO DEL DISTRITO DE CIUTAT VELLA DE BARCELONA HACIA LA ANTIGUA SEDE DE LA EDITORIAL GUSTAU GILI DEL BARRIO DE LA NOVA ESQUERRA DEL EIXAMPLE DEL DISTRITO DEL EIXAMPLE DE BARCELONA, CON MEDIDAS DE CONTRATACIÓN PÚBLICA SOSTENIBLE
+Criterios de adjudicación: precio 100 %, calidad 0 %",48813000,supplies,1540516.2,20.0,open,1,100.0,False,ES21,city_council,2.0,https://ted.europa.eu/es/notice/-/detail/97584-2026
+149415-2026,reference_pool,reference.csv,can-standard,2026-03-04,es,"Título: SERVICIOS DE TRASLADO DE LAS RESERVAS Y COLECCIONES DEL MUSEO FREDERIC MARÈS DEL BARRIO GÓTICO DEL DISTRITO DE CIUTAT VELLA DE BARCELONA HACIA LA ANTIGUA SEDE DE LA EDITORIAL GUSTAU GILI DEL BARRIO DE LA NOVA ESQUERRA DEL EIXAMPLE DEL DISTRITO DEL EIXAMPLE DE BARCELONA, CON MEDIDAS DE CONTRATACIÓN PÚBLICA SOSTENIBLE
 Órgano de contratación: Barcelona d'Infraestructures Municipals, SA
 Valor estimado sin IVA: 439 477,07 EUR
 Duración del contrato: 4.1 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Lugar de ejecución: ES511 (Cataluña)",98392000,services,439477.07,4.1,open,1,,False,ES51,2.0,https://ted.europa.eu/es/notice/-/detail/149415-2026
-135319-2026,reference_pool,can-standard,2026-02-26,es,"Título: Servicios de coordinación de seguridad y salud en obras de reparaciones y/o mantenimiento posventa
+Lugar de ejecución: ES511 (Cataluña)",98392000,services,439477.07,4.1,open,1,,False,ES51,other,2.0,https://ted.europa.eu/es/notice/-/detail/149415-2026
+135319-2026,reference_pool,reference.csv,can-standard,2026-02-26,es,"Título: Servicios de coordinación de seguridad y salud en obras de reparaciones y/o mantenimiento posventa
 Órgano de contratación: VISESA - Vivienda y Suelo de Euskadi, S.A. - Departamento Técnico
 Valor estimado sin IVA: 914 220,54 EUR
 Duración del contrato: 12 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES213 (País Vasco)
-Criterios de adjudicación: precio 45 %, calidad 55 %",71317210,services,914220.54,12.0,open,1,45.0,False,ES21,4.0,https://ted.europa.eu/es/notice/-/detail/135319-2026
-103066-2026,reference_pool,can-standard,2026-02-12,es,"Título: AMT-2025-0102: Servicio de difusión y comunicación para la iniciativa ‘Aceleración de ecosistemas de emprendimiento e innovación basados en Gemelos Digitales’. Plan de Recuperación, Transformación y Resiliencia - Financiado por la Unión Europea -NextGenerationEU
+Criterios de adjudicación: precio 45 %, calidad 55 %",71317210,services,914220.54,12.0,open,1,45.0,False,ES21,regional_government,4.0,https://ted.europa.eu/es/notice/-/detail/135319-2026
+103066-2026,reference_pool,reference.csv,can-standard,2026-02-12,es,"Título: AMT-2025-0102: Servicio de difusión y comunicación para la iniciativa ‘Aceleración de ecosistemas de emprendimiento e innovación basados en Gemelos Digitales’. Plan de Recuperación, Transformación y Resiliencia - Financiado por la Unión Europea -NextGenerationEU
 Órgano de contratación: BTO CONSULTORA DIGITAL, SL
 Descripción: El objeto de esta contratación es el servicio de difusión y comunicación para la iniciativa 'Aceleración de Ecosistemas de Emprendimiento e Innovación Basados en Gemelos Digitales'. El contrato abarcará tres líneas principales de actuación: Apoyo al diseño y ejecución de retos tecnológicos mediante convocatorias abiertas; organización y preparación de un programa formativo; diseño, producción y gestión de jornadas de expertos en el ámbito de los gemelos digitales
 Valor estimado sin IVA: 306 480,00 EUR
@@ -70,16 +70,16 @@ Duración del contrato: 18 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES111 (Galicia)
-Criterios de adjudicación: precio 40 %, calidad 60 %",79341100,services,306480.0,18.0,open,1,40.0,False,ES11,6.0,https://ted.europa.eu/es/notice/-/detail/103066-2026
-166100-2026,reference_pool,can-standard,2026-03-10,es,"Título: Servicio de Actuaciones de balizamiento en operaciones especiales de tráfico de la Dirección de Tráfico
+Criterios de adjudicación: precio 40 %, calidad 60 %",79341100,services,306480.0,18.0,open,1,40.0,False,ES11,regional_government,6.0,https://ted.europa.eu/es/notice/-/detail/103066-2026
+166100-2026,reference_pool,reference.csv,can-standard,2026-03-10,es,"Título: Servicio de Actuaciones de balizamiento en operaciones especiales de tráfico de la Dirección de Tráfico
 Órgano de contratación: Gobierno Vasco - Seguridad
 Valor estimado sin IVA: 609 504,13 EUR
 Duración del contrato: 36 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES213 (País Vasco)
-Criterios de adjudicación: precio 70 %, calidad 30 %",63712700,services,609504.13,36.0,open,1,70.0,False,ES21,2.0,https://ted.europa.eu/es/notice/-/detail/166100-2026
-93470-2026,reference_pool,can-standard,2026-02-10,es,"Título: Servicio de Delegado de Protección de Datos y del Servicio de asesoramiento, consultoria y gestión en materia de protección de datos de carácter personal para el Ayuntamiento de Reus y su sector público.
+Criterios de adjudicación: precio 70 %, calidad 30 %",63712700,services,609504.13,36.0,open,1,70.0,False,ES21,regional_government,2.0,https://ted.europa.eu/es/notice/-/detail/166100-2026
+93470-2026,reference_pool,reference.csv,can-standard,2026-02-10,es,"Título: Servicio de Delegado de Protección de Datos y del Servicio de asesoramiento, consultoria y gestión en materia de protección de datos de carácter personal para el Ayuntamiento de Reus y su sector público.
 Órgano de contratación: Ayuntamiento de Reus
 Descripción: Servicio de ""Delegado de Protección de Datos"" y del ""Servicio de asesoramiento, consultoria y gestión en materia de protección de datos de carácter personal"" para el Ayuntamiento de Reus y su sector público.
 Valor estimado sin IVA: 500 000,00 EUR
@@ -87,32 +87,32 @@ Duración del contrato: 48 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES514 (Cataluña)
-Criterios de adjudicación: precio 26 %, calidad 74 %",72300000,services,500000.0,48.0,open,1,26.0,False,ES51,4.0,https://ted.europa.eu/es/notice/-/detail/93470-2026
-163725-2026,reference_pool,can-standard,2026-03-10,es,"Título: SERVICIOS A DEMANDA RELACIONADOS CON LA INTERNACIONALIZACIÓN DE EMPRESAS ANDALUZAS EN INDONESIA, SINGAPUR Y MALASIA
+Criterios de adjudicación: precio 26 %, calidad 74 %",72300000,services,500000.0,48.0,open,1,26.0,False,ES51,city_council,4.0,https://ted.europa.eu/es/notice/-/detail/93470-2026
+163725-2026,reference_pool,reference.csv,can-standard,2026-03-10,es,"Título: SERVICIOS A DEMANDA RELACIONADOS CON LA INTERNACIONALIZACIÓN DE EMPRESAS ANDALUZAS EN INDONESIA, SINGAPUR Y MALASIA
 Órgano de contratación: AGENCIA EMPRESARIAL PARA LA TRANSFORMACION Y EL DESARROLLO ECONOMICO (TRADE)
 Descripción: El objeto del contrato es la prestación de servicios a demanda relacionados con la internacionalización de empresas andaluzas en Indonesia, Singapur y Malasia. El servicio consistirá en el apoyo y asesoramiento a las empresas andaluzas en los tres mercados, en la prestación de servicios de asistencia técnica dirigida al incremento de la presencia de empresas andaluzas, en la detección de oportunidades y posterior organización de acciones de promoción en estos países y en la atracción de inversiones a Andalucía
 Valor estimado sin IVA: 368 067,40 EUR
 Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Criterios de adjudicación: precio 49 %, calidad 51 %",79411100,services,368067.4,24.0,open,1,49.0,False,,1.0,https://ted.europa.eu/es/notice/-/detail/163725-2026
-156153-2026,reference_pool,can-standard,2026-03-06,es,"Título: Servicios de radiodiagnóstico para Badalona Servicios Asistenciales.
+Criterios de adjudicación: precio 49 %, calidad 51 %",79411100,services,368067.4,24.0,open,1,49.0,False,,other,1.0,https://ted.europa.eu/es/notice/-/detail/163725-2026
+156153-2026,reference_pool,reference.csv,can-standard,2026-03-06,es,"Título: Servicios de radiodiagnóstico para Badalona Servicios Asistenciales.
 Órgano de contratación: Badalona Serveis Assistencials, SA.
 Valor estimado sin IVA: 796 900,00 EUR
 Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
-Criterios de adjudicación: precio 100 %, calidad 0 %",85100000,services,796900.0,24.0,open,1,100.0,False,ES51,1.0,https://ted.europa.eu/es/notice/-/detail/156153-2026
-156053-2026,reference_pool,can-standard,2026-03-06,es,"Título: Servicios de asistencia técnica a la dirección de obra del proyecto de construcción del puente peatonal y ciclable entre Barakaldo y Erandio (Puente All Iron).
+Criterios de adjudicación: precio 100 %, calidad 0 %",85100000,services,796900.0,24.0,open,1,100.0,False,ES51,other,1.0,https://ted.europa.eu/es/notice/-/detail/156153-2026
+156053-2026,reference_pool,reference.csv,can-standard,2026-03-06,es,"Título: Servicios de asistencia técnica a la dirección de obra del proyecto de construcción del puente peatonal y ciclable entre Barakaldo y Erandio (Puente All Iron).
 Órgano de contratación: INTERBIAK BIZKAIA, S.A. M.P. - INTERBIAK
 Valor estimado sin IVA: 621 824,00 EUR
 Duración del contrato: 16 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES213 (País Vasco)
-Criterios de adjudicación: precio 50 %, calidad 50 %",71356200,services,621824.0,16.0,open,1,50.0,False,ES21,1.0,https://ted.europa.eu/es/notice/-/detail/156053-2026
-113080-2026,reference_pool,can-standard,2026-02-17,es,"Título: Servicios de diseño y desarrollo de algoritmos avanzados para el descubrimiento de patrones centrado en la gestión de personas con diabetes, alineado con los principios del modelo de medicina 7P (preventiva, predictiva, proactiva, profesionalizada, participativa, personalizada y poblacional) y atención digital personalizada (ADP)
+Criterios de adjudicación: precio 50 %, calidad 50 %",71356200,services,621824.0,16.0,open,1,50.0,False,ES21,regional_government,1.0,https://ted.europa.eu/es/notice/-/detail/156053-2026
+113080-2026,reference_pool,reference.csv,can-standard,2026-02-17,es,"Título: Servicios de diseño y desarrollo de algoritmos avanzados para el descubrimiento de patrones centrado en la gestión de personas con diabetes, alineado con los principios del modelo de medicina 7P (preventiva, predictiva, proactiva, profesionalizada, participativa, personalizada y poblacional) y atención digital personalizada (ADP)
 Órgano de contratación: Servicio Gallego de Salud
 Descripción: Servicios de diseño y desarrollo de algoritmos avanzados para el descubrimiento de patrones centrado en la gestión de personas con diabetes, alineado con los principios del modelo de medicina 7P (preventiva, predictiva, proactiva, profesionalizada, participativa, personalizada y poblacional) y atención digital personalizada (ADP) mediante la implementación de procesos de atención para colectivos de pacientes y patologías. Dentro del Plan de Recuperación, Transformación y Resiliencia. Financiado por la Unión Europea NEXTGENERATIONEU.
 Valor estimado sin IVA: 480 000,00 EUR
@@ -120,8 +120,8 @@ Duración del contrato: 9 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES111 (Galicia)
-Criterios de adjudicación: precio 50 %, calidad 50 %",72240000,services,480000.0,9.0,open,1,50.0,False,ES11,11.0,https://ted.europa.eu/es/notice/-/detail/113080-2026
-157523-2026,reference_pool,can-standard,2026-03-06,es,"Título: CALIDAD DEL DATO TOPOGRÁFICO. ANÁLISIS Y MEJORA CONTINUA.
+Criterios de adjudicación: precio 50 %, calidad 50 %",72240000,services,480000.0,9.0,open,1,50.0,False,ES11,regional_government,11.0,https://ted.europa.eu/es/notice/-/detail/113080-2026
+157523-2026,reference_pool,reference.csv,can-standard,2026-03-06,es,"Título: CALIDAD DEL DATO TOPOGRÁFICO. ANÁLISIS Y MEJORA CONTINUA.
 Órgano de contratación: INSTITUTO DE ESTADÍSTICA Y CARTOGRAFÍA DE ANDALUCÍA - IECA
 Descripción: Asegurar la calidad del dato topográfico, es decir, garantizar la finalidad, eficiencia y calidad del mismo así como una mejora del propio proceso de aseguramiento de la calidad.
 Valor estimado sin IVA: 238 677,62 EUR
@@ -129,23 +129,23 @@ Duración del contrato: 26 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES618 (Andalucía)
-Criterios de adjudicación: precio 100 %, calidad 0 %",71354000,services,238677.62,26.0,open,1,100.0,False,ES61,1.0,https://ted.europa.eu/es/notice/-/detail/157523-2026
-143037-2026,reference_pool,can-standard,2026-03-02,es,"Título: Servicios de creatividad y producción de los elementos publicitarios audiovisuales, digitales y gráficos de una campaña de publicidad institucional de Turismo Cultural
+Criterios de adjudicación: precio 100 %, calidad 0 %",71354000,services,238677.62,26.0,open,1,100.0,False,ES61,regional_government,1.0,https://ted.europa.eu/es/notice/-/detail/157523-2026
+143037-2026,reference_pool,reference.csv,can-standard,2026-03-02,es,"Título: Servicios de creatividad y producción de los elementos publicitarios audiovisuales, digitales y gráficos de una campaña de publicidad institucional de Turismo Cultural
 Órgano de contratación: Agencia Catalana de Turismo
 Descripción: Servicios de creatividad y producción de los elementos publicitarios audiovisuales, digitales y gráficos (anexo 1 del PPT) de una campaña de publicidad institucional de Turismo Cultural
 Valor estimado sin IVA: 369 761,15 EUR
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Lugar de ejecución: ES511 (Cataluña)",79341000,services,369761.15,,open,1,,False,ES51,8.0,https://ted.europa.eu/es/notice/-/detail/143037-2026
-161354-2026,reference_pool,can-standard,2026-03-09,es,"Título: Suministro, transporte y distribución de helados para la venta en los centros de restauración del Parque de atracciones Tibidabo excluyendo el restaurante de La Masia y los centros ubicados en el Área panorámica
+Lugar de ejecución: ES511 (Cataluña)",79341000,services,369761.15,,open,1,,False,ES51,regional_government,8.0,https://ted.europa.eu/es/notice/-/detail/143037-2026
+161354-2026,reference_pool,reference.csv,can-standard,2026-03-09,es,"Título: Suministro, transporte y distribución de helados para la venta en los centros de restauración del Parque de atracciones Tibidabo excluyendo el restaurante de La Masia y los centros ubicados en el Área panorámica
 Órgano de contratación: BARCELONA DE SERVEIS MUNICIPALS, S.A.
 Valor estimado sin IVA: 450 580,41 EUR
 Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
-Criterios de adjudicación: precio 100 %, calidad 0 %",15555100,supplies,450580.41,24.0,open,1,100.0,False,ES51,1.0,https://ted.europa.eu/es/notice/-/detail/161354-2026
-133622-2026,reference_pool,can-standard,2026-02-25,es,"Título: AMT-2025-0117: Servicio para el desarrollo de nuevas funcionalidades, soporte y mantenimiento de las aplicaciones para la difusión a la ciudadanía de la información meteorológica de Meteogalicia
+Criterios de adjudicación: precio 100 %, calidad 0 %",15555100,supplies,450580.41,24.0,open,1,100.0,False,ES51,other,1.0,https://ted.europa.eu/es/notice/-/detail/161354-2026
+133622-2026,reference_pool,reference.csv,can-standard,2026-02-25,es,"Título: AMT-2025-0117: Servicio para el desarrollo de nuevas funcionalidades, soporte y mantenimiento de las aplicaciones para la difusión a la ciudadanía de la información meteorológica de Meteogalicia
 Órgano de contratación: Agencia para la Modernización Tecnológica de Galicia
 Descripción: El presente procedimiento tiene como objeto la contratación del servicio de desarrollo de nuevas funcionalidades, soporte y mantenimiento de las aplicaciones para la difusión a la ciudadanía de la información meteorológica de Meteogalicia, gestionado por el área de Soluciones Tecnológicas Sectoriales de la Agencia de Modernización Tecnológica de Galicia. Las tareas incluidas en este servicio son: • Evolución, mantenimiento y soporte del portal web y de las aplicaciones móviles de Meteogalicia. • Desarrollo y soporte de un sistema de gestión interno para la publicación de la información Meteorológica en el portal web. • Desarrollo y soporte de una aplicación para la difusión de la información meteorológica de Meteogalicia en los paneles situados en las ciudades gallegas. • Desarrollos en las aplicaciones descritas incluidas las modificaciones, mantenimiento evolutivo o nuevas funcionalidades que pudieran surgir a lo largo de la ejecución derivadas de nuevas necesidades funcionales de acuerdo a los recursos disponibles. • En caso de prórroga del contrato, desarrollo de nuevas funcionalidades, que se concretarán en la formalización de la correspondientes prórroga, así como mantenimiento evolutivo, correctivo y adaptativo de lo desarrollado en la ejecución del servicio.
 Valor estimado sin IVA: 1 216 932,00 EUR
@@ -153,70 +153,70 @@ Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES111 (Galicia)
-Criterios de adjudicación: precio 40 %, calidad 60 %",72200000,services,1216932.0,24.0,open,1,40.0,False,ES11,4.0,https://ted.europa.eu/es/notice/-/detail/133622-2026
-161928-2026,reference_pool,can-standard,2026-03-09,es,"Título: Servicio de apoyo ADMINISTRATIVO del Teatro Arriaga
+Criterios de adjudicación: precio 40 %, calidad 60 %",72200000,services,1216932.0,24.0,open,1,40.0,False,ES11,regional_government,4.0,https://ted.europa.eu/es/notice/-/detail/133622-2026
+161928-2026,reference_pool,reference.csv,can-standard,2026-03-09,es,"Título: Servicio de apoyo ADMINISTRATIVO del Teatro Arriaga
 Órgano de contratación: Centro de Actividades Culturales Teatro Arriaga S.A. - C.A.C. Teatro Arriaga S.A.
 Valor estimado sin IVA: 280 000,00 EUR
 Duración del contrato: 12 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES213 (País Vasco)
-Criterios de adjudicación: precio 52 %, calidad 48 %",79500000,services,280000.0,12.0,open,1,52.0,False,ES21,3.0,https://ted.europa.eu/es/notice/-/detail/161928-2026
-164029-2026,reference_pool,can-standard,2026-03-10,es,"Título: SERVICIOS A DEMANDA RELACIONADOS CON LA INTERNACIONALIZACIÓN DE EMPRESAS ANDALUZAS EN CHINA
+Criterios de adjudicación: precio 52 %, calidad 48 %",79500000,services,280000.0,12.0,open,1,52.0,False,ES21,regional_government,3.0,https://ted.europa.eu/es/notice/-/detail/161928-2026
+164029-2026,reference_pool,reference.csv,can-standard,2026-03-10,es,"Título: SERVICIOS A DEMANDA RELACIONADOS CON LA INTERNACIONALIZACIÓN DE EMPRESAS ANDALUZAS EN CHINA
 Órgano de contratación: AGENCIA EMPRESARIAL PARA LA TRANSFORMACION Y EL DESARROLLO ECONOMICO (TRADE)
 Descripción: El objeto del contrato es la prestación de servicios a demanda relacionados con la internacionalización de empresas andaluzas en China. El servicio consistirá en el apoyo y asesoramiento a las empresas andaluzas en el mercado chino, en la prestación de servicios de asistencia técnica dirigida al incremento de la presencia de empresas andaluzas, en la detección de oportunidades y posterior organización de acciones de promoción en estos países y en la atracción de inversiones a Andalucía
 Valor estimado sin IVA: 415 526,87 EUR
 Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Criterios de adjudicación: precio 49 %, calidad 51 %",79411100,services,415526.87,24.0,open,1,49.0,False,,2.0,https://ted.europa.eu/es/notice/-/detail/164029-2026
-135328-2026,reference_pool,can-standard,2026-02-26,es,"Título: SUMINISTRO MEDIANTE SUMINISTRO DE EQUIPAMIENTO TÉCNICO PARA EL CENTRO ANDALUZ DE CONTROL Y CALIDAD DE LOS RECURSOS PESQUEROS ADSCRITO A LA AGENCIA DE GESTIÓN AGRARIA Y PESQUERA DE ANDALUCÍA
+Criterios de adjudicación: precio 49 %, calidad 51 %",79411100,services,415526.87,24.0,open,1,49.0,False,,other,2.0,https://ted.europa.eu/es/notice/-/detail/164029-2026
+135328-2026,reference_pool,reference.csv,can-standard,2026-02-26,es,"Título: SUMINISTRO MEDIANTE SUMINISTRO DE EQUIPAMIENTO TÉCNICO PARA EL CENTRO ANDALUZ DE CONTROL Y CALIDAD DE LOS RECURSOS PESQUEROS ADSCRITO A LA AGENCIA DE GESTIÓN AGRARIA Y PESQUERA DE ANDALUCÍA
 Órgano de contratación: Agencia de Gestión Agraria y Pesquera de Andalucía
 Descripción: La finalidad de este contrato es dotar al laboratorio de un equipamiento avanzado y orientado a la mejora de la calidad de los ensayos para garantizar el control de la presencia de toxinas lipofílicas (DSP), toxinas paralizantes (PSP) y toxinas amnésicas (ASP) en moluscos bivalvos vivos conforme a metodologías reconocidas por el Laboratorio Europeo de Referencia para Biotoxinas Marinas (EURLMB) y bajo cumplimiento de la norma UNE-EN ISO/IEC 17025, la determinación de Hidrocarburos Aromáticos Policíclicos (HAPs) y de Bifenilos Policlorados no similares a Dioxinas (NDL-PCB) en moluscos, pescados, anémonas, equinodermos y crustáceos, los ensayos microbiológicos y de metales pesados recogidos en la normativa, así como la determinación de fitoplacton nocivo en aguas marinas
 Valor estimado sin IVA: 999 739,19 EUR
 Duración del contrato: 2 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Lugar de ejecución: ES615 (Andalucía)",33127000,supplies,999739.19,2.0,open,1,,False,ES61,1.0,https://ted.europa.eu/es/notice/-/detail/135328-2026
-129599-2026,reference_pool,can-standard,2026-02-24,es,"Título: Servicio de agencia de viajes para las organizaciones de servicios de Osakidetza
+Lugar de ejecución: ES615 (Andalucía)",33127000,supplies,999739.19,2.0,open,1,,False,ES61,other,1.0,https://ted.europa.eu/es/notice/-/detail/135328-2026
+129599-2026,reference_pool,reference.csv,can-standard,2026-02-24,es,"Título: Servicio de agencia de viajes para las organizaciones de servicios de Osakidetza
 Órgano de contratación: OSAKIDETZA - Servicio Vasco de Salud - Organización Central
 Valor estimado sin IVA: 1 500 000,00 EUR
 Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES211 (País Vasco)
-Criterios de adjudicación: precio 50 %, calidad 50 %",63510000,services,1500000.0,24.0,open,1,50.0,False,ES21,4.0,https://ted.europa.eu/es/notice/-/detail/129599-2026
-113606-2026,reference_pool,can-standard,2026-02-17,es,"Título: SERVICIO DE LIMPIEZA Y DESINFECCIÓN DE LOS VEHÍCULOS DE METRO DE MADRID
+Criterios de adjudicación: precio 50 %, calidad 50 %",63510000,services,1500000.0,24.0,open,1,50.0,False,ES21,regional_government,4.0,https://ted.europa.eu/es/notice/-/detail/129599-2026
+113606-2026,reference_pool,reference.csv,can-standard,2026-02-17,es,"Título: SERVICIO DE LIMPIEZA Y DESINFECCIÓN DE LOS VEHÍCULOS DE METRO DE MADRID
 Órgano de contratación: Metro de Madrid, S.A.
 Descripción: Contratación consistente en la limpieza y desinfección de los vehículos de Metro de Madrid
 Valor estimado sin IVA: 598 244,40 EUR
 Duración del contrato: 48 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Lugar de ejecución: ES300 (Madrid)",90917000,services,598244.4,48.0,open,1,,False,ES30,2.0,https://ted.europa.eu/es/notice/-/detail/113606-2026
-149038-2026,reference_pool,can-standard,2026-03-04,es,"Título: CONSULTORÍA Y ASISTENCIA PARA EL CONTROL DE LA EJECUCIÓN DE LAS OBRAS AUTOPISTA FERROVIARIA ALGECIRAS-ZARAGOZA LÍNEA 430 CÓRDOBA–LOS PRADOS, P.S. T.M CÓRDOBA, MEJORA TERRAPLÉN T.M. [NAME] Y MEJORA ZONAS INUNDABLES T.M. [NAME] de contratación: Administrador de Infraestructuras Ferroviarias
+Lugar de ejecución: ES300 (Madrid)",90917000,services,598244.4,48.0,open,1,,False,ES30,,2.0,https://ted.europa.eu/es/notice/-/detail/113606-2026
+149038-2026,reference_pool,reference.csv,can-standard,2026-03-04,es,"Título: CONSULTORÍA Y ASISTENCIA PARA EL CONTROL DE LA EJECUCIÓN DE LAS OBRAS AUTOPISTA FERROVIARIA ALGECIRAS-ZARAGOZA LÍNEA 430 CÓRDOBA–LOS PRADOS, P.S. T.M CÓRDOBA, MEJORA TERRAPLÉN T.M. [NAME] Y MEJORA ZONAS INUNDABLES T.M. [NAME] de contratación: Administrador de Infraestructuras Ferroviarias
 Valor estimado sin IVA: 896 203,66 EUR
 Duración del contrato: 30 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Lugar de ejecución: ES613 (Andalucía)",71356000,services,896203.66,30.0,open,1,,False,ES61,12.0,https://ted.europa.eu/es/notice/-/detail/149038-2026
-92893-2026,reference_pool,can-standard,2026-02-09,es,"Título: Servicio de implementación de un servicio de gestión documental y servicios de ingeniería documental para la documentación técnica de FGC
+Lugar de ejecución: ES613 (Andalucía)",71356000,services,896203.66,30.0,open,1,,False,ES61,other,12.0,https://ted.europa.eu/es/notice/-/detail/149038-2026
+92893-2026,reference_pool,reference.csv,can-standard,2026-02-09,es,"Título: Servicio de implementación de un servicio de gestión documental y servicios de ingeniería documental para la documentación técnica de FGC
 Órgano de contratación: Ferrocarrils de la Generalitat de Catalunya
 Valor estimado sin IVA: 282 840,00 EUR
 Duración del contrato: 19 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
-Criterios de adjudicación: precio 60 %, calidad 40 %",71318000,services,282840.0,19.0,open,1,60.0,False,ES51,1.0,https://ted.europa.eu/es/notice/-/detail/92893-2026
-149812-2026,reference_pool,can-standard,2026-03-04,es,"Título: Contrato de servicio de selección de materiales reciclables en la planta de selección de la Mancomunitat La Plana.
+Criterios de adjudicación: precio 60 %, calidad 40 %",71318000,services,282840.0,19.0,open,1,60.0,False,ES51,other,1.0,https://ted.europa.eu/es/notice/-/detail/92893-2026
+149812-2026,reference_pool,reference.csv,can-standard,2026-03-04,es,"Título: Contrato de servicio de selección de materiales reciclables en la planta de selección de la Mancomunitat La Plana.
 Órgano de contratación: MANCOMUNITAT INTERMUNICIPAL VOLUNTÀRIA LA PLANA
 Descripción: Es objeto del presente pliego la contratación de parte del servicio de selección y clasificación de materiales reciclables (envases, papel y cartón) que trata la planta de selección de la Mancomunitat La Plana.
 Valor estimado sin IVA: 904 300,21 EUR
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
-Criterios de adjudicación: precio 100 %, calidad 0 %",90500000,services,904300.21,,open,1,100.0,False,ES51,1.0,https://ted.europa.eu/es/notice/-/detail/149812-2026
-145445-2026,reference_pool,can-standard,2026-03-03,es,"Título: Secretaría Técnica del Consejo Asesor de la Gente Mayor de Barcelona- CAGG
+Criterios de adjudicación: precio 100 %, calidad 0 %",90500000,services,904300.21,,open,1,100.0,False,ES51,city_council,1.0,https://ted.europa.eu/es/notice/-/detail/149812-2026
+145445-2026,reference_pool,reference.csv,can-standard,2026-03-03,es,"Título: Secretaría Técnica del Consejo Asesor de la Gente Mayor de Barcelona- CAGG
 Órgano de contratación: AYUNTAMIENTO DE BARCELONA
 Descripción: Servicio de soporte a la actividad y al funcionamiento del Consejo Asesor de la Gente Mayor de Barcelona -CAGG- mediante una Secretaría Técnica.
 Valor estimado sin IVA: 639 976,00 EUR
@@ -224,8 +224,8 @@ Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
-Criterios de adjudicación: precio 100 %, calidad 0 %",79420000,services,639976.0,24.0,open,1,100.0,False,ES51,4.0,https://ted.europa.eu/es/notice/-/detail/145445-2026
-147790-2026,reference_pool,can-standard,2026-03-03,es,"Título: Suministro e instalación de monitores para diversos Servicios del Hospital Novo Montecelo perteneciente al Área Sanitaria de Pontevedra-Salnés.
+Criterios de adjudicación: precio 100 %, calidad 0 %",79420000,services,639976.0,24.0,open,1,100.0,False,ES51,city_council,4.0,https://ted.europa.eu/es/notice/-/detail/145445-2026
+147790-2026,reference_pool,reference.csv,can-standard,2026-03-03,es,"Título: Suministro e instalación de monitores para diversos Servicios del Hospital Novo Montecelo perteneciente al Área Sanitaria de Pontevedra-Salnés.
 Órgano de contratación: SERGAS. Servicio Gallego de Salud. Dirección General de Recursos Económicos. Subdirección General de Inversiones
 Descripción: Equipos de monitorización
 Valor estimado sin IVA: 1 874 750,00 EUR
@@ -233,39 +233,39 @@ Duración del contrato: 5 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES111 (Galicia)
-Criterios de adjudicación: precio 40 %, calidad 60 %",33195000,supplies,1874750.0,5.0,open,1,40.0,False,ES11,4.0,https://ted.europa.eu/es/notice/-/detail/147790-2026
-160600-2026,reference_pool,can-standard,2026-03-09,es,"Título: SERVICIO DE ADECUACIONES DE VIVIENDAS, ELEMENTOS Y ZONAS COMUNES DE EDIFICIOS RESIDENCIALES EN RÉGIMEN DE ARRENDAMIENTO PERTENECIENTES AL PARQUE PÚBLICO RESIDENCIAL TITULARIDAD DE LA AGENCIA DE VIVIENDA Y REHABILITACIÓN DE ANDALUCÍA EN LA PROVINCIA DE MÁLAGA
+Criterios de adjudicación: precio 40 %, calidad 60 %",33195000,supplies,1874750.0,5.0,open,1,40.0,False,ES11,other,4.0,https://ted.europa.eu/es/notice/-/detail/147790-2026
+160600-2026,reference_pool,reference.csv,can-standard,2026-03-09,es,"Título: SERVICIO DE ADECUACIONES DE VIVIENDAS, ELEMENTOS Y ZONAS COMUNES DE EDIFICIOS RESIDENCIALES EN RÉGIMEN DE ARRENDAMIENTO PERTENECIENTES AL PARQUE PÚBLICO RESIDENCIAL TITULARIDAD DE LA AGENCIA DE VIVIENDA Y REHABILITACIÓN DE ANDALUCÍA EN LA PROVINCIA DE MÁLAGA
 Órgano de contratación: AGENCIA DE VIVIENDA Y REHABILITACIÓN DE ANDALUCIA
 Valor estimado sin IVA: 867 768,57 EUR
 Duración del contrato: 12 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES617 (Andalucía)
-Criterios de adjudicación: precio 100 %, calidad 0 %",50800000,services,867768.57,12.0,open,1,100.0,False,ES61,1.0,https://ted.europa.eu/es/notice/-/detail/160600-2026
-168933-2026,reference_pool,can-standard,2026-03-11,es,"Título: Servicio de limpieza de los centros de la Red de Salud Mental de Gipuzkoa
+Criterios de adjudicación: precio 100 %, calidad 0 %",50800000,services,867768.57,12.0,open,1,100.0,False,ES61,regional_government,1.0,https://ted.europa.eu/es/notice/-/detail/160600-2026
+168933-2026,reference_pool,reference.csv,can-standard,2026-03-11,es,"Título: Servicio de limpieza de los centros de la Red de Salud Mental de Gipuzkoa
 Órgano de contratación: OSAKIDETZA - Servicio Vasco de Salud - Red Salud Mental de Guipuzkoa (Impulsora)
 Valor estimado sin IVA: 1 100 000,00 EUR
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES212 (País Vasco)
-Criterios de adjudicación: precio 60 %, calidad 40 %",90910000,services,1100000.0,,open,1,60.0,False,ES21,1.0,https://ted.europa.eu/es/notice/-/detail/168933-2026
-160579-2026,reference_pool,can-standard,2026-03-09,es,"Título: Suministro, instalación, puesta en marcha y formación en un sistema de análisis multielemental acoplado a un espectrómetro de masas de relación isotópica (EA-IRMS) por el análisis isotópico con destino en los Centros Científicos y Tecnológicos de la Universitat de Barcelona
+Criterios de adjudicación: precio 60 %, calidad 40 %",90910000,services,1100000.0,,open,1,60.0,False,ES21,regional_government,1.0,https://ted.europa.eu/es/notice/-/detail/168933-2026
+160579-2026,reference_pool,reference.csv,can-standard,2026-03-09,es,"Título: Suministro, instalación, puesta en marcha y formación en un sistema de análisis multielemental acoplado a un espectrómetro de masas de relación isotópica (EA-IRMS) por el análisis isotópico con destino en los Centros Científicos y Tecnológicos de la Universitat de Barcelona
 Órgano de contratación: Universitat de Barcelona - Oficina de Contratación Administrativa
 Descripción: El objeto de este contrato consiste en el suministro e instalación de un sistema de análisis multielemental acoplado a un espectrómetro de masas de relación isotópica para el análisis isotópico de 15N/14N, 13C/12C, 2H/1H, 18O/16O y 34S/32S (TC/EA-IRMS), con ubicación en el laboratorio de análisis elemental isotópico de los Centros Científicos y Tecnológicos de la Universitat de Barcelona, que tendrá que cumplir con los requerimientos establecidos en la cláusula 3 del pliego de prescripciones técnicas (desde ahora PPT). El objeto contiene los siguientes elementos: - Espectrómetro de masas de relación isotópica. - Analizador multe-elemental con inyector de muestras líquidas y sólidas. El objeto del contrato incluye así mismo el transporte, instalación y la formación necesaria para los usuarios, según los términos establecidos al pliego de prescripciones técnicas, así como los manuales de uso, técnicos y de mantenimiento. Una vez el equipo esté instalado y verificado, habrá un periodo de formación básica tanto en el uso correcto y óptimo como en el mantenimiento básico, verificación y calibración del equipo. Esta irá completada por una formación más avanzada una vez se haya hecho la calificación de operación y de prestación del equipo. Esta formación tiene que permitir el máximo aprovechamiento del equipo, una vez instalada y verificada, tanto en su uso correcto y óptimo como en el mantenimiento básico del equipo, verificación y calibración. La garantía de los corderos suministrados es de 1 año. Este suministro es esencial para lograr los objetivos de los siguientes proyectos: − Sistema de análisis multi-elemental acoplado a espectrómetro de masas de relaciones isotópicas, referencia EQC2024-008714-p, financiado por MICIU/AEI/10.13039/501100011033 y por FEDER Una manera de hacer Europa. IP Juan Fran Sangüesa (ayudas para la adquisición de equipamiento científico-técnico, correspondiente al Subprograma Estatal de Infraestructuras y Equipamiento Científico-Técnico del Programa Estatal para Impulsar la Investigación Científico-Técnica y su Transferencia lo marco del Plan Estatal de Investigación Científica y Técnica y de Innovación 2021-2023). − 2023 CLIMA 00101 Ayuda por la mitigación y adaptación al cambio climático ( AGAUR) (26.000,00 euros). IP Albert Soler Gil.
 Valor estimado sin IVA: 260 000,00 EUR
 Duración del contrato: 8 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Lugar de ejecución: ES511 (Cataluña)",38433100,supplies,260000.0,8.0,open,1,,False,ES51,1.0,https://ted.europa.eu/es/notice/-/detail/160579-2026
-173360-2026,reference_pool,can-standard,2026-03-12,es,"Título: CSE/AH04/1101452065/26/PO
+Lugar de ejecución: ES511 (Cataluña)",38433100,supplies,260000.0,8.0,open,1,,False,ES51,other,1.0,https://ted.europa.eu/es/notice/-/detail/160579-2026
+173360-2026,reference_pool,reference.csv,can-standard,2026-03-12,es,"Título: CSE/AH04/1101452065/26/PO
 Órgano de contratación: Hospital Dr.Josep Trueta
 Descripción: SERVEI DE MANTENIMENT DE PORTES AUTOMÀTIQUES I CRISTALLERIA DE L’HOSPITAL UNIVERSITARI DE GIRONA DR. JOSEP TRUETA
 Valor estimado sin IVA: 356 953,08 EUR
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES512 (Cataluña)
-Criterios de adjudicación: precio 100 %, calidad 0 %",50000000,services,356953.08,,open,1,100.0,False,ES51,1.0,https://ted.europa.eu/es/notice/-/detail/173360-2026
-98740-2026,reference_pool,can-standard,2026-02-11,es,"Título: Adjudicación del Contrato Basado del Acuerdo Marco del Suministro del Medicamento OMALIZUMAB de la CORPORACIÓ DE SALUT DEL MARESME I LA SELVA
+Criterios de adjudicación: precio 100 %, calidad 0 %",50000000,services,356953.08,,open,1,100.0,False,ES51,other,1.0,https://ted.europa.eu/es/notice/-/detail/173360-2026
+98740-2026,reference_pool,reference.csv,can-standard,2026-02-11,es,"Título: Adjudicación del Contrato Basado del Acuerdo Marco del Suministro del Medicamento OMALIZUMAB de la CORPORACIÓ DE SALUT DEL MARESME I LA SELVA
 Órgano de contratación: Corporació de Salut del Maresme i la Selva
 Descripción: Adjudicación del Contrato Basado de la CORPORACIÓ DE SALUT DEL MARESME I LA SELVA derivado del Acuerdo Marco del Suministro del Medicamento OMALIZUMAB, tramitado por el Consorci de Salut i d’Atenció Social de Catalunya
 Valor estimado sin IVA: 1 955 676,97 EUR
@@ -273,40 +273,40 @@ Duración del contrato: 12 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: sí
 Lugar de ejecución: ES511 (Cataluña)
-Criterios de adjudicación: precio 100 %, calidad 0 %",33690000,supplies,1955676.97,12.0,open,1,100.0,True,ES51,1.0,https://ted.europa.eu/es/notice/-/detail/98740-2026
-96713-2026,reference_pool,can-standard,2026-02-11,es,"Título: SERVICIOS DE GESTIÓN DE FANGOS DE LA EDAR EL MARCO, EDAR MALPARTIDA Y EDAR CAPELLANÍAS DEL TÉRMINO MUNICIPAL DE CÁCERES
+Criterios de adjudicación: precio 100 %, calidad 0 %",33690000,supplies,1955676.97,12.0,open,1,100.0,True,ES51,other,1.0,https://ted.europa.eu/es/notice/-/detail/98740-2026
+96713-2026,reference_pool,reference.csv,can-standard,2026-02-11,es,"Título: SERVICIOS DE GESTIÓN DE FANGOS DE LA EDAR EL MARCO, EDAR MALPARTIDA Y EDAR CAPELLANÍAS DEL TÉRMINO MUNICIPAL DE CÁCERES
 Órgano de contratación: CANAL DE ISABEL II SOCIEDAD ANÓNIMA, M.P.
 Valor estimado sin IVA: 1 230 315,50 EUR
 Duración del contrato: 48 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES300 (Madrid)
-Criterios de adjudicación: precio 100 %, calidad 0 %",50800000,services,1230315.5,48.0,open,1,100.0,False,ES30,1.0,https://ted.europa.eu/es/notice/-/detail/96713-2026
-148821-2026,reference_pool,can-standard,2026-03-04,es,"Título: Servicio de traslado individual en turismo para la práctica de notificaciones de los Órganos Judiciales del Partido Judicial de Donostia
+Criterios de adjudicación: precio 100 %, calidad 0 %",50800000,services,1230315.5,48.0,open,1,100.0,False,ES30,,1.0,https://ted.europa.eu/es/notice/-/detail/96713-2026
+148821-2026,reference_pool,reference.csv,can-standard,2026-03-04,es,"Título: Servicio de traslado individual en turismo para la práctica de notificaciones de los Órganos Judiciales del Partido Judicial de Donostia
 Órgano de contratación: Gobierno Vasco - Justicia y Derechos Humanos
 Valor estimado sin IVA: 528 000,00 EUR
 Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES212 (País Vasco)
-Criterios de adjudicación: precio 100 %, calidad 0 %",60120000,services,528000.0,24.0,open,1,100.0,False,ES21,2.0,https://ted.europa.eu/es/notice/-/detail/148821-2026
-159466-2026,reference_pool,can-standard,2026-03-06,es,"Título: Servicio de mantenimiento integral de los camiones, furgonetas y turismos propiedad del Instituto Municipal de Parques y Jardines de Barcelona, con medidas de contratación pública sostenible
+Criterios de adjudicación: precio 100 %, calidad 0 %",60120000,services,528000.0,24.0,open,1,100.0,False,ES21,regional_government,2.0,https://ted.europa.eu/es/notice/-/detail/148821-2026
+159466-2026,reference_pool,reference.csv,can-standard,2026-03-06,es,"Título: Servicio de mantenimiento integral de los camiones, furgonetas y turismos propiedad del Instituto Municipal de Parques y Jardines de Barcelona, con medidas de contratación pública sostenible
 Órgano de contratación: Instituto Municipal de Parques y Jardines de Barcelona
 Valor estimado sin IVA: 1 671 956,04 EUR
 Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
-Criterios de adjudicación: precio 30 %, calidad 70 %",50110000,services,1671956.04,24.0,open,1,30.0,False,ES51,3.0,https://ted.europa.eu/es/notice/-/detail/159466-2026
-83440-2026,reference_pool,can-standard,2026-02-05,es,"Título: Servicio de renovación tecnológica de FW NGFW para puestos de mando y red corporativa
+Criterios de adjudicación: precio 30 %, calidad 70 %",50110000,services,1671956.04,24.0,open,1,30.0,False,ES51,other,3.0,https://ted.europa.eu/es/notice/-/detail/159466-2026
+83440-2026,reference_pool,reference.csv,can-standard,2026-02-05,es,"Título: Servicio de renovación tecnológica de FW NGFW para puestos de mando y red corporativa
 Órgano de contratación: Euskal Trenbide Sarea - ETS - Euskal Trenbide Sarea
 Valor estimado sin IVA: 347 720,00 EUR
 Duración del contrato: 60 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES213 (País Vasco)
-Criterios de adjudicación: precio 51 %, calidad 49 %",30200000,supplies,347720.0,60.0,open,1,51.0,False,ES21,1.0,https://ted.europa.eu/es/notice/-/detail/83440-2026
-114224-2026,reference_pool,can-standard,2026-02-18,es,"Título: Exp 25-61 suministros, instalación y funcionamiento de 29 parquímetros
+Criterios de adjudicación: precio 51 %, calidad 49 %",30200000,supplies,347720.0,60.0,open,1,51.0,False,ES21,regional_government,1.0,https://ted.europa.eu/es/notice/-/detail/83440-2026
+114224-2026,reference_pool,reference.csv,can-standard,2026-02-18,es,"Título: Exp 25-61 suministros, instalación y funcionamiento de 29 parquímetros
 Órgano de contratación: Empresa Municipal de Promoción Social, Urbana y Económica de Cornellá, S.AA
 Descripción: suministro, instalación y funcionamiento de 29 parquímetros y servicio de mantenimiento preventivo, correctivo, evolutivo y complementarios por toda la duración del contrato, 5 años
 Valor estimado sin IVA: 371 039,79 EUR
@@ -314,8 +314,8 @@ Duración del contrato: 60 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
-Criterios de adjudicación: precio 100 %, calidad 0 %",34926000,supplies,371039.79,60.0,open,1,100.0,False,ES51,1.0,https://ted.europa.eu/es/notice/-/detail/114224-2026
-85501-2026,reference_pool,can-standard,2026-02-05,es,"Título: Servicio de dinamización que gestione la integración, coordinación y visibilidad de los diferentes proyectos informáticos dentro del Departamento de Equilibrio Territorial Verde, en especial la integración tecnológica IZFE-HAZI, y que asegure que las diferentes iniciativas estén alineadas con los objetivos globales de las Direcciones Generales (Dirección General de Agricultura y Equilibrio Terr...
+Criterios de adjudicación: precio 100 %, calidad 0 %",34926000,supplies,371039.79,60.0,open,1,100.0,False,ES51,other,1.0,https://ted.europa.eu/es/notice/-/detail/114224-2026
+85501-2026,reference_pool,reference.csv,can-standard,2026-02-05,es,"Título: Servicio de dinamización que gestione la integración, coordinación y visibilidad de los diferentes proyectos informáticos dentro del Departamento de Equilibrio Territorial Verde, en especial la integración tecnológica IZFE-HAZI, y que asegure que las diferentes iniciativas estén alineadas con los objetivos globales de las Direcciones Generales (Dirección General de Agricultura y Equilibrio Terr...
 Órgano de contratación: Diputación Foral de Gipuzkoa - Departamento de Equilibrio Territorial Verde
 Descripción: Servicio de dinamización que gestione la integración, coordinación y visibilidad de los diferentes proyectos informáticos dentro del Departamento de Equilibrio Territorial Verde, en especial la integración tecnológica IZFE-HAZI, y que asegure que las diferentes iniciativas estén alineadas con los objetivos globales de las Direcciones Generales (Dirección General de Agricultura y Equilibrio Territorial y Dirección General de Montes y Patrimonio Natural).
 Valor estimado sin IVA: 250 000,00 EUR
@@ -323,43 +323,43 @@ Duración del contrato: 12 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES212 (País Vasco)
-Criterios de adjudicación: precio 40 %, calidad 60 %",72240000,services,250000.0,12.0,open,1,40.0,False,ES21,2.0,https://ted.europa.eu/es/notice/-/detail/85501-2026
-106806-2026,reference_pool,can-standard,2026-02-13,es,"Título: Contrato de servicio de mantenimiento de las instalaciones de catenaria de las vías 3, 5, 6 y 7 de los talleres de Pla de Vilanoveta de Lleida, de Ferrocarrils de la Generalitat de Catalunya
+Criterios de adjudicación: precio 40 %, calidad 60 %",72240000,services,250000.0,12.0,open,1,40.0,False,ES21,regional_government,2.0,https://ted.europa.eu/es/notice/-/detail/85501-2026
+106806-2026,reference_pool,reference.csv,can-standard,2026-02-13,es,"Título: Contrato de servicio de mantenimiento de las instalaciones de catenaria de las vías 3, 5, 6 y 7 de los talleres de Pla de Vilanoveta de Lleida, de Ferrocarrils de la Generalitat de Catalunya
 Órgano de contratación: FGC RAIL, S.A
 Valor estimado sin IVA: 259 300,78 EUR
 Duración del contrato: 36 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
-Criterios de adjudicación: precio 48.4 %, calidad 51.6 %",50220000,services,259300.78,36.0,open,1,48.4,False,ES51,1.0,https://ted.europa.eu/es/notice/-/detail/106806-2026
-137125-2026,reference_pool,can-standard,2026-02-26,es,"Título: SUMINISTRO MEDIANTE SUMINISTRO DE EQUIPAMIENTO TÉCNICO PARA EL CENTRO ANDALUZ DE CONTROL Y CALIDAD DE LOS RECURSOS PESQUEROS ADSCRITO A LA AGENCIA DE GESTIÓN AGRARIA Y PESQUERA DE ANDALUCÍA
+Criterios de adjudicación: precio 48.4 %, calidad 51.6 %",50220000,services,259300.78,36.0,open,1,48.4,False,ES51,other,1.0,https://ted.europa.eu/es/notice/-/detail/106806-2026
+137125-2026,reference_pool,reference.csv,can-standard,2026-02-26,es,"Título: SUMINISTRO MEDIANTE SUMINISTRO DE EQUIPAMIENTO TÉCNICO PARA EL CENTRO ANDALUZ DE CONTROL Y CALIDAD DE LOS RECURSOS PESQUEROS ADSCRITO A LA AGENCIA DE GESTIÓN AGRARIA Y PESQUERA DE ANDALUCÍA
 Órgano de contratación: Agencia de Gestión Agraria y Pesquera de Andalucía
 Descripción: La finalidad de este contrato es dotar al laboratorio de un equipamiento avanzado y orientado a la mejora de la calidad de los ensayos para garantizar el control de la presencia de toxinas lipofílicas (DSP), toxinas paralizantes (PSP) y toxinas amnésicas (ASP) en moluscos bivalvos vivos conforme a metodologías reconocidas por el Laboratorio Europeo de Referencia para Biotoxinas Marinas (EURLMB) y bajo cumplimiento de la norma UNE-EN ISO/IEC 17025, la determinación de Hidrocarburos Aromáticos Policíclicos (HAPs) y de Bifenilos Policlorados no similares a Dioxinas (NDL-PCB) en moluscos, pescados, anémonas, equinodermos y crustáceos, los ensayos microbiológicos y de metales pesados recogidos en la normativa, así como la determinación de fitoplacton nocivo en aguas marinas
 Valor estimado sin IVA: 999 739,19 EUR
 Duración del contrato: 1.5 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Lugar de ejecución: ES615 (Andalucía)",33127000,supplies,999739.19,1.5,open,1,,False,ES61,1.0,https://ted.europa.eu/es/notice/-/detail/137125-2026
-128907-2026,reference_pool,can-standard,2026-02-24,es,"Título: 2025-167 - Servicio de Mantenimiento del aplicativo de monitorización remota.
+Lugar de ejecución: ES615 (Andalucía)",33127000,supplies,999739.19,1.5,open,1,,False,ES61,other,1.0,https://ted.europa.eu/es/notice/-/detail/137125-2026
+128907-2026,reference_pool,reference.csv,can-standard,2026-02-24,es,"Título: 2025-167 - Servicio de Mantenimiento del aplicativo de monitorización remota.
 Órgano de contratación: CONSORCI HOSPITAL CLÍNIC DE BARCELONA (HCB)
 Descripción: Servicio de Mantenimiento del aplicativo de monitorización remota para el Hospital Clínic de Barcelona.
 Valor estimado sin IVA: 266 200,00 EUR
 Tipo de procedimiento: abierto
 Acuerdo marco: no
-Lugar de ejecución: ES511 (Cataluña)",72267100,services,266200.0,,open,1,,False,ES51,1.0,https://ted.europa.eu/es/notice/-/detail/128907-2026
-150237-2026,reference_pool,can-standard,2026-03-04,es,"Título: Intervención socioeducativa y psicosocial, en el municipio de Beasain.
+Lugar de ejecución: ES511 (Cataluña)",72267100,services,266200.0,,open,1,,False,ES51,other,1.0,https://ted.europa.eu/es/notice/-/detail/128907-2026
+150237-2026,reference_pool,reference.csv,can-standard,2026-03-04,es,"Título: Intervención socioeducativa y psicosocial, en el municipio de Beasain.
 Órgano de contratación: Ayuntamiento de Beasain - Ayuntamiento de Beasain
 Valor estimado sin IVA: 1 519 536,48 EUR
 Duración del contrato: 24 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES212 (País Vasco)
-Criterios de adjudicación: precio 50 %, calidad 50 %",85310000,services,1519536.48,24.0,open,1,50.0,False,ES21,2.0,https://ted.europa.eu/es/notice/-/detail/150237-2026
-151159-2026,reference_pool,can-standard,2026-03-04,es,"Título: ACUERDO MARCO PARA EL SUMINISTRO E INSTALACIÓN DE BATERÍAS PARA CUARTOS TÉCNICOS DE METRO DE MADRID
+Criterios de adjudicación: precio 50 %, calidad 50 %",85310000,services,1519536.48,24.0,open,1,50.0,False,ES21,city_council,2.0,https://ted.europa.eu/es/notice/-/detail/150237-2026
+151159-2026,reference_pool,reference.csv,can-standard,2026-03-04,es,"Título: ACUERDO MARCO PARA EL SUMINISTRO E INSTALACIÓN DE BATERÍAS PARA CUARTOS TÉCNICOS DE METRO DE MADRID
 Órgano de contratación: Metro de Madrid, S.A.
 Descripción: Suministro, instalación y puesta en marcha de baterías nuevas y material auxiliar en las plantas de energía de los Centros Administrativos de Equipos (CAE) y Centros Administrativos de Comunicaciones (CAT) emplazados en estaciones y depósitos de la red de Metro de Madrid, S.A.
 Valor estimado sin IVA: 550 000,00 EUR
 Duración del contrato: 48 meses
 Tipo de procedimiento: abierto
 Acuerdo marco: sí
-Lugar de ejecución: ES300 (Madrid)",31440000,supplies,550000.0,48.0,open,1,,True,ES30,3.0,https://ted.europa.eu/es/notice/-/detail/151159-2026
+Lugar de ejecución: ES300 (Madrid)",31440000,supplies,550000.0,48.0,open,1,,True,ES30,other,3.0,https://ted.europa.eu/es/notice/-/detail/151159-2026

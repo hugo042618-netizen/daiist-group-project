@@ -14,6 +14,10 @@ material to choose from, in eval/candidates/:
 It also writes eval/extraction_truth.csv (the official fields of the tender candidates,
 for the component-1 evaluation) and, with --fill, eval/reference.csv and eval/shifted.csv.
 
+`--annotate` fetches no new notices: it only refreshes the `used_in` column (which eval/
+file already uses each notice) and the official `buyer_type`. Run it after editing
+eval/cases.csv, eval/reference.csv or eval/shifted.csv.
+
 Source: the TED Search API (https://docs.ted.europa.eu/api/latest/search.html), no key needed.
 Offline only: the app never calls it.
 
@@ -53,8 +57,10 @@ FIELDS = [
     "estimated-value-proc", "estimated-value-cur-proc", "BT-36-Lot", "framework-agreement-lot",
     "place-of-performance-subdiv-proc", "place-of-performance-subdiv-lot",
     "award-criterion-type-lot", "award-criterion-number-lot", "award-criterion-number-weight-lot",
-    "received-submissions-type-code", "received-submissions-type-val", "modification-description",
+    "received-submissions-type-code", "received-submissions-type-val", "modification-description", "buyer-legal-type",
 ]
+# eForms buyer legal type -> the agent's buyer_type (everything else is "other").
+BUYER_TYPE = {"la": "city_council", "ra": "regional_government", "cga": "ministry"}
 PROCEDURE = {"open": "open", "restricted": "restricted", "neg-w-call": "negotiated", "neg-wo-call": "negotiated",
              "comp-dial": "other", "innovation": "other", "comp-tend": "other", "oth-single": "other", "oth-mult": "other"}
 LANGUAGE = {"SPA": ("spa", "es"), "POR": ("por", "pt"), "FRA": ("fra", "fr"), "ENG": ("eng", "en"), "CAT": ("cat", "ca")}
@@ -94,10 +100,12 @@ GROUPS = {
                        "AND estimated-value-proc<2000000", 45),
     "shifted_pool": ("(buyer-country=PRT OR buyer-country=FRA) AND notice-type=can-standard AND estimated-value-proc>100000", 20),
 }
-COLUMNS = ["id", "group", "notice_type", "published", "language", "text", "cpv_code", "contract_type", "estimated_value_eur",
-           "duration_months", "procedure", "lots_number", "price_weight_pct", "is_framework_agreement", "region", "offers", "url"]
+COLUMNS = ["id", "group", "used_in", "notice_type", "published", "language", "text", "cpv_code", "contract_type", "estimated_value_eur",
+           "duration_months", "procedure", "lots_number", "price_weight_pct", "is_framework_agreement", "region", "buyer_type",
+           "offers", "url"]
 TRUTH_COLUMNS = ["id", "input", "cpv_code", "contract_type", "estimated_value_eur", "duration_months", "procedure", "lots_number",
-                 "price_weight_pct", "is_framework_agreement", "region", "offers"]
+                 "price_weight_pct", "is_framework_agreement", "region", "buyer_type", "offers"]
+USED_FILES = ("reference.csv", "shifted.csv", "cases.csv")   # eval/ files whose inputs must not be reused elsewhere
 
 
 def search(query: str, page: int, limit: int = 100) -> list[dict]:
@@ -195,7 +203,9 @@ def build(notice: dict, group: str) -> dict | None:
     if description and description != title:
         lines.append(f"{labels['description']}: {description}")
 
-    row = {"id": notice["publication-number"], "group": group, "notice_type": notice_type,
+    legal_type = (notice.get("buyer-legal-type") or [""])[0]
+    row = {"id": notice["publication-number"], "group": group, "notice_type": notice_type, "used_in": "",
+           "buyer_type": BUYER_TYPE.get(legal_type, "other") if legal_type else "",
            "published": str(notice.get("publication-date", ""))[:10], "language": language,
            "url": f"https://ted.europa.eu/{language}/notice/-/detail/{notice['publication-number']}"}
 
@@ -280,11 +290,66 @@ def write(path: Path, columns: list[str], rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
+def read(path: Path) -> list[dict]:
+    if not path.is_file():
+        return []
+    with path.open(newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def buyer_types(ids: list[str]) -> dict[str, str]:
+    """The official buyer type of notices already collected, asked from the API by publication number."""
+    found = {}
+    for start in range(0, len(ids), 40):
+        chunk = ids[start:start + 40]
+        body = json.dumps({"query": "publication-number IN (" + " ".join(chunk) + ")", "limit": 100, "scope": "ALL",
+                           "fields": ["publication-number", "buyer-legal-type"]}).encode()
+        request = urllib.request.Request(API, data=body, headers={"Content-Type": "application/json"})  # noqa: S310
+        with urllib.request.urlopen(request, timeout=60) as response:  # noqa: S310
+            for notice in json.loads(response.read()).get("notices", []):
+                legal_type = (notice.get("buyer-legal-type") or [""])[0]
+                found[notice["publication-number"]] = BUYER_TYPE.get(legal_type, "other") if legal_type else ""
+    return found
+
+
+def annotate(fetch_buyer_types: bool = True) -> None:
+    """Update the candidate files in place, without changing which notices they hold or their texts.
+
+    `used_in` says which eval/ file already uses a notice (reference.csv, shifted.csv, cases.csv), so that
+    nobody reuses a reference input as a test case. `buyer_type` is TED's official buyer type.
+    """
+    squash = lambda text: " ".join(str(text).split())  # noqa: E731
+    used = {}
+    for name in USED_FILES:
+        for row in read(ROOT / "eval" / name):
+            used.setdefault(squash(row.get("input", "")), name)
+    files = {path: read(path) for path in sorted(OUT.glob("*.csv"))}
+    types = buyer_types([row["id"] for rows in files.values() for row in rows if not row.get("buyer_type")]) if fetch_buyer_types else {}
+    for path, rows in files.items():
+        for row in rows:
+            row["used_in"] = used.get(squash(row["text"]), "")
+            row["buyer_type"] = row.get("buyer_type") or types.get(row["id"], "")
+        write(path, COLUMNS, rows)
+        marked = sum(bool(row["used_in"]) for row in rows)
+        print(f"  {path.name}: {len(rows)} notices, {marked} already used" + (f" ({rows[0]['used_in']})" if marked == len(rows) and rows else ""))
+    by_id = {row["id"]: row for rows in files.values() for row in rows}
+    truth = read(ROOT / "eval" / "extraction_truth.csv")
+    for row in truth:
+        row["buyer_type"] = by_id.get(row["id"], {}).get("buyer_type", "")
+    if truth:
+        write(ROOT / "eval" / "extraction_truth.csv", TRUTH_COLUMNS, truth)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--fill", action="store_true",
                         help="also write eval/reference.csv and eval/shifted.csv from the pools (overwrites them)")
+    parser.add_argument("--annotate", action="store_true",
+                        help="do not fetch new notices: only refresh `used_in` and `buyer_type` in the existing candidate files")
     args = parser.parse_args()
+    if args.annotate:
+        annotate()
+        return
 
     rng, taken, groups = random.Random(SEED), set(), {}
     for group, (query, wanted) in GROUPS.items():
@@ -301,6 +366,7 @@ def main() -> None:
         write(ROOT / "eval" / "reference.csv", ["input"], [{"input": r["text"]} for r in groups["reference_pool"]])
         write(ROOT / "eval" / "shifted.csv", ["input"], [{"input": r["text"]} for r in groups["shifted_pool"]])
         print(f"eval/reference.csv: {len(groups['reference_pool'])} inputs. eval/shifted.csv: {len(groups['shifted_pool'])} inputs.")
+    annotate(fetch_buyer_types=False)
     print("\neval/cases.csv and eval/human_labels.csv are the team's: pick and write them by hand (see eval/candidates/README.md).")
 
 
