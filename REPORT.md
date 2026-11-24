@@ -26,7 +26,7 @@ tender text (pasted)
   └─ redaction: emails, phones, ids, contact names removed        bidsense/redact.py
       └─ COMPONENT 1, agentic LLM: Gemini (gemini-3.8-flash)       bidsense/agent.py
          tools: lookup_cpv · parse_amount · market_stats
-         output: 12 fields, each with confidence and evidence
+         output: 13 fields, each with confidence and evidence
           └─ COMPONENT 2, tabular ML: scikit-learn                  bidsense/model.py
              input: only the agent's fields → expected bidders (median) and an 80% range
               └─ decision and review rule                            bidsense/decision.py
@@ -54,11 +54,16 @@ tender text (pasted)
 
 - Target: `NUMBER_OFFERS` ("number of tenders received"), the median across the lots of a notice.
 - Features, all of them fields the agent extracts: CPV division and group, contract type, procedure, region,
-  estimated value (log), duration, number of lots, weight of price, framework agreement. Duration and the
-  estimated value come from the contract notice linked to each award; the awarded price is never used.
+  buyer type, estimated value (log), duration, number of lots, weight of price, framework agreement. Duration
+  and the estimated value come from the contract notice linked to each award; the awarded price is never used.
+- Buyer type (city council, regional government, ministry, other public body) was added after an experiment
+  decided on the validation year: validation MAE 2.308 without it, 2.288 with it (gain 0.020 bidders, 95%
+  interval 0.010 to 0.030; `models/experiment_buyer_type.json`). In training it is derived from the buyer's
+  name and TED's buyer code; the buyer's name itself is not kept.
 - Awards without a call for competition are excluded: nobody can bid for them.
-- Time split: train 2018–2021 (57,114), validation 2022 (19,580), test 2023 (19,786). `scripts/train.py`
-  rebuilds everything; raw TED files are never committed.
+- Time split: settings chosen by training on 2018–2021 (57,114) and validating on 2022 (19,580); final models
+  refitted on 2018–2022 (76,694) and tested once on 2023 (19,786). `scripts/train.py` rebuilds everything;
+  raw TED files are never committed.
 - Personal data: the training table only reads structured columns (no names, addresses or ids). Candidate
   texts hold the notice's title, description and conditions; the results section and contact details are
   never included, and every text goes through the redaction. Logs store a summary of the input (CPV division,
@@ -74,11 +79,12 @@ tender text (pasted)
 
 | | MAE (bidders) | Bucket accuracy (1–2 / 3–5 / 6+) |
 |---|---|---|
-| Baseline: median offers per CPV division | 2.442 | 47.3% |
-| Model, median (used by the app) | 2.323 | 49.8% |
-| Model, Poisson mean | 2.659 | 40.4% |
+| Baseline: median offers per CPV division | 2.419 | 48.5% |
+| Model, median (used by the app) | 2.239 | 52.5% |
+| Model, Poisson mean | 2.480 | 44.4% |
 
-The 80% range covers 91.3% of test cases; its lower bound is always 1 bidder.
+The 80% range covers 90.2% of test cases; its lower bound is always 1 bidder. (An earlier version trained on
+2018–2021 only, without buyer type, scored 2.323 against a baseline of 2.442.)
 
 **Component 1, agent** (`uv run python main.py evaluate` → `eval/metrics.json`, `eval/extraction_results.csv`):
 field accuracy against TED's official fields on 40 notices of `eval/extraction_truth.csv`.
@@ -128,8 +134,12 @@ what you would fix first. Known limits to consider:
 
 - The TED CSV stops in 2023 and the median number of offers fell from 3 (2018–2021) to 2 (2022–2023): the
   model is three years behind the tenders it will see.
-- The model beats the baseline by 0.12 bidders (about 5%), and only on tenders with 6 or more bidders.
-- Name removal is rule-based: a name in free prose, without a label or a title, is not caught.
+- The model beats the baseline by 0.18 bidders (about 7%): a real but modest gain.
+- Buyer type adds only 0.02 bidders, and that was measured with labels derived from TED data; the agent's own
+  reading of the buyer may not match them.
+- Name removal is rule-based: in the tender text, a name in free prose, without a label or a title, is not
+  caught. What the agent writes back (evidence quotes, notes, tool calls) goes through a stricter filter that
+  also removes common given names followed by surnames, before it is cached or logged.
 - Candidate texts are rebuilt from the notice's fields, so they are cleaner than a real tender PDF.
 
 ## Decision
@@ -164,7 +174,9 @@ the order of the commits on the `bidsense` branch:
 - the Gradio interface, the logging additions, the monitoring and drift check, the evaluation script and the LLM-judge rubric;
 - the script that collects candidate notices from the TED API (`scripts/fetch_candidates.py`), and it filled
   `eval/reference.csv` and `eval/shifted.csv` from those candidates;
-- the bandit module and its simulator; the "How to run" section of the README and the skeleton of this report.
+- the bandit module and its simulator; the "How to run" section of the README and the skeleton of this report;
+- at the team's request: the final refit on 2018–2022, the buyer-type experiment, the stricter name filter on
+  the agent's output, and the `used_in` column of the candidate files.
 
 Claude also proposed, and the team accepted or should review: one row per notice with the median offers across
 lots as the target; joining contract notices for duration and estimated value; excluding awards without a call

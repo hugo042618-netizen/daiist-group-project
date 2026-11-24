@@ -22,7 +22,7 @@ uv run python main.py drift-demo     # quiet on normal cases, alert on eval/shif
 ```
 
 Only `GEMINI_API_KEY` is needed. Everything else the app uses is in the repo: the models
-(`models/*.joblib`, 2 MB), the CPV list (`data/cpv_2008.csv`) and the market statistics
+(`models/*.joblib`, 6 MB), the CPV list (`data/cpv_2008.csv`) and the market statistics
 (`data/market_stats.json`). Gemini answers for the evaluation inputs are cached in `cache/`, so
 `check.py`, `evaluate` and `drift-demo` run in seconds and do not use up the free-tier quota; delete
 `cache/` to call Gemini again (a full run then takes several minutes on the free tier).
