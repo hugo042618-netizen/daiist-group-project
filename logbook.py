@@ -11,6 +11,11 @@ Where the logs go:
 - Everywhere else (your laptop, check.py, grading), or whenever LOG_DIR is set, logs
   are JSON-lines files in logs/, one per process.
 
+BidSense adds these fields to each request (pipeline.run() returns them): decision,
+tokens_in, tokens_out, language, redactions, cached; and `comment` to the feedback.
+The raw tender text is never logged: only `input_summary` (CPV division, value bucket,
+language, text length) and the agent's fields, extracted from the redacted text.
+
 `uv run python main.py export-logs` copies the database's logs into logs/, so the
 app on your laptop shows them too. See SETUP.md, "Logs".
 """
@@ -126,11 +131,17 @@ def log_request(record: dict) -> dict:
     return record
 
 
-def log_feedback(request_id: str, value: int) -> None:
-    """value: +1 for 👍, -1 for 👎. The latest feedback for a request wins."""
-    _write("feedback", {
-        "id": request_id, "timestamp": datetime.now(timezone.utc).isoformat(), "feedback": int(value),
-    })
+def log_feedback(request_id: str, value: int, comment: str = "") -> None:
+    """value: +1 for 👍, -1 for 👎. The latest feedback for a request wins.
+
+    Added field: `comment`, the user's optional note, with personal data removed.
+    """
+    record = {"id": request_id, "timestamp": datetime.now(timezone.utc).isoformat(), "feedback": int(value)}
+    if comment and comment.strip():
+        from bidsense.redact import redact
+
+        record["comment"] = redact(comment.strip()[:500])[0]
+    _write("feedback", record)
 
 
 # --- Reading -------------------------------------------------------------------
@@ -164,6 +175,8 @@ def load() -> pd.DataFrame:
     else:
         latest = feedback.sort_values("timestamp").groupby("id")["feedback"].last()
         requests["feedback"] = requests["id"].map(latest)
+        if "comment" in feedback:  # added field: the latest comment for each request
+            requests["feedback_comment"] = requests["id"].map(feedback.sort_values("timestamp").groupby("id")["comment"].last())
     return requests.sort_values("timestamp").reset_index(drop=True)
 
 

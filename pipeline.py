@@ -40,10 +40,15 @@ VALUE_BUCKETS = [(100_000, "<€100k"), (500_000, "€100k-500k"), (1_000_000, "
 
 def read_input(raw_input: str) -> str:
     """Text as it is; for a file path, the file's text."""
-    path = Path(str(raw_input))
-    if len(str(raw_input)) < 300 and path.is_file():
-        return path.read_text(encoding="utf-8", errors="replace")
-    return str(raw_input)
+    text = str(raw_input)
+    if len(text) < 300 and "\n" not in text.strip():
+        try:
+            path = Path(text.strip())
+            if path.is_file():
+                return path.read_text(encoding="utf-8", errors="replace")
+        except OSError:   # a short text is not a valid file name: it is the input itself
+            pass
+    return text
 
 
 def value_bucket(value) -> str:

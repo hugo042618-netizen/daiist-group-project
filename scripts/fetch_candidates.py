@@ -89,8 +89,9 @@ GROUPS = {
                 "OR framework-agreement-lot=fa-w-rc OR framework-agreement-lot=fa-mix)", 25),
     "very_large": ("buyer-country=ESP AND notice-type=can-standard AND estimated-value-proc>10000000", 15),
     "not_a_tender": ("buyer-country=ESP AND (notice-type=pin-only OR notice-type=can-modif)", 20),
-    "reference_pool": ("buyer-country=ESP AND notice-type=can-standard AND procedure-type=open AND estimated-value-proc>50000 "
-                       "AND estimated-value-proc<5000000", 45),
+    # Same definition of "normal" as `typical`, different notices: the drift check compares live inputs with these.
+    "reference_pool": ("buyer-country=ESP AND notice-type=can-standard AND procedure-type=open AND estimated-value-proc>100000 "
+                       "AND estimated-value-proc<2000000", 45),
     "shifted_pool": ("(buyer-country=PRT OR buyer-country=FRA) AND notice-type=can-standard AND estimated-value-proc>100000", 20),
 }
 COLUMNS = ["id", "group", "notice_type", "published", "language", "text", "cpv_code", "contract_type", "estimated_value_eur",
