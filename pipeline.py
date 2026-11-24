@@ -1,10 +1,17 @@
 """
-Your product's logic: the two components and how one feeds the other.
+BidSense: should we bid for this public tender?
 
-Everything here is a PLACEHOLDER so the template runs end to end without any
-key: component A is a keyword "classifier" and component B a canned "writer".
-Replace both with your real components (or import them from your own modules)
-but keep what `run()` returns, because app.py, evaluate.py, main.py and
+The two components and how one feeds the other:
+
+    tender text
+      -> redact personal data                      (bidsense/redact.py)
+      -> component 1, Gemini agent                 (bidsense/agent.py): the tender's fields,
+         each with a confidence and an evidence quote; tools: lookup_cpv, parse_amount, market_stats
+      -> component 2, scikit-learn model           (bidsense/model.py): expected number of bidders,
+         from the agent's fields only
+      -> decision and review rule                  (bidsense/decision.py): BID / DON'T BID / SEND TO REVIEW
+
+`run()` keeps the template's return format, because app.py, evaluate.py, main.py and
 check.py all read it:
 
     run(raw_input) -> {
@@ -17,75 +24,96 @@ check.py all read it:
         "cost_eur": float,             # cost of this request in euros
     }
 
-`raw_input` is what the App tab's input gives you: text, or a file path if you
-switch the input to gr.Image / gr.File with type="filepath". The `input` column
-of eval/cases.csv uses the same convention.
+plus a few fields of our own (decision, tokens_in, tokens_out, language, cached).
 """
 
+import math
 from pathlib import Path
 
-VERSIONS = {
-    "component_a": "placeholder-keywords-v0",
-    "component_b": "placeholder-template-v0",
-}
+import config
+from bidsense import agent, bandit, decision, lang, model
+from bidsense.redact import redact
 
-# Placeholder thresholds. Yours must be justified in REPORT.md.
-REVIEW_BELOW_CONFIDENCE = 0.6
-
-_NEGATIVE = {"broken", "late", "missing", "wrong", "refund", "bad", "problem", "error"}
-_POSITIVE = {"thanks", "great", "perfect", "fine", "good", "works"}
+DECISION_RULE_VERSION = "ev-rule-v1"
+VALUE_BUCKETS = [(100_000, "<€100k"), (500_000, "€100k-500k"), (1_000_000, "€500k-1M"), (5_000_000, "€1M-5M"), (math.inf, ">€5M")]
 
 
 def read_input(raw_input: str) -> str:
-    """Text as it is; for a file path, the file's text. Replace for images."""
+    """Text as it is; for a file path, the file's text."""
     path = Path(str(raw_input))
     if len(str(raw_input)) < 300 and path.is_file():
         return path.read_text(encoding="utf-8", errors="replace")
     return str(raw_input)
 
 
-def input_features(text: str) -> dict[str, float]:
-    """Numbers that describe the input, for the drift check (lengths, brightness, language...)."""
-    words = text.split()
-    letters = [c for c in text if c.isalpha()]
+def value_bucket(value) -> str:
+    if value is None:
+        return "value unknown"
+    return next(label for limit, label in VALUE_BUCKETS if value < limit)
+
+
+def input_features(text: str, language: str, values: dict, confidence: float) -> dict[str, float]:
+    """Numbers that describe the request, for the drift check. 0 stands for "unknown" (never NaN: logs are JSON)."""
+    value = values.get("estimated_value_eur")
     return {
-        "n_words": float(len(words)),
-        "share_uppercase": sum(c.isupper() for c in letters) / len(letters) if letters else 0.0,
+        "is_spanish": 1.0 if language == "es" else 0.0,
+        "cpv_division": float(values.get("cpv_division") or 0),
+        "log_value": round(math.log10(value), 3) if value and value >= 1 else 0.0,
+        "text_length": float(len(text)),
+        "confidence": float(confidence),
     }
 
 
-def component_a(text: str) -> dict:
-    """PLACEHOLDER first component: label the input and say how sure it is."""
-    words = {w.strip(".,!?;:").lower() for w in text.split()}
-    negative, positive = len(words & _NEGATIVE), len(words & _POSITIVE)
-    if negative == positive:
-        return {"label": "unclear", "confidence": 0.5}
-    label = "complaint" if negative > positive else "no_issue"
-    confidence = 0.5 + 0.5 * abs(negative - positive) / (negative + positive)
-    return {"label": label, "confidence": round(confidence, 3)}
+def run(raw_input: str, bid_cost_eur: float | None = None, margin_pct: float | None = None,
+        prompt_version: str | None = None) -> dict:
+    bid_cost_eur = config.DEFAULT_BID_COST_EUR if bid_cost_eur is None else float(bid_cost_eur)
+    margin_pct = config.DEFAULT_MARGIN_PCT if margin_pct is None else float(margin_pct)
+    prompt_version = prompt_version or bandit.choose()
 
+    # Personal data is removed before anything else sees the text: Gemini, the logs, the cache.
+    text, removed = redact(read_input(raw_input))
+    language = lang.detect(text)
 
-def component_b(text: str, a: dict) -> dict:
-    """PLACEHOLDER second component: uses component A's output to write a reply."""
-    replies = {
-        "complaint": "We are sorry about the problem. We will contact you within 48 hours.",
-        "no_issue": "Thank you for your message. No action is needed.",
-        "unclear": "Thank you. A member of the team will review your message.",
-    }
-    return {"reply": replies[a["label"]], "tokens": 0}
+    values, confidence, prediction, baseline = {}, 0.0, None, None
+    tokens_in = tokens_out = 0
+    try:
+        extraction = agent.extract(text, prompt_version)
+    except agent.AgentError as error:
+        agent_output = {"error": str(error)}
+        outcome = {"decision": decision.REVIEW, "reason": f"The agent could not read this tender, so a person should decide. ({error})",
+                   "win_chance": None, "expected_value_eur": None, "underlying": None, "review_reasons": ["agent unavailable"]}
+    else:
+        tokens_in, tokens_out = extraction["tokens_in"], extraction["tokens_out"]
+        agent_output = {k: extraction[k] for k in ("is_tender", "fields", "market_note", "not_tender_reason", "steps", "cached", "latency_s")}
+        values = {name: field["value"] for name, field in extraction["fields"].items()}
+        confidence = min(extraction["fields"][name]["confidence"] for name in config.KEY_FIELDS)
+        if not extraction["is_tender"]:
+            # Out of scope: no prediction, no bid / no-bid.
+            outcome = decision.out_of_scope(extraction["not_tender_reason"])
+        else:
+            # Component 1's output is component 2's input.
+            prediction = model.predict(values)
+            outcome = decision.decide(values, confidence, prediction["expected_bidders"], bid_cost_eur, margin_pct)
+            # What the baseline (median bidders of the CPV division) would have decided, for the evaluation.
+            base = decision.decide(values, confidence, prediction["baseline_bidders"], bid_cost_eur, margin_pct)
+            baseline = {"expected_bidders": prediction["baseline_bidders"], "decision": base["decision"],
+                        "underlying": base["underlying"], "expected_value_eur": base["expected_value_eur"]}
 
-
-def run(raw_input: str) -> dict:
-    text = read_input(raw_input)
-    a = component_a(text)
-    b = component_b(text, a)
-    features = input_features(text) | {"confidence": a["confidence"]}
+    division = values.get("cpv_division")
     return {
-        "input_summary": text[:120],
-        "features": features,
-        "outputs": {"component_a": a, "component_b": b},
-        "versions": VERSIONS,
-        "review": a["confidence"] < REVIEW_BELOW_CONFIDENCE,
-        "tokens": b["tokens"],
-        "cost_eur": 0.0,
+        "input_summary": f"cpv {division or '??'} | {value_bucket(values.get('estimated_value_eur'))} | {language} | {len(text):,} chars",
+        "features": input_features(text, language, values, confidence),
+        "outputs": {"agent": agent_output, "model": prediction, "decision": outcome, "baseline": baseline},
+        "versions": {"agent_model": config.GEMINI_MODEL, "prompt_version": prompt_version,
+                     "model_version": config.MODEL_VERSION, "decision_rule": DECISION_RULE_VERSION},
+        "review": outcome["decision"] == decision.REVIEW,
+        "tokens": int(tokens_in + tokens_out),
+        "cost_eur": agent.cost_eur(tokens_in, tokens_out),
+        # Our own fields (logbook.py keeps whatever is added):
+        "decision": outcome["decision"],
+        "tokens_in": int(tokens_in),
+        "tokens_out": int(tokens_out),
+        "language": language,
+        "redactions": removed,
+        "cached": bool(agent_output.get("cached", False)),
     }
