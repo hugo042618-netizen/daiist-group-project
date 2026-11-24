@@ -42,17 +42,19 @@ POINT_MODEL = "median"
 
 # --- Component 1: the Gemini agent (bidsense/agent.py) ------------------------
 
-GEMINI_MODEL = "gemini-3.8-flash"        # current stable Flash model with a free tier (Nov 2026)
-# Used for a request when GEMINI_MODEL answers 503 "high demand" or 429 (it did on 24 Nov 2026).
-# The model that actually answered is logged with each request.
-GEMINI_FALLBACK_MODELS = ("gemini-3.6-flash", "gemini-3.5-flash-lite")
-MODEL_COOLDOWN_S = 300                   # after a model is unavailable, try it last for this long
+# The free tier allows only 20 requests a day per project on gemini-3.8-flash and gemini-3.6-flash (measured
+# on 24 Nov 2026: quota "GenerateRequestsPerDayPerProjectPerModel-FreeTier"), and one tender needs about 5
+# requests. gemini-3.5-flash-lite is the Flash model that the free tier can actually serve, so it is the
+# default; the other two are tried only if it is unavailable. The model that answered is logged per request.
+GEMINI_MODEL = "gemini-3.5-flash-lite"
+GEMINI_FALLBACK_MODELS = ("gemini-3.8-flash", "gemini-3.6-flash")
+MODEL_COOLDOWN_S = 300                   # after a model is unavailable, try it last for this long (longer if its daily quota is used up)
 GEMINI_TIMEOUT_S = 45                    # per call; a slow call counts as unavailable
 GEMINI_THINKING = "low"                  # low / medium / high
 PROMPT_VERSION = "extract-v1"            # the default extraction prompt (see bidsense/prompts.py)
 MAX_INPUT_CHARS = 20_000                 # longer texts are cut before they are sent
 MAX_AGENT_STEPS = 8                      # model turns per request, tool calls included
-GEMINI_RETRIES = 1                       # per model, on rate limits (free tier) and server errors
+GEMINI_RETRIES = 4                       # per call: flash-lite answers in about 1 s but returns 503 now and then; waits 2, 4, 8, 16 s
 
 # Cost estimate. The free tier costs nothing; these are Gemini's PAID-tier prices for
 # GEMINI_MODEL (USD per 1M tokens, valid until 31 Dec 2026), so the logged cost is what the

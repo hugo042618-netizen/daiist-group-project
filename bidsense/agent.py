@@ -53,6 +53,20 @@ def models_to_try() -> list[str]:
     return sorted(models, key=lambda m: _skip_until.get(m, 0) > now)
 
 
+def _retry_delay(error) -> float | None:
+    """Seconds Gemini asks us to wait (from a 429), if it says so."""
+    details = getattr(error, "details", None)
+    inner = details.get("error", details) if isinstance(details, dict) else {}
+    for item in inner.get("details", []) if isinstance(inner, dict) else []:
+        delay = str(item.get("retryDelay", "")) if isinstance(item, dict) else ""
+        if delay.endswith("s"):
+            try:
+                return float(delay[:-1])
+            except ValueError:
+                pass
+    return None
+
+
 def call_gemini(client, model: str, contents, request_config):
     """One call to one Gemini model, retried a little on rate limits and server errors."""
     from google.genai import errors
@@ -65,14 +79,19 @@ def call_gemini(client, model: str, contents, request_config):
             message = f"Gemini request failed ({code}, {model}): {str(error)[:200]}"
             if code not in (429, 500, 502, 503, 504):
                 raise AgentError(message) from error
+            delay = _retry_delay(error) if code == 429 else None
+            if delay is not None and delay > 90:
+                # The daily quota of this model is used up: no point in waiting, and skip it for hours.
+                _skip_until[model] = time.time() + min(delay, 6 * 3600)
+                raise _Unavailable(message) from error
             if attempt == config.GEMINI_RETRIES:
                 _skip_until[model] = time.time() + config.MODEL_COOLDOWN_S
                 raise _Unavailable(message) from error
-            time.sleep((20 if code == 429 else 4) * (attempt + 1))
+            time.sleep(delay + 1 if delay is not None else (20 if code == 429 else 2 * 2 ** attempt))
         except Exception as error:  # noqa: BLE001 - network problems and the like
             if attempt == config.GEMINI_RETRIES:
                 raise _Unavailable(f"Gemini request failed ({model}): {type(error).__name__}: {str(error)[:200]}") from error
-            time.sleep(4 * (attempt + 1))
+            time.sleep(2 * 2 ** attempt)
 
 
 def _request_config(system_prompt: str, allowed: list[str]):

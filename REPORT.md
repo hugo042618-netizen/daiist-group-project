@@ -24,7 +24,7 @@ with its assumptions (bids prepared per year × cost per bid × share of hopeles
 ```
 tender text (pasted)
   └─ redaction: emails, phones, ids, contact names removed        bidsense/redact.py
-      └─ COMPONENT 1, agentic LLM: Gemini (gemini-3.8-flash)       bidsense/agent.py
+      └─ COMPONENT 1, agentic LLM: Gemini (gemini-3.5-flash-lite)  bidsense/agent.py
          tools: lookup_cpv · parse_amount · market_stats
          output: 13 fields, each with confidence and evidence
           └─ COMPONENT 2, tabular ML: scikit-learn                  bidsense/model.py
@@ -39,8 +39,11 @@ tender text (pasted)
 - The code checks the agent: CPV codes must exist in the official list, categories must be valid, and an
   evidence quote that is not in the text caps that field's confidence at 0.5.
 - If the text is not a tender, the agent says so and the model is skipped.
-- Models and APIs: Gemini `gemini-3.8-flash` (free tier) through function calling; four
-  `HistGradientBoostingRegressor` models (2 MB in total), which fit in Render's 512 MB.
+- Models and APIs: Gemini `gemini-3.5-flash-lite` (free tier) through function calling; four
+  `HistGradientBoostingRegressor` models (6 MB in total), which fit in Render's 512 MB.
+- Why flash-lite: the free tier allows only 20 requests a day per project on `gemini-3.8-flash` and
+  `gemini-3.6-flash` (measured on 24 Nov 2026), and one tender needs about 5 requests. Those two models stay
+  as fallbacks; the model that answered is logged with every request.
 
 **TEAM TO WRITE:** why these two components and this connection; what was reused from assignments 1–3, and whose.
 
@@ -105,8 +108,8 @@ is in `bidsense/judge.py`; report your agreement with it on your own labels (Coh
 ### Cost and latency
 
 *To fill from `eval/metrics.json` → `cost_per_request`: tokens in and out, euros, seconds.* The cost is an
-estimate at Gemini's paid-tier prices (`config.py`: $0.75 per million input tokens, $3.75 per million output
-tokens until 31 Dec 2026); on the free tier the app costs nothing. The scikit-learn model costs nothing per request.
+estimate at Gemini's paid-tier prices (`config.py`: for `gemini-3.5-flash-lite`, $0.30 per million input tokens
+and $2.50 per million output tokens); on the free tier the app costs nothing. The scikit-learn model costs nothing per request.
 
 **TEAM TO WRITE:** cost per month at the volume of your business case.
 
