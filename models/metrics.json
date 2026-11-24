@@ -1,0 +1,131 @@
+{
+ "model_version": "bidders-hgb-v1",
+ "sklearn_version": "1.9.1",
+ "features": [
+  "cpv_division",
+  "contract_type",
+  "procedure",
+  "region",
+  "cpv_group",
+  "log_value",
+  "duration_months",
+  "lots_number",
+  "price_weight_pct",
+  "is_framework_agreement"
+ ],
+ "split": {
+  "train_years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "validation_year": 2022,
+  "test_year": 2023
+ },
+ "data": {
+  "can_rows": 382811,
+  "can_notices": 122301,
+  "rows_with_call_for_competition": 361016,
+  "notices_with_call_for_competition": 109954,
+  "awards": 249954,
+  "awards_valid_offers": 218829,
+  "share_awards_valid_offers": 0.8755,
+  "notices_valid_offers": 96480,
+  "share_notices_valid_offers": 0.8775,
+  "notices_linked_to_a_contract_notice": 81060,
+  "usable_notices": 96480,
+  "by_year": {
+   "2018": 11036,
+   "2019": 14940,
+   "2020": 13662,
+   "2021": 17476,
+   "2022": 19580,
+   "2023": 19786
+  }
+ },
+ "settings": {
+  "mean": {
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 50,
+   "l2_regularization": 1.0,
+   "n_trees": 592,
+   "validation_score": 2.5537
+  },
+  "q10": {
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 50,
+   "l2_regularization": 1.0,
+   "n_trees": 1,
+   "validation_score": 0.3028
+  },
+  "median": {
+   "max_leaf_nodes": 63,
+   "min_samples_leaf": 100,
+   "l2_regularization": 5.0,
+   "n_trees": 336,
+   "validation_score": 1.1539
+  },
+  "q90": {
+   "max_leaf_nodes": 31,
+   "min_samples_leaf": 50,
+   "l2_regularization": 1.0,
+   "n_trees": 571,
+   "validation_score": 0.8296
+  }
+ },
+ "validation": {
+  "n": 19580,
+  "baseline_median_per_cpv_division": {
+   "mae": 2.4573,
+   "rmse": 5.0154,
+   "poisson_deviance": 3.4953,
+   "bucket_accuracy": 0.4827
+  },
+  "model_median": {
+   "mae": 2.3078,
+   "rmse": 4.6819,
+   "poisson_deviance": 2.7339,
+   "bucket_accuracy": 0.5239
+  },
+  "model_poisson_mean": {
+   "mae": 2.5872,
+   "rmse": 4.583,
+   "poisson_deviance": 2.5537,
+   "bucket_accuracy": 0.4272
+  },
+  "range_80": {
+   "coverage": 0.9082,
+   "share_below_low": 0.0,
+   "share_above_high": 0.0918,
+   "mean_width": 7.25
+  }
+ },
+ "test": {
+  "n": 19786,
+  "baseline_median_per_cpv_division": {
+   "mae": 2.4418,
+   "rmse": 5.4921,
+   "poisson_deviance": 3.5958,
+   "bucket_accuracy": 0.4729
+  },
+  "model_median": {
+   "mae": 2.3231,
+   "rmse": 5.2031,
+   "poisson_deviance": 2.8518,
+   "bucket_accuracy": 0.4981
+  },
+  "model_poisson_mean": {
+   "mae": 2.6587,
+   "rmse": 5.1025,
+   "poisson_deviance": 2.721,
+   "bucket_accuracy": 0.4035
+  },
+  "range_80": {
+   "coverage": 0.9129,
+   "share_below_low": 0.0,
+   "share_above_high": 0.0871,
+   "mean_width": 7.41
+  }
+ }
+}
