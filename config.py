@@ -43,17 +43,25 @@ POINT_MODEL = "median"
 # --- Component 1: the Gemini agent (bidsense/agent.py) ------------------------
 
 GEMINI_MODEL = "gemini-3.8-flash"        # current stable Flash model with a free tier (Nov 2026)
+# Used for a request when GEMINI_MODEL answers 503 "high demand" or 429 (it did on 24 Nov 2026).
+# The model that actually answered is logged with each request.
+GEMINI_FALLBACK_MODELS = ("gemini-3.6-flash", "gemini-3.5-flash-lite")
+MODEL_COOLDOWN_S = 300                   # after a model is unavailable, try it last for this long
+GEMINI_TIMEOUT_S = 45                    # per call; a slow call counts as unavailable
 GEMINI_THINKING = "low"                  # low / medium / high
 PROMPT_VERSION = "extract-v1"            # the default extraction prompt (see bidsense/prompts.py)
 MAX_INPUT_CHARS = 20_000                 # longer texts are cut before they are sent
 MAX_AGENT_STEPS = 8                      # model turns per request, tool calls included
-GEMINI_RETRIES = 4                       # on rate limits (free tier) and server errors
+GEMINI_RETRIES = 1                       # per model, on rate limits (free tier) and server errors
 
 # Cost estimate. The free tier costs nothing; these are Gemini's PAID-tier prices for
 # GEMINI_MODEL (USD per 1M tokens, valid until 31 Dec 2026), so the logged cost is what the
 # product would cost on a paid plan. Thinking tokens are billed as output.
-PRICE_INPUT_USD_PER_M = 0.75
-PRICE_OUTPUT_USD_PER_M = 3.75
+PRICES_USD_PER_M = {                     # model: (input, output)
+    "gemini-3.8-flash": (0.75, 3.75),
+    "gemini-3.6-flash": (0.75, 3.75),
+    "gemini-3.5-flash-lite": (0.30, 2.50),
+}
 USD_TO_EUR = 0.92                        # TEAM TO SET: exchange rate used for the estimate
 
 # Every agent run and every judge call is cached on disk, keyed by model, prompt version

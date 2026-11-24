@@ -32,15 +32,53 @@ def _client():
     if not api_key:
         raise AgentError("GEMINI_API_KEY is not set. Put it in .env (see SETUP.md) or in the service's environment on Render.")
     from google import genai
+    from google.genai import types
 
-    return genai.Client(api_key=api_key)
+    # One attempt per call and a time limit: retries and the switch to a fallback model are handled here.
+    return genai.Client(api_key=api_key, http_options=types.HttpOptions(
+        timeout=config.GEMINI_TIMEOUT_S * 1000, retry_options=types.HttpRetryOptions(attempts=1)))
 
 
-def _generate(client, contents: list, system_prompt: str, allowed: list[str]):
-    """One call to Gemini, retried on rate limits and server errors."""
-    from google.genai import errors, types
+class _Unavailable(AgentError):
+    """This model cannot answer right now (overloaded or rate-limited): try the next one."""
 
-    request_config = types.GenerateContentConfig(
+
+_skip_until: dict[str, float] = {}   # model -> time until which it is skipped after being unavailable
+
+
+def models_to_try() -> list[str]:
+    """The configured model first, then the fallbacks; models that just failed are tried last."""
+    models = [config.GEMINI_MODEL, *config.GEMINI_FALLBACK_MODELS]
+    now = time.time()
+    return sorted(models, key=lambda m: _skip_until.get(m, 0) > now)
+
+
+def call_gemini(client, model: str, contents, request_config):
+    """One call to one Gemini model, retried a little on rate limits and server errors."""
+    from google.genai import errors
+
+    for attempt in range(config.GEMINI_RETRIES + 1):
+        try:
+            return client.models.generate_content(model=model, contents=contents, config=request_config)
+        except errors.APIError as error:
+            code = getattr(error, "code", None)
+            message = f"Gemini request failed ({code}, {model}): {str(error)[:200]}"
+            if code not in (429, 500, 502, 503, 504):
+                raise AgentError(message) from error
+            if attempt == config.GEMINI_RETRIES:
+                _skip_until[model] = time.time() + config.MODEL_COOLDOWN_S
+                raise _Unavailable(message) from error
+            time.sleep((20 if code == 429 else 4) * (attempt + 1))
+        except Exception as error:  # noqa: BLE001 - network problems and the like
+            if attempt == config.GEMINI_RETRIES:
+                raise _Unavailable(f"Gemini request failed ({model}): {type(error).__name__}: {str(error)[:200]}") from error
+            time.sleep(4 * (attempt + 1))
+
+
+def _request_config(system_prompt: str, allowed: list[str]):
+    from google.genai import types
+
+    return types.GenerateContentConfig(
         system_instruction=system_prompt,
         temperature=0,
         tools=[types.Tool(function_declarations=[types.FunctionDeclaration(**d) for d in prompts.TOOL_DECLARATIONS])],
@@ -48,18 +86,6 @@ def _generate(client, contents: list, system_prompt: str, allowed: list[str]):
         automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True),
         thinking_config=types.ThinkingConfig(thinking_level=config.GEMINI_THINKING),
     )
-    for attempt in range(config.GEMINI_RETRIES + 1):
-        try:
-            return client.models.generate_content(model=config.GEMINI_MODEL, contents=contents, config=request_config)
-        except errors.APIError as error:
-            retryable = getattr(error, "code", None) in (429, 500, 502, 503, 504)
-            if not retryable or attempt == config.GEMINI_RETRIES:
-                raise AgentError(f"Gemini request failed ({getattr(error, 'code', '?')}): {str(error)[:200]}") from error
-            time.sleep(min(60, 8 * 2 ** attempt))
-        except Exception as error:  # noqa: BLE001 - network problems and the like
-            if attempt == config.GEMINI_RETRIES:
-                raise AgentError(f"Gemini request failed: {type(error).__name__}: {str(error)[:200]}") from error
-            time.sleep(min(30, 4 * 2 ** attempt))
 
 
 def _squash(text: str) -> str:
@@ -132,27 +158,15 @@ def _short(value, limit: int = 600):
     return value if len(text) <= limit else text[:limit] + "…"
 
 
-def extract(text: str, prompt_version: str | None = None, client=None) -> dict:
-    """Run the agent on a (redacted) tender text.
-
-    Returns {fields, is_tender, not_tender_reason, market_note, steps, tokens_in,
-    tokens_out, latency_s, model, prompt_version, cached}. Raises AgentError if it cannot.
-    """
-    prompt_version = prompt_version or config.PROMPT_VERSION
-    text = text[: config.MAX_INPUT_CHARS]
-    cache_key = cache.key(config.GEMINI_MODEL, config.GEMINI_THINKING, prompt_version, text)
-    if client is None and (hit := cache.get("agent", cache_key)):
-        return hit | {"cached": True}
-
+def _run(client, model: str, text: str, system_prompt: str) -> tuple[dict, list, int, int]:
+    """One conversation with one model: tool calls until submit_extraction. Returns (submitted, steps, tokens in, tokens out)."""
     from google.genai import types
 
-    client = client or _client()
-    started = time.perf_counter()
     contents = [types.Content(role="user", parts=[types.Part.from_text(text=f"<tender_text>\n{text}\n</tender_text>")])]
-    steps, tokens_in, tokens_out, submitted = [], 0, 0, None
+    steps, tokens_in, tokens_out = [], 0, 0
     for turn in range(config.MAX_AGENT_STEPS):
         last_turn = turn == config.MAX_AGENT_STEPS - 1
-        response = _generate(client, contents, prompts.PROMPTS[prompt_version], [SUBMIT] if last_turn else [*TOOLS, SUBMIT])
+        response = call_gemini(client, model, contents, _request_config(system_prompt, [SUBMIT] if last_turn else [*TOOLS, SUBMIT]))
         usage = response.usage_metadata
         if usage is not None:
             tokens_in += (usage.prompt_token_count or 0) + (getattr(usage, "tool_use_prompt_token_count", None) or 0)
@@ -165,8 +179,7 @@ def extract(text: str, prompt_version: str | None = None, client=None) -> dict:
         for call in calls:
             arguments = dict(call.args or {})
             if call.name == SUBMIT:
-                submitted = arguments
-                break
+                return arguments, steps, tokens_in, tokens_out
             if call.name in TOOLS:
                 try:
                     result = TOOLS[call.name](**arguments)
@@ -176,11 +189,34 @@ def extract(text: str, prompt_version: str | None = None, client=None) -> dict:
                 result = {"error": f"unknown tool {call.name}"}
             steps.append({"tool": call.name, "args": arguments, "result": _short(result)})
             replies.append(types.Part.from_function_response(name=call.name, response=result))
-        if submitted is not None:
-            break
         contents.append(types.Content(role="user", parts=replies))
-    if submitted is None:
-        raise AgentError(f"Gemini did not submit an extraction within {config.MAX_AGENT_STEPS} steps.")
+    raise AgentError(f"Gemini did not submit an extraction within {config.MAX_AGENT_STEPS} steps.")
+
+
+def extract(text: str, prompt_version: str | None = None, client=None) -> dict:
+    """Run the agent on a (redacted) tender text.
+
+    Returns {fields, is_tender, not_tender_reason, market_note, steps, tokens_in,
+    tokens_out, latency_s, model, prompt_version, cached}. Raises AgentError if it cannot.
+    If the configured model is unavailable, the whole run is done again with a fallback model.
+    """
+    prompt_version = prompt_version or config.PROMPT_VERSION
+    text = text[: config.MAX_INPUT_CHARS]
+    cache_key = cache.key(config.GEMINI_MODEL, config.GEMINI_THINKING, prompt_version, text)
+    if client is None and (hit := cache.get("agent", cache_key)):
+        return hit | {"cached": True}
+
+    client = client or _client()
+    started = time.perf_counter()
+    unavailable = None
+    for model in models_to_try():
+        try:
+            submitted, steps, tokens_in, tokens_out = _run(client, model, text, prompts.PROMPTS[prompt_version])
+            break
+        except _Unavailable as error:
+            unavailable = error
+    else:
+        raise AgentError(str(unavailable))
 
     fields = _validate(submitted, text)
     # What the model wrote is filtered again before it is cached or logged: evidence quotes are checked
@@ -196,14 +232,14 @@ def extract(text: str, prompt_version: str | None = None, client=None) -> dict:
         "tokens_in": int(tokens_in),
         "tokens_out": int(tokens_out),
         "latency_s": round(time.perf_counter() - started, 3),
-        "model": config.GEMINI_MODEL,
+        "model": model,
         "prompt_version": prompt_version,
     }
     cache.put("agent", cache_key, result)
     return result | {"cached": False}
 
 
-def cost_eur(tokens_in: int, tokens_out: int) -> float:
-    """What these tokens cost at Gemini's paid-tier prices (config.py), in euros."""
-    usd = tokens_in / 1e6 * config.PRICE_INPUT_USD_PER_M + tokens_out / 1e6 * config.PRICE_OUTPUT_USD_PER_M
-    return round(usd * config.USD_TO_EUR, 6)
+def cost_eur(tokens_in: int, tokens_out: int, model: str | None = None) -> float:
+    """What these tokens cost at Gemini's paid-tier prices for that model (config.py), in euros."""
+    price_in, price_out = config.PRICES_USD_PER_M.get(model or config.GEMINI_MODEL, config.PRICES_USD_PER_M[config.GEMINI_MODEL])
+    return round((tokens_in / 1e6 * price_in + tokens_out / 1e6 * price_out) * config.USD_TO_EUR, 6)

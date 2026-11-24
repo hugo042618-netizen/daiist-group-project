@@ -164,7 +164,8 @@ def _steps(record: dict) -> str:
 
 def on_analyse(raw_input, bid_cost_eur, margin_pct):
     if raw_input is None or not str(raw_input).strip():
-        raise gr.Error("Paste the text of a tender first.")
+        gr.Warning("Paste the text of a tender first.")
+        return [gr.update() for _ in range(7)]
     record = serve(raw_input, bid_cost_eur, margin_pct)
     outputs = record["outputs"]
     footer = (f"Latency {record['latency_s']} s · {record['tokens_in']:,} tokens in, {record['tokens_out']:,} out · "

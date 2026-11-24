@@ -85,11 +85,15 @@ def run(raw_input: str, bid_cost_eur: float | None = None, margin_pct: float | N
         extraction = agent.extract(text, prompt_version)
     except agent.AgentError as error:
         agent_output = {"error": str(error)}
-        outcome = {"decision": decision.REVIEW, "reason": f"The agent could not read this tender, so a person should decide. ({error})",
-                   "win_chance": None, "expected_value_eur": None, "underlying": None, "review_reasons": ["agent unavailable"]}
+        busy = "503" in str(error) or "429" in str(error)
+        why = ("the AI model is not available right now (Gemini is overloaded or the free quota is used up): try again in a minute"
+               if busy else f"the agent could not read this tender: {str(error)[:160]}")
+        outcome = {"decision": decision.REVIEW, "reason": f"A person should decide: {why}.",
+                   "win_chance": None, "expected_value_eur": None, "underlying": None, "review_reasons": [why]}
     else:
         tokens_in, tokens_out = extraction["tokens_in"], extraction["tokens_out"]
-        agent_output = {k: extraction[k] for k in ("is_tender", "fields", "market_note", "not_tender_reason", "steps", "cached", "latency_s")}
+        agent_output = {k: extraction[k] for k in ("is_tender", "fields", "market_note", "not_tender_reason", "steps", "cached",
+                                                   "latency_s", "model")}
         values = {name: field["value"] for name, field in extraction["fields"].items()}
         confidence = min(extraction["fields"][name]["confidence"] for name in config.KEY_FIELDS)
         if not extraction["is_tender"]:
@@ -109,11 +113,11 @@ def run(raw_input: str, bid_cost_eur: float | None = None, margin_pct: float | N
         "input_summary": f"cpv {division or '??'} | {value_bucket(values.get('estimated_value_eur'))} | {language} | {len(text):,} chars",
         "features": input_features(text, language, values, confidence),
         "outputs": {"agent": agent_output, "model": prediction, "decision": outcome, "baseline": baseline},
-        "versions": {"agent_model": config.GEMINI_MODEL, "prompt_version": prompt_version,
+        "versions": {"agent_model": agent_output.get("model", config.GEMINI_MODEL), "prompt_version": prompt_version,
                      "model_version": config.MODEL_VERSION, "decision_rule": DECISION_RULE_VERSION},
         "review": outcome["decision"] == decision.REVIEW,
         "tokens": int(tokens_in + tokens_out),
-        "cost_eur": agent.cost_eur(tokens_in, tokens_out),
+        "cost_eur": agent.cost_eur(tokens_in, tokens_out, agent_output.get("model")),
         # Our own fields (logbook.py keeps whatever is added):
         "decision": outcome["decision"],
         "tokens_in": int(tokens_in),

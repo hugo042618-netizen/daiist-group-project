@@ -11,7 +11,6 @@ family as the agent, so it may share its blind spots.
 """
 
 import json
-import time
 
 import config
 from bidsense import agent, cache
@@ -46,7 +45,7 @@ def judge(text: str, answer: dict, client=None) -> dict:
     if client is None and (hit := cache.get("judge", cache_key)):
         return hit | {"cached": True}
 
-    from google.genai import errors, types
+    from google.genai import types
 
     client = client or agent._client()
     request_config = types.GenerateContentConfig(
@@ -57,14 +56,15 @@ def judge(text: str, answer: dict, client=None) -> dict:
         thinking_config=types.ThinkingConfig(thinking_level=config.GEMINI_THINKING),
     )
     contents = f"<tender_text>\n{text}\n</tender_text>\n\n<assistant_answer>\n{payload}\n</assistant_answer>"
-    for attempt in range(config.GEMINI_RETRIES + 1):
+    response = unavailable = None
+    for model in agent.models_to_try():
         try:
-            response = client.models.generate_content(model=config.GEMINI_MODEL, contents=contents, config=request_config)
+            response = agent.call_gemini(client, model, contents, request_config)
             break
-        except errors.APIError as error:
-            if getattr(error, "code", None) not in (429, 500, 502, 503, 504) or attempt == config.GEMINI_RETRIES:
-                raise agent.AgentError(f"Judge request failed ({getattr(error, 'code', '?')}): {str(error)[:200]}") from error
-            time.sleep(min(60, 8 * 2 ** attempt))
+        except agent._Unavailable as error:
+            unavailable = error
+    if response is None:
+        raise agent.AgentError(str(unavailable))
     try:
         parsed = json.loads(response.text)
         label = int(parsed["label"])
@@ -77,6 +77,7 @@ def judge(text: str, answer: dict, client=None) -> dict:
         "tokens_in": int((usage.prompt_token_count or 0) if usage else 0),
         "tokens_out": int(((usage.candidates_token_count or 0) + (usage.thoughts_token_count or 0)) if usage else 0),
         "judge_version": JUDGE_VERSION,
+        "model": model,
     }
     cache.put("judge", cache_key, result)
     return result | {"cached": False}
