@@ -14,7 +14,7 @@ MODELS_DIR = ROOT / "models"
 
 # --- Component 2: the bidders model (scripts/train.py) -------------------------
 
-MODEL_VERSION = "bidders-hgb-v1"
+MODEL_VERSION = "bidders-hgb-v2"
 
 # TED CSV open data (https://data.europa.eu/data/datasets/ted-csv), used offline only.
 TED_CAN_URL = "https://data.europa.eu/api/hub/store/data/ted-contract-award-notices-2018-2023.zip"
@@ -23,10 +23,12 @@ TED_CN_URL = "https://data.europa.eu/api/hub/store/data/ted-contract-notices-201
 CPV_URL = "https://raw.githubusercontent.com/OP-TED/eForms-SDK/develop/codelists/cpv.gc"
 COUNTRY = "ES"
 
-# Time split: train on the older years, validate on the next, test on the latest.
+# Time split: settings are chosen by training on TRAIN_YEARS and validating on VALID_YEAR;
+# the final models are then refitted on both (2018-2022) and tested once on TEST_YEAR.
 TRAIN_YEARS = (2018, 2019, 2020, 2021)
 VALID_YEAR = 2022
 TEST_YEAR = 2023
+FINAL_TRAIN_YEARS = TRAIN_YEARS + (VALID_YEAR,)
 
 # The 80% range shown in the app is [q10, q90].
 QUANTILE_LOW, QUANTILE_HIGH = 0.1, 0.9

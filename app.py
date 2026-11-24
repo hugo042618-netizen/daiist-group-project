@@ -59,7 +59,7 @@ CSS = """
 FIELD_LABELS = {
     "cpv_code": "CPV code", "contract_type": "Contract type", "estimated_value_eur": "Estimated value",
     "duration_months": "Duration", "procedure": "Procedure", "lots_number": "Lots", "price_weight_pct": "Weight of price",
-    "is_framework_agreement": "Framework agreement", "region": "Region", "language": "Language",
+    "is_framework_agreement": "Framework agreement", "region": "Region", "buyer_type": "Buyer type", "language": "Language",
 }
 CARD_CLASS = {decision.BID: "bs-bid", decision.DONT_BID: "bs-dont", decision.REVIEW: "bs-review", decision.OUT_OF_SCOPE: "bs-neutral"}
 EMPTY_CARD = ('<div class="bs-card bs-neutral"><div class="bs-label">Recommendation</div>'
@@ -129,7 +129,7 @@ def _show(name: str, value) -> str:
         return f"{value} ({features.REGIONS[value]})" if value in features.REGIONS else str(value)
     if isinstance(value, bool):
         return "yes" if value else "no"
-    return str(value)
+    return str(value).replace("_", " ")
 
 
 def _found(agent_output: dict) -> pd.DataFrame:

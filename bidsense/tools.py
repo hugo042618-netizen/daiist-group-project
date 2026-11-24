@@ -138,6 +138,6 @@ def market_stats(cpv_division: str, contract_type: str = "") -> dict:
     contract_type = str(contract_type or "").strip().lower()
     for key, scope in ((f"{division}|{contract_type}", f"CPV division {division}, {contract_type}"), (division, f"CPV division {division}")):
         if key in table:
-            return {"scope": scope, "source": "Spanish award notices in TED, 2018-2021", "bidders": table[key]}
-    return {"scope": "all Spanish tenders (too few in this division)", "source": "Spanish award notices in TED, 2018-2021",
+            return {"scope": scope, "source": table.get("source", "Spanish award notices in TED"), "bidders": table[key]}
+    return {"scope": "all Spanish tenders (too few in this division)", "source": table.get("source", "Spanish award notices in TED"),
             "bidders": table["all"]}

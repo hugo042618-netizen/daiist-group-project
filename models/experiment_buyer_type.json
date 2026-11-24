@@ -1,0 +1,50 @@
+{
+ "without_buyer_type": {
+  "validation_mae": 2.3078,
+  "test_mae": 2.2572,
+  "settings": {
+   "params": {
+    "max_leaf_nodes": 63,
+    "min_samples_leaf": 100,
+    "l2_regularization": 5.0
+   },
+   "n_trees": 336,
+   "validation_score": 1.1539
+  }
+ },
+ "with_buyer_type": {
+  "validation_mae": 2.2878,
+  "test_mae": 2.2388,
+  "settings": {
+   "params": {
+    "max_leaf_nodes": 63,
+    "min_samples_leaf": 100,
+    "l2_regularization": 5.0
+   },
+   "n_trees": 593,
+   "validation_score": 1.1439
+  }
+ },
+ "validation_gain_with_buyer_type": {
+  "mae_gain": 0.02,
+  "ci95": [
+   0.0103,
+   0.03
+  ]
+ },
+ "test_gain_with_buyer_type": {
+  "mae_gain": 0.0184,
+  "ci95": [
+   0.0096,
+   0.027
+  ]
+ },
+ "keep_buyer_type": true,
+ "rule": "keep only if the validation MAE gain is positive with a 95% bootstrap interval above zero",
+ "buyer_type_share": {
+  "regional_government": 0.349,
+  "other": 0.342,
+  "city_council": 0.183,
+  "ministry": 0.126
+ }
+}

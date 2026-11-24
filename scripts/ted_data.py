@@ -9,7 +9,8 @@ Column names follow its codebook ("TED CSV open data - notes & codebook", v3.6):
 - contract notices (CN): the call for competition. DURATION and the *estimated*
   VALUE_EURO only exist here; FUTURE_CAN_ID links a CN to its award notice.
 
-Nothing personal is kept: buyer and winner names, addresses and ids are never read.
+Nothing personal is kept: winner names, addresses and ids are never read. The buyer's
+name (an organisation) is read only to work out its type, and is not kept.
 """
 
 import csv
@@ -38,7 +39,7 @@ CAN_COLUMNS = [
     "ID_NOTICE_CAN", "YEAR", "CANCELLED", "ISO_COUNTRY_CODE", "TYPE_OF_CONTRACT", "TAL_LOCATION_NUTS",
     "B_FRA_AGREEMENT", "B_FRA_CONTRACT", "B_DYN_PURCH_SYST", "CPV", "ID_LOT", "LOTS_NUMBER", "VALUE_EURO",
     "TOP_TYPE", "CRIT_CODE", "CRIT_PRICE_WEIGHT", "ID_AWARD", "INFO_ON_NON_AWARD", "NUMBER_OFFERS",
-    "AWARD_EST_VALUE_EURO",
+    "AWARD_EST_VALUE_EURO", "CAE_TYPE", "CAE_NAME",
 ]
 CN_COLUMNS = [
     "ID_NOTICE_CN", "YEAR", "CANCELLED", "FUTURE_CAN_ID", "ISO_COUNTRY_CODE", "ID_LOT", "LOTS_NUMBER",
@@ -139,6 +140,30 @@ def _region(nuts: pd.Series) -> pd.Series:
     return first.where(first.isin(list(features.REGIONS)))
 
 
+_CITY = r"ayuntamiento|ajuntament|concello|\budala?\b|alcald[ií]a|junta de gobierno local|[áa]rea de gobierno"
+_REGIONAL = (r"generalitat|xunta|junta de (?:andaluc|castilla|extremadura|comunidades)|gobierno (?:de|del|vasco)|govern de|eusko jaurlaritza|"
+             r"comunidad (?:de madrid|aut[oó]noma|foral)|consejer[ií]a|conseller[ií]a|\bdepartament|principado de asturias|"
+             r"servicio \w+ de (?:salud|salut)|servei \w+ de salut|servicio de salud|osakidetza|sergas|gerencia regional")
+
+
+def buyer_type(cae_type: pd.Series, cae_name: pd.Series) -> pd.Series:
+    """city_council / regional_government / ministry / other, as a reader of the tender would call the buyer.
+
+    TED's own code (CAE_TYPE) puts town halls and regional governments in one class and
+    is filled in loosely, so the buyer's name decides first and the code only breaks ties:
+    national authorities (1, N) are "ministry", regional or local ones (3, R) "regional_government".
+    """
+    name = cae_name.fillna("").str.split("---").str[0].str.lower()
+    city, regional = name.str.contains(_CITY, regex=True), name.str.contains(_REGIONAL, regex=True)
+    national = cae_type.isin(["1", "N"]) | name.str.contains(r"ministerio", regex=True)
+    result = pd.Series("other", index=cae_type.index)
+    result[cae_type.isin(["3", "R"])] = "regional_government"
+    result[national] = "ministry"
+    result[regional] = "regional_government"
+    result[city] = "city_council"
+    return result
+
+
 def build_table() -> tuple[pd.DataFrame, dict]:
     """One row per Spanish award notice, with agent-style fields and the target `offers`.
 
@@ -199,6 +224,7 @@ def build_table() -> tuple[pd.DataFrame, dict]:
     out["lots_number"] = table["cn_lots"].where(table["cn_lots"] >= 1, _num(table["LOTS_NUMBER"])).clip(lower=1)
     out["price_weight_pct"] = table["cn_price_weight"].fillna(table["can_price_weight"])
     out["is_framework_agreement"] = (table["B_FRA_AGREEMENT"] == "Y")
+    out["buyer_type"] = buyer_type(table["CAE_TYPE"], table["CAE_NAME"])
     out = out[out["cpv_code"].map(features.cpv_division).notna()]
     counts["usable_notices"] = len(out)
     counts["by_year"] = {int(y): int(n) for y, n in out["year"].value_counts().sort_index().items()}

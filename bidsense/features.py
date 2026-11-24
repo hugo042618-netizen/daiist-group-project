@@ -31,7 +31,11 @@ REGIONS = {
     "ES61": "Andalucía", "ES62": "Murcia", "ES63": "Ceuta", "ES64": "Melilla", "ES70": "Canarias",
 }
 
-CATEGORICAL = ["cpv_division", "contract_type", "procedure", "region"]
+BUYER_TYPES = ["city_council", "regional_government", "ministry", "other"]
+
+# buyer_type was added after an experiment (scripts/experiment_buyer_type.py, models/experiment_buyer_type.json).
+CATEGORICAL = ["cpv_division", "contract_type", "procedure", "region", "buyer_type"]
+ALL_CATEGORICAL = CATEGORICAL
 NUMERIC = ["cpv_group", "log_value", "duration_months", "lots_number", "price_weight_pct", "is_framework_agreement"]
 FEATURES = CATEGORICAL + NUMERIC
 
@@ -57,12 +61,14 @@ def _code(values: pd.Series, vocabulary: list[str]) -> pd.Series:
     return values.map({name: float(i) for i, name in enumerate(vocabulary)}).astype(float)
 
 
-def matrix(fields: pd.DataFrame) -> pd.DataFrame:
+def matrix(fields: pd.DataFrame, columns: list[str] | None = None) -> pd.DataFrame:
     """One row of model features per row of agent fields. Missing or invalid values become NaN.
+
+    `columns` defaults to FEATURES, the model's features; experiments pass their own list.
 
     Expected columns (all optional): cpv_code, contract_type, procedure, region,
     estimated_value_eur, duration_months, lots_number, price_weight_pct,
-    is_framework_agreement.
+    is_framework_agreement, buyer_type.
     """
     get = lambda name: fields[name] if name in fields else pd.Series([None] * len(fields), index=fields.index)  # noqa: E731
     out = pd.DataFrame(index=fields.index)
@@ -86,7 +92,8 @@ def matrix(fields: pd.DataFrame) -> pd.DataFrame:
     out["is_framework_agreement"] = get("is_framework_agreement").map(
         lambda v: math.nan if v is None or (isinstance(v, float) and math.isnan(v)) else float(bool(v))
     )
-    return out[FEATURES].astype(float)
+    out["buyer_type"] = _code(get("buyer_type"), BUYER_TYPES)
+    return out[columns or FEATURES].astype(float)
 
 
 def encode(fields: dict) -> dict[str, float]:

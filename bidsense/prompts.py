@@ -34,6 +34,11 @@ Fields to extract:
 - is_framework_agreement: true if the tender sets up a framework agreement ("acuerdo marco").
 - region: the Spanish region where the contract is performed, as a NUTS-2 code: {_REGIONS}.
   Use "ES" if it covers several regions or the whole country, "other" if it is outside Spain.
+- buyer_type: who is buying. city_council: an ayuntamiento (ajuntament, concello, udala) or one of its departments.
+  regional_government: the government of a comunidad autónoma, its consejerías and departments, its regional
+  health service, or a provincial or island council (diputación, cabildo). ministry: the central State
+  administration (ministries, their directorates-general, State agencies, the armed forces). other: public
+  companies, mutual insurers, foundations, universities, transport operators and any other public body.
 - language: ISO code of the language of the text (es, en, pt, fr, ca...).
 
 For every field give:
@@ -74,6 +79,7 @@ FIELDS = {
     "price_weight_pct": {"type": "number"},
     "is_framework_agreement": {"type": "boolean"},
     "region": {"type": "string", "description": "NUTS-2 code, ES or other"},
+    "buyer_type": {"type": "string", "enum": features.BUYER_TYPES},
     "language": {"type": "string", "description": "ISO 639-1 code"},
 }
 
