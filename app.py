@@ -204,7 +204,8 @@ def on_refresh():
     ]) + "</div>"
 
     rule = (f"Alert when a feature's PSI is above {monitor.PSI_ALERT} (and above {monitor.NOISE_MULTIPLE}× the PSI expected by "
-            f"chance for the sample size), or when more than {monitor.NON_SPANISH_ALERT:.0%} of texts are not in Spanish. "
+            f"chance for the sample size), or when more than {monitor.OTHER_LANGUAGE_ALERT:.0%} of texts are in a language "
+            f"other than Spanish, Catalan, Galician or Basque. "
             f"Window: last {monitor.WINDOW} requests, at least {monitor.MIN_WINDOW}.")
     fired = monitor.alerts(logs, reference) if not logs.empty else []
     if reference is None:

@@ -61,7 +61,7 @@ def input_features(text: str, language: str, values: dict, confidence: float) ->
     """Numbers that describe the request, for the drift check. 0 stands for "unknown" (never NaN: logs are JSON)."""
     value = values.get("estimated_value_eur")
     return {
-        "is_spanish": 1.0 if language == "es" else 0.0,
+        "language_in_scope": 1.0 if language in config.IN_SCOPE_LANGUAGES else 0.0,
         "cpv_division": float(values.get("cpv_division") or 0),
         "log_value": round(math.log10(value), 3) if value and value >= 1 else 0.0,
         "text_length": float(len(text)),
@@ -70,7 +70,7 @@ def input_features(text: str, language: str, values: dict, confidence: float) ->
 
 
 def run(raw_input: str, bid_cost_eur: float | None = None, margin_pct: float | None = None,
-        prompt_version: str | None = None) -> dict:
+        prompt_version: str | None = None, default_model_only: bool = False) -> dict:
     bid_cost_eur = config.DEFAULT_BID_COST_EUR if bid_cost_eur is None else float(bid_cost_eur)
     margin_pct = config.DEFAULT_MARGIN_PCT if margin_pct is None else float(margin_pct)
     prompt_version = prompt_version or bandit.choose()
@@ -82,7 +82,7 @@ def run(raw_input: str, bid_cost_eur: float | None = None, margin_pct: float | N
     values, confidence, prediction, baseline = {}, 0.0, None, None
     tokens_in = tokens_out = 0
     try:
-        extraction = agent.extract(text, prompt_version)
+        extraction = agent.extract(text, prompt_version, default_model_only=default_model_only)
     except agent.AgentError as error:
         agent_output = {"error": str(error)}
         busy = "503" in str(error) or "429" in str(error) or isinstance(error, agent.DailyQuotaExhausted)

@@ -37,7 +37,7 @@ you cannot verify those from the text. Judge only whether the reasons match the 
 Answer with JSON: {"label": 0 or 1, "explanation": "one sentence"}."""
 
 
-def judge(text: str, answer: dict, client=None) -> dict:
+def judge(text: str, answer: dict, client=None, default_model_only: bool = False) -> dict:
     """{label: 0|1, explanation, tokens_in, tokens_out, cached} for one case. `text` must be redacted."""
     text = text[: config.MAX_INPUT_CHARS]
     payload = json.dumps(answer, ensure_ascii=False, sort_keys=True)
@@ -57,15 +57,15 @@ def judge(text: str, answer: dict, client=None) -> dict:
     )
     contents = f"<tender_text>\n{text}\n</tender_text>\n\n<assistant_answer>\n{payload}\n</assistant_answer>"
     response = unavailable = None
-    for model in agent.models_to_try():
+    for model in agent.models_to_try(default_model_only):
         try:
             response = agent.call_gemini(client, model, contents, request_config)
             break
         except agent._Unavailable as error:
             unavailable = error
     if response is None:
-        if not agent.models_to_try():
-            raise agent.DailyQuotaExhausted("Every Gemini model has used up its free requests for today.")
+        if not agent.models_to_try(default_model_only):
+            raise agent.DailyQuotaExhausted("The free Gemini requests for today are used up.")
         raise agent.AgentError(str(unavailable or "no Gemini model is available"))
     try:
         parsed = json.loads(response.text)

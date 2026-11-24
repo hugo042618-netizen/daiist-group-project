@@ -11,7 +11,9 @@ Evaluation. `uv run python main.py evaluate`
    labels in eval/human_labels.csv (Cohen's kappa).
 5. Cost per request: tokens, euros, seconds.
 
-Every Gemini call is cached on disk (cache/), so a second run costs nothing. Results go to
+The agent and the judge are measured on the app's default model only (config.GEMINI_MODEL):
+fallback models are not used here. Every Gemini call is cached on disk (cache/), so a second
+run costs nothing. Results go to
 eval/results.csv, eval/extraction_results.csv and eval/metrics.json: commit them, so the
 numbers in REPORT.md can be traced back.
 """
@@ -113,14 +115,15 @@ def evaluate_agent() -> dict:
     for i, truth in enumerate(truth_rows, 1):
         print(f"  {i}/{len(truth_rows)}", end="\r", flush=True)
         try:
-            extraction = agent.extract(redact(truth["input"])[0])
+            extraction = agent.extract(redact(truth["input"])[0], default_model_only=True)
         except agent.AgentError as error:
             errors += 1
             if errors == 1:
                 print(f"  agent error: {error}")
             continue
         values = {name: field["value"] for name, field in extraction["fields"].items()}
-        row = {"id": truth["id"], "is_tender": extraction["is_tender"], "offers": float(truth["offers"])}
+        row = {"id": truth["id"], "model": extraction.get("model", ""), "is_tender": extraction["is_tender"],
+               "offers": float(truth["offers"])}
         for check, test in FIELD_CHECKS.items():
             name = check.split(" ")[0]
             expected = truth.get(TRUTH_COLUMN.get(check, name), "")
@@ -176,7 +179,7 @@ def evaluate_cases() -> dict:
     for i, case in enumerate(cases, 1):
         print(f"  {i}/{len(cases)}", end="\r", flush=True)
         started = time.perf_counter()
-        result = pipeline.run(case["input"])
+        result = pipeline.run(case["input"], default_model_only=True)
         elapsed = time.perf_counter() - started
         outputs = result["outputs"]
         agent_output = outputs["agent"]
@@ -185,7 +188,7 @@ def evaluate_cases() -> dict:
         verdict = {}
         if not agent_output.get("error"):
             try:
-                verdict = judge.judge(redact(pipeline.read_input(case["input"]))[0], answer)
+                verdict = judge.judge(redact(pipeline.read_input(case["input"]))[0], answer, default_model_only=True)
             except agent.AgentError as error:
                 verdict = {"error": str(error)}
         baseline_decision = (outputs["baseline"] or {}).get("decision") or result["decision"]
@@ -212,6 +215,7 @@ def evaluate_cases() -> dict:
             "tokens": result["tokens"],
             "cost_eur": result["cost_eur"],
             "error": agent_output.get("error", ""),
+            "agent_model": agent_output.get("model", ""),
             "reason": outputs["decision"]["reason"],
         })
     results = pd.DataFrame(rows)

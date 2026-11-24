@@ -2,14 +2,15 @@
 Monitoring: KPIs, quality signals over time, drift against the reference set, alerts.
 
 Drift check: the last WINDOW requests are compared with monitoring/reference_features.csv
-(the features of eval/reference.csv) on four features: is_spanish, cpv_division,
+(the features of eval/reference.csv) on four features: language_in_scope, cpv_division,
 log_value and text_length, with the population stability index (PSI). Two alert rules:
 
 1. a feature's PSI is above PSI_ALERT *and* above NOISE_MULTIPLE times the PSI that
    chance alone gives with these sample sizes (with 45 reference inputs and 20 live
    ones, chance alone is already about 0.3, so a bare 0.2 would be a coin toss);
-2. more than NON_SPANISH_ALERT of the texts are not in Spanish: the model was trained
-   on Spanish tenders only.
+2. more than OTHER_LANGUAGE_ALERT of the texts are in a language out of scope. Spanish,
+   Catalan, Galician and Basque are in scope (config.IN_SCOPE_LANGUAGES): they are all
+   normal in Spanish tenders. Portuguese, French or English texts are not.
 
 Every threshold comes from config.py and is marked TEAM TO SET there.
 """
@@ -27,7 +28,7 @@ REFERENCE_FILE = ROOT / "monitoring" / "reference_features.csv"
 PSI_BINS = 5                                  # quantile bins of the reference; few, because samples are small
 PSI_ALERT = config.PSI_ALERT                  # alert when a feature's PSI exceeds this...
 NOISE_MULTIPLE = config.PSI_NOISE_MULTIPLE    # ...and this many times the PSI expected by chance (psi_noise)
-NON_SPANISH_ALERT = config.NON_SPANISH_ALERT  # alert when more than this share of texts is not Spanish
+OTHER_LANGUAGE_ALERT = config.OTHER_LANGUAGE_ALERT  # alert when more than this share of texts is in a language out of scope
 WINDOW = config.DRIFT_WINDOW                  # the drift check looks at the last WINDOW requests...
 MIN_WINDOW = config.DRIFT_MIN_WINDOW          # ...and stays silent with fewer than this
 THUMBS_DOWN_ALERT = config.THUMBS_DOWN_ALERT  # alert when this share of rated requests is 👎
@@ -37,7 +38,7 @@ DRIFT_COLUMNS = ["feature", "metric", "value", "threshold", "alert"]
 def _bin(values: np.ndarray, reference: np.ndarray, bins: int) -> np.ndarray:
     """Bin index of each value, with bins defined by the reference.
 
-    A feature with few distinct values in the reference (is_spanish) gets one bin per
+    A feature with few distinct values in the reference (language_in_scope) gets one bin per
     value plus one for anything else; a continuous one gets quantile bins, so each
     holds about the same share of the reference.
     """
@@ -94,10 +95,10 @@ def drift(reference: pd.DataFrame, current: pd.DataFrame) -> pd.DataFrame:
         threshold = max(PSI_ALERT, NOISE_MULTIPLE * psi_noise(n_reference, n_current, bins))
         rows.append({"feature": feature, "metric": "PSI", "value": round(value, 3), "threshold": round(threshold, 3),
                      "alert": bool(value > threshold)})
-    if "is_spanish" in current.columns and current["is_spanish"].notna().any():
-        share = float(1 - current["is_spanish"].mean())
-        rows.append({"feature": "texts not in Spanish", "metric": "share", "value": round(share, 3),
-                     "threshold": NON_SPANISH_ALERT, "alert": bool(share > NON_SPANISH_ALERT)})
+    if "language_in_scope" in current.columns and current["language_in_scope"].notna().any():
+        share = float(1 - current["language_in_scope"].mean())
+        rows.append({"feature": "texts in a language out of scope", "metric": "share", "value": round(share, 3),
+                     "threshold": OTHER_LANGUAGE_ALERT, "alert": bool(share > OTHER_LANGUAGE_ALERT)})
     return pd.DataFrame(rows, columns=DRIFT_COLUMNS)
 
 

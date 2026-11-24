@@ -89,11 +89,13 @@ def _is_daily_limit(error) -> bool:
     return "PerDay" in text or "per day" in text
 
 
-def models_to_try() -> list[str]:
+def models_to_try(default_model_only: bool = False) -> list[str]:
     """The configured model first, then the fallbacks. Models whose daily quota is used up are left out;
-    models that just failed are tried last."""
+    models that just failed are tried last. `default_model_only` leaves the fallbacks out (the evaluation
+    measures the app's default model, not whichever model happened to be free)."""
     now = time.time()
-    models = [m for m in (config.GEMINI_MODEL, *config.GEMINI_FALLBACK_MODELS) if _daily_out.get(m, 0) <= now]
+    candidates = (config.GEMINI_MODEL,) if default_model_only else (config.GEMINI_MODEL, *config.GEMINI_FALLBACK_MODELS)
+    models = [m for m in candidates if _daily_out.get(m, 0) <= now]
     return sorted(models, key=lambda m: _skip_until.get(m, 0) > now)
 
 
@@ -260,32 +262,34 @@ def _run(client, model: str, text: str, system_prompt: str) -> tuple[dict, list,
     raise AgentError(f"Gemini did not submit an extraction within {config.MAX_AGENT_STEPS} steps.")
 
 
-def extract(text: str, prompt_version: str | None = None, client=None) -> dict:
+def extract(text: str, prompt_version: str | None = None, client=None, default_model_only: bool = False) -> dict:
     """Run the agent on a (redacted) tender text.
 
     Returns {fields, is_tender, not_tender_reason, market_note, steps, tokens_in,
     tokens_out, latency_s, model, prompt_version, cached}. Raises AgentError if it cannot.
-    If the configured model is unavailable, the whole run is done again with a fallback model.
+    If the configured model is unavailable, the whole run is done again with a fallback model,
+    unless `default_model_only` is set. A cached answer given by a fallback model is not used then.
     """
     prompt_version = prompt_version or config.PROMPT_VERSION
     text = text[: config.MAX_INPUT_CHARS]
     cache_key = cache.key(config.GEMINI_MODEL, config.GEMINI_THINKING, prompt_version, text)
     if client is None and (hit := cache.get("agent", cache_key)):
-        return hit | {"cached": True}
+        if not default_model_only or hit.get("model") == config.GEMINI_MODEL:
+            return hit | {"cached": True}
 
     client = client or _client()
     started = time.perf_counter()
     unavailable = None
-    for model in models_to_try():
+    for model in models_to_try(default_model_only):
         try:
             submitted, steps, tokens_in, tokens_out, requests = _run(client, model, text, prompts.PROMPTS[prompt_version])
             break
         except _Unavailable as error:
             unavailable = error
     else:
-        if not models_to_try():
+        if not models_to_try(default_model_only):
             reset = next_quota_reset().astimezone(ZoneInfo("Europe/Madrid"))
-            raise DailyQuotaExhausted(f"Every Gemini model has used up its free requests for today. "
+            raise DailyQuotaExhausted(f"{config.GEMINI_MODEL if default_model_only else 'Every Gemini model'} has used up its free requests for today. "
                                       f"They reset at {reset:%H:%M} Madrid time ({reset:%d %b}).")
         raise AgentError(str(unavailable))
 

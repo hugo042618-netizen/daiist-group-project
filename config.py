@@ -95,10 +95,13 @@ KEY_FIELDS = ("cpv_code", "contract_type", "estimated_value_eur")   # TEAM TO SE
 
 # --- Monitoring and drift (monitor.py) -----------------------------------------
 
-DRIFT_FEATURES = ("is_spanish", "cpv_division", "log_value", "text_length")
+# Spanish tenders are also published in the co-official languages, so Catalan, Galician and Basque count as
+# in scope: a company in Catalonia must not set off the language alert (team decision, 24 Nov 2026).
+IN_SCOPE_LANGUAGES = ("es", "ca", "gl", "eu")
+DRIFT_FEATURES = ("language_in_scope", "cpv_division", "log_value", "text_length")
 PSI_ALERT = 0.2                          # TEAM TO SET: alert when a feature's PSI exceeds this...
 PSI_NOISE_MULTIPLE = 2                   # TEAM TO SET: ...and this many times the PSI expected by chance
-NON_SPANISH_ALERT = 0.30                 # TEAM TO SET: alert when more than this share of texts is not Spanish
+OTHER_LANGUAGE_ALERT = 0.30              # TEAM TO SET: alert when more than this share of texts is in a language out of scope
 THUMBS_DOWN_ALERT = 0.40                 # TEAM TO SET: alert when this share of rated requests is thumbs down
 DRIFT_WINDOW = 100                       # the drift check looks at the last N requests...
 DRIFT_MIN_WINDOW = 20                    # ...and stays silent with fewer than this

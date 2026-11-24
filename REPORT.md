@@ -144,10 +144,15 @@ it (the limits above cap the app at roughly 100 tenders a day).
 - **Quality signals over time:** share sent to review, share of 👎 among rated requests, mean confidence
   (rolling average of the last 10 requests).
 - **Drift check:** the last 100 requests against `monitoring/reference_features.csv` (the 45 inputs of
-  `eval/reference.csv`), with PSI on four features: language (Spanish or not), CPV division, log of the
+  `eval/reference.csv`), with PSI on four features: language in scope or not, CPV division, log of the
   value, text length.
+- **Languages in scope:** Spanish, Catalan, Galician and Basque. Spanish tenders are also published in the
+  co-official languages, so a text in Catalan from a company in Catalonia is normal traffic and must not set
+  off the alert; Portuguese, French or English texts are out of scope. The language is detected in code
+  (`bidsense/lang.py`, stop words), not by the agent, so the check works even when Gemini is down. All 45
+  reference inputs are in scope.
 - **Alert rule** (`config.py`): a feature's PSI above 0.2 *and* above twice the PSI that chance alone gives for
-  the sample size; or more than 30% of texts not in Spanish; or more than 40% 👎.
+  the sample size; or more than 30% of texts in a language out of scope; or more than 40% 👎.
 - **Drift demo:** `eval/shifted.csv` holds 10 Portuguese and 10 French notices.
 
 **TEAM TO WRITE:** the justification of each threshold, the drift-demo result with numbers
