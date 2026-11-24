@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Adquisición de dosis de vacuna frente al virus de la Hepatitis A",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "33651600",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "33",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "Adquisición de dosis de vacuna",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 391500.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 391 500,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Órgano de contratación: Gobierno Vasco - Salud",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Adquisición de dosis de vacuna",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Tenders for supplies in this CPV division typically receive a median of 2 bidders (interquartile range 1 to 4).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "vacuna hepatitis A"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33651680",
+      "division": "33",
+      "es": "Vacunas contra la hepatitis B",
+      "en": "Hepatitis B vaccines"
+     },
+     {
+      "code": "33651600",
+      "division": "33",
+      "es": "Vacunas",
+      "en": "Vaccines"
+     },
+     {
+      "code": "33141550",
+      "division": "33",
+      "es": "Heparina",
+      "en": "Heparin"
+     },
+     {
+      "code": "33651670",
+      "division": "33",
+      "es": "Vacunas contra la polio",
+      "en": "Polio vaccines"
+     },
+     {
+      "code": "33651650",
+      "division": "33",
+      "es": "Vacunas contra el tifus",
+      "en": "Typhus vaccines"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "391 500,00 EUR"
+   },
+   "result": {
+    "amount": 391500.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "33",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 33, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 8014,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 7524,
+ "tokens_out": 511,
+ "latency_s": 58.183,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

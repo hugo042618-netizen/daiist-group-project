@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Suministro de equipos de mamografía digital",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "33111650",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "33",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "Suministro de equipos de mamografía digital",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1399800.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 1 399 800,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 2.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 2 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 0.9,
+   "evidence": "Criterios de adjudicación: precio 40 %, calidad 60 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES11",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES111 (Galicia)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "SERGAS. Servicio Gallego de Salud",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Suministro de equipos de mamografía digital",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past supplies tenders for medical equipment in Spain, the median number of bidders was 2.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "mamografía digital equipos suministro"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "30220000",
+      "division": "30",
+      "es": "Equipo de cartografía digital",
+      "en": "Digital cartography equipment"
+     },
+     {
+      "code": "71354100",
+      "division": "71",
+      "es": "Servicios de cartografía digital",
+      "en": "Digital mapping services"
+     },
+     {
+      "code": "48326100",
+      "division": "48",
+      "es": "Sistema de cartografía digital",
+      "en": "Digital mapping system"
+     },
+     {
+      "code": "33111650",
+      "division": "33",
+      "es": "Aparatos para mamografías",
+      "en": "Mammography devices"
+     },
+     {
+      "code": "32546000",
+      "division": "32",
+      "es": "Equipo de conmutación digital",
+      "en": "Digital switching equipment"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 399 800,00 EUR"
+   },
+   "result": {
+    "amount": 1399800.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "33",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 33, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 8014,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5045,
+ "tokens_out": 503,
+ "latency_s": 2.612,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

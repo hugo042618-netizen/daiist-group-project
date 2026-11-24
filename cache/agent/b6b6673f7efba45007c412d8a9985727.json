@@ -1,0 +1,157 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Gestión del servicio de Urretxu para adolescentes",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "85311300",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "85",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Gestión del servicio",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 380454.54,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 380 454,54 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES212 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "city_council",
+   "confidence": 0.9,
+   "evidence": "Ayuntamiento de Urretxu",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Gestión del servicio de Urretxu para adolescentes",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 85 services, similar Spanish tenders usually receive a median of 2 bidders (quartiles: 1 to 4).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Gestión de servicios para adolescentes juventud"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "80310000",
+      "division": "80",
+      "es": "Servicios de enseñanza para la juventud",
+      "en": "Youth education services"
+     },
+     {
+      "code": "71540000",
+      "division": "71",
+      "es": "Servicios de gestión de obras",
+      "en": "Construction management services"
+     },
+     {
+      "code": "72322000",
+      "division": "72",
+      "es": "Servicios de gestión de datos",
+      "en": "Data management services"
+     },
+     {
+      "code": "55410000",
+      "division": "55",
+      "es": "Servicios de gestión de bares",
+      "en": "Bar management services"
+     },
+     {
+      "code": "98362000",
+      "division": "98",
+      "es": "Servicios de gestión de puertos",
+      "en": "Port management services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios sociales para jovenes infancia"
+   },
+   "result": "{'results': [{'code': '85320000', 'division': '85', 'es': 'Servicios sociales', 'en': 'Social services'}, {'code': '85310000', 'division': '85', 'es': 'Servicios de asistencia social', 'en': 'Social work services'}, {'code': '85300000', 'division': '85', 'es': 'Servicios de asistencia social y servicios conexos', 'en': 'Social work and related services'}, {'code': '85311300', 'division': '85', 'es': 'Servicios de bienestar social proporcionados a niños y jóvenes', 'en': 'Welfare services for children and young people'}, {'code': '45215200', 'division': '45', 'es': 'Trabajos de construcción de …"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "85",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 85, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 3548,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 10433,
+ "tokens_out": 500,
+ "latency_s": 60.571,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

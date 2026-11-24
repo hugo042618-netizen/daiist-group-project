@@ -1,0 +1,190 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "PROCEDIMENTO Nº4/2025",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "15511000",
+   "confidence": 0.8,
+   "evidence": "AQUISIÇÃO E FORNECIMENTO DE LEITE ESCOLAR",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "15",
+   "confidence": 0.8,
+   "evidence": "15511000",
+   "evidence_found": false
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 1.0,
+   "evidence": "AQUISIÇÃO E FORNECIMENTO DE LEITE ESCOLAR",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 447350.0,
+   "confidence": 1.0,
+   "evidence": "447 350,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 1.0,
+   "evidence": "PELO PERÍODO DE UM ANO",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "concurso público",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.5,
+   "evidence": "Not specified, assumed 1",
+   "evidence_found": false
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "preço 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acordo-quadro: não",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.5,
+   "evidence": "Município da Maia (Portugal)",
+   "evidence_found": false
+  },
+  "buyer_type": {
+   "value": "city_council",
+   "confidence": 1.0,
+   "evidence": "Município da Maia",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 0.5,
+   "evidence": "Portuguese text",
+   "evidence_found": false
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar tenders in this sector typically receive a median of 2 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "leite escolar"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "39162110",
+      "division": "39",
+      "es": "Material escolar",
+      "en": "Teaching supplies"
+     },
+     {
+      "code": "39160000",
+      "division": "39",
+      "es": "Mobiliario escolar",
+      "en": "School furniture"
+     },
+     {
+      "code": "22111000",
+      "division": "22",
+      "es": "Libros escolares",
+      "en": "School books"
+     },
+     {
+      "code": "80410000",
+      "division": "80",
+      "es": "Servicios escolares diversos",
+      "en": "Various school services"
+     },
+     {
+      "code": "45214200",
+      "division": "45",
+      "es": "Trabajos de construcción de edificios escolares",
+      "en": "Construction work for school buildings"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "milk"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "15511000",
+      "division": "15",
+      "es": "Leche",
+      "en": "Milk"
+     },
+     {
+      "code": "15511700",
+      "division": "15",
+      "es": "Leche en polvo",
+      "en": "Milk powder"
+     },
+     {
+      "code": "15511210",
+      "division": "15",
+      "es": "Leche UHT",
+      "en": "UHT milk"
+     },
+     {
+      "code": "03331200",
+      "division": "03",
+      "es": "Leche de cabra",
+      "en": "Goats' milk"
+     },
+     {
+      "code": "38434530",
+      "division": "38",
+      "es": "Analizadores de leche",
+      "en": "Milk analysers"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "15",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 15, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 945,
+     "q25": 1.5,
+     "median": 2.0,
+     "q75": 3.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 11667,
+ "tokens_out": 1096,
+ "latency_s": 63.432,
+ "requests": 4,
+ "model": "gemini-3.1-flash-lite",
+ "prompt_version": "extract-v1"
+}

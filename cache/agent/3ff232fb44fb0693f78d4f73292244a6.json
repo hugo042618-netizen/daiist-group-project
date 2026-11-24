@@ -1,0 +1,167 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Marché de maitrise d'oeuvre pour l'aménagement",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "71200000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "71",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Marché de maitrise d'oeuvre",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 260000.0,
+   "confidence": 0.9,
+   "evidence": "Valeur estimée hors TVA: 260 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 60.0,
+   "confidence": 0.9,
+   "evidence": "Durée du marché: 60 mois",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Type de procédure: procédure ouverte",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 0.9,
+   "evidence": "prix 40 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Accord-cadre: non",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Savigny-le-Temple",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "city_council",
+   "confidence": 0.9,
+   "evidence": "MAIRIE DE SAVIGNY LE TEMPLE",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "fr",
+   "confidence": 0.9,
+   "evidence": "Titre: Marché de maitrise d'oeuvre",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish services tenders in CPV division 71 usually get an average of 6 bidders (median, Q25=3, Q75=11).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "maitrise d oeuvre aménagement"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "72322000",
+      "division": "72",
+      "es": "Servicios de gestión de datos",
+      "en": "Data management services"
+     },
+     {
+      "code": "55410000",
+      "division": "55",
+      "es": "Servicios de gestión de bares",
+      "en": "Bar management services"
+     },
+     {
+      "code": "71540000",
+      "division": "71",
+      "es": "Servicios de gestión de obras",
+      "en": "Construction management services"
+     },
+     {
+      "code": "98362000",
+      "division": "98",
+      "es": "Servicios de gestión de puertos",
+      "en": "Port management services"
+     },
+     {
+      "code": "79996100",
+      "division": "79",
+      "es": "Gestión de registros",
+      "en": "Records management"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "architectural services"
+   },
+   "result": "{'results': [{'code': '71200000', 'division': '71', 'es': 'Servicios de arquitectura y servicios conexos', 'en': 'Architectural and related services'}, {'code': '71221000', 'division': '71', 'es': 'Servicios de arquitectura para edificios', 'en': 'Architectural services for buildings'}, {'code': '71210000', 'division': '71', 'es': 'Servicios de asesoramiento en arquitectura', 'en': 'Advisory architectural services'}, {'code': '71220000', 'division': '71', 'es': 'Servicios de diseño arquitectónico', 'en': 'Architectural design services'}, {'code': '71420000', 'division': '71', 'es': 'Servicios …"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "71",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 71, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5136,
+     "q25": 3.0,
+     "median": 6.0,
+     "q75": 11.0
+    }
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "260 000,00 EUR"
+   },
+   "result": {
+    "amount": 260000.0,
+    "currency": "EUR"
+   }
+  }
+ ],
+ "tokens_in": 15537,
+ "tokens_out": 937,
+ "latency_s": 59.857,
+ "requests": 5,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

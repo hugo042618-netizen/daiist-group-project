@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Órgano de contratación: Consejería de Economía, Hacienda y Empleo",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "77311000",
+   "confidence": 0.8,
+   "evidence": "Mantenimiento de Jardines",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "77",
+   "confidence": 0.8,
+   "evidence": "Mantenimiento de Jardines",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Mantenimiento de Jardines",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 307847.82,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 307 847,82 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 70.0,
+   "confidence": 0.9,
+   "evidence": "Criterios de adjudicación: precio 70 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES30",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES300 (Madrid)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Consejería de Economía, Hacienda y Empleo",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Mantenimiento de Jardines en diversas sedes",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 77 services, similar Spanish tenders usually receive a median of 4 bidders (ranging from 2 for Q25 to 8 for Q75).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "mantenimiento de jardines"
+   },
+   "result": "{'results': [{'code': '77311000', 'division': '77', 'es': 'Servicios de mantenimiento de jardines y parques', 'en': 'Ornamental and pleasure gardens maintenance services'}, {'code': '50324100', 'division': '50', 'es': 'Servicios de mantenimiento de sistemas', 'en': 'System maintenance services'}, {'code': '45261920', 'division': '45', 'es': 'Mantenimiento de tejados', 'en': 'Roof maintenance work'}, {'code': '50114200', 'division': '50', 'es': 'Servicios de mantenimiento de camiones', 'en': 'Truck maintenance services'}, {'code': '45451300', 'division': '45', 'es': 'Jardines interiores', 'en':…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "307 847,82 EUR"
+   },
+   "result": {
+    "amount": 307847.82,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "77"
+   },
+   "result": {
+    "scope": "CPV division 77, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1195,
+     "q25": 2.0,
+     "median": 4.0,
+     "q75": 8.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 7546,
+ "tokens_out": 527,
+ "latency_s": 58.942,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

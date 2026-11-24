@@ -1,0 +1,159 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: Suministro de dispositivos limitadores de tensión tipo VLD-F",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "31215000",
+   "confidence": 0.8,
+   "evidence": "Suministro de dispositivos limitadores de tensión tipo VLD-F",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "31",
+   "confidence": 0.8,
+   "evidence": "Suministro de dispositivos limitadores de tensión tipo VLD-F",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 1.0,
+   "evidence": "Suministro de dispositivos limitadores de tensión",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1485000.0,
+   "confidence": 1.0,
+   "evidence": "Valor estimado sin IVA: 1 485 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 1.0,
+   "evidence": "Duración del contrato: 24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES",
+   "confidence": 0.8,
+   "evidence": "Administrador de Infraestructuras Ferroviarias",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Administrador de Infraestructuras Ferroviarias",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Suministro de dispositivos limitadores de tensión tipo VLD-F",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish supplies tenders under CPV division 31, the median number of bidders was 3.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "dispositivos limitadores de tension VLD-F ferroviarias suministro"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "31215000",
+      "division": "31",
+      "es": "Limitadores de tensión",
+      "en": "Voltage limiters"
+     },
+     {
+      "code": "31214190",
+      "division": "31",
+      "es": "Limitadores de corriente",
+      "en": "Limit switches"
+     },
+     {
+      "code": "38571000",
+      "division": "38",
+      "es": "Limitadores de velocidad",
+      "en": "Speed limiters"
+     },
+     {
+      "code": "34940000",
+      "division": "34",
+      "es": "Equipo ferroviario",
+      "en": "Railway equipment"
+     },
+     {
+      "code": "45234100",
+      "division": "45",
+      "es": "Trabajos de construcción ferroviaria",
+      "en": "Railway construction works"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 485 000,00 EUR"
+   },
+   "result": {
+    "amount": 1485000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "31",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 31, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1092,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 6.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 4913,
+ "tokens_out": 531,
+ "latency_s": 119.866,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

@@ -1,0 +1,126 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Órgano de contratación",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72224000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Servicio de dinamización",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 250000.0,
+   "confidence": 0.9,
+   "evidence": "250 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 0.9,
+   "evidence": "precio 40 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES212",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Diputación Foral de Gipuzkoa",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Servicio de dinamización",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 72 services, Spanish tenders typically receive a median of 2 bidders (interquartile range 1 to 4).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Servicio de dinamización y gestión de proyectos informáticos"
+   },
+   "result": "{'results': [{'code': '71541000', 'division': '71', 'es': 'Servicios de gestión de proyectos de construcción', 'en': 'Construction project management services'}, {'code': '72224000', 'division': '72', 'es': 'Servicios de consultoría en gestión de proyectos', 'en': 'Project management consultancy services'}, {'code': '72212331', 'division': '72', 'es': 'Servicios de desarrollo de software de gestión de proyectos', 'en': 'Project management software development services'}, {'code': '72514000', 'division': '72', 'es': 'Servicios de gestión de instalaciones informáticas', 'en': 'Computer facilitie…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "250 000,00 EUR"
+   },
+   "result": {
+    "amount": 250000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "72",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5261,
+ "tokens_out": 461,
+ "latency_s": 26.998,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

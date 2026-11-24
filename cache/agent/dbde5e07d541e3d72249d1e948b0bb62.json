@@ -1,0 +1,92 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Marché de gestion des déchets ménagers et assimilés",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "90511000",
+   "confidence": 0.8,
+   "evidence": "gestion des déchets ménagers",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "90",
+   "confidence": 0.8,
+   "evidence": "gestion des déchets ménagers",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "gestion des déchets ménagers",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 6090000.0,
+   "confidence": 1.0,
+   "evidence": "6 090 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 60.0,
+   "confidence": 1.0,
+   "evidence": "60 mois",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "procédure ouverte",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 3,
+   "confidence": 1.0,
+   "evidence": "Lots: 3",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Accord-cadre: non",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 1.0,
+   "evidence": "Lieu d'exécution: FRF12",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 1.0,
+   "evidence": "Communauté de Communes SUNDGAU",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "fr",
+   "confidence": 1.0,
+   "evidence": "Titre: Marché de gestion des déchets ménagers et assimilés",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "",
+ "steps": [],
+ "tokens_in": 2392,
+ "tokens_out": 462,
+ "latency_s": 33.376,
+ "requests": 1,
+ "model": "gemini-3.1-flash-lite",
+ "prompt_version": "extract-v1"
+}

@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Órgano de contratación: LANBIDE",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72267000",
+   "confidence": 0.7,
+   "evidence": "Servicio de mantenimiento y evolución de los sistemas",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.7,
+   "evidence": "Servicio de mantenimiento y evolución de los sistemas",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Servicio de mantenimiento",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1676800.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 1 676 800,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 55.0,
+   "confidence": 0.9,
+   "evidence": "precio 55 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "LANBIDE, Servicio Vasco de Empleo - Lanbide",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Servicio de mantenimiento y evolución",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish services tenders of CPV division 72, the median number of bidders was 2 (with 25% getting at most 1 and 75% at most 4).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "mantenimiento de software sistemas de interoperabilidad"
+   },
+   "result": "{'results': [{'code': '50324100', 'division': '50', 'es': 'Servicios de mantenimiento de sistemas', 'en': 'System maintenance services'}, {'code': '72267000', 'division': '72', 'es': 'Servicios de mantenimiento y reparación de software', 'en': 'Software maintenance and repair services'}, {'code': '48443000', 'division': '48', 'es': 'Paquetes de software de contabilidad', 'en': 'Accounting software package'}, {'code': '48214000', 'division': '48', 'es': 'Paquetes de software de sistemas operativos en red', 'en': 'Network operating system software package'}, {'code': '48781000', 'division': '48'…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 676 800,00 EUR"
+   },
+   "result": {
+    "amount": 1676800.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "72"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 10072,
+ "tokens_out": 504,
+ "latency_s": 60.019,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

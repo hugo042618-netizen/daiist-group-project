@@ -1,0 +1,92 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Titre: GESTION ET MAINTENANCE DE DEUX AIRES D'ACCUEIL DES GENS DU VOYAGE",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "98351000",
+   "confidence": 0.8,
+   "evidence": "GESTION ET MAINTENANCE DE DEUX AIRES D'ACCUEIL",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "98",
+   "confidence": 0.8,
+   "evidence": "GESTION ET MAINTENANCE DE DEUX AIRES D'ACCUEIL",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "GESTION ET MAINTENANCE",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1600000.0,
+   "confidence": 1.0,
+   "evidence": "1 600 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 1.0,
+   "evidence": "12 mois",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "procédure ouverte",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 1.0,
+   "evidence": "prix 40 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Accord-cadre: non",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 1.0,
+   "evidence": "Communauté de Communes Pays du Mont Blanc",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 1.0,
+   "evidence": "Communauté de Communes Pays du Mont Blanc",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "fr",
+   "confidence": 1.0,
+   "evidence": "Titre: GESTION ET MAINTENANCE DE DEUX AIRES D'ACCUEIL DES GENS DU VOYAGE",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Market statistics are not available for non-Spanish tenders.",
+ "steps": [],
+ "tokens_in": 2281,
+ "tokens_out": 539,
+ "latency_s": 86.455,
+ "requests": 1,
+ "model": "gemini-3.1-flash-lite",
+ "prompt_version": "extract-v1"
+}

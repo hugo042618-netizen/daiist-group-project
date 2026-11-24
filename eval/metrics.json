@@ -1,0 +1,94 @@
+{
+ "model": {
+  "test_year": 2023,
+  "n": 19786,
+  "baseline_median_per_cpv_division": {
+   "mae": 2.4189,
+   "rmse": 5.5023,
+   "poisson_deviance": 3.6368,
+   "bucket_accuracy": 0.4851
+  },
+  "model_median": {
+   "mae": 2.2388,
+   "rmse": 5.1122,
+   "poisson_deviance": 2.6905,
+   "bucket_accuracy": 0.5254
+  },
+  "model_poisson_mean": {
+   "mae": 2.4796,
+   "rmse": 4.9908,
+   "poisson_deviance": 2.4957,
+   "bucket_accuracy": 0.4438
+  },
+  "range_80": {
+   "coverage": 0.9016,
+   "share_below_low": 0.0,
+   "share_above_high": 0.0984,
+   "mean_width": 6.94
+  }
+ },
+ "agent": {
+  "n": 40,
+  "errors": 0,
+  "is_tender_rate": 0.975,
+  "field_accuracy": {
+   "cpv_division": {
+    "accuracy": 0.75,
+    "n": 40
+   },
+   "cpv_group (3 digits)": {
+    "accuracy": 0.6,
+    "n": 40
+   },
+   "contract_type": {
+    "accuracy": 0.95,
+    "n": 40
+   },
+   "estimated_value_eur (within 1%)": {
+    "accuracy": 1.0,
+    "n": 40
+   },
+   "duration_months (within 1)": {
+    "accuracy": 1.0,
+    "n": 37
+   },
+   "procedure": {
+    "accuracy": 1.0,
+    "n": 40
+   },
+   "lots_number": {
+    "accuracy": 0.975,
+    "n": 40
+   },
+   "price_weight_pct (within 2)": {
+    "accuracy": 1.0,
+    "n": 37
+   },
+   "is_framework_agreement": {
+    "accuracy": 1.0,
+    "n": 40
+   },
+   "region": {
+    "accuracy": 1.0,
+    "n": 40
+   },
+   "buyer_type": {
+    "accuracy": 0.641,
+    "n": 39
+   }
+  },
+  "handoff": {
+   "mae_with_agent_fields": 1.756,
+   "mae_with_official_fields": 1.651,
+   "mae_baseline": 1.788,
+   "bucket_accuracy_with_agent_fields": 0.5
+  }
+ },
+ "end_to_end": {},
+ "versions": {
+  "agent_model": "gemini-3.5-flash-lite",
+  "prompt_version": "extract-v1",
+  "model_version": "bidders-hgb-v2",
+  "judge_version": "judge-v1"
+ }
+}

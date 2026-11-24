@@ -1,0 +1,117 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "concurso público",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "45310000",
+   "confidence": 0.7,
+   "evidence": "Fornecimento, Instalação e Comissionamento de um Sistema OPS",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "45",
+   "confidence": 0.7,
+   "evidence": "45310000",
+   "evidence_found": false
+  },
+  "contract_type": {
+   "value": "works",
+   "confidence": 0.8,
+   "evidence": "Fornecimento, Instalação e Comissionamento",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 8000000.0,
+   "confidence": 1.0,
+   "evidence": "8 000 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 15.8,
+   "confidence": 1.0,
+   "evidence": "15.8 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "concurso público",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.5,
+   "evidence": "Not specified, assumed 1",
+   "evidence_found": false
+  },
+  "price_weight_pct": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acordo-quadro: não",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 1.0,
+   "evidence": "PT11A",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "APDL - Administração dos Portos do Douro, Leixões e Viana do Castelo, S.A.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 0.5,
+   "evidence": "Portuguese text",
+   "evidence_found": false
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish tenders for works in the construction division (45), the median number of bidders is 10.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Sistema OPS Terminal de Cruzeiros"
+   },
+   "result": "{'results': [{'code': '31224500', 'division': '31', 'es': 'Terminales', 'en': 'Terminals'}, {'code': '45255300', 'division': '45', 'es': 'Trabajos de construcción de terminales de gas', 'en': 'Gas terminal construction work'}, {'code': '30231100', 'division': '30', 'es': 'Terminales informáticos', 'en': 'Computer terminals'}, {'code': '45255210', 'division': '45', 'es': 'Trabajos de construcción de terminales de petróleo', 'en': 'Oil terminal construction work'}, {'code': '63721500', 'division': '63', 'es': 'Servicios de explotación de terminales de pasajeros', 'en': 'Passenger terminal operat…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "works",
+    "cpv_division": "45"
+   },
+   "result": {
+    "scope": "CPV division 45, works",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 2103,
+     "q25": 5.0,
+     "median": 10.0,
+     "q75": 16.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8227,
+ "tokens_out": 1465,
+ "latency_s": 45.859,
+ "requests": 3,
+ "model": "gemini-3.1-flash-lite",
+ "prompt_version": "extract-v1"
+}

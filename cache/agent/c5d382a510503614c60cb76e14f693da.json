@@ -1,0 +1,150 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "concurso público",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "39713300",
+   "confidence": 0.8,
+   "evidence": "Fornecimento de 7 autocompactadores estanques de 20 m3",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "39",
+   "confidence": 0.8,
+   "evidence": "39713300",
+   "evidence_found": false
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 1.0,
+   "evidence": "Fornecimento de 7 autocompactadores",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 487800.0,
+   "confidence": 1.0,
+   "evidence": "Valor estimado sem IVA: 487 800,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 5.0,
+   "confidence": 1.0,
+   "evidence": "Duração do contrato: 5 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "concurso público",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 2,
+   "confidence": 1.0,
+   "evidence": "Lotes: 2",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acordo-quadro: não",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 1.0,
+   "evidence": "Local de execução: PT1C3",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Valnor - Valorização e Tratamento de Resíduos Sólidos, S. A.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 0.5,
+   "evidence": "Portuguese text",
+   "evidence_found": false
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar tenders in this category typically receive a median of 3 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "autocompactadores de resíduos"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "43315000",
+      "division": "43",
+      "es": "Compactadores",
+      "en": "Compacting machinery"
+     },
+     {
+      "code": "39713300",
+      "division": "39",
+      "es": "Compactadores de basuras",
+      "en": "Rubbish compactors"
+     },
+     {
+      "code": "34144512",
+      "division": "34",
+      "es": "Vehículos compactadores de basuras",
+      "en": "Refuse-compaction vehicles"
+     },
+     {
+      "code": "03416000",
+      "division": "03",
+      "es": "Residuos de madera",
+      "en": "Wood waste"
+     },
+     {
+      "code": "19610000",
+      "division": "19",
+      "es": "Residuos de cuero",
+      "en": "Leather waste"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "39",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 39, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1208,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8217,
+ "tokens_out": 1185,
+ "latency_s": 121.601,
+ "requests": 3,
+ "model": "gemini-3.1-flash-lite",
+ "prompt_version": "extract-v1"
+}

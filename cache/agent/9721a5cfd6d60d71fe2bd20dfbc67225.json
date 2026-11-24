@@ -1,0 +1,166 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Órgano de contratación: Servicio Gallego de Salud",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72262000",
+   "confidence": 0.8,
+   "evidence": "Servicios de diseño y desarrollo de algoritmos",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.8,
+   "evidence": "Servicios de diseño y desarrollo de algoritmos",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Servicios de diseño y desarrollo de algoritmos",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 480000.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 480 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 9.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 9 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.9,
+   "evidence": "Criterios de adjudicación: precio 50 %, calidad 50 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES11",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES111 (Galicia)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Servicio Gallego de Salud",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Servicios de diseño y desarrollo de algoritmos",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar services tenders in Spain usually get a median of 2 bidders.",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "480 000,00 EUR"
+   },
+   "result": {
+    "amount": 480000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "algoritmos asistencia sanitaria diabetes diseño desarrollo"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33615000",
+      "division": "33",
+      "es": "Antidiabéticos",
+      "en": "Medicinal products used in diabetes"
+     },
+     {
+      "code": "45232460",
+      "division": "45",
+      "es": "Trabajos sanitarios",
+      "en": "Sanitary works"
+     },
+     {
+      "code": "44411000",
+      "division": "44",
+      "es": "Aparatos sanitarios",
+      "en": "Sanitary ware"
+     },
+     {
+      "code": "75122000",
+      "division": "75",
+      "es": "Servicios administrativos relacionados con la asistencia sanitaria",
+      "en": "Administrative healthcare services"
+     },
+     {
+      "code": "90900000",
+      "division": "90",
+      "es": "Servicios sanitarios y de limpieza",
+      "en": "Cleaning and sanitation services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "desarrollo de software servicios sanitarios algoritmos"
+   },
+   "result": "{'results': [{'code': '72262000', 'division': '72', 'es': 'Servicios de desarrollo de software', 'en': 'Software development services'}, {'code': '72212983', 'division': '72', 'es': 'Servicios de desarrollo de software de desarrollo', 'en': 'Development software development services'}, {'code': '72212517', 'division': '72', 'es': 'Servicios de desarrollo de software de TI', 'en': 'IT software development services'}, {'code': '44411000', 'division': '44', 'es': 'Aparatos sanitarios', 'en': 'Sanitary ware'}, {'code': '72212931', 'division': '72', 'es': 'Servicios de desarrollo de software de for…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "72",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 11174,
+ "tokens_out": 532,
+ "latency_s": 12.937,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

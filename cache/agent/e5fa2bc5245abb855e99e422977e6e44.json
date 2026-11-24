@@ -1,0 +1,167 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Órgano de contratación: Servicio Madrileño de Salud",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "60100000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "60",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "SERVICIOS DE TRANSPORTE CON CONDUCTOR",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 480000.0,
+   "confidence": 0.9,
+   "evidence": "480 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 5.0,
+   "confidence": 0.9,
+   "evidence": "precio 5 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES30",
+   "confidence": 0.9,
+   "evidence": "ES300 (Madrid)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Servicio Madrileño de Salud - Hospital Universitario La Paz",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "SERVICIOS DE TRANSPORTE CON CONDUCTOR",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish services tenders of division 60, the median number of bidders was 2 (based on 2128 tenders).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de transporte con conductor"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "60400000",
+      "division": "60",
+      "es": "Servicios de transporte aéreo",
+      "en": "Air transport services"
+     },
+     {
+      "code": "44318000",
+      "division": "44",
+      "es": "Conductores",
+      "en": "Conductors"
+     },
+     {
+      "code": "60100000",
+      "division": "60",
+      "es": "Servicios de transporte por carretera",
+      "en": "Road transport services"
+     },
+     {
+      "code": "60161000",
+      "division": "60",
+      "es": "Servicios de transporte de paquetes",
+      "en": "Parcel transport services"
+     },
+     {
+      "code": "90513700",
+      "division": "90",
+      "es": "Servicios de transporte de lodos",
+      "en": "Sludge transport services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "480 000,00 EUR"
+   },
+   "result": {
+    "amount": 480000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "transporte por carretera con conductor"
+   },
+   "result": "{'results': [{'code': '60100000', 'division': '60', 'es': 'Servicios de transporte por carretera', 'en': 'Road transport services'}, {'code': '60160000', 'division': '60', 'es': 'Transporte de correspondencia por carretera', 'en': 'Mail transport by road'}, {'code': '63712000', 'division': '63', 'es': 'Servicios complementarios para el transporte por carretera', 'en': 'Support services for road transport'}, {'code': '45213310', 'division': '45', 'es': 'Trabajos de construcción de edificios relacionados con el transporte por carretera', 'en': 'Construction work for buildings relating to road tr…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "60"
+   },
+   "result": {
+    "scope": "CPV division 60, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 2128,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 3.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 10591,
+ "tokens_out": 501,
+ "latency_s": 59.475,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

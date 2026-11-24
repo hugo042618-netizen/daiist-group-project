@@ -1,0 +1,159 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Órgano de contratación",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "98392000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "98",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "SERVICIOS DE TRASLADO",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 439477.07,
+   "confidence": 0.9,
+   "evidence": "439 477,07 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 4.1,
+   "confidence": 0.9,
+   "evidence": "4.1 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Barcelona d'Infraestructures Municipals, SA",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "SERVICIOS DE TRASLADO",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar services tenders in CPV division 98 typically receive a median of 2.5 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de traslado de colecciones museo"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "98392000",
+      "division": "98",
+      "es": "Servicios de traslado",
+      "en": "Relocation services"
+     },
+     {
+      "code": "92521000",
+      "division": "92",
+      "es": "Servicios de museos",
+      "en": "Museum services"
+     },
+     {
+      "code": "45212313",
+      "division": "45",
+      "es": "Trabajos de construcción de museos",
+      "en": "Museum construction work"
+     },
+     {
+      "code": "22841000",
+      "division": "22",
+      "es": "Álbumes para colecciones",
+      "en": "Collection albums"
+     },
+     {
+      "code": "92521100",
+      "division": "92",
+      "es": "Servicios de exposición en museos",
+      "en": "Museum-exhibition services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "439 477,07 EUR"
+   },
+   "result": {
+    "amount": 439477.07,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "98"
+   },
+   "result": {
+    "scope": "CPV division 98, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1144,
+     "q25": 1.0,
+     "median": 2.5,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 10331,
+ "tokens_out": 462,
+ "latency_s": 27.46,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

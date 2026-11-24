@@ -1,0 +1,133 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.95,
+   "evidence": "Título: Servicios de radiodiagnóstico para Badalona Servicios Asistenciales.",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "85141200",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "85",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.95,
+   "evidence": "Servicios de radiodiagnóstico",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 796900.0,
+   "confidence": 0.95,
+   "evidence": "Valor estimado sin IVA: 796 900,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 0.95,
+   "evidence": "Duración del contrato: 24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.95,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.95,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.95,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Badalona Serveis Assistencials, SA.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.95,
+   "evidence": "Servicios de radiodiagnóstico",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish tenders within this CPV division and contract type, the median number of bidders was 2.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de radiodiagnóstico"
+   },
+   "result": "{'results': [{'code': '33124200', 'division': '33', 'es': 'Aparatos para radiodiagnóstico', 'en': 'Radiodiagnostic devices'}, {'code': '33124210', 'division': '33', 'es': 'Material para radiodiagnóstico', 'en': 'Radiodiagnostic supplies'}, {'code': '33124000', 'division': '33', 'es': 'Aparatos y material para diagnóstico y radiodiagnóstico', 'en': 'Diagnostics and radiodiagnostic devices and supplies'}, {'code': '33111800', 'division': '33', 'es': 'Radiodiagnosis', 'en': 'Diagnostic X-ray system'}, {'code': '33694000', 'division': '33', 'es': 'Medios de diagnóstico', 'en': 'Diagnostic agents'}…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "796 900,00 EUR"
+   },
+   "result": {
+    "amount": 796900.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de radiodiagnostico"
+   },
+   "result": "{'results': [{'code': '33124200', 'division': '33', 'es': 'Aparatos para radiodiagnóstico', 'en': 'Radiodiagnostic devices'}, {'code': '33124210', 'division': '33', 'es': 'Material para radiodiagnóstico', 'en': 'Radiodiagnostic supplies'}, {'code': '33124000', 'division': '33', 'es': 'Aparatos y material para diagnóstico y radiodiagnóstico', 'en': 'Diagnostics and radiodiagnostic devices and supplies'}, {'code': '33111800', 'division': '33', 'es': 'Radiodiagnosis', 'en': 'Diagnostic X-ray system'}, {'code': '33694000', 'division': '33', 'es': 'Medios de diagnóstico', 'en': 'Diagnostic agents'}…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "33",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 33, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 25,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 3.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 7774,
+ "tokens_out": 531,
+ "latency_s": 9.377,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

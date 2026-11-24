@@ -1,0 +1,133 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Adjudicación del Contrato Basado del Acuerdo Marco",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "33600000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "33",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 1.0,
+   "evidence": "Suministro del Medicamento OMALIZUMAB",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1955676.97,
+   "confidence": 1.0,
+   "evidence": "1 955 676,97 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 1.0,
+   "evidence": "12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: sí",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 1.0,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "CORPORACIÓ DE SALUT DEL MARESME I LA SELVA",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Adjudicación del Contrato Basado",
+   "evidence_found": true
+  }
+ },
+ "is_tender": false,
+ "not_tender_reason": "The text is an award notice (\"Adjudicación del Contrato Basado\"), not a call for tenders.",
+ "market_note": "In supplies tenders under CPV division 33, contracts typically receive a median of 2 bidders.",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 955 676,97 EUR"
+   },
+   "result": {
+    "amount": 1955676.97,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "OMALIZUMAB medicamento suministro"
+   },
+   "result": "{'results': [{'code': '79625000', 'division': '79', 'es': 'Servicios de suministro de personal médico', 'en': 'Supply services of medical personnel'}, {'code': '72319000', 'division': '72', 'es': 'Servicios de suministro de datos', 'en': 'Data supply services'}, {'code': '72268000', 'division': '72', 'es': 'Servicios de suministro de software', 'en': 'Software supply services'}, {'code': '44162100', 'division': '44', 'es': 'Suministros para canalizaciones', 'en': 'Piping supplies'}, {'code': '55320000', 'division': '55', 'es': 'Servicios de suministro de comidas', 'en': 'Meal-serving services'…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "medicamentos productos farmacéuticos"
+   },
+   "result": "{'results': [{'code': '33600000', 'division': '33', 'es': 'Productos farmacéuticos', 'en': 'Pharmaceutical products'}, {'code': '33680000', 'division': '33', 'es': 'Artículos farmacéuticos', 'en': 'Pharmaceutical articles'}, {'code': '85149000', 'division': '85', 'es': 'Servicios farmacéuticos', 'en': 'Pharmacy services'}, {'code': '33000000', 'division': '33', 'es': 'Equipamiento y artículos médicos, farmacéuticos y de higiene personal', 'en': 'Medical equipments, pharmaceuticals and personal care products'}, {'code': '33792000', 'division': '33', 'es': 'Artículos de vidrio para uso farmacéut…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "33"
+   },
+   "result": {
+    "scope": "CPV division 33, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 8014,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 10941,
+ "tokens_out": 525,
+ "latency_s": 160.184,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

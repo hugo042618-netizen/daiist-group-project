@@ -1,0 +1,174 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: IMPARTICIÓN DE ACCIONES DE DESARROLLO DE COMPETENCIAS",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "80500000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "80",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "IMPARTICIÓN DE ACCIONES DE DESARROLLO DE COMPETENCIAS",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 600000.0,
+   "confidence": 1.0,
+   "evidence": "Valor estimado sin IVA: 600 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES30",
+   "confidence": 0.9,
+   "evidence": "ES300 (Madrid)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "ASOCIACIÓN INSERTA EMPLEO",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: IMPARTICIÓN DE ACCIONES...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish services tenders in division 80 usually receive a median of 3 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "IMPARTICIÓN DE ACCIONES DE DESARROLLO DE COMPETENCIAS FORMACION EMPLEABILIDAD"
+   },
+   "result": "{'results': [{'code': '72212443', 'division': '72', 'es': 'Servicios de desarrollo de software de contabilidad', 'en': 'Accounting software development services'}, {'code': '72212931', 'division': '72', 'es': 'Servicios de desarrollo de software de formación', 'en': 'Training software development services'}, {'code': '72212983', 'division': '72', 'es': 'Servicios de desarrollo de software de desarrollo', 'en': 'Development software development services'}, {'code': '72212930', 'division': '72', 'es': 'Servicios de desarrollo de software de formación y entretenimiento', 'en': 'Training and enter…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "80"
+   },
+   "result": {
+    "scope": "CPV division 80, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1317,
+     "q25": 1.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "formacion empleo talleres competencias"
+   },
+   "result": "{'results': [{'code': '43800000', 'division': '43', 'es': 'Equipo de talleres', 'en': 'Workshop equipment'}, {'code': '45213252', 'division': '45', 'es': 'Trabajos de construcción de talleres', 'en': 'Workshops construction work'}, {'code': '63711200', 'division': '63', 'es': 'Servicios de talleres móviles', 'en': 'Moving workshops services'}, {'code': '45234180', 'division': '45', 'es': 'Trabajos de construcción para talleres ferroviarios', 'en': 'Construction work for railways workshop'}, {'code': '75314000', 'division': '75', 'es': 'Prestaciones de indemnización por desempleo', 'en': 'Unemp…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de formacion"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "80500000",
+      "division": "80",
+      "es": "Servicios de formación",
+      "en": "Training services"
+     },
+     {
+      "code": "80533100",
+      "division": "80",
+      "es": "Servicios de formación informática",
+      "en": "Computer training services"
+     },
+     {
+      "code": "80532000",
+      "division": "80",
+      "es": "Servicios de formación en materia de gestión",
+      "en": "Management training services"
+     },
+     {
+      "code": "80511000",
+      "division": "80",
+      "es": "Servicios de formación del personal",
+      "en": "Staff training services"
+     },
+     {
+      "code": "80531200",
+      "division": "80",
+      "es": "Servicios de formación técnica",
+      "en": "Technical training services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "600 000,00 EUR"
+   },
+   "result": {
+    "amount": 600000.0,
+    "currency": "EUR"
+   }
+  }
+ ],
+ "tokens_in": 16327,
+ "tokens_out": 537,
+ "latency_s": 60.569,
+ "requests": 5,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

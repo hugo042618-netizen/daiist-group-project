@@ -1,0 +1,133 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: AMT-2025-0117: Servicio para el desarrollo",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72267000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Servicio para el desarrollo de nuevas funcionalidades",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1216932.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 1 216 932,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 0.9,
+   "evidence": "precio 40 %, calidad 60 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES11",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES111 (Galicia)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Agencia para la Modernización Tecnológica de Galicia",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: AMT-2025-0117: Servicio para el desarrollo",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar services tenders in Spain usually receive around 2 bidders (median for CPV 72).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "mantenimiento de aplicaciones soporte web"
+   },
+   "result": "{'results': [{'code': '45259000', 'division': '45', 'es': 'Reparación y mantenimiento de instalaciones', 'en': 'Repair and maintenance of plant'}, {'code': '50114200', 'division': '50', 'es': 'Servicios de mantenimiento de camiones', 'en': 'Truck maintenance services'}, {'code': '72416000', 'division': '72', 'es': 'Proveedores de servicio de aplicaciones', 'en': 'Application service providers'}, {'code': '50334400', 'division': '50', 'es': 'Servicios de mantenimiento de sistemas de comunicaciones', 'en': 'Communications system maintenance services'}, {'code': '45442000', 'division': '45', 'es'…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 216 932,00 EUR"
+   },
+   "result": {
+    "amount": 1216932.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "72",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "software maintenance and support services"
+   },
+   "result": "{'results': [{'code': '72261000', 'division': '72', 'es': 'Servicios de apoyo al software', 'en': 'Software support services'}, {'code': '72267000', 'division': '72', 'es': 'Servicios de mantenimiento y reparación de software', 'en': 'Software maintenance and repair services'}, {'code': '72268000', 'division': '72', 'es': 'Servicios de suministro de software', 'en': 'Software supply services'}, {'code': '50000000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento', 'en': 'Repair and maintenance services'}, {'code': '50324100', 'division': '50', 'es': 'Servicios de mantenimiento…"
+  }
+ ],
+ "tokens_in": 8660,
+ "tokens_out": 535,
+ "latency_s": 9.957,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

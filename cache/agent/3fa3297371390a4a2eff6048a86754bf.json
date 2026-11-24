@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Suministro CONTR 2024 0000814089",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "33186000",
+   "confidence": 0.8,
+   "evidence": "bomba extracorpórea",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "33",
+   "confidence": 0.8,
+   "evidence": "bomba extracorpórea",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "Suministro",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 332765.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 332 765,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 4.0,
+   "confidence": 0.9,
+   "evidence": "4 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "procedimiento abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES61",
+   "confidence": 0.9,
+   "evidence": "ES617 (Andalucía)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Servicio Andaluz de Salud",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Suministro CONTR 2024 0000814089",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish supplies tenders of CPV division 33, the median number of bidders was 2 (based on 8014 tenders).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "bomba extracorpórea"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33186000",
+      "division": "33",
+      "es": "Unidad de circulación extracorpórea",
+      "en": "Extracorporeal circulatory unit"
+     },
+     {
+      "code": "24222000",
+      "division": "24",
+      "es": "Extractos curtientes",
+      "en": "Tanning extracts"
+     },
+     {
+      "code": "24221000",
+      "division": "24",
+      "es": "Extractos tintóreos",
+      "en": "Dyeing extracts"
+     },
+     {
+      "code": "15892200",
+      "division": "15",
+      "es": "Extractos vegetales",
+      "en": "Vegetable extracts"
+     },
+     {
+      "code": "18222000",
+      "division": "18",
+      "es": "Indumentaria corporativa",
+      "en": "Corporate clothing"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "332 765,00 EUR"
+   },
+   "result": {
+    "amount": 332765.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "33",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 33, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 8014,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5070,
+ "tokens_out": 514,
+ "latency_s": 58.186,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

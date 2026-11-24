@@ -1,0 +1,92 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Titre: Dépannage/stockage/Pose/dépose et achat des illuminations festives",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "31523000",
+   "confidence": 0.8,
+   "evidence": "illuminations festives",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "31",
+   "confidence": 0.8,
+   "evidence": "illuminations festives",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Dépannage/stockage/Pose/dépose et achat des illuminations festives",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1600000.0,
+   "confidence": 1.0,
+   "evidence": "1 600 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 48.0,
+   "confidence": 1.0,
+   "evidence": "48 mois",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "procédure ouverte",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.5,
+   "evidence": "Not specified, assumed 1",
+   "evidence_found": false
+  },
+  "price_weight_pct": {
+   "value": 60.0,
+   "confidence": 1.0,
+   "evidence": "prix 60 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Accord-cadre: oui",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.5,
+   "evidence": "Ville de Saint-Paul (Réunion, France)",
+   "evidence_found": false
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 1.0,
+   "evidence": "Ville de Saint-Paul",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "fr",
+   "confidence": 0.5,
+   "evidence": "French text",
+   "evidence_found": false
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "This tender is for a French municipality (Saint-Paul, Réunion), so Spanish market statistics are not applicable.",
+ "steps": [],
+ "tokens_in": 2274,
+ "tokens_out": 534,
+ "latency_s": 7.184,
+ "requests": 1,
+ "model": "gemini-3.1-flash-lite",
+ "prompt_version": "extract-v1"
+}

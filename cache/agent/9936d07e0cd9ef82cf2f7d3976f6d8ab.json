@@ -1,0 +1,133 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimento: concurso limitado",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72261000",
+   "confidence": 0.8,
+   "evidence": "manutenção preventiva, corretiva e adaptativa",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.8,
+   "evidence": "72261000",
+   "evidence_found": false
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Aquisição de serviços de manutenção preventiva, corretiva e adaptativa",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 292000.0,
+   "confidence": 1.0,
+   "evidence": "292 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "restricted",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimento: concurso limitado",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.5,
+   "evidence": "not specified, assumed 1",
+   "evidence_found": false
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "preço 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acordo-quadro: não",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 1.0,
+   "evidence": "Local de execução: PT1A0",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "ministry",
+   "confidence": 1.0,
+   "evidence": "Ministério da Administração Interna - Guarda Nacional Republicana",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 0.5,
+   "evidence": "Portuguese text",
+   "evidence_found": false
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "manutenção de software"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "72254000",
+      "division": "72",
+      "es": "Ensayo de software",
+      "en": "Software testing"
+     },
+     {
+      "code": "48517000",
+      "division": "48",
+      "es": "Paquetes de software de TI",
+      "en": "IT software package"
+     },
+     {
+      "code": "72261000",
+      "division": "72",
+      "es": "Servicios de apoyo al software",
+      "en": "Software support services"
+     },
+     {
+      "code": "72262000",
+      "division": "72",
+      "es": "Servicios de desarrollo de software",
+      "en": "Software development services"
+     },
+     {
+      "code": "48931000",
+      "division": "48",
+      "es": "Paquetes de software de formación",
+      "en": "Training software package"
+     }
+    ]
+   }
+  }
+ ],
+ "tokens_in": 5031,
+ "tokens_out": 978,
+ "latency_s": 20.016,
+ "requests": 2,
+ "model": "gemini-3.1-flash-lite",
+ "prompt_version": "extract-v1"
+}

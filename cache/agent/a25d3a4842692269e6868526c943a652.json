@@ -1,0 +1,159 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: Servicios de asistencia técnica",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "71356200",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "71",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicios de asistencia técnica",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 621824.0,
+   "confidence": 1.0,
+   "evidence": "621 824,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 16.0,
+   "confidence": 1.0,
+   "evidence": "16 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 1.0,
+   "evidence": "precio 50 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 1.0,
+   "evidence": "ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "INTERBIAK BIZKAIA, S.A. M.P.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Servicios de asistencia técnica",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish services tenders under CPV division 71, the median number of bidders was 6 (based on 5136 tenders).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "asistencia técnica dirección de obra puente"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "71356200",
+      "division": "71",
+      "es": "Servicios de asistencia técnica",
+      "en": "Technical assistance services"
+     },
+     {
+      "code": "85310000",
+      "division": "85",
+      "es": "Servicios de asistencia social",
+      "en": "Social work services"
+     },
+     {
+      "code": "44212100",
+      "division": "44",
+      "es": "Puente",
+      "en": "Bridge"
+     },
+     {
+      "code": "66512200",
+      "division": "66",
+      "es": "Servicios de seguros de asistencia médica",
+      "en": "Health insurance services"
+     },
+     {
+      "code": "72253100",
+      "division": "72",
+      "es": "Servicios de unidad de asistencia",
+      "en": "Helpdesk services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "621 824,00 EUR"
+   },
+   "result": {
+    "amount": 621824.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "71"
+   },
+   "result": {
+    "scope": "CPV division 71, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5136,
+     "q25": 3.0,
+     "median": 6.0,
+     "q75": 11.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 4999,
+ "tokens_out": 453,
+ "latency_s": 10.517,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

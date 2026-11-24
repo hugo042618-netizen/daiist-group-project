@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Titre: Souscription de contrats d'assurances",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "66510000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "66",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Souscription de contrats d'assurances",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1500000.0,
+   "confidence": 0.9,
+   "evidence": "1 500 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "procédure ouverte",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 3,
+   "confidence": 0.9,
+   "evidence": "Lots: 3",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Accord-cadre: non",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "METPARK",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "fr",
+   "confidence": 0.9,
+   "evidence": "Titre: Souscription de contrats d'assurances",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish tenders for insurance services (CPV division 66), the median number of bidders is 2.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "contrats d'assurances"
+   },
+   "result": "{'results': [{'code': '72224200', 'division': '72', 'es': 'Servicios de planificación de la garantía de calidad del sistema', 'en': 'System quality assurance planning services'}, {'code': '66510000', 'division': '66', 'es': 'Servicios de seguros', 'en': 'Insurance services'}, {'code': '72225000', 'division': '72', 'es': 'Servicios de evaluación y revisión de la garantía de calidad del sistema', 'en': 'System quality assurance assessment and review services'}, {'code': '66515410', 'division': '66', 'es': 'Servicios de seguros contra pérdidas financieras', 'en': 'Financial loss insurance service…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "66",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 66, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1626,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 3.0
+    }
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 500 000,00 EUR"
+   },
+   "result": {
+    "amount": 1500000.0,
+    "currency": "EUR"
+   }
+  }
+ ],
+ "tokens_in": 10445,
+ "tokens_out": 452,
+ "latency_s": 60.137,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

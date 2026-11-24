@@ -1,0 +1,166 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "SERVICIO DE LIMPIEZA Y DESINFECCIÓN DE LOS VEHÍCULOS DE METRO DE MADRID",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "90917000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "90",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "SERVICIO DE LIMPIEZA Y DESINFECCIÓN",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 598244.4,
+   "confidence": 0.9,
+   "evidence": "598 244,40 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 48.0,
+   "confidence": 0.9,
+   "evidence": "48 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES30",
+   "confidence": 0.9,
+   "evidence": "ES300 (Madrid)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Metro de Madrid, S.A.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: SERVICIO DE LIMPIEZA",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish services tenders of division 90, the median number of bidders is 4 (based on 6091 past tenders).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "limpieza de vehículos"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "90910000",
+      "division": "90",
+      "es": "Servicios de limpieza",
+      "en": "Cleaning services"
+     },
+     {
+      "code": "34100000",
+      "division": "34",
+      "es": "Vehículos de motor",
+      "en": "Motor vehicles"
+     },
+     {
+      "code": "98313000",
+      "division": "98",
+      "es": "Servicios de limpieza de artículos de piel",
+      "en": "Fur-products cleaning services"
+     },
+     {
+      "code": "37527200",
+      "division": "37",
+      "es": "Vehículos de juguete",
+      "en": "Toy vehicles"
+     },
+     {
+      "code": "34224200",
+      "division": "34",
+      "es": "Partes de otros vehículos",
+      "en": "Parts of other vehicles"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "598 244,40 EUR"
+   },
+   "result": {
+    "amount": 598244.4,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "90",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 90, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 6091,
+     "q25": 2.0,
+     "median": 4.0,
+     "q75": 7.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "limpieza de transportes publicos"
+   },
+   "result": "{'results': [{'code': '90917000', 'division': '90', 'es': 'Servicios de limpieza de medios de transporte', 'en': 'Cleaning services of transport equipment'}, {'code': '60112000', 'division': '60', 'es': 'Servicios de transporte por la vía pública', 'en': 'Public road transport services'}, {'code': '60210000', 'division': '60', 'es': 'Servicios de transporte público por ferrocarril', 'en': 'Public transport services by railways'}, {'code': '65000000', 'division': '65', 'es': 'Servicios públicos', 'en': 'Public utilities'}, {'code': '60400000', 'division': '60', 'es': 'Servicios de transporte aé…"
+  }
+ ],
+ "tokens_in": 7850,
+ "tokens_out": 502,
+ "latency_s": 5.272,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

@@ -1,0 +1,126 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Servicio de Actuaciones de balizamiento en operaciones especiales",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "63712700",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "63",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Servicio de Actuaciones de balizamiento",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 609504.13,
+   "confidence": 0.9,
+   "evidence": "609 504,13 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 36.0,
+   "confidence": 0.9,
+   "evidence": "36 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 70.0,
+   "confidence": 0.9,
+   "evidence": "precio 70 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Gobierno Vasco - Seguridad",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Servicio de Actuaciones de balizamiento",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish services tenders for this CPV division, the median number of bidders is 3, with 75% of tenders receiving 5 or fewer.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "balizamiento trafico servicios"
+   },
+   "result": "{'results': [{'code': '45316213', 'division': '45', 'es': 'Instalación de equipo de balizamiento', 'en': 'Installation of traffic guidance equipment'}, {'code': '63712700', 'division': '63', 'es': 'Servicios de control del tráfico', 'en': 'Traffic control services'}, {'code': '50232200', 'division': '50', 'es': 'Servicios de mantenimiento de señales de tráfico', 'en': 'Traffic-signal maintenance services'}, {'code': '63712710', 'division': '63', 'es': 'Servicios de monitorización del tráfico', 'en': 'Traffic monitoring services'}, {'code': '63732000', 'division': '63', 'es': 'Servicios de cont…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "609 504,13 EUR"
+   },
+   "result": {
+    "amount": 609504.13,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "63"
+   },
+   "result": {
+    "scope": "CPV division 63, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 797,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 7536,
+ "tokens_out": 484,
+ "latency_s": 21.443,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

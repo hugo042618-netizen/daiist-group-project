@@ -17,6 +17,8 @@ could not be read: run it first, and run it again after editing the eval/ files.
 - If every model has used up its free requests for the day, it stops cleanly (exit code 2) and
   says when the quotas reset; with --resume-after-reset it waits until then and carries on.
 - cache/agent_models.csv records which model answered each input.
+- At the end it prints what this run sent to Gemini and what that costs at the paid prices
+  (config.PRICES_USD_PER_M), counting also the requests of attempts that failed half-way.
 """
 
 import argparse
@@ -126,6 +128,16 @@ def one_pass(groups: dict[str, list[str]], workers: int) -> tuple[int, int]:
     return failed, left
 
 
+def print_usage() -> None:
+    """Requests, tokens and cost of this run, per model. On the free tier nothing is charged."""
+    total = 0.0
+    for model, (requests, tokens_in, tokens_out) in sorted(agent.usage.items()):
+        cost = agent.cost_eur(tokens_in, tokens_out, model)
+        total += cost
+        print(f"Sent in this run, {model}: {requests} requests, {tokens_in:,} tokens in, {tokens_out:,} tokens out, EUR {cost:.4f}")
+    print(f"Cost of this run at the paid prices: EUR {total:.4f}", flush=True)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--workers", type=int, default=3, help="inputs read at the same time (the per-minute throttle still applies)")
@@ -152,6 +164,7 @@ def main() -> None:
         while datetime.now(MADRID) < resume:
             time.sleep(60)   # short sleeps, so the wait also ends on time after the computer wakes up
         agent._daily_out.clear()
+    print_usage()
     if failed:
         raise SystemExit(f"{failed} inputs could not be read. Run the script again (the cache keeps what is done).")
     print("All inputs are cached. Commit cache/.")

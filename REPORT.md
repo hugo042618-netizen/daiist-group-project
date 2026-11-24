@@ -96,9 +96,32 @@ The 80% range covers 90.2% of test cases; its lower bound is always 1 bidder. (A
 **Component 1, agent** (`uv run python main.py evaluate` → `eval/metrics.json`, `eval/extraction_results.csv`):
 field accuracy against TED's official fields on 40 notices of `eval/extraction_truth.csv`.
 
+All 40 notices were read by `gemini-3.5-flash-lite`, the app's default model, and by no other
+(`eval/extraction_results.csv`, column `model`). Measured on 24 Nov 2026, prompt `extract-v1`.
+
 | Field | Accuracy | n |
 |---|---|---|
-| *to fill from `eval/metrics.json` once the evaluation has run with a Gemini key* | | |
+| CPV division (2 digits) | 75% | 40 |
+| CPV group (3 digits) | 60% | 40 |
+| Contract type | 95% | 40 |
+| Estimated value (within 1%) | 100% | 40 |
+| Duration in months (within 1) | 100% | 37 |
+| Procedure | 100% | 40 |
+| Number of lots | 98% | 40 |
+| Weight of price (within 2 points) | 100% | 37 |
+| Framework agreement | 100% | 40 |
+| Region | 100% | 40 |
+| Buyer type | 64% | 39 |
+
+- Recognised as a tender: 39 of 40. The one it refused is an award notice, which the agent said is not a
+  call for tenders.
+- CPV: the test texts do not state the CPV code, so the agent has to choose it from the description with
+  `lookup_cpv`. In the 16 notices where the group differs it gave a confidence of 0.6 to 0.8.
+- Buyer type: 10 of the 14 differences are bodies that TED files under a regional government and the agent
+  called "other public body"; the truth for this field is derived from TED's buyer code and name
+  (`scripts/ted_data.py`), not written by a person.
+- Hand-off (40 notices from 2026 whose real number of offers is known): MAE of the expected bidders 1.756
+  with the agent's fields, 1.651 with TED's official fields, 1.788 for the baseline. Small sample.
 
 **TEAM TO WRITE:** what these numbers mean for the product; which fields the agent gets wrong and why it matters
 (or not) for the decision; the hand-off cost (model error with the agent's fields vs with the official fields).
@@ -111,7 +134,11 @@ is in `bidsense/judge.py`; report your agreement with it on your own labels (Coh
 
 ### Cost and latency
 
-*To fill from `eval/metrics.json` → `cost_per_request`: tokens in and out, euros, seconds.* The cost is an
+*To fill from `eval/metrics.json` → `cost_per_request` once `eval/cases.csv` exists.* Measured so far on the
+40 extraction notices with `gemini-3.5-flash-lite`: 3.4 requests, 9,032 input tokens and 507 output tokens per
+tender on average, €0.0037 per tender; one live request took 3.9 s. (The latencies stored in the cache were
+taken while many inputs ran at once and include waiting for the per-minute throttle, so they are not the time
+one user waits.) The cost is an
 estimate at Gemini's paid-tier prices for the model that answered (`config.py`: for `gemini-3.5-flash-lite`,
 $0.30 per million input tokens and $2.50 per million output tokens); on the free tier the app costs nothing,
 but it is limited as follows. The scikit-learn model costs nothing per request.
@@ -129,6 +156,10 @@ but it is limited as follows. The scikit-learn model costs nothing per request.
   of `gemini-3.5-flash-lite` and all 20 of each larger model while building and testing.
 - The app sends at most 80% of a model's per-minute limit (12 requests a minute on the lite models), moves to
   the next model when one is busy or out of quota, and says so in the answer when none is available.
+- Filling the cache was finished on the paid tier (billing was added to the project on the evening of
+  24 Nov 2026): 167 requests to `gemini-3.5-flash-lite`, 453,345 input and 24,214 output tokens, €0.18. All 105
+  cached inputs together (45 reference, 20 shifted, 40 extraction notices) come to €0.41 at the paid prices;
+  the part read earlier on the free tier was not charged. The app's defaults stay those of the free tier.
 - The evaluation inputs are answered from the committed cache (`cache/`), so `check.py`, `main.py evaluate` and
   `main.py drift-demo` do not use the quota of whoever runs them; `cache/agent_models.csv` records which model
   answered each input.

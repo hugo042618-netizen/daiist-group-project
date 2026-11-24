@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Type de procédure: procédure ouverte",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "39154100",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "39",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Fabrication, installation, aménagement et démontage d'un stand",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 234025.0,
+   "confidence": 1.0,
+   "evidence": "L'estimation du marché (Total DPGF + BPU valant DQE) s'élève à 234 025 euro(s) HT",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 3.0,
+   "confidence": 0.8,
+   "evidence": "date de notification jusqu'au 15/03/2026",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "Type de procédure: procédure ouverte",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 1.0,
+   "evidence": "Marché mono-attributaire",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 1.0,
+   "evidence": "prix 40 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Accord-cadre: non",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.7,
+   "evidence": "Département du Var",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.8,
+   "evidence": "Département du Var",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "fr",
+   "confidence": 1.0,
+   "evidence": "Titre: Fabrication, installation, aménagement...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish services tenders under CPV division 39, the median number of bidders was 2.5.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "stand Salon International de l'Agriculture"
+   },
+   "result": "{'results': [{'code': '03144000', 'division': '03', 'es': 'Productos para la agricultura', 'en': 'Agricultural supplies'}, {'code': '16400000', 'division': '16', 'es': 'Aparatos de pulverizar para la agricultura o la horticultura', 'en': 'Spraying machinery for agriculture or horticulture'}, {'code': '03100000', 'division': '03', 'es': 'Productos de la agricultura y horticultura', 'en': 'Agricultural and horticultural products'}, {'code': '92231000', 'division': '92', 'es': 'Servicios bilaterales internacionales y líneas privadas internacionales arrendadas', 'en': 'International bilateral serv…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "234 025 euro(s) HT"
+   },
+   "result": {
+    "amount": 234025.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "39",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 39, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 20,
+     "q25": 2.0,
+     "median": 2.5,
+     "q75": 4.25
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "stand exhibition services"
+   },
+   "result": "{'results': [{'code': '39154100', 'division': '39', 'es': 'Stands de exposición', 'en': 'Exhibition stands'}, {'code': '39154000', 'division': '39', 'es': 'Equipamiento de exposición', 'en': 'Exhibition equipment'}, {'code': '79956000', 'division': '79', 'es': 'Servicios de organización de ferias y exposiciones', 'en': 'Fair and exhibition organisation services'}, {'code': '45212312', 'division': '45', 'es': 'Trabajos de construcción de centros de exposiciones', 'en': 'Exhibition centre construction work'}, {'code': '92521100', 'division': '92', 'es': 'Servicios de exposición en museos', 'en':…"
+  }
+ ],
+ "tokens_in": 9263,
+ "tokens_out": 518,
+ "latency_s": 4.032,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

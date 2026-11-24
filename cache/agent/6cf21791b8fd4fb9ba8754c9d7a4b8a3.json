@@ -1,0 +1,200 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Órgano de contratación: Institut Tecnològic Barcelona",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "48820000",
+   "confidence": 0.8,
+   "evidence": "servidor de alto rendimiento",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "48",
+   "confidence": 0.8,
+   "evidence": "servidor de alto rendimiento",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 1.0,
+   "evidence": "Suministro, instalación",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 300000.0,
+   "confidence": 1.0,
+   "evidence": "Valor estimado sin IVA: 300 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 1.0,
+   "confidence": 1.0,
+   "evidence": "1 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 1.0,
+   "evidence": "precio 50 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Institut Tecnològic Barcelona",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Suministro, instalación y puesta en funcionamiento",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish supplies tenders of CPV division 48, the median number of bidders was 2 (based on 1180 tenders).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servidor de alto rendimiento equipamiento de cómputo"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33100000",
+      "division": "33",
+      "es": "Equipamiento médico",
+      "en": "Medical equipments"
+     },
+     {
+      "code": "39162000",
+      "division": "39",
+      "es": "Equipamiento de enseñanza",
+      "en": "Educational equipment"
+     },
+     {
+      "code": "39155100",
+      "division": "39",
+      "es": "Equipamiento de biblioteca",
+      "en": "Library equipment"
+     },
+     {
+      "code": "39154000",
+      "division": "39",
+      "es": "Equipamiento de exposición",
+      "en": "Exhibition equipment"
+     },
+     {
+      "code": "37535200",
+      "division": "37",
+      "es": "Equipamiento para terrenos de juego",
+      "en": "Playground equipment"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "300 000,00 EUR"
+   },
+   "result": {
+    "amount": 300000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "48"
+   },
+   "result": {
+    "scope": "CPV division 48, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1180,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servidor"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "48820000",
+      "division": "48",
+      "es": "Servidores",
+      "en": "Servers"
+     },
+     {
+      "code": "48821000",
+      "division": "48",
+      "es": "Servidores de red",
+      "en": "Network servers"
+     },
+     {
+      "code": "48822000",
+      "division": "48",
+      "es": "Servidores de ordenador",
+      "en": "Computer servers"
+     },
+     {
+      "code": "48825000",
+      "division": "48",
+      "es": "Servidores web",
+      "en": "Web servers"
+     },
+     {
+      "code": "48824000",
+      "division": "48",
+      "es": "Servidores de impresora",
+      "en": "Printer servers"
+     }
+    ]
+   }
+  }
+ ],
+ "tokens_in": 7916,
+ "tokens_out": 496,
+ "latency_s": 58.382,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}

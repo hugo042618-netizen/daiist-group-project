@@ -55,7 +55,9 @@ class DailyQuotaExhausted(AgentError):
 _skip_until: dict[str, float] = {}   # model -> time until which it is tried last after being unavailable
 _daily_out: dict[str, float] = {}    # model -> time until which its daily quota is known to be used up
 _sent: dict[str, collections.deque] = {}   # model -> times of the requests sent in the last minute
+usage: dict[str, list[int]] = {}     # model -> [requests answered, tokens in, tokens out] since this process started
 _lock = threading.Lock()
+_waited = threading.local()          # seconds this thread spent queueing for the per-minute throttle
 
 
 def next_quota_reset(now: datetime | None = None) -> datetime:
@@ -80,6 +82,7 @@ def _throttle(model: str) -> None:
                 return
             wait = 60 - (now - sent[0]) + 0.05
         time.sleep(wait)
+        _waited.seconds = getattr(_waited, "seconds", 0.0) + wait
 
 
 def _is_daily_limit(error) -> bool:
@@ -113,6 +116,18 @@ def _retry_delay(error) -> float | None:
     return None
 
 
+def _count(model: str, response) -> None:
+    """Add an answered request to `usage`: every answer is billed, also those of a run that fails later."""
+    used = getattr(response, "usage_metadata", None)
+    tokens_in = int(getattr(used, "prompt_token_count", 0) or 0)
+    tokens_out = int((getattr(used, "candidates_token_count", 0) or 0) + (getattr(used, "thoughts_token_count", 0) or 0))
+    with _lock:
+        total = usage.setdefault(model, [0, 0, 0])
+        total[0] += 1
+        total[1] += tokens_in
+        total[2] += tokens_out
+
+
 def call_gemini(client, model: str, contents, request_config):
     """One call to one Gemini model, retried a little on rate limits and server errors."""
     from google.genai import errors
@@ -120,7 +135,9 @@ def call_gemini(client, model: str, contents, request_config):
     for attempt in range(config.GEMINI_RETRIES + 1):
         _throttle(model)
         try:
-            return client.models.generate_content(model=model, contents=contents, config=request_config)
+            response = client.models.generate_content(model=model, contents=contents, config=request_config)
+            _count(model, response)
+            return response
         except errors.APIError as error:
             code = getattr(error, "code", None)
             message = f"Gemini request failed ({code}, {model}): {str(error)[:200]}"
@@ -279,6 +296,7 @@ def extract(text: str, prompt_version: str | None = None, client=None, default_m
 
     client = client or _client()
     started = time.perf_counter()
+    queued_before = getattr(_waited, "seconds", 0.0)
     unavailable = None
     for model in models_to_try(default_model_only):
         try:
@@ -306,7 +324,9 @@ def extract(text: str, prompt_version: str | None = None, client=None, default_m
         "steps": scrub(steps),
         "tokens_in": int(tokens_in),
         "tokens_out": int(tokens_out),
-        "latency_s": round(time.perf_counter() - started, 3),
+        # Time Gemini took, retries included. Queueing for the throttle is left out: it comes from running
+        # many inputs at once (scripts/warm_cache.py), not from the request itself.
+        "latency_s": round(time.perf_counter() - started - (getattr(_waited, "seconds", 0.0) - queued_before), 3),
         "requests": requests,   # answered Gemini calls (the free tier counts requests per day)
         "model": model,
         "prompt_version": prompt_version,

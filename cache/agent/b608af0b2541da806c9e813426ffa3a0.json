@@ -1,0 +1,166 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Órgano de contratación: Agencia Catalana de Turismo",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "79341000",
+   "confidence": 0.8,
+   "evidence": "Servicios de creatividad y producción",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "79",
+   "confidence": 0.8,
+   "evidence": "Servicios de creatividad y producción",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicios de creatividad y producción",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 369761.15,
+   "confidence": 1.0,
+   "evidence": "369 761,15 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 1.0,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Agencia Catalana de Turismo",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Servicios de creatividad y producción",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 79 services tenders usually receive 3 bidders (median of 5286 past tenders).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "publicidad creatividad produccion audiovisual digital grafica"
+   },
+   "result": "{'results': [{'code': '32321200', 'division': '32', 'es': 'Equipo audiovisual', 'en': 'Audio-visual equipment'}, {'code': '32321300', 'division': '32', 'es': 'Materiales audiovisuales', 'en': 'Audio-visual materials'}, {'code': '32320000', 'division': '32', 'es': 'Equipo audiovisual y de televisión', 'en': 'Television and audio-visual equipment'}, {'code': '50340000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de equipos audiovisual y óptico', 'en': 'Repair and maintenance services of audio-visual and optical equipment'}, {'code': '38651600', 'division': '38', 'es': 'Cáma…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "369 761,15 EUR"
+   },
+   "result": {
+    "amount": 369761.15,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "79"
+   },
+   "result": {
+    "scope": "CPV division 79, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5286,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de publicidad"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "79341000",
+      "division": "79",
+      "es": "Servicios de publicidad",
+      "en": "Advertising services"
+     },
+     {
+      "code": "79341500",
+      "division": "79",
+      "es": "Servicios de publicidad aérea",
+      "en": "Aeral advertising services"
+     },
+     {
+      "code": "75241000",
+      "division": "75",
+      "es": "Servicios de seguridad pública",
+      "en": "Public security services"
+     },
+     {
+      "code": "65000000",
+      "division": "65",
+      "es": "Servicios públicos",
+      "en": "Public utilities"
+     },
+     {
+      "code": "79341100",
+      "division": "79",
+      "es": "Servicios de consultoría en publicidad",
+      "en": "Advertising consultancy services"
+     }
+    ]
+   }
+  }
+ ],
+ "tokens_in": 7886,
+ "tokens_out": 472,
+ "latency_s": 64.248,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v1"
+}
