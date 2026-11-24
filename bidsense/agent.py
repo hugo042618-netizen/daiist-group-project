@@ -16,6 +16,7 @@ import time
 
 import config
 from bidsense import cache, features, prompts, tools
+from bidsense.redact import scrub
 
 TOOLS = {"lookup_cpv": tools.lookup_cpv, "parse_amount": tools.parse_amount, "market_stats": tools.market_stats}
 SUBMIT = "submit_extraction"
@@ -81,6 +82,8 @@ def _clean_value(name: str, value):
             return value if value in features.CONTRACT_TYPES else None
         if name == "procedure":
             return value if value in features.PROCEDURES else None
+        if name == "buyer_type":
+            return value if value in features.BUYER_TYPES else None
         if name == "estimated_value_eur":
             return float(value) if float(value) > 0 else None
         if name == "duration_months":
@@ -180,12 +183,16 @@ def extract(text: str, prompt_version: str | None = None, client=None) -> dict:
         raise AgentError(f"Gemini did not submit an extraction within {config.MAX_AGENT_STEPS} steps.")
 
     fields = _validate(submitted, text)
+    # What the model wrote is filtered again before it is cached or logged: evidence quotes are checked
+    # against the text first (above), then every free-text output goes through the strict name filter.
+    for field in fields.values():
+        field["evidence"] = scrub(field["evidence"])
     result = {
         "fields": fields,
         "is_tender": bool(fields["is_tender"]["value"]),
-        "not_tender_reason": str(submitted.get("not_tender_reason") or "")[:300],
-        "market_note": str(submitted.get("market_note") or "")[:300],
-        "steps": steps,
+        "not_tender_reason": scrub(str(submitted.get("not_tender_reason") or "")[:300]),
+        "market_note": scrub(str(submitted.get("market_note") or "")[:300]),
+        "steps": scrub(steps),
         "tokens_in": int(tokens_in),
         "tokens_out": int(tokens_out),
         "latency_s": round(time.perf_counter() - started, 3),

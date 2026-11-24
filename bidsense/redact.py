@@ -13,7 +13,8 @@ import re
 
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
 IBAN = re.compile(r"\b[A-Z]{2}\d{2}(?:[ ]?[A-Z0-9]{4}){3,7}(?:[ ]?[A-Z0-9]{1,4})?\b")
-NATIONAL_ID = re.compile(r"\b(?:\d{8}[- ]?[A-HJ-NP-TV-Z]|[XYZ][- ]?\d{7}[- ]?[A-HJ-NP-TV-Z])\b", re.IGNORECASE)
+# DNI / NIE: the letter is attached to the digits (or after a hyphen), so "45233120 Trabajos" (a CPV code) is not one.
+NATIONAL_ID = re.compile(r"\b(?:\d{8}-?[A-HJ-NP-TV-Z]|[XYZ]-?\d{7}-?[A-HJ-NP-TV-Z])\b", re.IGNORECASE)
 
 _MONEY_AFTER = r"(?!\s*(?:[.,]\d|\d|EUR|€|euros?\b|millones|mil\b))"
 PHONE_LABELLED = re.compile(
@@ -37,8 +38,31 @@ COURTESY_TITLE = re.compile(
 )
 
 
-def redact(text: str) -> tuple[str, dict[str, int]]:
-    """The text with personal data replaced by [EMAIL], [PHONE], [ID], [ACCOUNT], [NAME], and what was removed."""
+# Stricter filter, for short texts written by the model (evidence quotes, notes): a common given name
+# followed by one to three capitalised words is treated as a person. It also hides a few things named
+# after people ("Hospital Ramón y Cajal"), which is acceptable in a quote but not in the tender itself.
+GIVEN_NAMES = (
+    "maría maria josé jose juan antonio manuel francisco david javier daniel carlos jesús jesus alejandro miguel rafael pedro "
+    "pablo ángel angel sergio fernando luis jorge alberto álvaro alvaro adrián adrian diego raúl raul enrique ramón ramon vicente "
+    "andrés andres ignacio joaquín joaquin eduardo víctor victor roberto jaime rubén ruben óscar oscar iván ivan marcos "
+    "gonzalo ricardo emilio tomás tomas agustín agustin félix felix alfonso guillermo jordi josep joan xavier marc "
+    "carmen ana isabel dolores teresa cristina marta laura elena lucía lucia paula sara raquel beatriz patricia silvia "
+    "rocío rocio julia irene nuria núria inmaculada susana yolanda mónica monica sonia alicia esther eva "
+    "concepción concepcion encarnación encarnacion amparo natalia sandra verónica veronica margarita begoña "
+    "andrea claudia noelia miriam lorena carolina olga gloria josefa francisca antonia juana manuela catalina"
+).split()
+GIVEN_NAME_SEQUENCE = re.compile(
+    # Not after "San" / "Santa" / "Sant": those are towns (San Fernando de Henares), not people.
+    rf"(?<!\bSan )(?<!\bSanta )(?<!\bSant )(?<!\bSAN )(?<!\bSANTA )"
+    rf"\b(?i:{'|'.join(sorted(set(GIVEN_NAMES), key=len, reverse=True))})(?:\s+(?:de|del|de la|de los|y|i))?(?:\s+{_NAME}){{1,3}}"
+)
+
+
+def redact(text: str, strict: bool = False) -> tuple[str, dict[str, int]]:
+    """The text with personal data replaced by [EMAIL], [PHONE], [ID], [ACCOUNT], [NAME], and what was removed.
+
+    `strict` adds the given-name filter above: use it on what the model writes, not on the tender.
+    """
     counts = {}
 
     def replace(pattern: re.Pattern, replacement, kind: str, value: str) -> str:
@@ -55,4 +79,17 @@ def redact(text: str) -> tuple[str, dict[str, int]]:
     text = replace(PHONE_SPANISH, "[PHONE]", "phone", text)
     text = replace(CONTACT_LABEL, r"\1[NAME]", "name", text)
     text = replace(COURTESY_TITLE, r"\1[NAME]", "name", text)
+    if strict:
+        text = replace(GIVEN_NAME_SEQUENCE, "[NAME]", "name", text)
     return text, counts
+
+
+def scrub(value):
+    """Strict redaction of every string inside a JSON-like value (dicts and lists are walked)."""
+    if isinstance(value, str):
+        return redact(value, strict=True)[0]
+    if isinstance(value, dict):
+        return {key: scrub(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [scrub(item) for item in value]
+    return value
