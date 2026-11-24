@@ -11,3 +11,6 @@ logs/
 # Never commit your API keys
 .env
 
+
+# Raw TED downloads: rebuilt by scripts/train.py, never committed
+data/raw/
