@@ -30,6 +30,7 @@ Only `GEMINI_API_KEY` is needed. Everything else the app uses is in the repo: th
 Optional, offline only (the app never does this):
 
 ```bash
+uv run python scripts/warm_cache.py          # fill cache/ for the eval inputs (run after editing eval/*.csv; resumable, throttled)
 uv run python scripts/train.py               # rebuild the models from TED open data (downloads 1.1 GB to data/raw/, a few minutes)
 uv run python scripts/fetch_candidates.py    # collect fresh candidate notices from the TED API into eval/candidates/
 uv run python scripts/simulate_bandit.py --p-v1 0.70 --p-v2 0.75   # bonus: simulated warm-up of the prompt bandit

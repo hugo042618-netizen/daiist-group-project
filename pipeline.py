@@ -85,7 +85,7 @@ def run(raw_input: str, bid_cost_eur: float | None = None, margin_pct: float | N
         extraction = agent.extract(text, prompt_version)
     except agent.AgentError as error:
         agent_output = {"error": str(error)}
-        busy = "503" in str(error) or "429" in str(error)
+        busy = "503" in str(error) or "429" in str(error) or isinstance(error, agent.DailyQuotaExhausted)
         why = ("the AI model is not available right now (Gemini is overloaded or the free quota is used up): try again in a minute"
                if busy else f"the agent could not read this tender: {str(error)[:160]}")
         outcome = {"decision": decision.REVIEW, "reason": f"A person should decide: {why}.",

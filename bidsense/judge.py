@@ -64,7 +64,9 @@ def judge(text: str, answer: dict, client=None) -> dict:
         except agent._Unavailable as error:
             unavailable = error
     if response is None:
-        raise agent.AgentError(str(unavailable))
+        if not agent.models_to_try():
+            raise agent.DailyQuotaExhausted("Every Gemini model has used up its free requests for today.")
+        raise agent.AgentError(str(unavailable or "no Gemini model is available"))
     try:
         parsed = json.loads(response.text)
         label = int(parsed["label"])

@@ -10,9 +10,14 @@ The code then checks what came back: codes must exist in the CPV list, enums mus
 valid, and an evidence quote that is not in the text lowers that field's confidence.
 """
 
+import collections
+import json
 import os
 import re
+import threading
 import time
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 import config
 from bidsense import cache, features, prompts, tools
@@ -43,13 +48,52 @@ class _Unavailable(AgentError):
     """This model cannot answer right now (overloaded or rate-limited): try the next one."""
 
 
-_skip_until: dict[str, float] = {}   # model -> time until which it is skipped after being unavailable
+class DailyQuotaExhausted(AgentError):
+    """Every configured model has used up its free requests for today."""
+
+
+_skip_until: dict[str, float] = {}   # model -> time until which it is tried last after being unavailable
+_daily_out: dict[str, float] = {}    # model -> time until which its daily quota is known to be used up
+_sent: dict[str, collections.deque] = {}   # model -> times of the requests sent in the last minute
+_lock = threading.Lock()
+
+
+def next_quota_reset(now: datetime | None = None) -> datetime:
+    """When the daily quotas reset next (midnight Pacific time), as an aware datetime."""
+    zone_name, hour = config.QUOTA_RESET
+    now = (now or datetime.now(ZoneInfo(zone_name))).astimezone(ZoneInfo(zone_name))
+    reset = now.replace(hour=hour, minute=0, second=0, microsecond=0)
+    return reset if reset > now else reset + timedelta(days=1)
+
+
+def _throttle(model: str) -> None:
+    """Wait, if needed, so that this model gets fewer requests per minute than its free-tier limit."""
+    per_minute = max(1, int(config.FREE_TIER_LIMITS.get(model, (15, 500))[0] * config.RPM_SAFETY))
+    while True:
+        with _lock:
+            sent = _sent.setdefault(model, collections.deque())
+            now = time.time()
+            while sent and now - sent[0] >= 60:
+                sent.popleft()
+            if len(sent) < per_minute:
+                sent.append(now)
+                return
+            wait = 60 - (now - sent[0]) + 0.05
+        time.sleep(wait)
+
+
+def _is_daily_limit(error) -> bool:
+    details = getattr(error, "details", None)
+    inner = details.get("error", details) if isinstance(details, dict) else {}
+    text = json.dumps(inner) if isinstance(inner, dict) else str(error)
+    return "PerDay" in text or "per day" in text
 
 
 def models_to_try() -> list[str]:
-    """The configured model first, then the fallbacks; models that just failed are tried last."""
-    models = [config.GEMINI_MODEL, *config.GEMINI_FALLBACK_MODELS]
+    """The configured model first, then the fallbacks. Models whose daily quota is used up are left out;
+    models that just failed are tried last."""
     now = time.time()
+    models = [m for m in (config.GEMINI_MODEL, *config.GEMINI_FALLBACK_MODELS) if _daily_out.get(m, 0) <= now]
     return sorted(models, key=lambda m: _skip_until.get(m, 0) > now)
 
 
@@ -72,6 +116,7 @@ def call_gemini(client, model: str, contents, request_config):
     from google.genai import errors
 
     for attempt in range(config.GEMINI_RETRIES + 1):
+        _throttle(model)
         try:
             return client.models.generate_content(model=model, contents=contents, config=request_config)
         except errors.APIError as error:
@@ -80,9 +125,9 @@ def call_gemini(client, model: str, contents, request_config):
             if code not in (429, 500, 502, 503, 504):
                 raise AgentError(message) from error
             delay = _retry_delay(error) if code == 429 else None
-            if delay is not None and delay > 90:
-                # The daily quota of this model is used up: no point in waiting, and skip it for hours.
-                _skip_until[model] = time.time() + min(delay, 6 * 3600)
+            if code == 429 and (_is_daily_limit(error) or (delay is not None and delay > 90)):
+                # The daily quota of this model is used up: leave it out until the quotas reset.
+                _daily_out[model] = next_quota_reset().timestamp()
                 raise _Unavailable(message) from error
             if attempt == config.GEMINI_RETRIES:
                 _skip_until[model] = time.time() + config.MODEL_COOLDOWN_S
@@ -177,8 +222,11 @@ def _short(value, limit: int = 600):
     return value if len(text) <= limit else text[:limit] + "…"
 
 
-def _run(client, model: str, text: str, system_prompt: str) -> tuple[dict, list, int, int]:
-    """One conversation with one model: tool calls until submit_extraction. Returns (submitted, steps, tokens in, tokens out)."""
+def _run(client, model: str, text: str, system_prompt: str) -> tuple[dict, list, int, int, int]:
+    """One conversation with one model: tool calls until submit_extraction.
+
+    Returns (submitted, steps, tokens in, tokens out, number of answered requests).
+    """
     from google.genai import types
 
     contents = [types.Content(role="user", parts=[types.Part.from_text(text=f"<tender_text>\n{text}\n</tender_text>")])]
@@ -198,7 +246,7 @@ def _run(client, model: str, text: str, system_prompt: str) -> tuple[dict, list,
         for call in calls:
             arguments = dict(call.args or {})
             if call.name == SUBMIT:
-                return arguments, steps, tokens_in, tokens_out
+                return arguments, steps, tokens_in, tokens_out, turn + 1
             if call.name in TOOLS:
                 try:
                     result = TOOLS[call.name](**arguments)
@@ -230,11 +278,15 @@ def extract(text: str, prompt_version: str | None = None, client=None) -> dict:
     unavailable = None
     for model in models_to_try():
         try:
-            submitted, steps, tokens_in, tokens_out = _run(client, model, text, prompts.PROMPTS[prompt_version])
+            submitted, steps, tokens_in, tokens_out, requests = _run(client, model, text, prompts.PROMPTS[prompt_version])
             break
         except _Unavailable as error:
             unavailable = error
     else:
+        if not models_to_try():
+            reset = next_quota_reset().astimezone(ZoneInfo("Europe/Madrid"))
+            raise DailyQuotaExhausted(f"Every Gemini model has used up its free requests for today. "
+                                      f"They reset at {reset:%H:%M} Madrid time ({reset:%d %b}).")
         raise AgentError(str(unavailable))
 
     fields = _validate(submitted, text)
@@ -251,6 +303,7 @@ def extract(text: str, prompt_version: str | None = None, client=None) -> dict:
         "tokens_in": int(tokens_in),
         "tokens_out": int(tokens_out),
         "latency_s": round(time.perf_counter() - started, 3),
+        "requests": requests,   # answered Gemini calls (the free tier counts requests per day)
         "model": model,
         "prompt_version": prompt_version,
     }

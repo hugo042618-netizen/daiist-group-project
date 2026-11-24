@@ -42,12 +42,20 @@ POINT_MODEL = "median"
 
 # --- Component 1: the Gemini agent (bidsense/agent.py) ------------------------
 
-# The free tier allows only 20 requests a day per project on gemini-3.8-flash and gemini-3.6-flash (measured
-# on 24 Nov 2026: quota "GenerateRequestsPerDayPerProjectPerModel-FreeTier"), and one tender needs about 5
-# requests. gemini-3.5-flash-lite is the Flash model that the free tier can actually serve, so it is the
-# default; the other two are tried only if it is unavailable. The model that answered is logged per request.
+# Free-tier limits per project, as shown in AI Studio on 24 Nov 2026 (requests per minute, requests per day).
+# One tender needs 3 to 5 requests, so the larger Flash models can read about four tenders a day: the default
+# is gemini-3.5-flash-lite, because the app is graded with a free key. The other models are tried, in this
+# order, only when the one before is unavailable. The model that answered is logged with every request.
 GEMINI_MODEL = "gemini-3.5-flash-lite"
-GEMINI_FALLBACK_MODELS = ("gemini-3.8-flash", "gemini-3.6-flash")
+GEMINI_FALLBACK_MODELS = ("gemini-3.1-flash-lite", "gemini-3.8-flash", "gemini-3.6-flash")
+FREE_TIER_LIMITS = {                     # model: (requests per minute, requests per day)
+    "gemini-3.5-flash-lite": (15, 500),
+    "gemini-3.1-flash-lite": (15, 500),
+    "gemini-3.8-flash": (5, 20),
+    "gemini-3.6-flash": (5, 20),
+}
+RPM_SAFETY = 0.8                         # the app sends at most this share of a model's per-minute limit (12 of 15)
+QUOTA_RESET = ("America/Los_Angeles", 0)  # daily quotas reset at midnight Pacific time (09:00 in Madrid)
 MODEL_COOLDOWN_S = 300                   # after a model is unavailable, try it last for this long (longer if its daily quota is used up)
 GEMINI_TIMEOUT_S = 45                    # per call; a slow call counts as unavailable
 GEMINI_THINKING = "low"                  # low / medium / high
@@ -63,6 +71,7 @@ PRICES_USD_PER_M = {                     # model: (input, output)
     "gemini-3.8-flash": (0.75, 3.75),
     "gemini-3.6-flash": (0.75, 3.75),
     "gemini-3.5-flash-lite": (0.30, 2.50),
+    "gemini-3.1-flash-lite": (0.25, 1.50),
 }
 USD_TO_EUR = 0.92                        # TEAM TO SET: exchange rate used for the estimate
 

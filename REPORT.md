@@ -41,9 +41,13 @@ tender text (pasted)
 - If the text is not a tender, the agent says so and the model is skipped.
 - Models and APIs: Gemini `gemini-3.5-flash-lite` (free tier) through function calling; four
   `HistGradientBoostingRegressor` models (6 MB in total), which fit in Render's 512 MB.
-- Why flash-lite: the free tier allows only 20 requests a day per project on `gemini-3.8-flash` and
-  `gemini-3.6-flash` (measured on 24 Nov 2026), and one tender needs about 5 requests. Those two models stay
-  as fallbacks; the model that answered is logged with every request.
+- Why `gemini-3.5-flash-lite` and not the larger Flash models (team decision, 24 Nov 2026): the app is graded
+  by running it with the professor's own free key, so it must work within the free tier. There, `gemini-3.8-flash`
+  and `gemini-3.6-flash` allow only 20 requests a day per project (we hit the limit on 24 Nov 2026: quota
+  `GenerateRequestsPerDayPerProjectPerModel-FreeTier`, value 20), and one tender needs 3 to 5 requests: four
+  tenders a day. Flash-lite allows 500 requests a day and 15 a minute (see "Cost and latency"). It answers in about a second per call, and on the first
+  notices we compared it read the same values as `gemini-3.6-flash`. `gemini-3.1-flash-lite` (same limits) is the first fallback and the two
+  larger models come after it; the model that answered is logged with every request.
 
 **TEAM TO WRITE:** why these two components and this connection; what was reused from assignments 1–3, and whose.
 
@@ -108,10 +112,29 @@ is in `bidsense/judge.py`; report your agreement with it on your own labels (Coh
 ### Cost and latency
 
 *To fill from `eval/metrics.json` → `cost_per_request`: tokens in and out, euros, seconds.* The cost is an
-estimate at Gemini's paid-tier prices (`config.py`: for `gemini-3.5-flash-lite`, $0.30 per million input tokens
-and $2.50 per million output tokens); on the free tier the app costs nothing. The scikit-learn model costs nothing per request.
+estimate at Gemini's paid-tier prices for the model that answered (`config.py`: for `gemini-3.5-flash-lite`,
+$0.30 per million input tokens and $2.50 per million output tokens); on the free tier the app costs nothing,
+but it is limited as follows. The scikit-learn model costs nothing per request.
 
-**TEAM TO WRITE:** cost per month at the volume of your business case.
+**Free-tier limits** (per project, as shown in AI Studio on 24 Nov 2026; `config.py`, `FREE_TIER_LIMITS`):
+
+| Model | Role in the app | Requests per minute | Requests per day | Tenders per day (3 to 5 requests each) |
+|---|---|---|---|---|
+| `gemini-3.5-flash-lite` | default | 15 | 500 | about 100 to 160 |
+| `gemini-3.1-flash-lite` | first fallback | 15 | 500 | about 100 to 160 |
+| `gemini-3.8-flash` | later fallback | 5 | 20 | about 4 to 6 |
+| `gemini-3.6-flash` | later fallback | 5 | 20 | about 4 to 6 |
+
+- Daily quotas reset at midnight Pacific time (09:00 in Madrid). On 24 Nov 2026 we used all 500 daily requests
+  of `gemini-3.5-flash-lite` and all 20 of each larger model while building and testing.
+- The app sends at most 80% of a model's per-minute limit (12 requests a minute on the lite models), moves to
+  the next model when one is busy or out of quota, and says so in the answer when none is available.
+- The evaluation inputs are answered from the committed cache (`cache/`), so `check.py`, `main.py evaluate` and
+  `main.py drift-demo` do not use the quota of whoever runs them; `cache/agent_models.csv` records which model
+  answered each input.
+
+**TEAM TO WRITE:** cost per month at the volume of your business case, and whether the free tier is enough for
+it (the limits above cap the app at roughly 100 tenders a day).
 
 ## Operations
 
