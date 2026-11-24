@@ -1,3 +1,56 @@
+# BidSense
+
+A bid / no-bid tool for Spanish companies that sell to the public sector: paste the text of a public
+tender and it answers **BID**, **DON'T BID** or **SEND TO REVIEW**, with reasons. Built on the DAIIST
+group-project template; the assignment brief is kept below.
+
+```
+tender text -> redact personal data -> Gemini agent (fields + confidence + evidence; tools: lookup_cpv,
+parse_amount, market_stats) -> scikit-learn model (expected bidders) -> decision and review rule
+```
+
+## How to run
+
+```bash
+uv sync
+cp .env.example .env                 # paste your GEMINI_API_KEY (free: https://aistudio.google.com/apikey)
+uv run python app.py                 # the app, at http://127.0.0.1:7860
+uv run python check.py               # what the professor runs
+uv run python main.py evaluate       # components, end to end, judge, cost -> eval/metrics.json
+uv run python main.py reference      # features of eval/reference.csv -> monitoring/reference_features.csv
+uv run python main.py drift-demo     # quiet on normal cases, alert on eval/shifted.csv
+```
+
+Only `GEMINI_API_KEY` is needed. Everything else the app uses is in the repo: the models
+(`models/*.joblib`, 2 MB), the CPV list (`data/cpv_2008.csv`) and the market statistics
+(`data/market_stats.json`). Gemini answers for the evaluation inputs are cached in `cache/`, so
+`check.py`, `evaluate` and `drift-demo` run in seconds and do not use up the free-tier quota; delete
+`cache/` to call Gemini again (a full run then takes several minutes on the free tier).
+
+Optional, offline only (the app never does this):
+
+```bash
+uv run python scripts/train.py               # rebuild the models from TED open data (downloads 1.1 GB to data/raw/, a few minutes)
+uv run python scripts/fetch_candidates.py    # collect fresh candidate notices from the TED API into eval/candidates/
+uv run python scripts/simulate_bandit.py --p-v1 0.70 --p-v2 0.75   # bonus: simulated warm-up of the prompt bandit
+```
+
+| Where | What |
+|---|---|
+| `config.py` | every setting: model names, prices, decision and review thresholds, drift thresholds (**TEAM TO SET** marks the team's decisions) |
+| `pipeline.py` | the flow above; `run()` keeps the template's return format |
+| `bidsense/agent.py`, `prompts.py`, `tools.py` | component 1: the Gemini agent, its prompts and its three tools |
+| `bidsense/redact.py` | removes emails, phones, ids and contact names before Gemini and before logging |
+| `bidsense/model.py`, `features.py` | component 2: the bidders model and the features it shares with training |
+| `bidsense/decision.py` | expected value, BID / DON'T BID, and the review rule |
+| `bidsense/judge.py`, `evaluate.py` | LLM judge and the evaluation |
+| `monitor.py`, `logbook.py` | drift check, KPIs, alerts; request and feedback logs |
+| `bidsense/bandit.py` | bonus: epsilon-greedy choice between two prompts, off by default |
+| `scripts/` | training, candidate collection, bandit warm-up (offline) |
+| `eval/candidates/` | real TED notices to choose test cases from (see its README) |
+
+---
+
 # Group assignment: Build and run an AI product
 
 As a team, build a small AI product for one business process, put it online, and run it like a product: it logs its own use, watches itself for drift, and you decide, with evidence, whether anyone should rely on it.

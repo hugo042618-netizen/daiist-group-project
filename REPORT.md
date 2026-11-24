@@ -7,52 +7,171 @@
 
 *At most about 3,000 words, tables excluded. Members and who did what go in CONTRIBUTIONS.md.*
 
+> **Skeleton.** The facts below (what was built, where the data comes from, the numbers already measured)
+> are filled in. Everything marked **TEAM TO WRITE** is the team's: the business case, the choice of
+> thresholds, the test cases, the labels, the analysis and the decision. Delete this note and the
+> TEAM TO WRITE markers before submitting.
+
 ## Business case
 
-*Who uses it, which decision or task it supports, what happens today without it (the baseline), the success metric, and a rough value in euros with the assumptions behind it.*
+**TEAM TO WRITE.** Who uses BidSense (the bid manager of a Spanish SME that sells to the public sector?),
+which decision it supports (bid or not on one tender), what happens today without it (the baseline: bid on
+everything in our sector? a rule of thumb per CPV division?), the success metric, and a rough value in euros
+with its assumptions (bids prepared per year × cost per bid × share of hopeless bids avoided...).
 
 ## Architecture
 
-*The two components and how one feeds the other: a diagram plus a short walk-through of one request from input to output. Which models or APIs, and why those. What you reused from assignments 1–3, and whose it was.*
+```
+tender text (pasted)
+  └─ redaction: emails, phones, ids, contact names removed        bidsense/redact.py
+      └─ COMPONENT 1, agentic LLM: Gemini (gemini-3.8-flash)       bidsense/agent.py
+         tools: lookup_cpv · parse_amount · market_stats
+         output: 12 fields, each with confidence and evidence
+          └─ COMPONENT 2, tabular ML: scikit-learn                  bidsense/model.py
+             input: only the agent's fields → expected bidders (median) and an 80% range
+              └─ decision and review rule                            bidsense/decision.py
+                 win chance = 1 / expected bidders
+                 expected value = win chance × contract value × margin − bid cost
+                 → BID / DON'T BID / SEND TO REVIEW (or OUT OF SCOPE if it is not a tender)
+```
+
+- The agent's output is the model's only input: the model has no access to the text.
+- The code checks the agent: CPV codes must exist in the official list, categories must be valid, and an
+  evidence quote that is not in the text caps that field's confidence at 0.5.
+- If the text is not a tender, the agent says so and the model is skipped.
+- Models and APIs: Gemini `gemini-3.8-flash` (free tier) through function calling; four
+  `HistGradientBoostingRegressor` models (2 MB in total), which fit in Render's 512 MB.
+
+**TEAM TO WRITE:** why these two components and this connection; what was reused from assignments 1–3, and whose.
 
 ## Data
 
-*Where each component's data comes from, with links, licences and sizes. Confirm that there is no personal data in your inputs or logs.*
+| What | Source | Size | Licence |
+|---|---|---|---|
+| Training data for the bidders model | [TED CSV open data](https://data.europa.eu/data/datasets/ted-csv), contract award notices and contract notices 2018–2023, Spain only | 122,301 Spanish award notices; 96,480 usable (87.8% of those open to competition report a valid number of offers) | CC BY 4.0 |
+| CPV list for `lookup_cpv` | CPV 2008, Publications Office of the EU ([eForms SDK](https://github.com/OP-TED/eForms-SDK)) | 9,454 codes, Spanish and English labels | EU open data |
+| Candidate test notices | [TED Search API](https://docs.ted.europa.eu/api/latest/search.html), notices published in 2026 | 165 notices in `eval/candidates/` | CC BY 4.0 |
+
+- Target: `NUMBER_OFFERS` ("number of tenders received"), the median across the lots of a notice.
+- Features, all of them fields the agent extracts: CPV division and group, contract type, procedure, region,
+  estimated value (log), duration, number of lots, weight of price, framework agreement. Duration and the
+  estimated value come from the contract notice linked to each award; the awarded price is never used.
+- Awards without a call for competition are excluded: nobody can bid for them.
+- Time split: train 2018–2021 (57,114), validation 2022 (19,580), test 2023 (19,786). `scripts/train.py`
+  rebuilds everything; raw TED files are never committed.
+- Personal data: the training table only reads structured columns (no names, addresses or ids). Candidate
+  texts hold the notice's title, description and conditions; the results section and contact details are
+  never included, and every text goes through the redaction. Logs store a summary of the input (CPV division,
+  value bucket, language, text length), never the text.
+
+**TEAM TO WRITE:** confirm, after reading your final `eval/` files and a sample of the logs, that no personal data is in them.
 
 ## Evaluation
 
 ### Components
 
-*Each component on its own: the metric, the result, the test data and its size.*
+**Component 2, bidders model** (test year 2023, 19,786 notices; `models/metrics.json`):
+
+| | MAE (bidders) | Bucket accuracy (1–2 / 3–5 / 6+) |
+|---|---|---|
+| Baseline: median offers per CPV division | 2.442 | 47.3% |
+| Model, median (used by the app) | 2.323 | 49.8% |
+| Model, Poisson mean | 2.659 | 40.4% |
+
+The 80% range covers 91.3% of test cases; its lower bound is always 1 bidder.
+
+**Component 1, agent** (`uv run python main.py evaluate` → `eval/metrics.json`, `eval/extraction_results.csv`):
+field accuracy against TED's official fields on 40 notices of `eval/extraction_truth.csv`.
+
+| Field | Accuracy | n |
+|---|---|---|
+| *to fill from `eval/metrics.json` once the evaluation has run with a Gemini key* | | |
+
+**TEAM TO WRITE:** what these numbers mean for the product; which fields the agent gets wrong and why it matters
+(or not) for the decision; the hand-off cost (model error with the agent's fields vs with the official fields).
 
 ### End to end
 
-*How you wrote `eval/cases.csv` (counts by kind, two examples). Results against the baseline. Where the output is free text: the judge's rubric and your agreement with it on your own labels.*
+**TEAM TO WRITE.** How you wrote `eval/cases.csv` (counts by kind, two examples). Results against the two
+baselines (`baseline` column, and the median-per-CPV-division rule) from `eval/results.csv`. The judge's rubric
+is in `bidsense/judge.py`; report your agreement with it on your own labels (Cohen's kappa in `eval/metrics.json`).
 
 ### Cost and latency
 
-*Per request: tokens, euros and seconds, for each component and in total. What it would cost per month at the volume in your business case.*
+*To fill from `eval/metrics.json` → `cost_per_request`: tokens in and out, euros, seconds.* The cost is an
+estimate at Gemini's paid-tier prices (`config.py`: $0.75 per million input tokens, $3.75 per million output
+tokens until 31 Dec 2026); on the free tier the app costs nothing. The scikit-learn model costs nothing per request.
+
+**TEAM TO WRITE:** cost per month at the volume of your business case.
 
 ## Operations
 
-*What you log. The quality signal and the drift check you monitor, the reference set, and the alert threshold with its justification. The drift demo: what you shifted, and the result with the alert firing (screenshot or numbers). The rate of false alarms on normal inputs.*
+- **Logged per request** (Render Postgres online, `logs/` locally): input summary, the drift features, the
+  agent's JSON (fields, confidence, evidence, tool calls), the prediction, the decision and its reasons, model
+  and prompt versions, latency, tokens in and out, estimated cost, and the 👍/👎 with its optional comment.
+- **Quality signals over time:** share sent to review, share of 👎 among rated requests, mean confidence
+  (rolling average of the last 10 requests).
+- **Drift check:** the last 100 requests against `monitoring/reference_features.csv` (the 45 inputs of
+  `eval/reference.csv`), with PSI on four features: language (Spanish or not), CPV division, log of the
+  value, text length.
+- **Alert rule** (`config.py`): a feature's PSI above 0.2 *and* above twice the PSI that chance alone gives for
+  the sample size; or more than 30% of texts not in Spanish; or more than 40% 👎.
+- **Drift demo:** `eval/shifted.csv` holds 10 Portuguese and 10 French notices.
+
+**TEAM TO WRITE:** the justification of each threshold, the drift-demo result with numbers
+(`uv run python main.py drift-demo`), and the rate of false alarms on normal inputs.
 
 ## Failures
 
-*Failed end-to-end cases grouped by cause (which component, or the hand-off between them), with counts, and what you would fix first.*
+**TEAM TO WRITE.** Failed end-to-end cases grouped by cause (agent, model, or the hand-off), with counts, and
+what you would fix first. Known limits to consider:
+
+- The TED CSV stops in 2023 and the median number of offers fell from 3 (2018–2021) to 2 (2022–2023): the
+  model is three years behind the tenders it will see.
+- The model beats the baseline by 0.12 bidders (about 5%), and only on tenders with 6 or more bidders.
+- Name removal is rule-based: a name in free prose, without a label or a title, is not caught.
+- Candidate texts are rebuilt from the notice's fields, so they are cleaner than a real tender PDF.
 
 ## Decision
 
-*Which cases go to a person: the rule, and how many cases a day that would be. Go / no-go / go with conditions: the conditions, and the evidence behind them.*
+**TEAM TO WRITE.** Which cases go to a person: the rule (`config.py`: value above `REVIEW_VALUE_EUR`, a key
+field missing, confidence below `MIN_CONFIDENCE`, expected value within `CLOSE_CALL_EUR` of zero) and how many
+cases a day that would be. Go / no-go / go with conditions: the conditions, and the evidence behind them.
 
 ## Bonus: reinforcement learning
 
-*Delete this section if you did not do it. The loop (feedback → reward → update → behaviour), the reward and what it could reward by accident, the exploration strategy and its cost, the evidence from real logs (and which part was simulated), the risks.*
+*Delete this section if you did not do it.* What exists in the code: an epsilon-greedy bandit
+(`bidsense/bandit.py`, off by default: `BANDIT_ENABLED` in `config.py`) that chooses between two extraction
+prompts (`extract-v1`, `extract-v2`); reward 1 for 👍 and 0 for 👎 on the request that used the prompt; the
+policy is rebuilt from the logs before each request; a simulated warm-up (`scripts/simulate_bandit.py`) is
+stored apart in `monitoring/bandit_warmup.json` and shown in its own column in the Monitoring tab.
+
+**TEAM TO WRITE:** the justification of the reward and what it could reward by accident, why epsilon-greedy and
+what exploring costs, the evidence from real logs (and which part was simulated), the risks.
 
 ## How to run it
 
-*Anything beyond SETUP.md that the professor needs to run it: which keys, any download step, how long the first run takes.*
+See "How to run" at the top of README.md. Only `GEMINI_API_KEY` is needed; no download step. First start
+takes a few seconds; a request takes a few seconds on the free tier (instant when cached).
 
 ## AI use
 
-*What you used and how, or "none".*
+Claude Code (Anthropic's coding assistant) wrote the code of this repository under the team's direction, in
+the order of the commits on the `bidsense` branch:
+
+- data preparation and model training scripts (`scripts/ted_data.py`, `scripts/train.py`), after reading the TED codebook;
+- the agent, its tools, prompts and redaction (`bidsense/`), the pipeline and the decision rule as specified by the team;
+- the Gradio interface, the logging additions, the monitoring and drift check, the evaluation script and the LLM-judge rubric;
+- the script that collects candidate notices from the TED API (`scripts/fetch_candidates.py`), and it filled
+  `eval/reference.csv` and `eval/shifted.csv` from those candidates;
+- the bandit module and its simulator; the "How to run" section of the README and the skeleton of this report.
+
+Claude also proposed, and the team accepted or should review: one row per notice with the median offers across
+lots as the target; joining contract notices for duration and estimated value; excluding awards without a call
+for competition; the small-sample correction in the drift alert; the temporary defaults in `config.py`.
+
+Gemini is part of the product (the agent and the judge). It did not write test cases or labels.
+
+**The team's own work (TEAM TO WRITE, and to confirm):** the product idea and pipeline design, the choice of the
+median model for the decision, every threshold marked TEAM TO SET, `eval/cases.csv`, `eval/human_labels.csv`,
+the analysis in this report and the go/no-go decision.

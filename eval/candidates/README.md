@@ -10,7 +10,7 @@ Real TED notices collected by `scripts/fetch_candidates.py` (TED Search API, pub
 | `unusual.csv` | 25 Spanish award notices: restricted / negotiated / competitive dialogue, frameworks, many lots | `hard` cases |
 | `very_large.csv` | 15 Spanish award notices above €10M | `review` cases (value above `REVIEW_VALUE_EUR`) |
 | `not_a_tender.csv` | 20 Spanish notices that are not calls for tenders (prior information, contract modifications) | `out_of_scope` cases; add texts of your own (news, an email with no personal data...) |
-| `reference_pool.csv` | 45 normal Spanish notices, none of them in the files above | already copied to `eval/reference.csv`; swap rows if you wish |
+| `reference_pool.csv` | 45 Spanish notices defined like `typical.csv` (open, one lot, €100k-2M), none of them in the files above | already copied to `eval/reference.csv`; swap rows if you wish |
 | `shifted_pool.csv` | 10 Portuguese and 10 French notices | already copied to `eval/shifted.csv` |
 
 Columns: `text` is what you would paste into the app. The other columns are TED's official fields for
