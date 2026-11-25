@@ -136,10 +136,10 @@ def test_drift_banner_is_green_or_red():
     normal = logs([pd.NA] * len(reference))
     for name in reference.columns:
         normal[f"f_{name}"] = reference[name].to_numpy()
-    assert "bs-bid" in app._drift_banner(normal, reference) and "No drift" in app._drift_banner(normal, reference)
+    assert "bs-ok" in app._drift_banner(normal, reference) and "No drift" in app._drift_banner(normal, reference)
     foreign = normal.assign(f_language_in_scope=0.0)
     banner = app._drift_banner(foreign, reference)
-    assert "bs-dont" in banner and "Alert" in banner and "language" in banner
+    assert "bs-alert" in banner and "Alert" in banner and "language" in banner
     assert "alert</span>" in app._drift_table(foreign, reference) and "alert</span>" not in app._drift_table(normal, reference)
     assert "waiting for data" in app._drift_banner(normal.head(5), reference)
 

@@ -56,6 +56,7 @@ uv run python scripts/simulate_bandit.py --p-a 0.70 --p-b 0.75   # bonus: simula
 | `monitor.py`, `logbook.py` | drift check, KPIs, alerts; request and feedback logs |
 | `bidsense/bandit.py` | bonus: epsilon-greedy choice between two prompts, off by default |
 | `scripts/` | training, candidate collection, bandit warm-up (offline) |
+| `assets/fonts/` | the interface's two fonts, Public Sans and Big Shoulders Display (SIL Open Font License, licence files alongside), served by the app itself: the page loads nothing from outside |
 | `eval/candidates/` | real TED notices to choose test cases from (see its README) |
 
 ---

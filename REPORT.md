@@ -371,7 +371,7 @@ the order of the commits on the `bidsense` branch:
 - at the team's request, on 25 Nov 2026: the retraining with the prompt's buyer types, the sensitivity table of the
   bid cost, the conversion of the team's filled sheet into `eval/cases.csv` (labels and notes as the team typed
   them), the labelling sheet for the human labels, the fix of the Monitoring tab and the redesign of the
-  interface;
+  interface (the "tender dossier" look, from the team's written concept, colours and type choices);
 - at the team's request, on 25 Nov 2026: the buyer-type definition of the prompt rewritten from TED's code list,
   and `eval/case_picker.xlsx` (the unused candidates with empty columns for the team) with the script that
   copies the filled sheet into `eval/cases.csv`. Claude also collected 40 more candidate notices
