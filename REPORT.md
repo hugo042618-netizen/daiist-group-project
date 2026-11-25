@@ -175,8 +175,9 @@ case read by `gemini-3.5-flash-lite` with prompt `extract-v3`, model `bidders-hg
 - What each hard case keeps: `hard_01` 7 lots (the page has 34,967 characters and the app reads the first
   20,000, which reach lots 1 to 4); `hard_02` title, description and conditions in Catalan; `hard_04` a mix of
   funeral, maintenance, cleaning and security services; `hard_05` a long page (20,512 characters) with three
-  amounts. `hard_03` lost its difficulty: the call states "Valor estimado, IVA excluido" in a field, while the
-  result notice only had the budget with VAT in the description. `eval/inputs_answers.csv` names the notice
+  amounts. `hard_03` changed its difficulty: the result notice only had the budget with VAT in the
+  description, while the call gives two amounts, that budget and an estimated value without VAT in a field;
+  the app must use the one without VAT, and it did (€1,122,382). `eval/inputs_answers.csv` names the notice
   each text comes from.
 - Of the 7 `normal` cases it got wrong, 4 were sent to review (2 for a confidence of 0.5 on the CPV code, 2 as
   close calls) and 3 are the wrong-direction mistakes above: the model expected fewer or more bidders than came.

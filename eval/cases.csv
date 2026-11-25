@@ -176,7 +176,7 @@ Acuerdo marco: no
 Lugar de ejecución: ES522 (Comunitat Valenciana)",review,REVIEW,BID,"EUR 27.4M lift maintenance with a single bidder: tempting, but above EUR 5M so a person decides. Real offers: 1 bidder. (TED 153113-2026)"
 hard_01,eval/inputs/hard_01.txt,hard,REVIEW,BID,"7 lots with 2 to 6 bidders each and one lot with no winner, so the app has to turn several numbers into one answer. Real offers: 3 bidders. (TED 18796-2026)"
 hard_02,eval/inputs/hard_02.txt,hard,BID,BID,"Title, description and conditions are in Catalan; only the TED labels are in Spanish. Real offers: 2 bidders. (TED 720278-2026)"
-hard_03,eval/inputs/hard_03.txt,hard,BID,BID,"No estimated value field: the only budget is EUR 1.36M VAT included, buried in the description. Real offers: 1 bidder. (TED 139409-2026)"
+hard_03,eval/inputs/hard_03.txt,hard,BID,BID,The text gives two amounts: the budget with VAT and the estimated value without VAT. The app must use the one without VAT. Real offers: 1 bidder. (TED 139409-2026)
 hard_04,eval/inputs/hard_04.txt,hard,REVIEW,BID,"Mixes funeral services, maintenance, cleaning and security, so the sector is not obvious. Real offers: 2 bidders. (TED 607251-2026)"
 hard_05,eval/inputs/hard_05.txt,hard,REVIEW,BID,"Very long page (about 19,000 characters) full of conditions, and the budget appears three ways (EUR 1M, EUR 500k initial, EUR 155 per hour). Real offers: 5 bidders. (TED 17076-2026)"
 oos_01,eval/inputs/oos_01.txt,out_of_scope,OUT_OF_SCOPE,OUT_OF_SCOPE,Job ad from a cleaning company hiring staff in Madrid: not a tender.
