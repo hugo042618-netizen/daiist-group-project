@@ -2,7 +2,7 @@
 All the settings of the product in one place.
 
 Values marked TEAM TO SET are temporary defaults: the team decides them and
-justifies them in REPORT.md.
+justifies them in REPORT.md. Values marked TEAM DECISION are already decided.
 """
 
 from pathlib import Path
@@ -59,7 +59,7 @@ QUOTA_RESET = ("America/Los_Angeles", 0)  # daily quotas reset at midnight Pacif
 MODEL_COOLDOWN_S = 300                   # after a model is unavailable, try it last for this long (longer if its daily quota is used up)
 GEMINI_TIMEOUT_S = 45                    # per call; a slow call counts as unavailable
 GEMINI_THINKING = "low"                  # low / medium / high
-PROMPT_VERSION = "extract-v1"            # the default extraction prompt (see bidsense/prompts.py)
+PROMPT_VERSION = "extract-v3"            # the default extraction prompt (see bidsense/prompts.py)
 MAX_INPUT_CHARS = 20_000                 # longer texts are cut before they are sent
 MAX_AGENT_STEPS = 8                      # model turns per request, tool calls included
 GEMINI_RETRIES = 4                       # per call: flash-lite answers in about 1 s but returns 503 now and then; waits 2, 4, 8, 16 s
@@ -86,8 +86,10 @@ USE_CACHE = True
 # expected_value  = win_chance * contract_value * margin - bid_cost
 # BID if expected_value > 0, DON'T BID if < 0, SEND TO REVIEW if any rule below applies.
 
-DEFAULT_BID_COST_EUR = 3_000             # TEAM TO SET: cost of preparing one bid (UI default)
-DEFAULT_MARGIN_PCT = 8.0                 # TEAM TO SET: profit margin on the contract value (UI default)
+# Set by the team on 25 Nov 2026 (sources in REPORT.md, "The decision and review rule"). Both are the
+# defaults of the two boxes in the app: each company can type its own.
+DEFAULT_BID_COST_EUR = 3_000             # TEAM DECISION: cost of preparing one bid; EU studies put one bid at about EUR 3,000
+DEFAULT_MARGIN_PCT = 6.0                 # TEAM DECISION: profit on the contract value; the 6% industrial profit of Spanish procurement rules
 REVIEW_VALUE_EUR = 5_000_000             # TEAM TO SET: contracts above this always go to a person
 CLOSE_CALL_EUR = 2_000                   # TEAM TO SET: |expected value| below this is too close to call
 MIN_CONFIDENCE = 0.6                     # TEAM TO SET: below this the agent's reading is not trusted

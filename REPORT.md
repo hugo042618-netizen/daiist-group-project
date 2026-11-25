@@ -2,7 +2,7 @@
 
 - **Team** (Blackboard group name):
 - **Section**: [BBADBA 5A | BBADBA 5B | PPLEDBA 5A]
-- **App URL** (on Render):
+- **App URL** (on Render): <https://bidsense-ira5.onrender.com>
 - **Final commit** (tag `final`):
 
 *At most about 3,000 words, tables excluded. Members and who did what go in CONTRIBUTIONS.md.*
@@ -98,6 +98,8 @@ field accuracy against TED's official fields on 40 notices of `eval/extraction_t
 
 All 40 notices were read by `gemini-3.5-flash-lite`, the app's default model, and by no other
 (`eval/extraction_results.csv`, column `model`). Measured on 24 Nov 2026, prompt `extract-v1`.
+The prompt was changed after this measurement (25 Nov 2026, `extract-v3`: the buyer-type classes now follow
+TED's code list); the numbers below are still those of `extract-v1` until the new measurement is in.
 
 | Field | Accuracy | n |
 |---|---|---|
@@ -199,12 +201,35 @@ what you would fix first. Known limits to consider:
 - The model beats the baseline by 0.18 bidders (about 7%): a real but modest gain.
 - Buyer type adds only 0.02 bidders, and that was measured with labels derived from TED data; the agent's own
   reading of the buyer may not match them.
+- Buyer type means slightly different things in training and in the prompt. The training data (TED CSV,
+  2018–2023) has one code for "regional or local authority", so only town halls were told apart by name, and
+  provincial and island councils (diputaciones, cabildos, consells: 4.6% of the training notices) were trained
+  as `regional_government`. The prompt follows today's TED code list, where they are local authorities, so the
+  agent files them under `city_council`. Retraining with that rule would remove the difference.
 - Name removal is rule-based: in the tender text, a name in free prose, without a label or a title, is not
   caught. What the agent writes back (evidence quotes, notes, tool calls) goes through a stricter filter that
   also removes common given names followed by surnames, before it is cached or logged.
 - Candidate texts are rebuilt from the notice's fields, so they are cleaner than a real tender PDF.
 
 ## Decision
+
+**Company defaults, set by the team on 25 Nov 2026** (`config.py`; each company can change both in the app):
+
+| Setting | Value | Source |
+|---|---|---|
+| Cost of preparing one bid | €3,000 | PwC, London Economics and Ecorys for the European Commission, [*Public procurement in Europe: cost and effectiveness*](https://op.europa.eu/en/publication-detail/-/publication/0cfa3445-7724-4af5-8c2b-d657cd690c03) (2011), Figure 2.12, p. 88: €3,000 per bid for a firm in Spain; €3,800 on average in Europe |
+| Margin on the contract value | 6% | Art. 131 of the general regulation of the public contracts law ([Real Decreto 1098/2001](https://www.boe.es/buscar/act.php?id=BOE-A-2001-19995)): 6% of the budget as the contractor's industrial profit |
+
+- About the sources: the study's figure is staff time at 2009 wages, for tenders published in TED. A later study
+  for the Commission (Ecorys and Capgemini Invent, [*Cost-benefit analysis on the quality and efficiency of public
+  procurement procedures*](https://public-buyers-community.ec.europa.eu/resources/evaluation-public-procurement-directives-external-studies),
+  2025) puts one bid at €11,400 across the EU for 2019–2024, with no figure for Spain. Article 131 sets the 6%
+  for the budgets of works contracts; using it for supplies and services is the team's assumption.
+- What the two values do to the rule: with a €2,000 close-call band (`CLOSE_CALL_EUR`), the rule says BID when
+  the contract value divided by the number of bidders is above €83,333, DON'T BID when it is below €16,667, and
+  sends the tender to review in between. Told the real number of offers, it gives 46 BID, 31 REVIEW (24 for a value
+  above €5 million, 7 close calls) and no DON'T BID on the 77 unused tender candidates
+  (`eval/case_picker.xlsx`), whose values all start above €240,000.
 
 **TEAM TO WRITE.** Which cases go to a person: the rule (`config.py`: value above `REVIEW_VALUE_EUR`, a key
 field missing, confidence below `MIN_CONFIDENCE`, expected value within `CLOSE_CALL_EUR` of zero) and how many
@@ -214,7 +239,7 @@ cases a day that would be. Go / no-go / go with conditions: the conditions, and 
 
 *Delete this section if you did not do it.* What exists in the code: an epsilon-greedy bandit
 (`bidsense/bandit.py`, off by default: `BANDIT_ENABLED` in `config.py`) that chooses between two extraction
-prompts (`extract-v1`, `extract-v2`); reward 1 for 👍 and 0 for 👎 on the request that used the prompt; the
+prompts (`extract-v3`, and `extract-v4`, the same with step-by-step instructions); reward 1 for 👍 and 0 for 👎 on the request that used the prompt; the
 policy is rebuilt from the logs before each request; a simulated warm-up (`scripts/simulate_bandit.py`) is
 stored apart in `monitoring/bandit_warmup.json` and shown in its own column in the Monitoring tab.
 
@@ -238,7 +263,11 @@ the order of the commits on the `bidsense` branch:
   `eval/reference.csv` and `eval/shifted.csv` from those candidates;
 - the bandit module and its simulator; the "How to run" section of the README and the skeleton of this report;
 - at the team's request: the final refit on 2018–2022, the buyer-type experiment, the stricter name filter on
-  the agent's output, and the `used_in` column of the candidate files.
+  the agent's output, and the `used_in` column of the candidate files;
+- at the team's request, on 25 Nov 2026: the buyer-type definition of the prompt rewritten from TED's code list,
+  and `eval/case_picker.xlsx` (the unused candidates with empty columns for the team) with the script that
+  copies the filled sheet into `eval/cases.csv`. Claude also collected 40 more candidate notices
+  (`typical_fresh.csv`), because the first 40 had been used to measure the agent.
 
 Claude also proposed, and the team accepted or should review: one row per notice with the median offers across
 lots as the target; joining contract notices for duration and estimated value; excluding awards without a call

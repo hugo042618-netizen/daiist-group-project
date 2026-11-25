@@ -6,7 +6,8 @@ Real TED notices collected by `scripts/fetch_candidates.py` (TED Search API, pub
 
 | File | What it holds | Use it for |
 |---|---|---|
-| `typical.csv` | 40 Spanish award notices: open procedure, one lot, €100k-2M | `normal` cases |
+| `typical.csv` | 40 Spanish award notices: open procedure, one lot, €100k-2M | **already used**: `main.py evaluate` measures the agent on them, and the prompt was changed after that measurement |
+| `typical_fresh.csv` | 40 more notices defined like `typical.csv`, collected on 25 Nov 2026 and never read by the agent | `normal` cases |
 | `unusual.csv` | 25 Spanish award notices: restricted / negotiated / competitive dialogue, frameworks, many lots | `hard` cases |
 | `very_large.csv` | 15 Spanish award notices above €10M | `review` cases (value above `REVIEW_VALUE_EUR`) |
 | `not_a_tender.csv` | 20 Spanish notices that are not calls for tenders (prior information, contract modifications) | `out_of_scope` cases; add texts of your own (news, an email with no personal data...) |
@@ -14,7 +15,14 @@ Real TED notices collected by `scripts/fetch_candidates.py` (TED Search API, pub
 | `shifted_pool.csv` | 10 Portuguese and 10 French notices | already copied to `eval/shifted.csv` |
 
 **`used_in` tells you which notices are already taken.** All 45 notices of `reference_pool.csv` are marked
-`reference.csv` and all 20 of `shifted_pool.csv` are marked `shifted.csv`: do not use them in `eval/cases.csv`.
+`reference.csv`, all 20 of `shifted_pool.csv` are marked `shifted.csv`, and the 40 of `typical.csv` are marked
+`extraction_truth.csv (agent measured on it)`: do not use them in `eval/cases.csv`.
+
+**`eval/case_picker.xlsx` is the easy way to choose.** It lists every candidate that is not used yet, one per
+row, with four empty columns (kind, expected, baseline, notes) and a helper column that says what the decision
+rule gives with the real number of offers. Fill it in, then
+`uv run --with openpyxl python scripts/cases_from_picker.py --write` writes `eval/cases.csv` from it
+(`scripts/build_case_picker.py` rebuilds the sheet and keeps what you typed).
 After you edit `cases.csv`, `reference.csv` or `shifted.csv`, run
 `uv run python scripts/fetch_candidates.py --annotate` to refresh the column (it fetches no new notices), and
 `main.py evaluate` warns if a case is also a reference input.

@@ -4,6 +4,8 @@ A bid / no-bid tool for Spanish companies that sell to the public sector: paste 
 tender and it answers **BID**, **DON'T BID** or **SEND TO REVIEW**, with reasons. Built on the DAIIST
 group-project template; the assignment brief is kept below.
 
+**Live app:** <https://bidsense-ira5.onrender.com> (Render free plan; every push to `main` redeploys it).
+
 ```
 tender text -> redact personal data -> Gemini agent (fields + confidence + evidence; tools: lookup_cpv,
 parse_amount, market_stats) -> scikit-learn model (expected bidders) -> decision and review rule
@@ -32,8 +34,10 @@ Optional, offline only (the app never does this):
 ```bash
 uv run python scripts/warm_cache.py          # fill cache/ for the eval inputs (run after editing eval/*.csv; resumable, throttled)
 uv run python scripts/train.py               # rebuild the models from TED open data (downloads 1.1 GB to data/raw/, a few minutes)
-uv run python scripts/fetch_candidates.py    # collect fresh candidate notices from the TED API into eval/candidates/
-uv run python scripts/simulate_bandit.py --p-v1 0.70 --p-v2 0.75   # bonus: simulated warm-up of the prompt bandit
+uv run python scripts/fetch_candidates.py --annotate   # refresh which candidates are already used (plain run: collect them again, replaces the files)
+uv run --with openpyxl python scripts/build_case_picker.py             # eval/case_picker.xlsx: the unused candidates, for the team to fill in
+uv run --with openpyxl python scripts/cases_from_picker.py --write     # eval/cases.csv from the filled sheet
+uv run python scripts/simulate_bandit.py --p-a 0.70 --p-b 0.75   # bonus: simulated warm-up of the prompt bandit
 ```
 
 | Where | What |

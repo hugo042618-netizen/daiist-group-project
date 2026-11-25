@@ -34,11 +34,19 @@ Fields to extract:
 - is_framework_agreement: true if the tender sets up a framework agreement ("acuerdo marco").
 - region: the Spanish region where the contract is performed, as a NUTS-2 code: {_REGIONS}.
   Use "ES" if it covers several regions or the whole country, "other" if it is outside Spain.
-- buyer_type: who is buying. city_council: an ayuntamiento (ajuntament, concello, udala) or one of its departments.
-  regional_government: the government of a comunidad autónoma, its consejerías and departments, its regional
-  health service, or a provincial or island council (diputación, cabildo). ministry: the central State
-  administration (ministries, their directorates-general, State agencies, the armed forces). other: public
-  companies, mutual insurers, foundations, universities, transport operators and any other public body.
+- buyer_type: the legal type of the buyer, in the classes of TED's code list "buyer legal type".
+  ministry = central government authority ("autoridad estatal"): the State administration, that is ministries,
+  their directorates-general, their delegations and subdivisions in the regions, national agencies and offices,
+  the armed forces.
+  regional_government = regional authority ("autoridad regional"): the administration of a comunidad autónoma,
+  that is its government and presidency, its consejerías and departments (conselleria, departament, saila), and
+  the services and agencies that belong to that administration, such as the regional health service.
+  city_council = local authority ("autoridad local"): an ayuntamiento (ajuntament, concello, udala) with its
+  departments, and the other local entities (diputación, cabildo, consell insular, comarca, mancomunidad).
+  other = every other buyer: bodies governed by public law and public undertakings, whoever controls them
+  (public companies, universities, foundations, consortia, mutual insurers), entities with special or exclusive
+  rights (water, energy, transport, ports, airports), EU institutions and international organisations.
+  Go by what the buyer is, not by who controls it: a public company owned by a city is "other".
 - language: ISO code of the language of the text (es, en, pt, fr, ca...).
 
 For every field give:
@@ -54,9 +62,12 @@ on how many bidders similar Spanish tenders usually get.
 If is_tender is false, skip the tools, explain why in not_tender_reason and leave the other fields without value.
 Finish by calling submit_extraction exactly once. Do not answer in plain text."""
 
+# extract-v1 and extract-v2 (24 Nov 2026) described buyer_type in our own words. In extract-v3 and extract-v4 the
+# classes follow TED's code list "buyer legal type" (eForms SDK, buyer-legal-type.gc): central government,
+# regional and local authority, and everything else. Nothing else in the prompt changed.
 PROMPTS = {
-    "extract-v1": _COMMON,
-    "extract-v2": _COMMON + """
+    "extract-v3": _COMMON,
+    "extract-v4": _COMMON + """
 
 Work in this order and do not skip steps:
 1. Decide is_tender from the first lines and the overall purpose of the text.

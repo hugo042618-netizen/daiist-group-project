@@ -10,6 +10,7 @@ material to choose from, in eval/candidates/:
     not_a_tender.csv    Spanish notices that are NOT calls for tenders (prior information, contract modifications)
     reference_pool.csv  normal Spanish notices, not in the files above -> eval/reference.csv
     shifted_pool.csv    Portuguese and French notices -> eval/shifted.csv
+    typical_fresh.csv   more notices defined like typical.csv, added later with --more-typical
 
 It also writes eval/extraction_truth.csv (the official fields of the tender candidates,
 for the component-1 evaluation) and, with --fill, eval/reference.csv and eval/shifted.csv.
@@ -17,6 +18,11 @@ for the component-1 evaluation) and, with --fill, eval/reference.csv and eval/sh
 `--annotate` fetches no new notices: it only refreshes the `used_in` column (which eval/
 file already uses each notice) and the official `buyer_type`. Run it after editing
 eval/cases.csv, eval/reference.csv or eval/shifted.csv.
+
+`--more-typical N` adds N new notices to eval/candidates/typical_fresh.csv and changes nothing
+else: the 40 notices of typical.csv are the ones `main.py evaluate` measures the agent on, and
+the prompt was changed after that measurement, so they are marked as used and are no longer
+candidates for test cases.
 
 Source: the TED Search API (https://docs.ted.europa.eu/api/latest/search.html), no key needed.
 Offline only: the app never calls it.
@@ -106,6 +112,9 @@ COLUMNS = ["id", "group", "used_in", "notice_type", "published", "language", "te
 TRUTH_COLUMNS = ["id", "input", "cpv_code", "contract_type", "estimated_value_eur", "duration_months", "procedure", "lots_number",
                  "price_weight_pct", "is_framework_agreement", "region", "buyer_type", "offers"]
 USED_FILES = ("reference.csv", "shifted.csv", "cases.csv")   # eval/ files whose inputs must not be reused elsewhere
+EXTRACTION_SAMPLE = 40   # = evaluate.EXTRACTION_SAMPLE: the first notices of eval/extraction_truth.csv measure the agent
+USED_FOR_EXTRACTION = "extraction_truth.csv (agent measured on it)"
+FRESH = "typical_fresh"
 
 
 def search(query: str, page: int, limit: int = 100) -> list[dict]:
@@ -324,10 +333,11 @@ def annotate(fetch_buyer_types: bool = True) -> None:
         for row in read(ROOT / "eval" / name):
             used.setdefault(squash(row.get("input", "")), name)
     files = {path: read(path) for path in sorted(OUT.glob("*.csv"))}
+    measured = {row["id"] for row in read(ROOT / "eval" / "extraction_truth.csv")[:EXTRACTION_SAMPLE]}
     types = buyer_types([row["id"] for rows in files.values() for row in rows if not row.get("buyer_type")]) if fetch_buyer_types else {}
     for path, rows in files.items():
         for row in rows:
-            row["used_in"] = used.get(squash(row["text"]), "")
+            row["used_in"] = used.get(squash(row["text"]), "") or (USED_FOR_EXTRACTION if row["id"] in measured else "")
             row["buyer_type"] = row.get("buyer_type") or types.get(row["id"], "")
         write(path, COLUMNS, rows)
         marked = sum(bool(row["used_in"]) for row in rows)
@@ -340,13 +350,32 @@ def annotate(fetch_buyer_types: bool = True) -> None:
         write(ROOT / "eval" / "extraction_truth.csv", TRUTH_COLUMNS, truth)
 
 
+def more_typical(wanted: int) -> None:
+    """Add `wanted` notices defined like `typical` to typical_fresh.csv. No other file changes."""
+    path = OUT / f"{FRESH}.csv"
+    kept = read(path) if path.exists() else []
+    taken = {row["id"] for other in OUT.glob("*.csv") for row in read(other)}
+    rng = random.Random(SEED + 1 + len(kept))   # other result pages than the first collection
+    rows = collect("typical", GROUPS["typical"][0], wanted, taken, rng)
+    for row in rows:
+        row["group"] = FRESH
+    write(path, COLUMNS, kept + rows)
+    print(f"{len(rows)} new notices -> eval/candidates/{path.name} ({len(kept) + len(rows)} in the file)")
+    annotate(fetch_buyer_types=False)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--fill", action="store_true",
                         help="also write eval/reference.csv and eval/shifted.csv from the pools (overwrites them)")
     parser.add_argument("--annotate", action="store_true",
                         help="do not fetch new notices: only refresh `used_in` and `buyer_type` in the existing candidate files")
+    parser.add_argument("--more-typical", type=int, metavar="N",
+                        help="add N new notices defined like typical.csv to typical_fresh.csv; the other files stay as they are")
     args = parser.parse_args()
+    if args.more_typical:
+        more_typical(args.more_typical)
+        return
     if args.annotate:
         annotate()
         return
