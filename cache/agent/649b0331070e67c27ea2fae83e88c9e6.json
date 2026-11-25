@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "298337-2025 - Licitación",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "22110000",
+   "confidence": 1.0,
+   "evidence": "Clasificación principal (cpv): 22110000 Libros impresos",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "22",
+   "confidence": 1.0,
+   "evidence": "Clasificación principal (cpv): 22110000 Libros impresos",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 1.0,
+   "evidence": "Naturaleza del contrato: Suministros",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 610272.3,
+   "confidence": 1.0,
+   "evidence": "Valor estimado, IVA excluido: 610 272,30 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 1.0,
+   "evidence": "Duración: 2 Años",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "Tipo de procedimiento: Abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 7,
+   "confidence": 1.0,
+   "evidence": "dividido en 7 lotes.",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.8,
+   "evidence": "Tipo: Precio",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Ningún acuerdo marco",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 1.0,
+   "evidence": "Subdivisión del país (NUTS): Barcelona (ES511)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 1.0,
+   "evidence": "Naturaleza jurídica del comprador: Autoridad local",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Español",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish supplies tenders in CPV division 22 usually receive around 2 bidders (median, based on past data).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Libros impresos"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "22110000",
+      "division": "22",
+      "es": "Libros impresos",
+      "en": "Printed books"
+     },
+     {
+      "code": "22100000",
+      "division": "22",
+      "es": "Libros impresos, folletos y prospectos",
+      "en": "Printed books, brochures and leaflets"
+     },
+     {
+      "code": "30199710",
+      "division": "30",
+      "es": "Sobres impresos",
+      "en": "Printed envelopes"
+     },
+     {
+      "code": "22841100",
+      "division": "22",
+      "es": "Libros de sellos",
+      "en": "Stamp books"
+     },
+     {
+      "code": "22113000",
+      "division": "22",
+      "es": "Libros para biblioteca",
+      "en": "Library books"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "610 272,30 EUR"
+   },
+   "result": {
+    "amount": 610272.3,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "22"
+   },
+   "result": {
+    "scope": "CPV division 22, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 340,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 16242,
+ "tokens_out": 519,
+ "latency_s": 4.231,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

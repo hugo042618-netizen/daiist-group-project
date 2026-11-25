@@ -40,6 +40,7 @@ uv run --with openpyxl python scripts/cases_from_picker.py --write     # eval/ca
 uv run --with openpyxl python scripts/label_sheet.py                   # eval/labelling_sheet.xlsx: the app's answers, for the team's 1/0 labels
 uv run --with openpyxl python scripts/label_sheet.py --write           # eval/human_labels.csv from the filled sheet
 uv run python tests/test_monitor.py                                    # the Monitoring tab survives missing values in the logs
+uv run python tests/test_evidence.py                                   # the evidence check is display only; no confidence for out-of-scope answers
 uv run python scripts/simulate_bandit.py --p-a 0.70 --p-b 0.75   # bonus: simulated warm-up of the prompt bandit
 ```
 

@@ -145,27 +145,53 @@ and they are marked as used in `eval/candidates/` so that no test case comes fro
 
 ### End to end
 
-**Measured on 25 Nov 2026** on the team's 30 cases (`eval/cases.csv` → `eval/results.csv`, `eval/metrics.json`), every
+**Measured on 25 Nov 2026** on the team's 31 cases (`eval/cases.csv` → `eval/results.csv`, `eval/metrics.json`), every
 case read by `gemini-3.5-flash-lite` with prompt `extract-v3`, model `bidders-hgb-v3`, bid cost €11,400, margin 6%:
 
 | Kind | Cases | Product correct | Baseline today (bid on every tender) correct | Median-per-CPV-division rule correct | Sent to review |
 |---|---|---|---|---|---|
 | normal | 17 | 10 (59%) | 10 (59%) | 10 (59%) | 4 |
-| hard | 5 | 0 | 2 | 0 | 0 |
+| hard | 5 | 4 | 2 | 1 | 2 |
 | review | 5 | 4 | 0 | 5 | 4 |
-| out of scope | 3 | 3 | 3 | 3 | 0 |
-| **All** | **30** | **17 (57%)** | **15 (50%)** | **18 (60%)** | **8** |
+| out of scope | 4 | 4 | 4 | 4 | 0 |
+| **All** | **31** | **22 (71%)** | **16 (52%)** | **20 (65%)** | **10** |
+
+| Mistakes in the wrong direction | Total | BID when DON'T BID was expected | DON'T BID when BID was expected |
+|---|---|---|---|
+| Product | 3 | 2 | 1 |
+| Median-per-CPV-division rule | 4 | 2 | 2 |
+| Baseline today (bid on every tender) | 7 | 7 | 0 |
 
 - "Correct" means the app's decision is the `expected` word of the case. The expected answers come from the
   rule applied to the real number of offers, so the comparison measures how far the predicted number of bidders
-  (and the agent's reading) moves the decision.
-- All 5 `hard` cases were answered OUT OF SCOPE: they are pages copied from TED result notices ("Tipo de
-  formulario: Resultados"), and the agent says an award notice is not a call for tenders.
+  (and the agent's reading) moves the decision. A wrong-direction mistake is a BID where DON'T BID was expected
+  or the opposite; a REVIEW is not one. 19 of the 31 cases expect BID or DON'T BID.
+- **The hard cases changed during the evaluation.** The first run (same day) used pages copied from TED result
+  notices, and the app answered OUT OF SCOPE on all 5, rightly: an award notice is not a call for tenders. The
+  team then replaced each text with the call for tenders of the same procedure (same case id, same cleaning of
+  contact details; the real number of offers still comes from the award notice), and kept one result notice as
+  the out-of-scope case `oos_04`. With the result pages the totals were 17 of 30 for the product, 15 for the
+  baseline today and 18 for the median rule. The other 25 cases gave exactly the same answers in both runs.
+- What each hard case keeps: `hard_01` 7 lots (the page has 34,967 characters and the app reads the first
+  20,000, which reach lots 1 to 4); `hard_02` title, description and conditions in Catalan; `hard_04` a mix of
+  funeral, maintenance, cleaning and security services; `hard_05` a long page (20,512 characters) with three
+  amounts. `hard_03` lost its difficulty: the call states "Valor estimado, IVA excluido" in a field, while the
+  result notice only had the budget with VAT in the description. `eval/inputs_answers.csv` names the notice
+  each text comes from.
 - Of the 7 `normal` cases it got wrong, 4 were sent to review (2 for a confidence of 0.5 on the CPV code, 2 as
-  close calls) and 3 got the opposite decision because the model expected fewer or more bidders than came.
-- LLM judge (rubric in `bidsense/judge.py`): 30 cases judged, 27 labelled as matching (90%). The 3 it rejected
-  are close-call reviews: its explanations compare the "expected value" of the bid with the contract's
+  close calls) and 3 are the wrong-direction mistakes above: the model expected fewer or more bidders than came.
+- Evidence quotes: 328 of the 335 quotes the agent gave on these cases appear in the text, ignoring case and
+  spaces (97.9%); 7 do not. Of those found, 12 are quotes the agent shortened with dots ("Título:
+  Suministro..."), counted as found when the pieces are in the text in order. On the 40 extraction notices: 419
+  of 421. This check (`bidsense/evidence.py`) only marks the quote in the app and counts it here.
+- Separately, and since the first version, the agent's answer is validated when it arrives: a quote that is not
+  in the text caps that field's confidence at 0.5, and a key field below 0.6 sends the tender to review. That
+  is what sent `normal_01` and `normal_02` to review (their CPV quotes are not in the text).
+- LLM judge (rubric in `bidsense/judge.py`): 31 cases judged, 26 labelled as matching (84%). The 5 it rejected
+  are all close-call reviews: its explanations compare the "expected value" of the bid with the contract's
   estimated value, which are different things.
+- An out-of-scope answer shows no confidence, in the app and in `eval/results.csv`: no field was extracted, so
+  the 0 that is logged for it means nothing.
 - The personal-data filter also removes lines that start with "Nombre:" in a pasted TED page; in `hard_04`
   those are the names of the award criteria, not of people.
 
@@ -175,10 +201,10 @@ is in `bidsense/judge.py`; report your agreement with it on your own labels (Coh
 
 ### Cost and latency
 
-Measured on the 30 test cases (`eval/metrics.json` → `cost_per_request`, 25 Nov 2026, `gemini-3.5-flash-lite`):
-8,619 input tokens and 524 output tokens per request, €0.0036 per request; latency 3.3 s (median) and 4.8 s (mean),
+Measured on the 31 test cases (`eval/metrics.json` → `cost_per_request`, 25 Nov 2026, `gemini-3.5-flash-lite`):
+9,584 input tokens and 502 output tokens per request, €0.0038 per request; latency 3.4 s (median and mean),
 retries included. On the 40 extraction notices: 3.5 requests to Gemini per tender, €0.0039 per tender, 3.6 s
-(median). The judge adds one request per case (37,720 input tokens for the 30 cases, about €0.013 in all). The cost is an
+(median). The judge adds one request per case (about €0.015 for the 31 cases). The cost is an
 estimate at Gemini's paid-tier prices for the model that answered (`config.py`: for `gemini-3.5-flash-lite`,
 $0.30 per million input tokens and $2.50 per million output tokens); on the free tier the app costs nothing,
 but it is limited as follows. The scikit-learn model costs nothing per request.

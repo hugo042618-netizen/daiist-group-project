@@ -64,8 +64,8 @@ def answer(case: dict) -> dict | None:
         else:
             quote = f' | evidence: "{field["evidence"]}"' if field.get("evidence") else ""
             facts.append(f"{name}: {field['value']} | confidence {field['confidence']:.2f}{quote}")
-    if not agent_output.get("is_tender", True):
-        facts.insert(0, "The app says this is not a tender: " + str(agent_output.get("not_tender_reason", "")))
+    if not agent_output.get("is_tender", True):   # out of scope: nothing was extracted, so there are no facts or confidences to show
+        facts = ["The app says this is not a tender: " + str(agent_output.get("not_tender_reason", ""))]
     return {"text": text, "recommendation": decision.LABELS.get(result["decision"], result["decision"]),
             "reason": result["outputs"]["decision"]["reason"], "facts": "\n".join(facts)}
 

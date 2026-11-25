@@ -19,7 +19,8 @@ import env
 import logbook
 import monitor
 import pipeline
-from bidsense import bandit, decision, features, tools
+from bidsense import bandit, decision, evidence, features, tools
+from bidsense.redact import redact
 
 env.load_env()
 LOG_TARGET = logbook.start()
@@ -118,6 +119,8 @@ table.bs-table td.bs-ev { color: var(--body-text-color-subdued); white-space: no
 .bs-mid { background: #fdecc8; color: #8a4b00; }
 .bs-bad { background: #fde0e0; color: #a01d1d; }
 .bs-flat { background: var(--background-fill-secondary); color: var(--body-text-color-subdued); }
+.bs-miss { display: inline-block; margin-right: 7px; border-radius: 5px; padding: 1px 6px; font-size: .68rem; font-weight: 650; letter-spacing: .02em;
+  background: #fde0e0; color: #a01d1d; vertical-align: 1px; }
 
 .bs-banner { border-radius: 12px; padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start; color: #fff; }
 .bs-banner .bs-dot { flex: 0 0 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,.9); margin-top: 6px; }
@@ -242,9 +245,10 @@ def _confidence(field: dict) -> str:
     return f'<span class="bs-pill {level}">{confidence:.0%}</span>'
 
 
-def _found(agent_output: dict) -> str:
+def _found(agent_output: dict, text: str | None = None) -> str:
     """"What the agent found": one row per field, the confidence as a percentage, and a short evidence quote
-    whose full text shows on hover."""
+    whose full text shows on hover. With `text` (what the agent read), a quote that is not in it gets a small
+    "not found in text" mark: for the reader only, it changes no confidence and no decision."""
     rows = []
     for name, label in FIELD_LABELS.items():
         field = (agent_output.get("fields") or {}).get(name)
@@ -255,11 +259,14 @@ def _found(agent_output: dict) -> str:
             name_en = html.escape(tools.cpv_codes()[field["value"]]["en"], quote=True)
             value += f'<span class="bs-sub" title="{name_en}">{name_en}</span>'
         quote = str(field.get("evidence") or "").strip()
-        note = " (not found in the text)" if field.get("evidence_found") is False else ""
-        short = quote if len(quote) <= EVIDENCE_CHARS else quote[:EVIDENCE_CHARS].rstrip() + "…"
-        evidence = f"“{html.escape(short)}”{note}" if quote else '<span style="opacity:.6">inferred, no quote</span>' if field["value"] is not None else ""
+        missing = evidence.in_text(quote, text) is False if text is not None else field.get("evidence_found") is False
+        mark = '<span class="bs-miss">not found in text</span>' if quote and missing else ""
+        room = EVIDENCE_CHARS - (22 if mark else 0)
+        short = quote if len(quote) <= room else quote[:room].rstrip() + "…"
+        shown = f"{mark}“{html.escape(short)}”" if quote else '<span style="opacity:.6">inferred, no quote</span>' if field["value"] is not None else ""
+        tip = quote + (" (this quote does not appear in the text, ignoring case and spaces)" if mark else "")
         rows.append(f'<tr><td class="bs-f">{html.escape(label)}</td><td class="bs-num">{value}</td><td>{_confidence(field)}</td>'
-                    f'<td class="bs-ev" title="{html.escape(quote + note, quote=True)}">{evidence}</td></tr>')
+                    f'<td class="bs-ev" title="{html.escape(tip, quote=True)}">{shown}</td></tr>')
     if not rows:
         return '<div class="bs-section">What the agent found</div><div class="bs-empty">Nothing was extracted<span>The agent did not read any field from this text.</span></div>'
     return ('<div class="bs-section">What the agent found<span>hover a quote to read it in full</span></div>'
@@ -300,7 +307,12 @@ def on_analyse(raw_input, bid_cost_eur, margin_pct):
               f"estimated cost €{record['cost_eur']:.4f} (paid-tier prices)"
               + (" · answer served from the cache" if record.get("cached") else "")
               + f" · model {record['versions']['model_version']}, prompt {record['versions']['prompt_version']}")
-    yield [_card(outputs["decision"]), gr.update(visible=True), _tiles(outputs["model"], outputs["decision"]), _found(outputs["agent"]),
+    # An out-of-scope text has no prediction and no extracted facts worth a confidence: only the card is shown.
+    in_scope = record["decision"] != decision.OUT_OF_SCOPE
+    read = redact(pipeline.read_input(raw_input))[0][: config.MAX_INPUT_CHARS]   # what the agent read, for the evidence marks
+    yield [_card(outputs["decision"]), gr.update(visible=True),
+           gr.update(value=_tiles(outputs["model"], outputs["decision"]) if in_scope else "", visible=in_scope),
+           gr.update(value=_found(outputs["agent"], read) if in_scope else "", visible=in_scope),
            _steps(record), footer, record["id"], ""]
 
 
@@ -400,7 +412,7 @@ def _recent_table(logs: pd.DataFrame) -> str:
         word = str(row["decision"] or "")
         pill = f'<span class="bs-pill {DECISION_PILL.get(word, "bs-flat")}">{html.escape(decision.LABELS.get(word, word) or "–")}</span>'
         bidders = row["expected bidders"]
-        confidence = pd.to_numeric(row["confidence"], errors="coerce")
+        confidence = pd.to_numeric(row["confidence"], errors="coerce")   # monitor.recent() leaves it empty for out-of-scope texts
         latency = pd.to_numeric(row["latency (s)"], errors="coerce")
         rows.append(
             f'<tr><td class="bs-quiet bs-num">{html.escape(str(row["time (UTC)"]))}</td><td>{html.escape(str(row["input summary"]))}</td>'

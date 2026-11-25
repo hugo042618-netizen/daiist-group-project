@@ -6,466 +6,679 @@ Español
 Convocatorias de concursos de la UE
 Ted • tenders electronic daily Suplemento del Diario Oficial de la Unión Europea
 Opciones de búsqueda
-18796-2026 - Resultados
+298337-2025 - Licitación
 España – Libros impresos – Suministro de artículos para su comercialización en la tienda del Palau Güell, dividido en 7 lotes.
 Vista del anuncio
-Volver a la lista de resultados
 Resumen
 Lenguas y formatos
 Anuncio
 Lengua oficial
-18796-2026 - Resultados
+298337-2025 - Licitación
 España – Libros impresos – Suministro de artículos para su comercialización en la tienda del Palau Güell, dividido en 7 lotes.
-OJ S 7/2026 12/01/2026
-Anuncio de adjudicación de contrato o concesión. Régimen normal
+OJ S 90/2025 12/05/2025
+Anuncio de contrato o de concesión. Régimen normal
 Suministros
 1. Comprador
 1.1.
 Comprador
-Denominación oficial: DIPUTACIÓN DE BARCELONA
-Naturaleza jurídica del comprador: Autoridad local
-Actividad del poder adjudicador: Servicios públicos generales
+Denominación oficial: DIPUTACIÓN DE BARCELONA
+Naturaleza jurídica del comprador: Autoridad local
+Actividad del poder adjudicador: Servicios públicos generales
 2. Procedimiento
 2.1.
 Procedimiento
-Título: Suministro de artículos para su comercialización en la tienda del Palau Güell, dividido en 7 lotes.
-Descripción: Suministro de artículos para su comercialización en la tienda del Palau Güell, dividido en 7 lotes.
-Identificador del procedimiento: 14ad3a3d-227a-4f8d-b8a0-02bfae0c4d77
-Anuncio anterior: 298337-2025
-Identificador interno: 2022/0027263
-Tipo de procedimiento: Abierto
-El procedimiento está acelerado: no
+Título: Suministro de artículos para su comercialización en la tienda del Palau Güell, dividido en 7 lotes.
+Descripción: Suministro de artículos para su comercialización en la tienda del Palau Güell, dividido en 7 lotes.
+Identificador del procedimiento: 14ad3a3d-227a-4f8d-b8a0-02bfae0c4d77
+Anuncio anterior: 450985-2024
+Identificador interno: 2022/0027263
+Tipo de procedimiento: Abierto
+El procedimiento está acelerado: no
 2.1.1.
 Finalidad
-Naturaleza del contrato: Suministros
-Clasificación principal (cpv): 22110000 Libros impresos
-Clasificación adicional (cpv): 18331000 Camisetas, 18936000 Bolsas textiles, 18317000 Calcetines, 18925000 Portacantimploras y fundas, 18929000 Neceseres, 18421000 Pañuelos, 19211000 Tejidos sintéticos, 39295000 Paraguas y sombrillas; bastones y bastones-asiento, 39298000 Estatuillas, objetos de adorno, marcos para fotografías o para cuadros y espejos, 30199000 Artículos de papelería y otros artículos, 30192121 Bolígrafos, 30192130 Lápices, 22310000 Tarjetas postales, 37523000 Puzzles, 39500000 Artículos textiles, 44812400 Artículos para decoración
+Naturaleza del contrato: Suministros
+Clasificación principal (cpv): 22110000 Libros impresos
+Clasificación adicional (cpv): 18331000 Camisetas, 18936000 Bolsas textiles, 18317000 Calcetines, 18925000 Portacantimploras y fundas, 18929000 Neceseres, 18421000 Pañuelos, 19211000 Tejidos sintéticos, 39295000 Paraguas y sombrillas; bastones y bastones-asiento, 39298000 Estatuillas, objetos de adorno, marcos para fotografías o para cuadros y espejos, 30199000 Artículos de papelería y otros artículos, 30192121 Bolígrafos, 30192130 Lápices, 22310000 Tarjetas postales, 37523000 Puzzles, 39500000 Artículos textiles, 44812400 Artículos para decoración
 2.1.2.
 Lugar de ejecución
-Dirección postal: Calle Zamora, número 73, 1a planta  
-Localidad: Barcelona
-Código postal: 08018
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
+Dirección postal: C/ Londres, 55, 5ª planta
+Localidad: Barcelona
+Código postal: 08036
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
 2.1.3.
 Valor
-Valor estimado, IVA excluido: 610 272,30 EUR
+Valor estimado, IVA excluido: 610 272,30 EUR
 2.1.4.
 Información general
-Base jurídica: 
+Base jurídica:
 Directiva 2014/24/UE
+2.1.5.
+Condiciones de la contratación pública
+Condiciones de presentación:
+Número máximo de lotes a los que un licitador puede presentar ofertas: 7
+Condiciones del contrato:
+Número máximo de lotes por los que se pueden adjudicar contratos a un solo licitador: 7
+2.1.6.
+Motivos de exclusión
+Fuentes de los motivos de exclusión: Documento europeo único de contratación (DEUC)
 5. Lote
 5.1.
-Lote: LOT-0001
-Título: Librería
-Descripción: Librería
-Identificador interno: Lote 1
+Lote: LOT-0001
+Título: Librería
+Descripción: Librería
+Identificador interno: Lote 1
 5.1.1.
 Finalidad
-Naturaleza del contrato: Suministros
-Clasificación principal (cpv): 22110000 Libros impresos
+Naturaleza del contrato: Suministros
+Clasificación principal (cpv): 22110000 Libros impresos
 5.1.2.
 Lugar de ejecución
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
 5.1.3.
 Duración estimada
-Duración: 2 Años
+Duración: 2 Años
 5.1.5.
 Valor
-Valor estimado, IVA excluido: 176 000,00 EUR
+Valor estimado, IVA excluido: 176 000,00 EUR
 5.1.6.
 Información general
+Participación reservada:
+La participación no está reservada.
 Proyecto de contratación pública no financiado con fondos de la UE
-La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
-Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
+Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+5.1.9.
+Criterios de selección
+Fuentes de los criterios de selección: Documento de contratación
 5.1.10.
 Criterios de adjudicación
-Criterio: 
-Tipo: Precio
-Descripción: Porcentaje de descuento (% dto.) a aplicar a todos los precios de venta al público (PVP) de material bibliográfico
-Criterio: 
-Tipo: Calidad
-Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (22 días laborables)
-Criterio: 
-Tipo: Calidad
-Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
-Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+Criterio:
+Tipo: Precio
+Descripción: Porcentaje de descuento (% dto.) a aplicar a todos los precios de venta al público (PVP) de material bibliográfico
+Criterio:
+Tipo: Calidad
+Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (22 días laborables)
+Criterio:
+Tipo: Calidad
+Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
+Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+5.1.11.
+Pliegos de contratación
+Dirección de los pliegos de contratación: https://seuelectronica.diba.cat
+5.1.12.
+Condiciones de la contratación pública
+Condiciones de presentación:
+Presentación electrónica: Obligatoria
+Dirección para la presentación: https://seuelectronica.diba.cat/
+Lenguas en las que pueden presentarse las ofertas o solicitudes de participación: español
+Catálogo electrónico: No autorizada
+Variantes: No autorizada
+Plazo de recepción de ofertas: 29/05/2025 14:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Duración durante la cual la oferta debe permanecer válida: 2 Meses
+Información sobre la apertura pública:
+Fecha de apertura: 11/06/2025 08:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Lugar: Telemáticamente
+Información complementaria: Acto no público
+Condiciones del contrato:
+La ejecución del contrato debe realizarse en el marco de programas de empleo protegido: No
+Facturación electrónica: Obligatoria
+Se utilizarán pedidos electrónicos: sí
+Se utilizará el pago electrónico: sí
 5.1.15.
 Técnicas
-Acuerdo marco: 
+Acuerdo marco:
 Ningún acuerdo marco
-Información sobre el sistema dinámico de adquisición: 
+Información sobre el sistema dinámico de adquisición:
 Ningún sistema dinámico de adquisición
 5.1.16.
 Información adicional, mediación y recurso
-Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
+Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
 Información sobre los plazos de revisión: Si quiere impugnar esta resolución, que pone fin a la vía administrativa, se podrá interponer recurso contencioso administrativo en el Juzgado Contencioso Administrativo de Barcelona, en el plazo de dos meses a contar desde el día siguiente al de la recepción de su notificación. Alternativamente y de forma potestativa, se puede interponer recurso especial en materia de contratación ante el Tribunal Catalán de Contratos del Sector Público en el plazo de quince días hábiles a contar desde el día siguiente al de la remisión de su notificación. La fecha de remisión es la que consta en el registro de salida.
-Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que recibe solicitudes de participación: DIPUTACIÓN DE BARCELONA
+Organización que tramita ofertas: DIPUTACIÓN DE BARCELONA
 5.1.
-Lote: LOT-0002
-Título: Artículos textiles: Camisetas de algodón, bolsas tipos Totebag, calcetines, fundas de gafas, neceseres, fulares, gamuzas limpia gafas, paraguas
-Descripción: Artículos textiles: Camisetas de algodón, bolsas tipos Totebag, calcetines, fundas de gafas, neceseres, fulares, gamuzas limpia gafas, paraguas
-Identificador interno: Lote 2
+Lote: LOT-0002
+Título: Artículos textiles: Camisetas de algodón, bolsas tipos Totebag, calcetines, fundas de gafas, neceseres, fulares, gamuzas limpia gafas, paraguas
+Descripción: Artículos textiles: Camisetas de algodón, bolsas tipos Totebag, calcetines, fundas de gafas, neceseres, fulares, gamuzas limpia gafas, paraguas
+Identificador interno: Lote 2
 5.1.1.
 Finalidad
-Naturaleza del contrato: Suministros
-Clasificación principal (cpv): 18331000 Camisetas
-Clasificación adicional (cpv): 18936000 Bolsas textiles, 18317000 Calcetines, 18925000 Portacantimploras y fundas, 18929000 Neceseres, 18421000 Pañuelos, 19211000 Tejidos sintéticos, 39295200 Paraguas
+Naturaleza del contrato: Suministros
+Clasificación principal (cpv): 18331000 Camisetas
+Clasificación adicional (cpv): 18936000 Bolsas textiles, 18317000 Calcetines, 18925000 Portacantimploras y fundas, 18929000 Neceseres, 18421000 Pañuelos, 19211000 Tejidos sintéticos, 39295200 Paraguas
 5.1.2.
 Lugar de ejecución
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
 5.1.3.
 Duración estimada
-Duración: 2 Años
+Duración: 2 Años
 5.1.5.
 Valor
-Valor estimado, IVA excluido: 63 723,00 EUR
+Valor estimado, IVA excluido: 63 723,00 EUR
 5.1.6.
 Información general
+Participación reservada:
+La participación no está reservada.
 Proyecto de contratación pública no financiado con fondos de la UE
-La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
-Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
+Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+5.1.9.
+Criterios de selección
+Fuentes de los criterios de selección: Documento de contratación
 5.1.10.
 Criterios de adjudicación
-Criterio: 
-Tipo: Precio
-Descripción: Precio
-Criterio: 
-Tipo: Calidad
-Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
-Criterio: 
-Tipo: Calidad
-Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
-Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+Criterio:
+Tipo: Precio
+Descripción: Precio
+Criterio:
+Tipo: Calidad
+Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
+Criterio:
+Tipo: Calidad
+Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
+Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+5.1.11.
+Pliegos de contratación
+Dirección de los pliegos de contratación: https://seuelectronica.diba.cat
+5.1.12.
+Condiciones de la contratación pública
+Condiciones de presentación:
+Presentación electrónica: Obligatoria
+Dirección para la presentación: https://seuelectronica.diba.cat/
+Lenguas en las que pueden presentarse las ofertas o solicitudes de participación: español
+Catálogo electrónico: No autorizada
+Variantes: No autorizada
+Plazo de recepción de ofertas: 29/05/2025 14:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Duración durante la cual la oferta debe permanecer válida: 2 Meses
+Información sobre la apertura pública:
+Fecha de apertura: 11/06/2025 08:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Lugar: Telemáticamente
+Información complementaria: Acto no público
+Condiciones del contrato:
+La ejecución del contrato debe realizarse en el marco de programas de empleo protegido: No
+Facturación electrónica: Obligatoria
+Se utilizarán pedidos electrónicos: sí
+Se utilizará el pago electrónico: sí
 5.1.15.
 Técnicas
-Acuerdo marco: 
+Acuerdo marco:
 Ningún acuerdo marco
-Información sobre el sistema dinámico de adquisición: 
+Información sobre el sistema dinámico de adquisición:
 Ningún sistema dinámico de adquisición
 5.1.16.
 Información adicional, mediación y recurso
-Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
+Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
 Información sobre los plazos de revisión: Si quiere impugnar esta resolución, que pone fin a la vía administrativa, se podrá interponer recurso contencioso administrativo en el Juzgado Contencioso Administrativo de Barcelona, en el plazo de dos meses a contar desde el día siguiente al de la recepción de su notificación. Alternativamente y de forma potestativa, se puede interponer recurso especial en materia de contratación ante el Tribunal Catalán de Contratos del Sector Público en el plazo de quince días hábiles a contar desde el día siguiente al de la remisión de su notificación. La fecha de remisión es la que consta en el registro de salida.
-Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que recibe solicitudes de participación: DIPUTACIÓN DE BARCELONA
+Organización que tramita ofertas: DIPUTACIÓN DE BARCELONA
 5.1.
-Lote: LOT-0003
-Título: Artículos de decoración. Bola de Navidad cerámica, imán cuadrado de chapa rígida, imán rectangular de chapa rígida, imán apaisado de chapa rígida, tazas / mugs, abanicos
-Descripción: Artículos de decoración. Bola de Navidad cerámica, imán cuadrado de chapa rígida, imán rectangular de chapa rígida, imán apaisado de chapa rígida, tazas / mugs, abanicos
-Identificador interno: Lote 3
+Lote: LOT-0003
+Título: Artículos de decoración. Bola de Navidad cerámica, imán cuadrado de chapa rígida, imán rectangular de chapa rígida, imán apaisado de chapa rígida, tazas / mugs, abanicos
+Descripción: Artículos de decoración. Bola de Navidad cerámica, imán cuadrado de chapa rígida, imán rectangular de chapa rígida, imán apaisado de chapa rígida, tazas / mugs, abanicos
+Identificador interno: Lote 3
 5.1.1.
 Finalidad
-Naturaleza del contrato: Suministros
-Clasificación principal (cpv): 39298000 Estatuillas, objetos de adorno, marcos para fotografías o para cuadros y espejos
+Naturaleza del contrato: Suministros
+Clasificación principal (cpv): 39298000 Estatuillas, objetos de adorno, marcos para fotografías o para cuadros y espejos
 5.1.2.
 Lugar de ejecución
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
 5.1.3.
 Duración estimada
-Duración: 2 Años
+Duración: 2 Años
 5.1.5.
 Valor
-Valor estimado, IVA excluido: 70 125,00 EUR
+Valor estimado, IVA excluido: 70 125,00 EUR
 5.1.6.
 Información general
+Participación reservada:
+La participación no está reservada.
 Proyecto de contratación pública no financiado con fondos de la UE
-La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
-Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
+Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+5.1.9.
+Criterios de selección
+Fuentes de los criterios de selección: Documento de contratación
 5.1.10.
 Criterios de adjudicación
-Criterio: 
-Tipo: Precio
-Descripción: Precio
-Criterio: 
-Tipo: Calidad
-Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
-Criterio: 
-Tipo: Calidad
-Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
-Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+Criterio:
+Tipo: Precio
+Descripción: Precio
+Criterio:
+Tipo: Calidad
+Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
+Criterio:
+Tipo: Calidad
+Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
+Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+5.1.11.
+Pliegos de contratación
+Dirección de los pliegos de contratación: https://seuelectronica.diba.cat
+5.1.12.
+Condiciones de la contratación pública
+Condiciones de presentación:
+Presentación electrónica: Obligatoria
+Dirección para la presentación: https://seuelectronica.diba.cat/
+Lenguas en las que pueden presentarse las ofertas o solicitudes de participación: español
+Catálogo electrónico: No autorizada
+Variantes: No autorizada
+Plazo de recepción de ofertas: 29/05/2025 14:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Duración durante la cual la oferta debe permanecer válida: 2 Meses
+Información sobre la apertura pública:
+Fecha de apertura: 11/06/2025 08:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Lugar: Telemáticamente
+Información complementaria: Acto no público
+Condiciones del contrato:
+La ejecución del contrato debe realizarse en el marco de programas de empleo protegido: No
+Facturación electrónica: Obligatoria
+Se utilizarán pedidos electrónicos: sí
+Se utilizará el pago electrónico: sí
 5.1.15.
 Técnicas
-Acuerdo marco: 
+Acuerdo marco:
 Ningún acuerdo marco
-Información sobre el sistema dinámico de adquisición: 
+Información sobre el sistema dinámico de adquisición:
 Ningún sistema dinámico de adquisición
 5.1.16.
 Información adicional, mediación y recurso
-Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
+Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
 Información sobre los plazos de revisión: Si quiere impugnar esta resolución, que pone fin a la vía administrativa, se podrá interponer recurso contencioso administrativo en el Juzgado Contencioso Administrativo de Barcelona, en el plazo de dos meses a contar desde el día siguiente al de la recepción de su notificación. Alternativamente y de forma potestativa, se puede interponer recurso especial en materia de contratación ante el Tribunal Catalán de Contratos del Sector Público en el plazo de quince días hábiles a contar desde el día siguiente al de la remisión de su notificación. La fecha de remisión es la que consta en el registro de salida.
-Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que recibe solicitudes de participación: DIPUTACIÓN DE BARCELONA
+Organización que tramita ofertas: DIPUTACIÓN DE BARCELONA
 5.1.
-Lote: LOT-0004
-Título: Artículos de papelería: Bolígrafo 1 color medida tipo “XL”, bolígrafo 4 colores, lápiz simple con goma de borrar, goma de borrar, libreta con espiral, libreta “tipo viaje” medida DIN A6, puntos de libro, puzle postal, puzle personalizado 100 piezas, puzle personalizado 1.000 piezas, llaveros, pines
-Descripción: Artículos de papelería: Bolígrafo 1 color medida tipo “XL”, bolígrafo 4 colores, lápiz simple con goma de borrar, goma de borrar, libreta con espiral, libreta “tipo viaje” medida DIN A6, puntos de libro, puzle postal, puzle personalizado 100 piezas, puzle personalizado 1.000 piezas, llaveros, pines
-Identificador interno: Lote 4
+Lote: LOT-0004
+Título: Artículos de papelería: Bolígrafo 1 color medida tipo “XL”, bolígrafo 4 colores, lápiz simple con goma de borrar, goma de borrar, libreta con espiral, libreta “tipo viaje” medida DIN A6, puntos de libro, puzle postal, puzle personalizado 100 piezas, puzle personalizado 1.000 piezas, llaveros, pines
+Descripción: Artículos de papelería: Bolígrafo 1 color medida tipo “XL”, bolígrafo 4 colores, lápiz simple con goma de borrar, goma de borrar, libreta con espiral, libreta “tipo viaje” medida DIN A6, puntos de libro, puzle postal, puzle personalizado 100 piezas, puzle personalizado 1.000 piezas, llaveros, pines
+Identificador interno: Lote 4
 5.1.1.
 Finalidad
-Naturaleza del contrato: Suministros
-Clasificación principal (cpv): 30199000 Artículos de papelería y otros artículos
-Clasificación adicional (cpv): 30192121 Bolígrafos, 30192130 Lápices, 22310000 Tarjetas postales, 37523000 Puzzles
+Naturaleza del contrato: Suministros
+Clasificación principal (cpv): 30199000 Artículos de papelería y otros artículos
+Clasificación adicional (cpv): 30192121 Bolígrafos, 30192130 Lápices, 22310000 Tarjetas postales, 37523000 Puzzles
 5.1.2.
 Lugar de ejecución
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
 5.1.3.
 Duración estimada
-Duración: 2 Años
+Duración: 2 Años
 5.1.5.
 Valor
-Valor estimado, IVA excluido: 97 570,00 EUR
+Valor estimado, IVA excluido: 97 570,00 EUR
 5.1.6.
 Información general
+Participación reservada:
+La participación no está reservada.
 Proyecto de contratación pública no financiado con fondos de la UE
-La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
-Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
+Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+5.1.9.
+Criterios de selección
+Fuentes de los criterios de selección: Documento de contratación
 5.1.10.
 Criterios de adjudicación
-Criterio: 
-Tipo: Precio
-Descripción: Precio
-Criterio: 
-Tipo: Calidad
-Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
-Criterio: 
-Tipo: Calidad
-Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
-Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+Criterio:
+Tipo: Precio
+Descripción: Precio
+Criterio:
+Tipo: Calidad
+Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
+Criterio:
+Tipo: Calidad
+Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
+Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+5.1.11.
+Pliegos de contratación
+Dirección de los pliegos de contratación: https://seuelectronica.diba.cat
+5.1.12.
+Condiciones de la contratación pública
+Condiciones de presentación:
+Presentación electrónica: Obligatoria
+Dirección para la presentación: https://seuelectronica.diba.cat/
+Lenguas en las que pueden presentarse las ofertas o solicitudes de participación: español
+Catálogo electrónico: No autorizada
+Variantes: No autorizada
+Plazo de recepción de ofertas: 29/05/2025 14:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Duración durante la cual la oferta debe permanecer válida: 2 Meses
+Información sobre la apertura pública:
+Fecha de apertura: 11/06/2025 08:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Lugar: Telemáticamente
+Información complementaria: Acto no público
+Condiciones del contrato:
+La ejecución del contrato debe realizarse en el marco de programas de empleo protegido: No
+Facturación electrónica: Obligatoria
+Se utilizarán pedidos electrónicos: sí
+Se utilizará el pago electrónico: sí
 5.1.15.
 Técnicas
-Acuerdo marco: 
+Acuerdo marco:
 Ningún acuerdo marco
-Información sobre el sistema dinámico de adquisición: 
+Información sobre el sistema dinámico de adquisición:
 Ningún sistema dinámico de adquisición
 5.1.16.
 Información adicional, mediación y recurso
-Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
+Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
 Información sobre los plazos de revisión: Si quiere impugnar esta resolución, que pone fin a la vía administrativa, se podrá interponer recurso contencioso administrativo en el Juzgado Contencioso Administrativo de Barcelona, en el plazo de dos meses a contar desde el día siguiente al de la recepción de su notificación. Alternativamente y de forma potestativa, se puede interponer recurso especial en materia de contratación ante el Tribunal Catalán de Contratos del Sector Público en el plazo de quince días hábiles a contar desde el día siguiente al de la remisión de su notificación. La fecha de remisión es la que consta en el registro de salida.
-Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que recibe solicitudes de participación: DIPUTACIÓN DE BARCELONA
+Organización que tramita ofertas: DIPUTACIÓN DE BARCELONA
 5.1.
-Lote: LOT-0005
-Título: Artículos infantiles: Baberos, estuches con colores, mochilas, títeres, peluches
-Descripción: Artículos infantiles: Baberos, estuches con colores, mochilas, títeres, peluches
-Identificador interno: Lote 5
+Lote: LOT-0005
+Título: Artículos infantiles: Baberos, estuches con colores, mochilas, títeres, peluches
+Descripción: Artículos infantiles: Baberos, estuches con colores, mochilas, títeres, peluches
+Identificador interno: Lote 5
 5.1.1.
 Finalidad
-Naturaleza del contrato: Suministros
-Clasificación principal (cpv): 39500000 Artículos textiles
+Naturaleza del contrato: Suministros
+Clasificación principal (cpv): 39500000 Artículos textiles
 5.1.2.
 Lugar de ejecución
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
 5.1.3.
 Duración estimada
-Duración: 2 Años
+Duración: 2 Años
 5.1.5.
 Valor
-Valor estimado, IVA excluido: 18 582,30 EUR
+Valor estimado, IVA excluido: 18 582,30 EUR
 5.1.6.
 Información general
+Participación reservada:
+La participación no está reservada.
 Proyecto de contratación pública no financiado con fondos de la UE
-La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
-Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
+Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+5.1.9.
+Criterios de selección
+Fuentes de los criterios de selección: Documento de contratación
 5.1.10.
 Criterios de adjudicación
-Criterio: 
-Tipo: Precio
-Descripción: Precio
-Criterio: 
-Tipo: Calidad
-Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
-Criterio: 
-Tipo: Calidad
-Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
-Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+Criterio:
+Tipo: Precio
+Descripción: Precio
+Criterio:
+Tipo: Calidad
+Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
+Criterio:
+Tipo: Calidad
+Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
+Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+5.1.11.
+Pliegos de contratación
+Dirección de los pliegos de contratación: https://seuelectronica.diba.cat
+5.1.12.
+Condiciones de la contratación pública
+Condiciones de presentación:
+Presentación electrónica: Obligatoria
+Dirección para la presentación: https://seuelectronica.diba.cat/
+Lenguas en las que pueden presentarse las ofertas o solicitudes de participación: español
+Catálogo electrónico: No autorizada
+Variantes: No autorizada
+Plazo de recepción de ofertas: 29/05/2025 14:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Duración durante la cual la oferta debe permanecer válida: 2 Meses
+Información sobre la apertura pública:
+Fecha de apertura: 11/06/2025 08:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Lugar: Telemáticamente
+Información complementaria: Acto no público
+Condiciones del contrato:
+La ejecución del contrato debe realizarse en el marco de programas de empleo protegido: No
+Facturación electrónica: Obligatoria
+Se utilizarán pedidos electrónicos: sí
+Se utilizará el pago electrónico: sí
 5.1.15.
 Técnicas
-Acuerdo marco: 
+Acuerdo marco:
 Ningún acuerdo marco
-Información sobre el sistema dinámico de adquisición: 
+Información sobre el sistema dinámico de adquisición:
 Ningún sistema dinámico de adquisición
 5.1.16.
 Información adicional, mediación y recurso
-Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
+Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
 Información sobre los plazos de revisión: Si quiere impugnar esta resolución, que pone fin a la vía administrativa, se podrá interponer recurso contencioso administrativo en el Juzgado Contencioso Administrativo de Barcelona, en el plazo de dos meses a contar desde el día siguiente al de la recepción de su notificación. Alternativamente y de forma potestativa, se puede interponer recurso especial en materia de contratación ante el Tribunal Catalán de Contratos del Sector Público en el plazo de quince días hábiles a contar desde el día siguiente al de la remisión de su notificación. La fecha de remisión es la que consta en el registro de salida.
-Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que recibe solicitudes de participación: DIPUTACIÓN DE BARCELONA
+Organización que tramita ofertas: DIPUTACIÓN DE BARCELONA
 5.1.
-Lote: LOT-0006
-Título: Artículos de vidrio: Imán de vidrio, bandejas, platos y porta velas
-Descripción: Artículos de vidrio: Imán de vidrio, bandejas, platos y porta velas
-Identificador interno: Lote 6
+Lote: LOT-0006
+Título: Artículos de vidrio: Imán de vidrio, bandejas, platos y porta velas
+Descripción: Artículos de vidrio: Imán de vidrio, bandejas, platos y porta velas
+Identificador interno: Lote 6
 5.1.1.
 Finalidad
-Naturaleza del contrato: Suministros
-Clasificación principal (cpv): 44812400 Artículos para decoración
+Naturaleza del contrato: Suministros
+Clasificación principal (cpv): 44812400 Artículos para decoración
 5.1.2.
 Lugar de ejecución
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
 5.1.3.
 Duración estimada
-Duración: 2 Años
+Duración: 2 Años
 5.1.5.
 Valor
-Valor estimado, IVA excluido: 20 042,00 EUR
+Valor estimado, IVA excluido: 20 042,00 EUR
 5.1.6.
 Información general
+Participación reservada:
+La participación no está reservada.
 Proyecto de contratación pública no financiado con fondos de la UE
-La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
-Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
+Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+5.1.9.
+Criterios de selección
+Fuentes de los criterios de selección: Documento de contratación
 5.1.10.
 Criterios de adjudicación
-Criterio: 
-Tipo: Precio
-Descripción: Precio
-Criterio: 
-Tipo: Calidad
-Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
-Criterio: 
-Tipo: Calidad
-Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
-Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+Criterio:
+Tipo: Precio
+Descripción: Precio
+Criterio:
+Tipo: Calidad
+Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
+Criterio:
+Tipo: Calidad
+Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
+Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+5.1.11.
+Pliegos de contratación
+Dirección de los pliegos de contratación: https://seuelectronica.diba.cat
+5.1.12.
+Condiciones de la contratación pública
+Condiciones de presentación:
+Presentación electrónica: Obligatoria
+Dirección para la presentación: https://seuelectronica.diba.cat/
+Lenguas en las que pueden presentarse las ofertas o solicitudes de participación: español
+Catálogo electrónico: No autorizada
+Variantes: No autorizada
+Plazo de recepción de ofertas: 29/05/2025 14:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Duración durante la cual la oferta debe permanecer válida: 2 Meses
+Información sobre la apertura pública:
+Fecha de apertura: 11/06/2025 08:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Lugar: Telemáticamente
+Información complementaria: Acto no público
+Condiciones del contrato:
+La ejecución del contrato debe realizarse en el marco de programas de empleo protegido: No
+Facturación electrónica: Obligatoria
+Se utilizarán pedidos electrónicos: sí
+Se utilizará el pago electrónico: sí
 5.1.15.
 Técnicas
-Acuerdo marco: 
+Acuerdo marco:
 Ningún acuerdo marco
-Información sobre el sistema dinámico de adquisición: 
+Información sobre el sistema dinámico de adquisición:
 Ningún sistema dinámico de adquisición
 5.1.16.
 Información adicional, mediación y recurso
-Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
+Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
 Información sobre los plazos de revisión: Si quiere impugnar esta resolución, que pone fin a la vía administrativa, se podrá interponer recurso contencioso administrativo en el Juzgado Contencioso Administrativo de Barcelona, en el plazo de dos meses a contar desde el día siguiente al de la recepción de su notificación. Alternativamente y de forma potestativa, se puede interponer recurso especial en materia de contratación ante el Tribunal Catalán de Contratos del Sector Público en el plazo de quince días hábiles a contar desde el día siguiente al de la remisión de su notificación. La fecha de remisión es la que consta en el registro de salida.
-Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que recibe solicitudes de participación: DIPUTACIÓN DE BARCELONA
+Organización que tramita ofertas: DIPUTACIÓN DE BARCELONA
 5.1.
-Lote: LOT-0007
-Título: Reproducciones de chimeneas del Palau Güell: medida grande, medida pequeña e imán de resina
-Descripción: Reproducciones de chimeneas del Palau Güell: medida grande, medida pequeña e imán de resina
-Identificador interno: Lote 7
+Lote: LOT-0007
+Título: Reproducciones de chimeneas del Palau Güell: medida grande, medida pequeña e imán de resina
+Descripción: Reproducciones de chimeneas del Palau Güell: medida grande, medida pequeña e imán de resina
+Identificador interno: Lote 7
 5.1.1.
 Finalidad
-Naturaleza del contrato: Suministros
-Clasificación principal (cpv): 39298000 Estatuillas, objetos de adorno, marcos para fotografías o para cuadros y espejos
+Naturaleza del contrato: Suministros
+Clasificación principal (cpv): 39298000 Estatuillas, objetos de adorno, marcos para fotografías o para cuadros y espejos
 5.1.2.
 Lugar de ejecución
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
 5.1.3.
 Duración estimada
-Duración: 2 Años
+Duración: 2 Años
 5.1.5.
 Valor
-Valor estimado, IVA excluido: 164 230,00 EUR
+Valor estimado, IVA excluido: 164 230,00 EUR
 5.1.6.
 Información general
+Participación reservada:
+La participación no está reservada.
 Proyecto de contratación pública no financiado con fondos de la UE
-La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
-Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
+Información complementaria: Este presupuesto es un importe bienal y está formulado en términos de precios unitarios.
+5.1.9.
+Criterios de selección
+Fuentes de los criterios de selección: Documento de contratación
 5.1.10.
 Criterios de adjudicación
-Criterio: 
-Tipo: Precio
-Descripción: Precio
-Criterio: 
-Tipo: Calidad
-Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
-Criterio: 
-Tipo: Calidad
-Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
-Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+Criterio:
+Tipo: Precio
+Descripción: Precio
+Criterio:
+Tipo: Calidad
+Descripción: Reducción de plazo de entrega de cada pedido respecto al establecido en la cláusula 4.4. del PPT (45 días laborables)
+Criterio:
+Tipo: Calidad
+Descripción: Utilización de materiales de embalaje por cada pedido fabricados a partir de cartón o plástico reciclado y fácilmente reciclables (cláusula 4.2 del PPT)
+Descripción del método que debe utilizarse si la ponderación no puede expresarse mediante criterios: Ver Cláusula 1.11) del Pliego de Cláusulas Administrativas Particulares
+5.1.11.
+Pliegos de contratación
+Dirección de los pliegos de contratación: https://seuelectronica.diba.cat
+5.1.12.
+Condiciones de la contratación pública
+Condiciones de presentación:
+Presentación electrónica: Obligatoria
+Dirección para la presentación: https://seuelectronica.diba.cat/
+Lenguas en las que pueden presentarse las ofertas o solicitudes de participación: español
+Catálogo electrónico: No autorizada
+Variantes: No autorizada
+Plazo de recepción de ofertas: 29/05/2025 14:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Duración durante la cual la oferta debe permanecer válida: 2 Meses
+Información sobre la apertura pública:
+Fecha de apertura: 11/06/2025 08:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Lugar: Telemáticamente
+Información complementaria: Acto no público
+Condiciones del contrato:
+La ejecución del contrato debe realizarse en el marco de programas de empleo protegido: No
+Facturación electrónica: Obligatoria
+Se utilizarán pedidos electrónicos: sí
+Se utilizará el pago electrónico: sí
 5.1.15.
 Técnicas
-Acuerdo marco: 
+Acuerdo marco:
 Ningún acuerdo marco
-Información sobre el sistema dinámico de adquisición: 
+Información sobre el sistema dinámico de adquisición:
 Ningún sistema dinámico de adquisición
 5.1.16.
 Información adicional, mediación y recurso
-Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
+Organización encargada de los procedimientos de recurso: Tribunal Catalán de Contratos del Sector Público
 Información sobre los plazos de revisión: Si quiere impugnar esta resolución, que pone fin a la vía administrativa, se podrá interponer recurso contencioso administrativo en el Juzgado Contencioso Administrativo de Barcelona, en el plazo de dos meses a contar desde el día siguiente al de la recepción de su notificación. Alternativamente y de forma potestativa, se puede interponer recurso especial en materia de contratación ante el Tribunal Catalán de Contratos del Sector Público en el plazo de quince días hábiles a contar desde el día siguiente al de la remisión de su notificación. La fecha de remisión es la que consta en el registro de salida.
-Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
-Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que proporciona información adicional sobre el procedimiento de contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona acceso fuera de línea a los documentos de la contratación: DIPUTACIÓN DE BARCELONA
+Organización que proporciona más información sobre los procedimientos de recurso: DIPUTACIÓN DE BARCELONA
+Organización que recibe solicitudes de participación: DIPUTACIÓN DE BARCELONA
+Organización que tramita ofertas: DIPUTACIÓN DE BARCELONA
 8. Organizaciones
 8.1.
 ORG-0001
-Denominación oficial: DIPUTACIÓN DE BARCELONA
-Número de registro: P0800000B
-Departamento: Dirección del Palau Güell
-Dirección postal: CALLE LONDRES, NÚMERO 55, PLANTA 5
-Localidad: BARCELONA
-Código postal: 08036
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
-Funciones de esta organización: 
+Denominación oficial: DIPUTACIÓN DE BARCELONA
+Número de registro: P0800000B
+Departamento: Dirección del Palau Güell
+Dirección postal: CALLE LONDRES, NÚMERO 55, PLANTA 5
+Localidad: BARCELONA
+Código postal: 08036
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
+Funciones de esta organización:
 Comprador
 Organización que proporciona información adicional sobre el procedimiento de contratación
 Organización que proporciona acceso fuera de línea a los documentos de la contratación
+Organización que recibe solicitudes de participación
+Organización que tramita ofertas
 Organización que proporciona más información sobre los procedimientos de recurso
 8.1.
 ORG-0002
-Denominación oficial: Tribunal Catalán de Contratos del Sector Público
-Número de registro: A09021959
-Dirección postal: Carrer del Foc, 57
-Localidad: Barcelona
-Código postal: 08038
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
-Funciones de esta organización: 
+Denominación oficial: Tribunal Catalán de Contratos del Sector Público
+Número de registro: A09021959
+Dirección postal: Carrer del Foc, 57
+Localidad: Barcelona
+Código postal: 08038
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
+Funciones de esta organización:
 Organización encargada de los procedimientos de recurso
 8.1.
 ORG-0000
-Denominación oficial: Publications Office of the European Union
-Número de registro: PUBL
-Localidad: Luxembourg
-Código postal: 2417
-Subdivisión del país (NUTS): Luxembourg (LU000)
-País: Luxemburgo
-Dirección de internet: https://op.europa.eu
-Funciones de esta organización: 
+Denominación oficial: Publications Office of the European Union
+Número de registro: PUBL
+Localidad: Luxembourg
+Código postal: 2417
+Subdivisión del país (NUTS): Luxembourg (LU000)
+País: Luxemburgo
+Dirección de internet: https://op.europa.eu
+Funciones de esta organización:
 TED eSender
 Información del anuncio
-Identificador del anuncio: 7051e750-d08d-4387-9f99-c08fee825a28  -  01
-Tipo de formulario: Resultados
-Tipo de anuncio: Anuncio de adjudicación de contrato o concesión. Régimen normal
-Subtipo de anuncio: 29
-Fecha de envío del anuncio: 09/01/2026 11:51:51 (UTC+00:00) Hora de Europa Occidental, GMT
-Lenguas en las que este anuncio está disponible oficialmente: español
-Número de publicación del anuncio: 18796-2026
-Número de la edición del DO S: 7/2026
-Fecha de publicación: 12/01/2026
+Identificador del anuncio: 5f939bfe-9621-4428-954b-ef1d11e294de  -  01
+Tipo de formulario: Licitación
+Tipo de anuncio: Anuncio de contrato o de concesión. Régimen normal
+Subtipo de anuncio: 16
+Fecha de envío del anuncio: 08/05/2025 09:07:09 (UTC+00:00) Hora de Europa Occidental, GMT
+Lenguas en las que este anuncio está disponible oficialmente: español
+Número de publicación del anuncio: 298337-2025
+Número de la edición del DO S: 90/2025
+Fecha de publicación: 12/05/2025
 Índice
 Este sitio web está gestionado por:
- 
+
 Oficina de Publicaciones de la Unión Europea
 Derecho | Datos | Publicaciones
 
- 
+
 
 ¿Necesita ayuda?
 Ayuda
 Póngase en contacto con el servicio de asistencia técnica del TED
 Síganos
  LinkedIn
- 
+
  Facebook
- 
+
  YouTube
- 
+
  Otros
 Cuestiones jurídicas
 Aviso legal

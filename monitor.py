@@ -113,6 +113,14 @@ def _numbers(logs: pd.DataFrame, column: str) -> pd.Series:
     return pd.to_numeric(logs[column], errors="coerce").astype(float)
 
 
+def _out_of_scope(logs: pd.DataFrame) -> pd.Series:
+    """True for requests answered OUT_OF_SCOPE. Their confidence is not a confidence in anything (no field was
+    extracted, so it is logged as 0), and it is left out of what the Monitoring tab shows."""
+    if "decision" not in logs.columns:
+        return pd.Series(False, index=logs.index)
+    return logs["decision"].astype(str).eq("OUT_OF_SCOPE")
+
+
 def live_features(logs: pd.DataFrame) -> pd.DataFrame:
     """The features of the last WINDOW logged requests, without the `f_` prefix, as numbers."""
     columns = [c for c in logs.columns if c.startswith("f_")]
@@ -134,7 +142,9 @@ def quality(logs: pd.DataFrame, window: int = 10) -> pd.DataFrame:
     signals = pd.DataFrame({"time": df["timestamp"]})
     signals["share sent to review"] = _numbers(df, "review").rolling(window, min_periods=1).mean()
     if "f_confidence" in df:
-        signals["mean confidence"] = _numbers(df, "f_confidence").rolling(window, min_periods=1).mean()
+        confidence = _numbers(df, "f_confidence").mask(_out_of_scope(df)).dropna()   # tenders only
+        if len(confidence):
+            signals["mean confidence"] = confidence.rolling(window, min_periods=1).mean()
     rated = _numbers(df, "feedback").dropna()
     if len(rated):
         signals["share 👎 (of rated)"] = (rated < 0).astype(float).rolling(window, min_periods=1).mean()
@@ -193,7 +203,8 @@ def recent(logs: pd.DataFrame, n: int = 25) -> pd.DataFrame:
             "input summary": record.get("input_summary", ""),
             "decision": record.get("decision") or (outputs.get("decision") or {}).get("decision", ""),
             "expected bidders": prediction.get("expected_bidders", ""),
-            "confidence": record.get("f_confidence", ""),
+            "confidence": "" if str(record.get("decision") or (outputs.get("decision") or {}).get("decision", "")) == "OUT_OF_SCOPE"
+            else record.get("f_confidence", ""),
             "latency (s)": record.get("latency_s", ""),
             "cost (€)": "" if pd.isna(cost) else round(float(cost), 5),
             "feedback": "" if pd.isna(feedback) else ("👍" if float(feedback) > 0 else "👎"),

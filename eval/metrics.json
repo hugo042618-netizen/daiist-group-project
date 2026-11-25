@@ -82,27 +82,56 @@
    "mae_with_official_fields": 1.675,
    "mae_baseline": 1.788,
    "bucket_accuracy_with_agent_fields": 0.525
+  },
+  "evidence": {
+   "quotes": 421,
+   "not_found_in_text": 2,
+   "share_found": 0.9952
   }
  },
  "end_to_end": {
-  "n": 30,
+  "n": 31,
   "errors": 0,
-  "review_rate": 0.2667,
-  "product_accuracy": 0.5667,
-  "baseline_today_accuracy": 0.5,
-  "baseline_median_accuracy": 0.6,
+  "review_rate": 0.3226,
+  "product_accuracy": 0.7097,
+  "baseline_today_accuracy": 0.5161,
+  "baseline_median_accuracy": 0.6452,
+  "wrong_direction": {
+   "product": {
+    "total": 3,
+    "bid_when_dont_bid_expected": 2,
+    "dont_bid_when_bid_expected": 1
+   },
+   "baseline_median": {
+    "total": 4,
+    "bid_when_dont_bid_expected": 2,
+    "dont_bid_when_bid_expected": 2
+   },
+   "baseline_today": {
+    "total": 7,
+    "bid_when_dont_bid_expected": 7,
+    "dont_bid_when_bid_expected": 0
+   },
+   "cases_expecting_bid_or_dont_bid": 19
+  },
+  "evidence": {
+   "quotes": 335,
+   "not_found_in_text": 7,
+   "share_found": 0.9791,
+   "found_only_as_shortened_quotes": 12
+  },
   "judge": {
-   "judged": 30,
-   "judge_match_rate": 0.9,
+   "judged": 31,
+   "judge_match_rate": 0.8387,
    "human_labels": 0
   },
   "cost_per_request": {
-   "tokens_in": 8619.4,
-   "tokens_out": 524.4,
-   "cost_eur": 0.003585,
-   "latency_s_mean": 4.81,
-   "latency_s_median": 3.33,
-   "total_cost_eur": 0.1075
+   "tokens_in": 9583.5,
+   "tokens_out": 501.9,
+   "cost_eur": 0.003799,
+   "latency_s_mean": 3.45,
+   "latency_s_median": 3.35,
+   "total_cost_eur": 0.1178
   }
  },
  "versions": {

@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Anuncio de contrato o de concesión. Régimen normal",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "71000000",
+   "confidence": 0.9,
+   "evidence": "Clasificación principal (cpv): 71000000",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "71",
+   "confidence": 0.9,
+   "evidence": "Clasificación principal (cpv): 71000000",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Naturaleza del contrato: Servicios",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1247803.23,
+   "confidence": 0.9,
+   "evidence": "Valor estimado, IVA excluido: 1 247 803,23 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.7,
+   "evidence": "Desconocido",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: Abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.9,
+   "evidence": "Lote: LOT-0001",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.6,
+   "evidence": "Oferta econòmica",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Ningún acuerdo marco",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "Barcelona (ES511)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Naturaleza jurídica del comprador: Empresa pública",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "español",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar tenders in CPV division 71 for services typically receive around 6 bidders (median).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Servicios de arquitectura, construcción, ingeniería e inspección"
+   },
+   "result": "{'results': [{'code': '71000000', 'division': '71', 'es': 'Servicios de arquitectura, construcción, ingeniería e inspección', 'en': 'Architectural, construction, engineering and inspection services'}, {'code': '71240000', 'division': '71', 'es': 'Servicios de arquitectura, ingeniería y planificación', 'en': 'Architectural, engineering and planning services'}, {'code': '71250000', 'division': '71', 'es': 'Servicios de arquitectura, ingeniería y agrimensura', 'en': 'Architectural, engineering and surveying services'}, {'code': '71631400', 'division': '71', 'es': 'Servicios de inspección técnica …"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "71"
+   },
+   "result": {
+    "scope": "CPV division 71, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5136,
+     "q25": 3.0,
+     "median": 6.0,
+     "q75": 11.0
+    }
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 247 803,23 EUR"
+   },
+   "result": {
+    "amount": 1247803.23,
+    "currency": "EUR"
+   }
+  }
+ ],
+ "tokens_in": 22854,
+ "tokens_out": 524,
+ "latency_s": 5.904,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

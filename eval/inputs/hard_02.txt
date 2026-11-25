@@ -6,180 +6,204 @@ Español
 Convocatorias de concursos de la UE
 Ted • tenders electronic daily Suplemento del Diario Oficial de la Unión Europea
 Opciones de búsqueda
-720278-2026 - Resultados
+209664-2026 - Licitación
 España – Servicios de arquitectura, construcción, ingeniería e inspección – Contractació conjunta dels serveis d’arquitectura i enginyeria necessaris per a la redacció dels projectes tècnics i la posterior direcció facultativa de les obres d’implantació dels usos de l’IREC, l’IBEC i la UPC a l’interior de l’Edifici D del Campus Diagonal-Besòs.
 Vista del anuncio
 Resumen
 Lenguas y formatos
 Anuncio
 Lengua oficial
-720278-2026 - Resultados
+209664-2026 - Licitación
 España – Servicios de arquitectura, construcción, ingeniería e inspección – Contractació conjunta dels serveis d’arquitectura i enginyeria necessaris per a la redacció dels projectes tècnics i la posterior direcció facultativa de les obres d’implantació dels usos de l’IREC, l’IBEC i la UPC a l’interior de l’Edifici D del Campus Diagonal-Besòs.
-OJ S 202/2026 19/10/2026
-Anuncio de adjudicación de contrato o concesión. Régimen normal
+OJ S 60/2026 26/03/2026
+Anuncio de contrato o de concesión. Régimen normal
 Servicios
 1. Comprador
 1.1.
 Comprador
-Denominación oficial: Fundació Institut de Recerca en Energia de Catalunya
-Naturaleza jurídica del comprador: Empresa pública
-Actividad del poder adjudicador: Servicios públicos generales
+Denominación oficial: Fundació Institut de Recerca en Energia de Catalunya
+Naturaleza jurídica del comprador: Empresa pública
+Actividad del poder adjudicador: Servicios públicos generales
 2. Procedimiento
 2.1.
 Procedimiento
-Título: Contractació conjunta dels serveis d’arquitectura i enginyeria necessaris per a la redacció dels projectes tècnics i la posterior direcció facultativa de les obres d’implantació dels usos de l’IREC, l’IBEC i la UPC a l’interior de l’Edifici D del Campus Diagonal-Besòs.
-Descripción: L’objecte del present contracte consisteix en la contractació conjunta dels serveis d’arquitectura i enginyeria necessaris per a la redacció dels projectes tècnics i la posterior direcció facultativa de les obres d’implantació dels usos de l’IREC, l’IBEC i la UPC a l’interior de l’Edifici D del Campus Diagonal-Besòs, d’acord amb les determinacions establertes en el Plec de Prescripcions Tècniques Particulars.
-Identificador del procedimiento: c30b1b1c-aaeb-4f51-8d89-dad8cc6fcf6d
-Anuncio anterior: 209664-2026
-Identificador interno: Exp. 26-0164
-Tipo de procedimiento: Abierto
-El procedimiento está acelerado: no
+Título: Contractació conjunta dels serveis d’arquitectura i enginyeria necessaris per a la redacció dels projectes tècnics i la posterior direcció facultativa de les obres d’implantació dels usos de l’IREC, l’IBEC i la UPC a l’interior de l’Edifici D del Campus Diagonal-Besòs.
+Descripción: L’objecte del present contracte consisteix en la contractació conjunta dels serveis d’arquitectura i enginyeria necessaris per a la redacció dels projectes tècnics i la posterior direcció facultativa de les obres d’implantació dels usos de l’IREC, l’IBEC i la UPC a l’interior de l’Edifici D del Campus Diagonal-Besòs, d’acord amb les determinacions establertes en el Plec de Prescripcions Tècniques Particulars.
+Identificador del procedimiento: c30b1b1c-aaeb-4f51-8d89-dad8cc6fcf6d
+Identificador interno: Exp. 26-0164
+Tipo de procedimiento: Abierto
+El procedimiento está acelerado: no
 2.1.1.
 Finalidad
-Naturaleza del contrato: Servicios
-Clasificación principal (cpv): 71000000 Servicios de arquitectura, construcción, ingeniería e inspección
-Clasificación adicional (cpv): 71247000 Supervisión del trabajo de construcción
+Naturaleza del contrato: Servicios
+Clasificación principal (cpv): 71000000 Servicios de arquitectura, construcción, ingeniería e inspección
+Clasificación adicional (cpv): 71247000 Supervisión del trabajo de construcción
 2.1.2.
 Lugar de ejecución
-Localidad: Sant Adrià del Besòs
-Código postal: ES08930
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
+Localidad: Sant Adrià del Besòs
+Código postal: ES08930
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
 2.1.3.
 Valor
-Valor estimado, IVA excluido: 1 247 803,23 EUR
+Valor estimado, IVA excluido: 1 247 803,23 EUR
 2.1.4.
 Información general
-Base jurídica: 
+Base jurídica:
 Directiva 2014/24/UE
-Ley 9/2017, de 8 de noviembre, de Contratos del Sector Público -
+2.1.6.
+Motivos de exclusión
+Fuentes de los motivos de exclusión: Solicitud de documento europeo único de contratación
 5. Lote
 5.1.
-Lote: LOT-0001
-Título: Contractació conjunta dels serveis d’arquitectura i enginyeria necessaris per a la redacció dels projectes tècnics i la posterior direcció facultativa de les obres d’implantació dels usos de l’IREC, l’IBEC i la UPC a l’interior de l’Edifici D del Campus Diagonal-Besòs.
-Descripción: L’objecte del present contracte consisteix en la contractació conjunta dels serveis d’arquitectura i enginyeria necessaris per a la redacció dels projectes tècnics i la posterior direcció facultativa de les obres d’implantació dels usos de l’IREC, l’IBEC i la UPC a l’interior de l’Edifici D del Campus Diagonal-Besòs, d’acord amb les determinacions establertes en el Plec de Prescripcions Tècniques Particulars.
-Identificador interno: Exp. 25-0164
+Lote: LOT-0001
+Título: Contractació conjunta dels serveis d’arquitectura i enginyeria necessaris per a la redacció dels projectes tècnics i la posterior direcció facultativa de les obres d’implantació dels usos de l’IREC, l’IBEC i la UPC a l’interior de l’Edifici D del Campus Diagonal-Besòs.
+Descripción: L’objecte del present contracte consisteix en la contractació conjunta dels serveis d’arquitectura i enginyeria necessaris per a la redacció dels projectes tècnics i la posterior direcció facultativa de les obres d’implantació dels usos de l’IREC, l’IBEC i la UPC a l’interior de l’Edifici D del Campus Diagonal-Besòs, d’acord amb les determinacions establertes en el Plec de Prescripcions Tècniques Particulars.
+Identificador interno: Exp. 25-0164
 5.1.1.
 Finalidad
-Naturaleza del contrato: Servicios
-Clasificación principal (cpv): 71000000 Servicios de arquitectura, construcción, ingeniería e inspección
-Clasificación adicional (cpv): 71247000 Supervisión del trabajo de construcción
-Opciones: 
-Descripción de las opciones: No és suceptible de pròrroga
+Naturaleza del contrato: Servicios
+Clasificación principal (cpv): 71000000 Servicios de arquitectura, construcción, ingeniería e inspección
+Clasificación adicional (cpv): 71247000 Supervisión del trabajo de construcción
+Opciones:
+Descripción de las opciones: No és suceptible de pròrroga
 5.1.2.
 Lugar de ejecución
-Localidad: Sant Adrià del Besòs
-Código postal: 08930
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
-Información complementaria: Les prestacions objecte del contracte tenen caràcter essencialment intel·lectual i es desenvoluparan principalment a les dependències pròpies de l’adjudicatari, sens perjudici de les obligacions de coordinació, seguiment i assistència que es deriven del contracte. En aquest sentit, l’adjudicatari haurà d’assistir a les reunions de treball, coordinació i seguiment que siguin requerides per les entitats contractants, les quals podran tenir lloc a les respectives seus, que es concretaran en cadascun dels contractes formalitzats en el marc de la contractació conjunta. Així mateix, l’adjudicatari haurà de desplaçar-se a l’emplaçament de les obres quan sigui necessari per a l’adequada execució de les prestacions, especialment en relació amb les funcions de direcció facultativa, situat a l’edifici D del Campus Diagonal-Besòs, ubicat a l’Avinguda d’Eduard Maristany, 6-12, 08930 Sant Adrià de Besòs (Barcelona), al límit municipal entre Barcelona i Sant Adrià de Besòs.
+Localidad: Sant Adrià del Besòs
+Código postal: 08930
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
+Información complementaria: Les prestacions objecte del contracte tenen caràcter essencialment intel·lectual i es desenvoluparan principalment a les dependències pròpies de l’adjudicatari, sens perjudici de les obligacions de coordinació, seguiment i assistència que es deriven del contracte. En aquest sentit, l’adjudicatari haurà d’assistir a les reunions de treball, coordinació i seguiment que siguin requerides per les entitats contractants, les quals podran tenir lloc a les respectives seus, que es concretaran en cadascun dels contractes formalitzats en el marc de la contractació conjunta. Així mateix, l’adjudicatari haurà de desplaçar-se a l’emplaçament de les obres quan sigui necessari per a l’adequada execució de les prestacions, especialment en relació amb les funcions de direcció facultativa, situat a l’edifici D del Campus Diagonal-Besòs, ubicat a l’Avinguda d’Eduard Maristany, 6-12, 08930 Sant Adrià de Besòs (Barcelona), al límit municipal entre Barcelona i Sant Adrià de Besòs.
 5.1.3.
 Duración estimada
-Fecha de inicio: 17/10/2026
-Fecha de finalización de la duración: 31/12/2028
+Duración: otra información: Desconocido
 5.1.5.
 Valor
-Valor estimado, IVA excluido: 1 247 803,23 EUR
+Valor estimado, IVA excluido: 1 247 803,23 EUR
 5.1.6.
 Información general
+Participación reservada:
+La participación no está reservada.
 Proyecto de contratación pública financiado total o parcialmente con fondos de la UE
-La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
+Información sobre fondos de la Unión Europea:
+Programa de fondos de la UE: Fondo Europeo de Desarrollo Regional (FEDER) (2021/2027)
+La contratación pública está cubierta por el Acuerdo sobre Contratación Pública (ACP): sí
+5.1.9.
+Criterios de selección
+Fuentes de los criterios de selección: Documento de contratación
 5.1.10.
 Criterios de adjudicación
-Criterio: 
-Tipo: Precio
-Descripción: Oferta econòmica
-Categoría del criterio de adjudicación de peso: Ponderación (decimal, exacto)
-Criterio de adjudicación: número: 1
-Criterio: 
-Tipo: Calidad
-Descripción: Altres criteris avaluables automàticament
-Categoría del criterio de adjudicación de peso: Ponderación (puntos, exacto)
-Criterio de adjudicación: número: 2
-Criterio: 
-Tipo: Calidad
-Descripción: Criteris d’adjudicació avaluables mitjançant judici de valor
-Categoría del criterio de adjudicación de peso: Ponderación (puntos, exacto)
-Criterio de adjudicación: número: 3
+Criterio:
+Tipo: Precio
+Descripción: Oferta econòmica
+Criterio:
+Tipo: Calidad
+Descripción: Altres criteris avaluables automàticament
+Criterio:
+Tipo: Calidad
+Descripción: Criteris d’adjudicació avaluables mitjançant judici de valor
+5.1.11.
+Pliegos de contratación
+Dirección de los pliegos de contratación: https://contractaciopublica.cat/ca/perfils-contractant/detall/1478177
+5.1.12.
+Condiciones de la contratación pública
+Condiciones de presentación:
+Presentación electrónica: Obligatoria
+Dirección para la presentación: https://contractaciopublica.cat/ca/perfils-contractant/detall/1478177
+Lenguas en las que pueden presentarse las ofertas o solicitudes de participación: catalán, español
+Catálogo electrónico: No autorizada
+Son necesarios el sello o la firma electrónicos avanzados o cualificados [como se definen en el Reglamento (UE) nº 910/2014]
+Variantes: No autorizada
+Plazo de recepción de ofertas: 30/04/2026 14:00:00 (UTC+02:00) Hora de Europa Oriental, hora de verano de Europa Central
+Duración durante la cual la oferta debe permanecer válida: 6 Meses
+Condiciones del contrato:
+La ejecución del contrato debe realizarse en el marco de programas de empleo protegido: No
+Facturación electrónica: Obligatoria
+Se utilizarán pedidos electrónicos: sí
+Se utilizará el pago electrónico: sí
 5.1.15.
 Técnicas
-Acuerdo marco: 
+Acuerdo marco:
 Ningún acuerdo marco
-Información sobre el sistema dinámico de adquisición: 
+Información sobre el sistema dinámico de adquisición:
 Ningún sistema dinámico de adquisición
 5.1.16.
 Información adicional, mediación y recurso
-Organización encargada de los procedimientos de recurso: Tribunal Català de Contractes del Sector Públic
+Organización encargada de los procedimientos de recurso: Tribunal Català de Contractes del Sector Públic
 Información sobre los plazos de revisión: Segons la clàusula 40 del PCAP
-Organización que proporciona información adicional sobre el procedimiento de contratación: Fundació Institut de Recerca en Energia de Catalunya
-Organización que proporciona acceso fuera de línea a los documentos de la contratación: Fundació Institut de Recerca en Energia de Catalunya
-Organización que proporciona más información sobre los procedimientos de recurso: Tribunal Català de Contractes del Sector Públic
+Organización que proporciona información adicional sobre el procedimiento de contratación: Fundació Institut de Recerca en Energia de Catalunya
+Organización que proporciona acceso fuera de línea a los documentos de la contratación: Fundació Institut de Recerca en Energia de Catalunya
+Organización que proporciona más información sobre los procedimientos de recurso: Tribunal Català de Contractes del Sector Públic
+Organización que recibe solicitudes de participación: Fundació Institut de Recerca en Energia de Catalunya
+Organización que tramita ofertas: Fundació Institut de Recerca en Energia de Catalunya
 8. Organizaciones
 8.1.
 ORG-0001
-Denominación oficial: Fundació Institut de Recerca en Energia de Catalunya
-Número de registro: ESG64946387
-Dirección postal: Jardins de les dones de negre nº 1, 2ªplanta
-Localidad: Sant Adrià del Besós
-Código postal: ES08930
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
-Perfil de comprador: https://contractaciopublica.cat/ca/perfils-contractant/detall/1478177
-Funciones de esta organización: 
+Denominación oficial: Fundació Institut de Recerca en Energia de Catalunya
+Número de registro: ESG64946387
+Dirección postal: Jardins de les dones de negre nº 1, 2ªplanta
+Localidad: Sant Adrià del Besós
+Código postal: ES08930
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
+Perfil de comprador: https://contractaciopublica.cat/ca/perfils-contractant/detall/1478177
+Funciones de esta organización:
 Comprador
 Organización que proporciona información adicional sobre el procedimiento de contratación
 Organización que proporciona acceso fuera de línea a los documentos de la contratación
+Organización que recibe solicitudes de participación
+Organización que tramita ofertas
 8.1.
 ORG-0002
-Denominación oficial: Tribunal Català de Contractes del Sector Públic
-Número de registro: S0811001G
-Dirección postal: Carrer del Foc, 57
-Localidad: Barcelona
-Código postal: ES08038
-Subdivisión del país (NUTS): Barcelona (ES511)
-País: España
-Funciones de esta organización: 
+Denominación oficial: Tribunal Català de Contractes del Sector Públic
+Número de registro: S0811001G
+Dirección postal: Carrer del Foc, 57
+Localidad: Barcelona
+Código postal: ES08038
+Subdivisión del país (NUTS): Barcelona (ES511)
+País: España
+Funciones de esta organización:
 Organización encargada de los procedimientos de recurso
 Organización que proporciona más información sobre los procedimientos de recurso
 8.1.
 ORG-0000
-Denominación oficial: Publications Office of the European Union
-Número de registro: PUBL
-Localidad: Luxembourg
-Código postal: 2417
-Subdivisión del país (NUTS): Luxembourg (LU000)
-País: Luxemburgo
-Dirección de internet: https://op.europa.eu
-Funciones de esta organización: 
+Denominación oficial: Publications Office of the European Union
+Número de registro: PUBL
+Localidad: Luxembourg
+Código postal: 2417
+Subdivisión del país (NUTS): Luxembourg (LU000)
+País: Luxemburgo
+Dirección de internet: https://op.europa.eu
+Funciones de esta organización:
 TED eSender
 Información del anuncio
-Identificador del anuncio: 3d203c6b-88ef-4d21-bd10-80b6951dcb45  -  01
-Tipo de formulario: Resultados
-Tipo de anuncio: Anuncio de adjudicación de contrato o concesión. Régimen normal
-Subtipo de anuncio: 29
-Fecha de envío del anuncio: 16/10/2026 10:26:14 (UTC+00:00) Hora de Europa Occidental, GMT
-Lenguas en las que este anuncio está disponible oficialmente: español
-Número de publicación del anuncio: 720278-2026
-Número de la edición del DO S: 202/2026
-Fecha de publicación: 19/10/2026
+Identificador del anuncio: 932ddd58-d03b-44d3-a81a-d0fb8769b691  -  01
+Tipo de formulario: Licitación
+Tipo de anuncio: Anuncio de contrato o de concesión. Régimen normal
+Subtipo de anuncio: 16
+Fecha de envío del anuncio: 24/03/2026 15:10:10 (UTC+00:00) Hora de Europa Occidental, GMT
+Lenguas en las que este anuncio está disponible oficialmente: español
+Número de publicación del anuncio: 209664-2026
+Número de la edición del DO S: 60/2026
+Fecha de publicación: 26/03/2026
 Índice
 Este sitio web está gestionado por:
- 
+
 Oficina de Publicaciones de la Unión Europea
 Derecho | Datos | Publicaciones
 
- 
+
 
 ¿Necesita ayuda?
 Ayuda
 Póngase en contacto con el servicio de asistencia técnica del TED
 Síganos
  LinkedIn
- 
+
  Facebook
- 
+
  YouTube
- 
+
  Otros
 Cuestiones jurídicas
 Aviso legal

@@ -29,7 +29,7 @@ import pandas as pd
 import config
 import env
 import pipeline
-from bidsense import agent, decision, judge, model
+from bidsense import agent, decision, evidence, judge, model
 from bidsense.redact import redact
 
 ROOT = Path(__file__).resolve().parent
@@ -135,6 +135,8 @@ def evaluate_agent() -> dict:
                     "price_weight_pct": truth["price_weight_pct"] or None,
                     "is_framework_agreement": str(truth["is_framework_agreement"]).lower() == "true",
                     "buyer_type": truth.get("buyer_type") or None}
+        quotes = evidence.check(extraction["fields"], redact(truth["input"])[0][: config.MAX_INPUT_CHARS])
+        row |= {"evidence_quotes": quotes["quotes"], "evidence_not_found": len(quotes["missing"])}
         row["bidders_from_agent_fields"] = model.predict(values)["expected_bidders"]
         row["bidders_from_official_fields"] = model.predict(official)["expected_bidders"]
         row["bidders_baseline"] = model.baseline_bidders(official["cpv_code"])
@@ -159,8 +161,12 @@ def evaluate_agent() -> dict:
     print(f"  Hand-off on these {len(table)} notices from 2026 (real offers known): MAE of expected bidders "
           f"{handoff['mae_with_agent_fields']} with the agent's fields, {handoff['mae_with_official_fields']} with the official fields, "
           f"{handoff['mae_baseline']} for the baseline.")
+    total, missing = int(table["evidence_quotes"].sum()), int(table["evidence_not_found"].sum())
+    print(f"  Evidence quotes: {total - missing} of {total} appear in the text, ignoring case and spaces"
+          + (f" ({1 - missing / total:.1%})." if total else "."))
     return {"n": int(len(table)), "errors": errors, "is_tender_rate": round(float(table["is_tender"].mean()), 4),
-            "field_accuracy": accuracy, "handoff": handoff}
+            "field_accuracy": accuracy, "handoff": handoff,
+            "evidence": {"quotes": total, "not_found_in_text": missing, "share_found": round(1 - missing / total, 4) if total else None}}
 
 
 # --- 3-5. End to end, judge, cost ------------------------------------------------
@@ -183,6 +189,8 @@ def evaluate_cases() -> dict:
         elapsed = time.perf_counter() - started
         outputs = result["outputs"]
         agent_output = outputs["agent"]
+        read = redact(pipeline.read_input(case["input"]))[0][: config.MAX_INPUT_CHARS]   # what the agent read
+        quotes = evidence.check(agent_output.get("fields"), read)                         # reported only: changes no decision
         answer = {"recommendation": result["decision"], "reason": outputs["decision"]["reason"],
                   "fields": {n: f["value"] for n, f in (agent_output.get("fields") or {}).items()}}
         verdict = {}
@@ -206,7 +214,12 @@ def evaluate_cases() -> dict:
             "baseline_median_decision": baseline_decision,
             "baseline_median_correct": None if expected is None else baseline_decision == expected,
             "expected_bidders": (outputs["model"] or {}).get("expected_bidders"),
-            "confidence": result["features"]["confidence"],
+            # No confidence for an out-of-scope answer: no field was extracted, so the logged 0 means nothing.
+            "confidence": None if result["decision"] == decision.OUT_OF_SCOPE else result["features"]["confidence"],
+            "evidence_quotes": quotes["quotes"],
+            "evidence_not_found": len(quotes["missing"]),
+            "evidence_shortened": quotes["shortened"],
+            "evidence_not_found_fields": ", ".join(quotes["missing"]),
             "judge_label": verdict.get("label"),
             "judge_explanation": verdict.get("explanation", verdict.get("error", "")),
             "latency_s": round(agent_output.get("latency_s", elapsed) if result["cached"] else elapsed, 3),
@@ -240,6 +253,24 @@ def evaluate_cases() -> dict:
     if summary["errors"]:
         print(f"  WARNING: the agent failed on {summary['errors']} cases (they count as REVIEW). First error: "
               f"{results.loc[results['error'] != '', 'error'].iloc[0][:140]}")
+
+    # Mistakes in the wrong direction: BID where DON'T BID was expected, or the opposite. A REVIEW is not one.
+    summary["wrong_direction"] = {}
+    print("\n  Wrong-direction mistakes (BID when DON'T BID is expected, or DON'T BID when BID is expected):")
+    for name, column in (("product", "decision"), ("baseline_median", "baseline_median_decision"), ("baseline_today", "baseline_today")):
+        bid_wrong = int(((results["expected"] == decision.DONT_BID) & (results[column] == decision.BID)).sum())
+        dont_wrong = int(((results["expected"] == decision.BID) & (results[column] == decision.DONT_BID)).sum())
+        summary["wrong_direction"][name] = {"total": bid_wrong + dont_wrong, "bid_when_dont_bid_expected": bid_wrong,
+                                            "dont_bid_when_bid_expected": dont_wrong}
+        print(f"    {name:<16} {bid_wrong + dont_wrong}  ({bid_wrong} BID when DON'T BID expected, {dont_wrong} DON'T BID when BID expected)")
+    summary["wrong_direction"]["cases_expecting_bid_or_dont_bid"] = int(results["expected"].isin([decision.BID, decision.DONT_BID]).sum())
+
+    total, missing = int(results["evidence_quotes"].sum()), int(results["evidence_not_found"].sum())
+    shortened = int(results["evidence_shortened"].sum())
+    summary["evidence"] = {"quotes": total, "not_found_in_text": missing, "share_found": round(1 - missing / total, 4) if total else None,
+                           "found_only_as_shortened_quotes": shortened}
+    print(f"\n  Evidence quotes: {total - missing} of {total} appear in the text, ignoring case and spaces"
+          + (f" ({1 - missing / total:.1%}); {missing} do not. {shortened} of those found are quotes the agent shortened with dots." if total else "."))
 
     summary["judge"] = judge_agreement(results)
     summary["cost_per_request"] = {

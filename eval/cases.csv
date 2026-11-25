@@ -182,3 +182,4 @@ hard_05,eval/inputs/hard_05.txt,hard,REVIEW,BID,"Very long page (about 19,000 ch
 oos_01,eval/inputs/oos_01.txt,out_of_scope,OUT_OF_SCOPE,OUT_OF_SCOPE,Job ad from a cleaning company hiring staff in Madrid: not a tender.
 oos_02,eval/inputs/oos_02.txt,out_of_scope,OUT_OF_SCOPE,OUT_OF_SCOPE,News paragraph about a waste collection contract that is already awarded: not a tender.
 oos_03,eval/inputs/oos_03.txt,out_of_scope,OUT_OF_SCOPE,OUT_OF_SCOPE,"A hotel asking cleaning companies for a quote: private purchase, not a public tender."
+oos_04,eval/inputs/oos_04.txt,out_of_scope,OUT_OF_SCOPE,OUT_OF_SCOPE,Result notice of hard_01's procedure: someone pastes the result instead of the call for tenders. (TED 18796-2026)
