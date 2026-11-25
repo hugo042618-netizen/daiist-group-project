@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Anuncio de adjudicación de contrato o concesión.",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "80500000",
+   "confidence": 1.0,
+   "evidence": "Clasificación principal (cpv): 80500000 Servicios de formación",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "80",
+   "confidence": 1.0,
+   "evidence": "Clasificación principal (cpv): 80500000",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Naturaleza del contrato: Servicios",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1000000.0,
+   "confidence": 1.0,
+   "evidence": "Valor estimado, IVA excluido: 1 000 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 18.0,
+   "confidence": 0.9,
+   "evidence": "Fecha de inicio: 15/10/2025 Fecha de finalización de la duración: 15/04/2027",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "Tipo de procedimiento: Abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 1.0,
+   "evidence": "Lote: LOT-0001",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "Tipo: Precio",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Ningún acuerdo marco",
+   "evidence_found": true
+  },
+  "region": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "Subdivisión del país (NUTS): Madrid (ES300)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "ASOCIACIÓN INSERTA EMPLEO",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "español",
+   "evidence_found": true
+  }
+ },
+ "is_tender": false,
+ "not_tender_reason": "The notice is an award notice (anuncio de adjudicación), not a call for tenders.",
+ "market_note": "",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Servicios de formación"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "80500000",
+      "division": "80",
+      "es": "Servicios de formación",
+      "en": "Training services"
+     },
+     {
+      "code": "80533100",
+      "division": "80",
+      "es": "Servicios de formación informática",
+      "en": "Computer training services"
+     },
+     {
+      "code": "80532000",
+      "division": "80",
+      "es": "Servicios de formación en materia de gestión",
+      "en": "Management training services"
+     },
+     {
+      "code": "80511000",
+      "division": "80",
+      "es": "Servicios de formación del personal",
+      "en": "Staff training services"
+     },
+     {
+      "code": "80531200",
+      "division": "80",
+      "es": "Servicios de formación técnica",
+      "en": "Technical training services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 000 000,00 EUR"
+   },
+   "result": {
+    "amount": 1000000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "80",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 80, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1317,
+     "q25": 1.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 14830,
+ "tokens_out": 536,
+ "latency_s": 49.66,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

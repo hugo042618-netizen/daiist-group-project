@@ -1,5 +1,5 @@
 id,group,used_in,notice_type,published,language,text,cpv_code,contract_type,estimated_value_eur,duration_months,procedure,lots_number,price_weight_pct,is_framework_agreement,region,buyer_type,offers,url
-192129-2026,very_large,,can-standard,2026-03-19,es,"Título: Suministro de equipamiento del programa Código Escuela 4.0 en Andalucía
+192129-2026,very_large,cases.csv,can-standard,2026-03-19,es,"Título: Suministro de equipamiento del programa Código Escuela 4.0 en Andalucía
 Órgano de contratación: Sociedad Andaluza para el Desarrollo de las Telecomunicaciones, S.A.
 Descripción: Se requiere el suministro de equipamiento de programación y robótica destinado a los centros sostenidos con fondos públicos que impartan enseñanzas del segundo ciclo de Infantil, Primaria y Secundaria Obligatoria de la Consejería de Desarrollo Educativo y Formación Profesional, en ejecución del programa Código Escuela 4.0.
 Valor estimado sin IVA: 32 604 925,55 EUR
@@ -84,7 +84,7 @@ Tipo de procedimiento: negociado con publicidad
 Acuerdo marco: sí
 Lugar de ejecución: ES114 (Galicia)
 Criterios de adjudicación: precio 100 %, calidad 0 %",33652100,supplies,71940000.0,24.0,negotiated,1,100.0,True,ES11,other,1.0,https://ted.europa.eu/es/notice/-/detail/579810-2026
-233472-2026,very_large,,can-standard,2026-04-03,es,"Título: Reordenación de los espacios en la estación de Santander. Situación provisional RC y estación provisional.
+233472-2026,very_large,cases.csv,can-standard,2026-04-03,es,"Título: Reordenación de los espacios en la estación de Santander. Situación provisional RC y estación provisional.
 Órgano de contratación: Administrador de Infraestructuras Ferroviarias
 Descripción: Reordenación de los espacios en la estación de Santander. Situación provisional RC y estación provisional
 Valor estimado sin IVA: 34 355 981,56 EUR
@@ -125,7 +125,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES616 (Andalucía)
 Criterios de adjudicación: precio 100 %, calidad 0 %",45231300,works,10795632.76,18.0,open,1,100.0,False,ES61,regional_government,14.0,https://ted.europa.eu/es/notice/-/detail/397324-2026
-153113-2026,very_large,,can-standard,2026-03-05,es,"Título: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros
+153113-2026,very_large,cases.csv,can-standard,2026-03-05,es,"Título: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros
 Órgano de contratación: Administrador de Infraestructuras Ferroviarias
 Descripción: Lote 1: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Centro. Nº 4.25/30108.0039 Lote 2: Servicio De mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Este. nº 4.25/30108.0040 Lote 3: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Noreste. Nº 4.25/30108.0041 Lote 4: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Noroeste. Nº 4.25/30108.0042 Lote 5: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Norte. Nº 4.25/30108.0043 Lote 6: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Sur. Nº 4.25/30108.0044
 Lotes: 4

@@ -1,1 +1,184 @@
 id,input,kind,expected,baseline,notes
+normal_01,"Título: Suministro en régimen de arrendamiento sin opción de compra de un equipo de Tomografía computarizada de rayos X, tipo Micro CT financiado por MICIU/AEI /10.13039/501100011033, por FEDER, UE y por el Gobierno Vasco.
+Órgano de contratación: UPV/EHU - Universidad del País Vasco - Campus de Bizkaia de la UPV/EHU
+Valor estimado sin IVA: 300 000,00 EUR
+Duración del contrato: 40 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES213 (País Vasco)
+Criterios de adjudicación: precio 50 %, calidad 50 %",normal,BID,BID,"Lease of a micro-CT scanner for a university: 1 bidder on EUR 300k, a clear BID. (TED 155734-2026)"
+normal_02,"Título: Línea de tránsito internet (2026-2029) - CPD Orcoyen
+Órgano de contratación: Dirección General de Telecomunicaciones y Digitalización
+Descripción: RESOLUCIÓN 465E/2025, de 23 de octubre, del director general de Telecomunicaciones y Digitalización, por la que se aprueba el expediente de contratación de una línea de tránsito a internet del sistema autónomo del Gobierno de Navarra con protección anti-DDoS, por procedimiento abierto superior al umbral europeo.
+Valor estimado sin IVA: 257 851,24 EUR
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES220 (Navarra)
+Criterios de adjudicación: precio 100 %, calidad 0 %",normal,DONT_BID,BID,"Internet transit line: only 2 bidders, but EUR 258k is too small to cover the bid cost. (TED 159079-2026)"
+normal_03,"Título: Contratación del servicio de desarrollo de una campaña de publicidad para la prevención de la conducta suicida en Galicia.
+Órgano de contratación: Servicio Gallego de Salud
+Valor estimado sin IVA: 244 628,09 EUR
+Duración del contrato: 6 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES111 (Galicia)
+Criterios de adjudicación: precio 45 %, calidad 55 %",normal,DONT_BID,BID,"Advertising campaign in Galicia, 10 bidders on EUR 245k: crowded creative services. (TED 66277-2026)"
+normal_04,"Título: Instalación y mantenimiento de equipos de radiocomunicación
+Órgano de contratación: Gobierno Vasco - Seguridad
+Valor estimado sin IVA: 1 204 132,23 EUR
+Duración del contrato: 12 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES213 (País Vasco)
+Criterios de adjudicación: precio 55 %, calidad 45 %",normal,BID,BID,"Radio equipment installation and upkeep, EUR 1.2M with only 2 bidders: clear BID. (TED 35262-2026)"
+normal_05,"Título: Servicio de mantenimiento y conservación de parques, jardines y zonas verdes de carácter municipal
+Órgano de contratación: Ayuntamiento de Berriz - Ayuntamiento de Berriz
+Valor estimado sin IVA: 1 444 214,85 EUR
+Duración del contrato: 60 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES213 (País Vasco)
+Criterios de adjudicación: precio 40 %, calidad 60 %",normal,BID,BID,"Parks maintenance, EUR 1.44M: still a BID with 3 bidders because the contract is large. (TED 155884-2026)"
+normal_06,"Título: Gestió i dinamització de l'Auditori Sant Martí del Districte de Sant Martí, amb mesures de contractació pública sostenible.
+Órgano de contratación: Ajuntament de Barcelona-Districte de Sant Martí
+Valor estimado sin IVA: 1 077 937,18 EUR
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES511 (Cataluña)
+Criterios de adjudicación: precio 100 %, calidad 0 %",normal,BID,BID,"Title in Catalan (auditorium management), 1 bidder on EUR 1.08M: BID with a non-Spanish title. (TED 52708-2026)"
+normal_07,"Título: CONSULTORÍA Y ASISTENCIA PARA EL CONTROL DE LAS OBRAS DE EJECUCIÓN DE: - PROYECTO DE CONSTRUCCIÓN. AUTOPISTA FERROVIARIA ALGECIRAS – ZARAGOZA. PASOS SUPERIORES DEL TRAMO: BOBADILLA (P.K. 123,7) – SANTA CRUZ DE MUDELA (P.K. 242,3). - PROYECTO DE TRATAMIENTO DE 15 PUENTES METÁLICOS SITUADOS ENTRE LOS PPKK 265+135Y 284+662 DE LA LÍNEA 400 ALCÁZAR DE SAN JUAN-CÁDIZ, TRAYECTO: ALMURADIEL –CALANCHA.
+Órgano de contratación: Administrador de Infraestructuras Ferroviarias
+Valor estimado sin IVA: 894 714,43 EUR
+Duración del contrato: 15 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no",normal,DONT_BID,BID,"Works control consultancy, 12 bidders on EUR 895k, no region on TED. (TED 58545-2026)"
+normal_08,"Título: Servicio de atención informática con un Centro de atención a los Usuarios (CAU) a los Ferrocarriles de la Generalitat de Cataluña y empresas del grupo
+Órgano de contratación: Ferrocarrils de la Generalitat de Catalunya
+Valor estimado sin IVA: 953 000,00 EUR
+Duración del contrato: 24 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Criterios de adjudicación: precio 71 %, calidad 29 %",normal,BID,BID,"IT user support centre, EUR 953k with 2 bidders: typical services BID, no region on TED. (TED 155942-2026)"
+review_01,"Título: Contratación para el suministro de fungible para la nebulización de fármacos con malla vibratoria para el Consorci Sanitari de l'Anoia
+Órgano de contratación: Consorci Sanitari de l'Anoia
+Valor estimado sin IVA: 357 588,00 EUR
+Duración del contrato: 24 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES511 (Cataluña)
+Criterios de adjudicación: precio 100 %, calidad 0 %",review,REVIEW,BID,"Close call: nebulisation consumables with 2 bidders, expected value -EUR 0.7k (within EUR 2k of zero). (TED 50132-2026)"
+normal_09,"Título: Servicio de soporte y mantenimiento de SAP S4 HANA ECOSISCAT.
+Órgano de contratación: Institut de Diagnòstic per la Imatge (IDI)
+Valor estimado sin IVA: 434 749,99 EUR
+Duración del contrato: 12 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES511 (Cataluña)
+Criterios de adjudicación: precio 100 %, calidad 0 %",normal,DONT_BID,BID,"SAP S/4HANA support, EUR 435k with 4 bidders: even moderate competition makes it negative. (TED 171939-2026)"
+review_02,"Título: Suministro, instalación y puesta en marcha de un equipo de litotrícia extracorporea para el Hospital Universitario Germans Trias i Pujol
+Órgano de contratación: Fundació Institut d'Investigació en Ciències de la Salut Germans Trias i Pujol
+Descripción: Suministro, transporte, instalación y puesta en marcha de un equipo de litotricia extracorpórea para el Hospital Universitario Germans Trias i Pujol.
+Valor estimado sin IVA: 439 000,00 EUR
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES511 (Cataluña)
+Criterios de adjudicación: precio 100 %, calidad 0 %",review,REVIEW,BID,"Close call: lithotripsy equipment with 2 bidders, expected value +EUR 1.8k (within EUR 2k of zero). (TED 170310-2026)"
+normal_10,"Título: Suministro y montaje de cable sustentador e hilo de contacto para la eliminación de empalmes y la mejora de las capacidades mecánicas en las zonas neutras de la L.A.V. Madrid-Segovia-Valladolid; L.A.V. Valladolid-Palencia-León y L.A.V. Olmedo-Zamora-Taboadela AV.
+Órgano de contratación: Adif-Alta Velocidad
+Valor estimado sin IVA: 854 785,28 EUR
+Duración del contrato: 12 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Criterios de adjudicación: precio 100 %, calidad 0 %",normal,BID,BID,"Railway overhead cable supply, EUR 855k with 2 bidders: supplies BID in a niche sector. (TED 169699-2026)"
+normal_11,"Título: SERVICIO DE MANTENIMIENTO INTEGRAL DEL ARCHIVO REAL Y GENERAL DE NAVARRA
+Órgano de contratación: GOBIERNO DE NAVARRA. DIRECCIÓN GENERAL DE CULTURA-INSTITUCIÓN PRÍNCIPE DE VIANA
+Descripción: El servicio de mantenimiento integral de las instalaciones y equipamientos, incluye todos los aspectos y trabajos relativos a electricidad, centro de transformación, grupo electrógeno, fontanería, albañilería, climatización, carpintería, redes informáticas, telefonía, sistema de protección contra incendios, sistema de seguridad, sistemas fijos de extinción, etc.
+Valor estimado sin IVA: 330 587,00 EUR
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES220 (Navarra)",normal,BID,BID,"Archive building maintenance in Navarra, 1 bidder on EUR 331k: small but positive BID. (TED 164995-2026)"
+normal_12,"Título: DIRECCIÓN DE OBRA Y COORDINACIÓN DE SEGURIDAD Y SALUD DE OBRAS DE DEPURACIÓN EN VARIOS MUNICIPIOS DE LA PROVINCIA DE HUELVA II
+Órgano de contratación: Consejería de Agricultura, Pesca, Agua y Desarrollo Rural. Dirección General de Infraestructuras del Agua.
+Descripción: El presente contrato tiene por objeto la contratación del servicio para la DIRECCIÓN DE OBRA Y COORDINACIÓN DE SEGURIDAD Y SALUD durante la ejecución de las obras a las que se va a prestar servicio.
+Valor estimado sin IVA: 546 845,76 EUR
+Duración del contrato: 37 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES615 (Andalucía)
+Criterios de adjudicación: precio 100 %, calidad 0 %",normal,DONT_BID,BID,Works supervision and health and safety coordination with 17 bidders: very crowded. (TED 164404-2026)
+normal_13,"Título: Elaboración del Plan Estratégico de Tecnologías de la Información y Comunicaciones para la seguridad pública de Euskadi (PETICSEG 2025-2029)
+Órgano de contratación: Gobierno Vasco - Seguridad
+Valor estimado sin IVA: 991 735,55 EUR
+Duración del contrato: 52 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES213 (País Vasco)
+Criterios de adjudicación: precio 41 %, calidad 59 %",normal,BID,BID,"IT strategic plan consultancy, EUR 992k with 3 bidders: BID with a thinner margin (EV about EUR 8.4k). (TED 38070-2026)"
+normal_14,"Título: Suministro y transporte de balasto para la renovación de vía del tramo Mataporquera - Torrelavega.
+Órgano de contratación: Administrador de Infraestructuras Ferroviarias
+Valor estimado sin IVA: 718 404,00 EUR
+Duración del contrato: 20 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES130 (Cantabria)
+Criterios de adjudicación: precio 100 %, calidad 0 %",normal,DONT_BID,BID,"Ballast supply for a railway line, 7 bidders on EUR 718k: crowded supplies tender. (TED 166333-2026)"
+normal_15,"Título: SEM-2026-1 suministro mediante arrendamiento de monitores desfibriladores portátiles con todos los periféricos necesarios y su fungible asociado a la entidad Sistema d’Emergències Mèdiques
+Órgano de contratación: Sistema d'Emergències Mèdiques
+Valor estimado sin IVA: 1 759 653,30 EUR
+Duración del contrato: 36 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES511 (Cataluña)",normal,BID,BID,"Defibrillator monitor lease for emergency services, EUR 1.76M with 2 bidders: large supplies BID. (TED 46631-2026)"
+normal_16,"Título: Suministro suscripción anual publicaciones periódicas para 2026
+Órgano de contratación: Generalitat de Catalunya
+Valor estimado sin IVA: 644 606,30 EUR
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES511 (Cataluña)
+Criterios de adjudicación: precio 0 %, calidad 100 %",normal,DONT_BID,BID,Periodicals subscription with 26 bidders: extreme competition. (TED 42241-2026)
+normal_17,"Título: Suministro en alquiler, mantenimiento e instalación de equipos de impresoras en modalidad de coste por copia, por encargo de la Corporación de Salud del Maresme y la Selva.
+Órgano de contratación: Corporació de Salut del Maresme i la Selva
+Valor estimado sin IVA: 375 098,88 EUR
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES511 (Cataluña)
+Criterios de adjudicación: precio 100 %, calidad 0 %",normal,BID,BID,"Printer rental and maintenance, EUR 375k with 1 bidder: small supplies BID. (TED 27542-2026)"
+review_03,"Título: Suministro de equipamiento del programa Código Escuela 4.0 en Andalucía
+Órgano de contratación: Sociedad Andaluza para el Desarrollo de las Telecomunicaciones, S.A.
+Descripción: Se requiere el suministro de equipamiento de programación y robótica destinado a los centros sostenidos con fondos públicos que impartan enseñanzas del segundo ciclo de Infantil, Primaria y Secundaria Obligatoria de la Consejería de Desarrollo Educativo y Formación Profesional, en ejecución del programa Código Escuela 4.0.
+Valor estimado sin IVA: 32 604 925,55 EUR
+Duración del contrato: 6 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES618 (Andalucía)
+Criterios de adjudicación: precio 0 %, calidad 100 %",review,REVIEW,BID,EUR 32.6M equipment supply for schools: above the EUR 5M review threshold. Real offers: 9 bidders. (TED 192129-2026)
+review_04,"Título: Reordenación de los espacios en la estación de Santander. Situación provisional RC y estación provisional.
+Órgano de contratación: Administrador de Infraestructuras Ferroviarias
+Descripción: Reordenación de los espacios en la estación de Santander. Situación provisional RC y estación provisional
+Valor estimado sin IVA: 34 355 981,56 EUR
+Duración del contrato: 20 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES130 (Cantabria)
+Criterios de adjudicación: precio 51 %, calidad 49 %",review,REVIEW,BID,"EUR 34.4M station works with 17 bidders: above EUR 5M, and the only works contract in the set. (TED 233472-2026)"
+review_05,"Título: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros
+Órgano de contratación: Administrador de Infraestructuras Ferroviarias
+Descripción: Lote 1: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Centro. Nº 4.25/30108.0039 Lote 2: Servicio De mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Este. nº 4.25/30108.0040 Lote 3: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Noreste. Nº 4.25/30108.0041 Lote 4: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Noroeste. Nº 4.25/30108.0042 Lote 5: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Norte. Nº 4.25/30108.0043 Lote 6: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Sur. Nº 4.25/30108.0044
+Lotes: 4
+- Lote 1: Lote 2: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Este
+- Lote 2: Lote 3: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Noreste
+- Lote 3: Lote 4: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Noroeste
+- Lote 4: Lote 5: Servicio de mantenimiento integral de ascensores, rampas y escaleras mecánicas en estaciones de viajeros. Subdirección de Estaciones Norte
+Valor estimado sin IVA: 27 371 342,69 EUR
+Duración del contrato: 36 meses
+Tipo de procedimiento: abierto
+Acuerdo marco: no
+Lugar de ejecución: ES522 (Comunitat Valenciana)",review,REVIEW,BID,"EUR 27.4M lift maintenance with a single bidder: tempting, but above EUR 5M so a person decides. Real offers: 1 bidder. (TED 153113-2026)"
+hard_01,eval/inputs/hard_01.txt,hard,REVIEW,BID,"7 lots with 2 to 6 bidders each and one lot with no winner, so the app has to turn several numbers into one answer. Real offers: 3 bidders. (TED 18796-2026)"
+hard_02,eval/inputs/hard_02.txt,hard,BID,BID,"Title, description and conditions are in Catalan; only the TED labels are in Spanish. Real offers: 2 bidders. (TED 720278-2026)"
+hard_03,eval/inputs/hard_03.txt,hard,BID,BID,"No estimated value field: the only budget is EUR 1.36M VAT included, buried in the description. Real offers: 1 bidder. (TED 139409-2026)"
+hard_04,eval/inputs/hard_04.txt,hard,REVIEW,BID,"Mixes funeral services, maintenance, cleaning and security, so the sector is not obvious. Real offers: 2 bidders. (TED 607251-2026)"
+hard_05,eval/inputs/hard_05.txt,hard,REVIEW,BID,"Very long page (about 19,000 characters) full of conditions, and the budget appears three ways (EUR 1M, EUR 500k initial, EUR 155 per hour). Real offers: 5 bidders. (TED 17076-2026)"
+oos_01,eval/inputs/oos_01.txt,out_of_scope,OUT_OF_SCOPE,OUT_OF_SCOPE,Job ad from a cleaning company hiring staff in Madrid: not a tender.
+oos_02,eval/inputs/oos_02.txt,out_of_scope,OUT_OF_SCOPE,OUT_OF_SCOPE,News paragraph about a waste collection contract that is already awarded: not a tender.
+oos_03,eval/inputs/oos_03.txt,out_of_scope,OUT_OF_SCOPE,OUT_OF_SCOPE,"A hotel asking cleaning companies for a quote: private purchase, not a public tender."

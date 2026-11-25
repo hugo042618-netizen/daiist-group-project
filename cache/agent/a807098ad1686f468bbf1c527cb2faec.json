@@ -1,0 +1,92 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Petición de presupuesto para la limpieza de nuestro hotel",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "90910000",
+   "confidence": 0.7,
+   "evidence": "limpieza de zonas comunes",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "90",
+   "confidence": 0.7,
+   "evidence": "limpieza de zonas comunes",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "limpieza de nuestro hotel",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "other",
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.9,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "region": {
+   "value": "ES30",
+   "confidence": 0.9,
+   "evidence": "Madrid",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "departamento de compras de un hotel de cuatro estrellas",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Asunto: Petición de presupuesto",
+   "evidence_found": true
+  }
+ },
+ "is_tender": false,
+ "not_tender_reason": "It is a private request for quotation from a hotel, not a public procurement tender.",
+ "market_note": "",
+ "steps": [],
+ "tokens_in": 2541,
+ "tokens_out": 356,
+ "latency_s": 1.395,
+ "requests": 1,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

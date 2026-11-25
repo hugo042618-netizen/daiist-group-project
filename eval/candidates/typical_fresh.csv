@@ -1,5 +1,5 @@
 id,group,used_in,notice_type,published,language,text,cpv_code,contract_type,estimated_value_eur,duration_months,procedure,lots_number,price_weight_pct,is_framework_agreement,region,buyer_type,offers,url
-155734-2026,typical_fresh,,can-standard,2026-03-05,es,"Título: Suministro en régimen de arrendamiento sin opción de compra de un equipo de Tomografía computarizada de rayos X, tipo Micro CT financiado por MICIU/AEI /10.13039/501100011033, por FEDER, UE y por el Gobierno Vasco.
+155734-2026,typical_fresh,cases.csv,can-standard,2026-03-05,es,"Título: Suministro en régimen de arrendamiento sin opción de compra de un equipo de Tomografía computarizada de rayos X, tipo Micro CT financiado por MICIU/AEI /10.13039/501100011033, por FEDER, UE y por el Gobierno Vasco.
 Órgano de contratación: UPV/EHU - Universidad del País Vasco - Campus de Bizkaia de la UPV/EHU
 Valor estimado sin IVA: 300 000,00 EUR
 Duración del contrato: 40 meses
@@ -7,7 +7,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES213 (País Vasco)
 Criterios de adjudicación: precio 50 %, calidad 50 %",33115000,supplies,300000.0,40.0,open,1,50.0,False,ES21,other,1.0,https://ted.europa.eu/es/notice/-/detail/155734-2026
-159079-2026,typical_fresh,,can-standard,2026-03-06,es,"Título: Línea de tránsito internet (2026-2029) - CPD Orcoyen
+159079-2026,typical_fresh,cases.csv,can-standard,2026-03-06,es,"Título: Línea de tránsito internet (2026-2029) - CPD Orcoyen
 Órgano de contratación: Dirección General de Telecomunicaciones y Digitalización
 Descripción: RESOLUCIÓN 465E/2025, de 23 de octubre, del director general de Telecomunicaciones y Digitalización, por la que se aprueba el expediente de contratación de una línea de tránsito a internet del sistema autónomo del Gobierno de Navarra con protección anti-DDoS, por procedimiento abierto superior al umbral europeo.
 Valor estimado sin IVA: 257 851,24 EUR
@@ -15,7 +15,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES220 (Navarra)
 Criterios de adjudicación: precio 100 %, calidad 0 %",64200000,services,257851.24,,open,1,100.0,False,ES22,regional_government,2.0,https://ted.europa.eu/es/notice/-/detail/159079-2026
-66277-2026,typical_fresh,,can-standard,2026-01-29,es,"Título: Contratación del servicio de desarrollo de una campaña de publicidad para la prevención de la conducta suicida en Galicia.
+66277-2026,typical_fresh,cases.csv,can-standard,2026-01-29,es,"Título: Contratación del servicio de desarrollo de una campaña de publicidad para la prevención de la conducta suicida en Galicia.
 Órgano de contratación: Servicio Gallego de Salud
 Valor estimado sin IVA: 244 628,09 EUR
 Duración del contrato: 6 meses
@@ -23,7 +23,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES111 (Galicia)
 Criterios de adjudicación: precio 45 %, calidad 55 %",79341000,services,244628.09,6.0,open,1,45.0,False,ES11,regional_government,10.0,https://ted.europa.eu/es/notice/-/detail/66277-2026
-35262-2026,typical_fresh,,can-standard,2026-01-19,es,"Título: Instalación y mantenimiento de equipos de radiocomunicación
+35262-2026,typical_fresh,cases.csv,can-standard,2026-01-19,es,"Título: Instalación y mantenimiento de equipos de radiocomunicación
 Órgano de contratación: Gobierno Vasco - Seguridad
 Valor estimado sin IVA: 1 204 132,23 EUR
 Duración del contrato: 12 meses
@@ -39,7 +39,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES212 (País Vasco)
 Criterios de adjudicación: precio 55 %, calidad 45 %",09300000,supplies,245823.26,12.0,open,1,55.0,False,ES21,city_council,1.0,https://ted.europa.eu/es/notice/-/detail/47219-2026
-155884-2026,typical_fresh,,can-standard,2026-03-05,es,"Título: Servicio de mantenimiento y conservación de parques, jardines y zonas verdes de carácter municipal
+155884-2026,typical_fresh,cases.csv,can-standard,2026-03-05,es,"Título: Servicio de mantenimiento y conservación de parques, jardines y zonas verdes de carácter municipal
 Órgano de contratación: Ayuntamiento de Berriz - Ayuntamiento de Berriz
 Valor estimado sin IVA: 1 444 214,85 EUR
 Duración del contrato: 60 meses
@@ -56,14 +56,14 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
 Criterios de adjudicación: precio 39 %, calidad 61 %",79410000,services,820000.0,20.0,open,1,39.0,False,ES51,other,7.0,https://ted.europa.eu/es/notice/-/detail/29602-2026
-52708-2026,typical_fresh,,can-standard,2026-01-23,es,"Título: Gestió i dinamització de l'Auditori Sant Martí del Districte de Sant Martí, amb mesures de contractació pública sostenible.
+52708-2026,typical_fresh,cases.csv,can-standard,2026-01-23,es,"Título: Gestió i dinamització de l'Auditori Sant Martí del Districte de Sant Martí, amb mesures de contractació pública sostenible.
 Órgano de contratación: Ajuntament de Barcelona-Districte de Sant Martí
 Valor estimado sin IVA: 1 077 937,18 EUR
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
 Criterios de adjudicación: precio 100 %, calidad 0 %",92000000,services,1077937.18,,open,1,100.0,False,ES51,city_council,1.0,https://ted.europa.eu/es/notice/-/detail/52708-2026
-58545-2026,typical_fresh,,can-standard,2026-01-27,es,"Título: CONSULTORÍA Y ASISTENCIA PARA EL CONTROL DE LAS OBRAS DE EJECUCIÓN DE: - PROYECTO DE CONSTRUCCIÓN. AUTOPISTA FERROVIARIA ALGECIRAS – ZARAGOZA. PASOS SUPERIORES DEL TRAMO: BOBADILLA (P.K. 123,7) – SANTA CRUZ DE MUDELA (P.K. 242,3). - PROYECTO DE TRATAMIENTO DE 15 PUENTES METÁLICOS SITUADOS ENTRE LOS PPKK 265+135Y 284+662 DE LA LÍNEA 400 ALCÁZAR DE SAN JUAN-CÁDIZ, TRAYECTO: ALMURADIEL –CALANCHA.
+58545-2026,typical_fresh,cases.csv,can-standard,2026-01-27,es,"Título: CONSULTORÍA Y ASISTENCIA PARA EL CONTROL DE LAS OBRAS DE EJECUCIÓN DE: - PROYECTO DE CONSTRUCCIÓN. AUTOPISTA FERROVIARIA ALGECIRAS – ZARAGOZA. PASOS SUPERIORES DEL TRAMO: BOBADILLA (P.K. 123,7) – SANTA CRUZ DE MUDELA (P.K. 242,3). - PROYECTO DE TRATAMIENTO DE 15 PUENTES METÁLICOS SITUADOS ENTRE LOS PPKK 265+135Y 284+662 DE LA LÍNEA 400 ALCÁZAR DE SAN JUAN-CÁDIZ, TRAYECTO: ALMURADIEL –CALANCHA.
 Órgano de contratación: Administrador de Infraestructuras Ferroviarias
 Valor estimado sin IVA: 894 714,43 EUR
 Duración del contrato: 15 meses
@@ -92,7 +92,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES213 (País Vasco)
 Criterios de adjudicación: precio 55 %, calidad 45 %",92600000,services,483769.94,36.0,open,1,55.0,False,ES21,city_council,2.0,https://ted.europa.eu/es/notice/-/detail/73255-2026
-155942-2026,typical_fresh,,can-standard,2026-03-05,es,"Título: Servicio de atención informática con un Centro de atención a los Usuarios (CAU) a los Ferrocarriles de la Generalitat de Cataluña y empresas del grupo
+155942-2026,typical_fresh,cases.csv,can-standard,2026-03-05,es,"Título: Servicio de atención informática con un Centro de atención a los Usuarios (CAU) a los Ferrocarriles de la Generalitat de Cataluña y empresas del grupo
 Órgano de contratación: Ferrocarrils de la Generalitat de Catalunya
 Valor estimado sin IVA: 953 000,00 EUR
 Duración del contrato: 24 meses
@@ -115,7 +115,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
 Criterios de adjudicación: precio 100 %, calidad 0 %",80511000,services,461032.0,12.0,open,1,100.0,False,ES51,other,8.0,https://ted.europa.eu/es/notice/-/detail/19710-2026
-50132-2026,typical_fresh,,can-standard,2026-01-23,es,"Título: Contratación para el suministro de fungible para la nebulización de fármacos con malla vibratoria para el Consorci Sanitari de l'Anoia
+50132-2026,typical_fresh,cases.csv,can-standard,2026-01-23,es,"Título: Contratación para el suministro de fungible para la nebulización de fármacos con malla vibratoria para el Consorci Sanitari de l'Anoia
 Órgano de contratación: Consorci Sanitari de l'Anoia
 Valor estimado sin IVA: 357 588,00 EUR
 Duración del contrato: 24 meses
@@ -131,7 +131,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES212 (País Vasco)
 Criterios de adjudicación: precio 40 %, calidad 60 %",71000000,services,900000.0,60.0,open,1,40.0,False,ES21,regional_government,2.0,https://ted.europa.eu/es/notice/-/detail/48815-2026
-171939-2026,typical_fresh,,can-standard,2026-03-12,es,"Título: Servicio de soporte y mantenimiento de SAP S4 HANA ECOSISCAT.
+171939-2026,typical_fresh,cases.csv,can-standard,2026-03-12,es,"Título: Servicio de soporte y mantenimiento de SAP S4 HANA ECOSISCAT.
 Órgano de contratación: Institut de Diagnòstic per la Imatge (IDI)
 Valor estimado sin IVA: 434 749,99 EUR
 Duración del contrato: 12 meses
@@ -146,7 +146,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: sí
 Lugar de ejecución: ES511 (Cataluña)
 Criterios de adjudicación: precio 0 %, calidad 100 %",71353000,services,480000.0,,open,1,0.0,True,ES51,other,7.0,https://ted.europa.eu/es/notice/-/detail/156584-2026
-170310-2026,typical_fresh,,can-standard,2026-03-11,es,"Título: Suministro, instalación y puesta en marcha de un equipo de litotrícia extracorporea para el Hospital Universitario Germans Trias i Pujol
+170310-2026,typical_fresh,cases.csv,can-standard,2026-03-11,es,"Título: Suministro, instalación y puesta en marcha de un equipo de litotrícia extracorporea para el Hospital Universitario Germans Trias i Pujol
 Órgano de contratación: Fundació Institut d'Investigació en Ciències de la Salut Germans Trias i Pujol
 Descripción: Suministro, transporte, instalación y puesta en marcha de un equipo de litotricia extracorpórea para el Hospital Universitario Germans Trias i Pujol.
 Valor estimado sin IVA: 439 000,00 EUR
@@ -154,7 +154,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
 Criterios de adjudicación: precio 100 %, calidad 0 %",38000000,supplies,439000.0,,open,1,100.0,False,ES51,other,2.0,https://ted.europa.eu/es/notice/-/detail/170310-2026
-169699-2026,typical_fresh,,can-standard,2026-03-11,es,"Título: Suministro y montaje de cable sustentador e hilo de contacto para la eliminación de empalmes y la mejora de las capacidades mecánicas en las zonas neutras de la L.A.V. Madrid-Segovia-Valladolid; L.A.V. Valladolid-Palencia-León y L.A.V. Olmedo-Zamora-Taboadela AV.
+169699-2026,typical_fresh,cases.csv,can-standard,2026-03-11,es,"Título: Suministro y montaje de cable sustentador e hilo de contacto para la eliminación de empalmes y la mejora de las capacidades mecánicas en las zonas neutras de la L.A.V. Madrid-Segovia-Valladolid; L.A.V. Valladolid-Palencia-León y L.A.V. Olmedo-Zamora-Taboadela AV.
 Órgano de contratación: Adif-Alta Velocidad
 Valor estimado sin IVA: 854 785,28 EUR
 Duración del contrato: 12 meses
@@ -178,14 +178,14 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
 Criterios de adjudicación: precio 50 %, calidad 50 %",63513000,services,306072.0,12.0,open,1,50.0,False,ES51,other,4.0,https://ted.europa.eu/es/notice/-/detail/23997-2026
-164995-2026,typical_fresh,,can-standard,2026-03-10,es,"Título: SERVICIO DE MANTENIMIENTO INTEGRAL DEL ARCHIVO REAL Y GENERAL DE NAVARRA
+164995-2026,typical_fresh,cases.csv,can-standard,2026-03-10,es,"Título: SERVICIO DE MANTENIMIENTO INTEGRAL DEL ARCHIVO REAL Y GENERAL DE NAVARRA
 Órgano de contratación: GOBIERNO DE NAVARRA. DIRECCIÓN GENERAL DE CULTURA-INSTITUCIÓN PRÍNCIPE DE VIANA
 Descripción: El servicio de mantenimiento integral de las instalaciones y equipamientos, incluye todos los aspectos y trabajos relativos a electricidad, centro de transformación, grupo electrógeno, fontanería, albañilería, climatización, carpintería, redes informáticas, telefonía, sistema de protección contra incendios, sistema de seguridad, sistemas fijos de extinción, etc.
 Valor estimado sin IVA: 330 587,00 EUR
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES220 (Navarra)",50700000,services,330587.0,,open,1,,False,ES22,regional_government,1.0,https://ted.europa.eu/es/notice/-/detail/164995-2026
-164404-2026,typical_fresh,,can-standard,2026-03-10,es,"Título: DIRECCIÓN DE OBRA Y COORDINACIÓN DE SEGURIDAD Y SALUD DE OBRAS DE DEPURACIÓN EN VARIOS MUNICIPIOS DE LA PROVINCIA DE HUELVA II
+164404-2026,typical_fresh,cases.csv,can-standard,2026-03-10,es,"Título: DIRECCIÓN DE OBRA Y COORDINACIÓN DE SEGURIDAD Y SALUD DE OBRAS DE DEPURACIÓN EN VARIOS MUNICIPIOS DE LA PROVINCIA DE HUELVA II
 Órgano de contratación: Consejería de Agricultura, Pesca, Agua y Desarrollo Rural. Dirección General de Infraestructuras del Agua.
 Descripción: El presente contrato tiene por objeto la contratación del servicio para la DIRECCIÓN DE OBRA Y COORDINACIÓN DE SEGURIDAD Y SALUD durante la ejecución de las obras a las que se va a prestar servicio.
 Valor estimado sin IVA: 546 845,76 EUR
@@ -217,7 +217,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES511 (Cataluña)
 Criterios de adjudicación: precio 100 %, calidad 0 %",24455000,supplies,254721.49,,open,1,100.0,False,ES51,other,2.0,https://ted.europa.eu/es/notice/-/detail/61806-2026
-38070-2026,typical_fresh,,can-standard,2026-01-19,es,"Título: Elaboración del Plan Estratégico de Tecnologías de la Información y Comunicaciones para la seguridad pública de Euskadi (PETICSEG 2025-2029)
+38070-2026,typical_fresh,cases.csv,can-standard,2026-01-19,es,"Título: Elaboración del Plan Estratégico de Tecnologías de la Información y Comunicaciones para la seguridad pública de Euskadi (PETICSEG 2025-2029)
 Órgano de contratación: Gobierno Vasco - Seguridad
 Valor estimado sin IVA: 991 735,55 EUR
 Duración del contrato: 52 meses
@@ -241,7 +241,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: sí
 Lugar de ejecución: ES230 (La Rioja)
 Criterios de adjudicación: precio 49 %, calidad 51 %",79710000,services,1476124.5,,open,1,49.0,True,ES23,other,10.0,https://ted.europa.eu/es/notice/-/detail/29571-2026
-166333-2026,typical_fresh,,can-standard,2026-03-10,es,"Título: Suministro y transporte de balasto para la renovación de vía del tramo Mataporquera - Torrelavega.
+166333-2026,typical_fresh,cases.csv,can-standard,2026-03-10,es,"Título: Suministro y transporte de balasto para la renovación de vía del tramo Mataporquera - Torrelavega.
 Órgano de contratación: Administrador de Infraestructuras Ferroviarias
 Valor estimado sin IVA: 718 404,00 EUR
 Duración del contrato: 20 meses
@@ -249,7 +249,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES130 (Cantabria)
 Criterios de adjudicación: precio 100 %, calidad 0 %",14212310,supplies,718404.0,20.0,open,1,100.0,False,ES13,other,7.0,https://ted.europa.eu/es/notice/-/detail/166333-2026
-46631-2026,typical_fresh,,can-standard,2026-01-22,es,"Título: SEM-2026-1 suministro mediante arrendamiento de monitores desfibriladores portátiles con todos los periféricos necesarios y su fungible asociado a la entidad Sistema d’Emergències Mèdiques
+46631-2026,typical_fresh,cases.csv,can-standard,2026-01-22,es,"Título: SEM-2026-1 suministro mediante arrendamiento de monitores desfibriladores portátiles con todos los periféricos necesarios y su fungible asociado a la entidad Sistema d’Emergències Mèdiques
 Órgano de contratación: Sistema d'Emergències Mèdiques
 Valor estimado sin IVA: 1 759 653,30 EUR
 Duración del contrato: 36 meses
@@ -262,7 +262,7 @@ Valor estimado sin IVA: 688 621,14 EUR
 Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES612 (Andalucía)",50700000,services,688621.14,,open,1,,False,ES61,regional_government,6.0,https://ted.europa.eu/es/notice/-/detail/73724-2026
-42241-2026,typical_fresh,,can-standard,2026-01-20,es,"Título: Suministro suscripción anual publicaciones periódicas para 2026
+42241-2026,typical_fresh,cases.csv,can-standard,2026-01-20,es,"Título: Suministro suscripción anual publicaciones periódicas para 2026
 Órgano de contratación: Generalitat de Catalunya
 Valor estimado sin IVA: 644 606,30 EUR
 Tipo de procedimiento: abierto
@@ -278,7 +278,7 @@ Tipo de procedimiento: abierto
 Acuerdo marco: no
 Lugar de ejecución: ES230 (La Rioja)
 Criterios de adjudicación: precio 75 %, calidad 25 %",90911200,services,1371844.38,24.0,open,1,75.0,False,ES23,regional_government,6.0,https://ted.europa.eu/es/notice/-/detail/167416-2026
-27542-2026,typical_fresh,,can-standard,2026-01-15,es,"Título: Suministro en alquiler, mantenimiento e instalación de equipos de impresoras en modalidad de coste por copia, por encargo de la Corporación de Salud del Maresme y la Selva.
+27542-2026,typical_fresh,cases.csv,can-standard,2026-01-15,es,"Título: Suministro en alquiler, mantenimiento e instalación de equipos de impresoras en modalidad de coste por copia, por encargo de la Corporación de Salud del Maresme y la Selva.
 Órgano de contratación: Corporació de Salut del Maresme i la Selva
 Valor estimado sin IVA: 375 098,88 EUR
 Tipo de procedimiento: abierto

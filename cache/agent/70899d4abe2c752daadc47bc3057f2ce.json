@@ -1,0 +1,92 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Anuncio de adjudicación de contrato o concesión.",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72300000",
+   "confidence": 1.0,
+   "evidence": "72300000 Servicios relacionados con datos",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 1.0,
+   "evidence": "72300000",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Naturaleza del contrato: Servicios",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1.0,
+   "confidence": 1.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "duration_months": {
+   "value": 1.0,
+   "confidence": 1.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "Tipo de procedimiento: Abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 1.0,
+   "evidence": "LOT-0000",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 1.0,
+   "evidence": "50",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Ningún acuerdo marco",
+   "evidence_found": true
+  },
+  "region": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "Córdoba (ES613)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 1.0,
+   "evidence": "Naturaleza jurídica del comprador: Empresa pública bajo el control de una autoridad local",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "español",
+   "evidence_found": true
+  }
+ },
+ "is_tender": false,
+ "not_tender_reason": "El documento es un anuncio de adjudicación de contrato y no una convocatoria de licitación vigente.",
+ "market_note": "Not a tender.",
+ "steps": [],
+ "tokens_in": 4877,
+ "tokens_out": 1173,
+ "latency_s": 3.835,
+ "requests": 1,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

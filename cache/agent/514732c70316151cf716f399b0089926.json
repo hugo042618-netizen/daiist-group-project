@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.95,
+   "evidence": "Título: Suministro, instalación y puesta en marcha",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "33153000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "33",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.95,
+   "evidence": "Suministro, instalación y puesta en marcha",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 439000.0,
+   "confidence": 0.95,
+   "evidence": "Valor estimado sin IVA: 439 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.95,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.95,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.95,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.95,
+   "evidence": "Lugar de ejecución: ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Fundació Institut d'Investigació en Ciències de la Salut Germans Trias i Pujol",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Suministro...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar supplies tenders in CPV division 33 in Spain typically receive a median of 2 bidders (interquartile range 1 to 4).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "litotricia extracorporea"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33186000",
+      "division": "33",
+      "es": "Unidad de circulación extracorpórea",
+      "en": "Extracorporeal circulatory unit"
+     },
+     {
+      "code": "33153000",
+      "division": "33",
+      "es": "Litotritor",
+      "en": "Lithotripter"
+     },
+     {
+      "code": "24222000",
+      "division": "24",
+      "es": "Extractos curtientes",
+      "en": "Tanning extracts"
+     },
+     {
+      "code": "24221000",
+      "division": "24",
+      "es": "Extractos tintóreos",
+      "en": "Dyeing extracts"
+     },
+     {
+      "code": "15892200",
+      "division": "15",
+      "es": "Extractos vegetales",
+      "en": "Vegetable extracts"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "439 000,00 EUR"
+   },
+   "result": {
+    "amount": 439000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "33"
+   },
+   "result": {
+    "scope": "CPV division 33, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 8014,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8149,
+ "tokens_out": 515,
+ "latency_s": 3.446,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

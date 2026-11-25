@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "SERVICIO DE MANTENIMIENTO INTEGRAL DEL ARCHIVO REAL Y GENERAL DE NAVARRA",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "50700000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "50",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "SERVICIO DE MANTENIMIENTO INTEGRAL",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 330587.0,
+   "confidence": 0.9,
+   "evidence": "330 587,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES22",
+   "confidence": 0.9,
+   "evidence": "ES220 (Navarra)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "GOBIERNO DE NAVARRA",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "SERVICIO DE MANTENIMIENTO INTEGRAL DEL ARCHIVO REAL Y GENERAL DE NAVARRA",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar tenders in CPV division 50 for services usually receive a median of 3 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "mantenimiento integral de instalaciones"
+   },
+   "result": "{'results': [{'code': '45259000', 'division': '45', 'es': 'Reparación y mantenimiento de instalaciones', 'en': 'Repair and maintenance of plant'}, {'code': '32413000', 'division': '32', 'es': 'Red integrada', 'en': 'Integrated network'}, {'code': '50413200', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de instalaciones contra incendios', 'en': 'Repair and maintenance services of firefighting equipment'}, {'code': '45212290', 'division': '45', 'es': 'Reparación y mantenimiento de instalaciones deportivas', 'en': 'Repair and maintenance work in connection with sports faciliti…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "330 587,00 EUR"
+   },
+   "result": {
+    "amount": 330587.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de mantenimiento de edificios"
+   },
+   "result": "{'results': [{'code': '50700000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de equipos de edificios', 'en': 'Repair and maintenance services of building installations'}, {'code': '50324100', 'division': '50', 'es': 'Servicios de mantenimiento de sistemas', 'en': 'System maintenance services'}, {'code': '50000000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento', 'en': 'Repair and maintenance services'}, {'code': '50711000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de equipos eléctricos de edificios', 'en': 'Repair and maintenance…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "50"
+   },
+   "result": {
+    "scope": "CPV division 50, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 7454,
+     "q25": 1.5,
+     "median": 3.0,
+     "q75": 6.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 11606,
+ "tokens_out": 494,
+ "latency_s": 3.811,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

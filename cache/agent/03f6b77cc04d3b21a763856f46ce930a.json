@@ -1,0 +1,200 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Suministro de equipamiento del programa Código Escuela 4.0 en Andalucía",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "30200000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "30",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "Suministro de equipamiento",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 32604925.55,
+   "confidence": 0.9,
+   "evidence": "32 604 925,55 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 6.0,
+   "confidence": 0.9,
+   "evidence": "6 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 0.0,
+   "confidence": 0.9,
+   "evidence": "precio 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES61",
+   "confidence": 0.9,
+   "evidence": "ES618 (Andalucía)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Sociedad Andaluza para el Desarrollo de las Telecomunicaciones, S.A.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Suministro de equipamiento del programa Código Escuela 4.0 en Andalucía",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish public supplies tenders for office and computing machinery (CPV 30), tenders typically receive around 3 bidders (median).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "equipamiento de programación y robótica"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "72243000",
+      "division": "72",
+      "es": "Servicios de programación",
+      "en": "Programming services"
+     },
+     {
+      "code": "80521000",
+      "division": "80",
+      "es": "Servicios de programación de la formación",
+      "en": "Training programme services"
+     },
+     {
+      "code": "33100000",
+      "division": "33",
+      "es": "Equipamiento médico",
+      "en": "Medical equipments"
+     },
+     {
+      "code": "48985000",
+      "division": "48",
+      "es": "Lenguajes de programación",
+      "en": "Programming languages"
+     },
+     {
+      "code": "48980000",
+      "division": "48",
+      "es": "Lenguajes y herramientas de programación",
+      "en": "Programming languages and tools"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "32 604 925,55 EUR"
+   },
+   "result": {
+    "amount": 32604925.55,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "30",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 30, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1788,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 6.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "suministro de equipamiento informatico"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33100000",
+      "division": "33",
+      "es": "Equipamiento médico",
+      "en": "Medical equipments"
+     },
+     {
+      "code": "39134100",
+      "division": "39",
+      "es": "Mesas para equipo informático",
+      "en": "Computer tables"
+     },
+     {
+      "code": "30200000",
+      "division": "30",
+      "es": "Equipo y material informático",
+      "en": "Computer equipment and supplies"
+     },
+     {
+      "code": "42965000",
+      "division": "42",
+      "es": "Equipo de procesamiento de la información",
+      "en": "Information-processing equipment"
+     },
+     {
+      "code": "72319000",
+      "division": "72",
+      "es": "Servicios de suministro de datos",
+      "en": "Data supply services"
+     }
+    ]
+   }
+  }
+ ],
+ "tokens_in": 8550,
+ "tokens_out": 524,
+ "latency_s": 3.318,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

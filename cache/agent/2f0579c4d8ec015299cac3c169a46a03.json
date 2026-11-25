@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Contratación para el suministro",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "33140000",
+   "confidence": 0.8,
+   "evidence": "suministro de fungible",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "33",
+   "confidence": 0.8,
+   "evidence": "suministro de fungible",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 1.0,
+   "evidence": "suministro de fungible",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 357588.0,
+   "confidence": 1.0,
+   "evidence": "357 588,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 1.0,
+   "evidence": "24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Consorci Sanitari de l'Anoia",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Contratación para el suministro de fungible",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish supplies tenders in CPV division 33 usually receive a median of 2 bidders (interquartile range 1 to 4).",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "357 588,00 EUR"
+   },
+   "result": {
+    "amount": 357588.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "fungible para la nebulización de fármacos con malla vibratoria"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33140000",
+      "division": "33",
+      "es": "Material médico fungible",
+      "en": "Medical consumables"
+     },
+     {
+      "code": "38434400",
+      "division": "38",
+      "es": "Analizadores de vibraciones",
+      "en": "Vibration analysers"
+     },
+     {
+      "code": "76536000",
+      "division": "76",
+      "es": "Servicios de control de vibraciones de fondo de pozo",
+      "en": "Downhole vibration control services"
+     },
+     {
+      "code": "37316700",
+      "division": "37",
+      "es": "Vibráfonos",
+      "en": "Vibraphones"
+     },
+     {
+      "code": "24457000",
+      "division": "24",
+      "es": "Fungicidas",
+      "en": "Fungicides"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "33"
+   },
+   "result": {
+    "scope": "CPV division 33, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 8014,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8065,
+ "tokens_out": 473,
+ "latency_s": 3.426,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

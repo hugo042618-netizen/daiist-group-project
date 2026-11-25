@@ -1,0 +1,167 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: Reordenación de los espacios en la estación de Santander.",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "45213322",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "45",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "works",
+   "confidence": 0.9,
+   "evidence": "Reordenación de los espacios",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 34355981.56,
+   "confidence": 0.9,
+   "evidence": "34 355 981,56 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 20.0,
+   "confidence": 0.9,
+   "evidence": "20 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 51.0,
+   "confidence": 0.9,
+   "evidence": "precio 51 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES13",
+   "confidence": 0.9,
+   "evidence": "ES130 (Cantabria)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Administrador de Infraestructuras Ferroviarias",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Reordenación de los espacios",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish works tenders of division 45, the median number of bidders was 10 (interquartile range 5 to 16).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Reordenación de los espacios en la estación de Santander"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "45111291",
+      "division": "45",
+      "es": "Trabajos de ordenación del terreno",
+      "en": "Site-development work"
+     },
+     {
+      "code": "34712100",
+      "division": "34",
+      "es": "Vehículos espaciales",
+      "en": "Spacecraft"
+     },
+     {
+      "code": "63712400",
+      "division": "63",
+      "es": "Servicios de estacionamiento",
+      "en": "Parking services"
+     },
+     {
+      "code": "60500000",
+      "division": "60",
+      "es": "Servicios de transporte espacial",
+      "en": "Space transport services"
+     },
+     {
+      "code": "63712100",
+      "division": "63",
+      "es": "Servicios de estaciones de autobuses",
+      "en": "Bus station services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "34 355 981,56 EUR"
+   },
+   "result": {
+    "amount": 34355981.56,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "estación ferroviaria obras construcción"
+   },
+   "result": "{'results': [{'code': '45234100', 'division': '45', 'es': 'Trabajos de construcción ferroviaria', 'en': 'Railway construction works'}, {'code': '45234170', 'division': '45', 'es': 'Trabajos de construcción de subestaciones ferroviarias', 'en': 'Locomotive-substations construction works'}, {'code': '45234112', 'division': '45', 'es': 'Trabajos de construcción de depósitos ferroviarios', 'en': 'Railway depot construction work'}, {'code': '45213322', 'division': '45', 'es': 'Trabajos de construcción de edificios de terminales ferroviarias', 'en': 'Rail terminal building construction work'}, {'cod…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "45",
+    "contract_type": "works"
+   },
+   "result": {
+    "scope": "CPV division 45, works",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 2103,
+     "q25": 5.0,
+     "median": 10.0,
+     "q75": 16.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8356,
+ "tokens_out": 510,
+ "latency_s": 3.346,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

@@ -84,7 +84,27 @@
    "bucket_accuracy_with_agent_fields": 0.525
   }
  },
- "end_to_end": {},
+ "end_to_end": {
+  "n": 30,
+  "errors": 0,
+  "review_rate": 0.2667,
+  "product_accuracy": 0.5667,
+  "baseline_today_accuracy": 0.5,
+  "baseline_median_accuracy": 0.6,
+  "judge": {
+   "judged": 30,
+   "judge_match_rate": 0.9,
+   "human_labels": 0
+  },
+  "cost_per_request": {
+   "tokens_in": 8619.4,
+   "tokens_out": 524.4,
+   "cost_eur": 0.003585,
+   "latency_s_mean": 4.81,
+   "latency_s_median": 3.33,
+   "total_cost_eur": 0.1075
+  }
+ },
  "versions": {
   "agent_model": "gemini-3.5-flash-lite",
   "prompt_version": "extract-v3",

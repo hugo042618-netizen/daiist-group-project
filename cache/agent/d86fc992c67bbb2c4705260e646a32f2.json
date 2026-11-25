@@ -1,0 +1,174 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: Gestió i dinamització de l'Auditori Sant Martí",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "92000000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "92",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.8,
+   "evidence": "Gestió i dinamització de l'Auditori Sant Martí",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1077937.18,
+   "confidence": 1.0,
+   "evidence": "1 077 937,18 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "ES511",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "city_council",
+   "confidence": 0.9,
+   "evidence": "Ajuntament de Barcelona-Districte de Sant Martí",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "ca",
+   "confidence": 1.0,
+   "evidence": "Gestió i dinamització de l'Auditori Sant Martí",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Tenders in this category typically receive a median of 3 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Gestió i dinamització de l'Auditori Sant Martí"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "24612100",
+      "division": "24",
+      "es": "Dinamita",
+      "en": "Dynamite"
+     },
+     {
+      "code": "79212000",
+      "division": "79",
+      "es": "Servicios de auditoría",
+      "en": "Auditing services"
+     },
+     {
+      "code": "45212321",
+      "division": "45",
+      "es": "Trabajos de construcción de auditorios",
+      "en": "Auditorium construction work"
+     },
+     {
+      "code": "72810000",
+      "division": "72",
+      "es": "Servicios de auditoría informática",
+      "en": "Computer audit services"
+     },
+     {
+      "code": "79212200",
+      "division": "79",
+      "es": "Servicios de auditoría interna",
+      "en": "Internal audit services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 077 937,18 EUR"
+   },
+   "result": {
+    "amount": 1077937.18,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "gestión de auditorio cultural servicios"
+   },
+   "result": "{'results': [{'code': '79212000', 'division': '79', 'es': 'Servicios de auditoría', 'en': 'Auditing services'}, {'code': '45212321', 'division': '45', 'es': 'Trabajos de construcción de auditorios', 'en': 'Auditorium construction work'}, {'code': '72810000', 'division': '72', 'es': 'Servicios de auditoría informática', 'en': 'Computer audit services'}, {'code': '79212200', 'division': '79', 'es': 'Servicios de auditoría interna', 'en': 'Internal audit services'}, {'code': '72800000', 'division': '72', 'es': 'Servicios de ensayo y auditoría informáticos', 'en': 'Computer audit and testing servi…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "gestión de centros culturales servicios"
+   },
+   "result": "{'results': [{'code': '79952100', 'division': '79', 'es': 'Servicios de organización de eventos culturales', 'en': 'Cultural event organisation services'}, {'code': '92000000', 'division': '92', 'es': 'Servicios de esparcimiento, culturales y deportivos', 'en': 'Recreational, cultural and sporting services'}, {'code': '45212300', 'division': '45', 'es': 'Trabajos de construcción de edificios culturales y relacionados con el arte', 'en': 'Construction work for art and cultural buildings'}, {'code': '92500000', 'division': '92', 'es': 'Servicios de bibliotecas, archivos, museos y otros servicios…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "92"
+   },
+   "result": {
+    "scope": "CPV division 92, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1474,
+     "q25": 1.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 14785,
+ "tokens_out": 525,
+ "latency_s": 5.419,
+ "requests": 5,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

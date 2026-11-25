@@ -37,6 +37,9 @@ uv run python scripts/train.py               # rebuild the models from TED open 
 uv run python scripts/fetch_candidates.py --annotate   # refresh which candidates are already used (plain run: collect them again, replaces the files)
 uv run --with openpyxl python scripts/build_case_picker.py             # eval/case_picker.xlsx: the unused candidates, for the team to fill in
 uv run --with openpyxl python scripts/cases_from_picker.py --write     # eval/cases.csv from the filled sheet
+uv run --with openpyxl python scripts/label_sheet.py                   # eval/labelling_sheet.xlsx: the app's answers, for the team's 1/0 labels
+uv run --with openpyxl python scripts/label_sheet.py --write           # eval/human_labels.csv from the filled sheet
+uv run python tests/test_monitor.py                                    # the Monitoring tab survives missing values in the logs
 uv run python scripts/simulate_bandit.py --p-a 0.70 --p-b 0.75   # bonus: simulated warm-up of the prompt bandit
 ```
 

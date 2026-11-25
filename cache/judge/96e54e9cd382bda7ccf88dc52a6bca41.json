@@ -1,0 +1,8 @@
+{
+ "label": 0,
+ "explanation": "The reason cites an expected value of 1,074 EUR, which contradicts the actual tender text stating 357,588.00 EUR.",
+ "tokens_in": 591,
+ "tokens_out": 46,
+ "judge_version": "judge-v1",
+ "model": "gemini-3.5-flash-lite"
+}

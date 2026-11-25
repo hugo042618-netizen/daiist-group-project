@@ -1,0 +1,8 @@
+{
+ "label": 0,
+ "explanation": "The reason mentions an expected value calculation that has no relation to the tender text and its actual estimated value.",
+ "tokens_in": 588,
+ "tokens_out": 32,
+ "judge_version": "judge-v1",
+ "model": "gemini-3.5-flash-lite"
+}

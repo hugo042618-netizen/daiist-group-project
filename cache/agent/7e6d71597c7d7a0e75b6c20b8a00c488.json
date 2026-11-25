@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.95,
+   "evidence": "Título: Suministro suscripción anual publicaciones periódicas para 2026",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "22212000",
+   "confidence": 0.8,
+   "evidence": "Suministro suscripción anual publicaciones periódicas",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "22",
+   "confidence": 0.8,
+   "evidence": "Suministro suscripción anual publicaciones periódicas",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.95,
+   "evidence": "Suministro suscripción anual",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 644606.3,
+   "confidence": 0.95,
+   "evidence": "644 606,30 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "suscripción anual publicaciones periódicas para 2026",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.95,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 0.0,
+   "confidence": 0.95,
+   "evidence": "precio 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.95,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.95,
+   "evidence": "Generalitat de Catalunya",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Suministro suscripción anual...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish supply tenders in division 22 usually receive a median of 2 bidders (interquartile range 1 to 5).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "suscripción publicaciones periódicas"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "22212000",
+      "division": "22",
+      "es": "Publicaciones periódicas",
+      "en": "Periodicals"
+     },
+     {
+      "code": "79980000",
+      "division": "79",
+      "es": "Servicios de suscripción",
+      "en": "Subscription services"
+     },
+     {
+      "code": "22120000",
+      "division": "22",
+      "es": "Publicaciones",
+      "en": "Publications"
+     },
+     {
+      "code": "22200000",
+      "division": "22",
+      "es": "Periódicos, revistas especializadas, publicaciones periódicas y revistas",
+      "en": "Newspapers, journals, periodicals and magazines"
+     },
+     {
+      "code": "22121000",
+      "division": "22",
+      "es": "Publicaciones técnicas",
+      "en": "Technical publications"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "644 606,30 EUR"
+   },
+   "result": {
+    "amount": 644606.3,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "22",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 22, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 340,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5235,
+ "tokens_out": 508,
+ "latency_s": 2.226,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

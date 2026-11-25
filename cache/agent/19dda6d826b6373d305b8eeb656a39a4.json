@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Suministro en régimen de arrendamiento",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "33115100",
+   "confidence": 0.5,
+   "evidence": "equipment de Tomografía computarizada de rayos X",
+   "evidence_found": false
+  },
+  "cpv_division": {
+   "value": "33",
+   "confidence": 0.5,
+   "evidence": "equipment de Tomografía computarizada de rayos X",
+   "evidence_found": false
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "Suministro en régimen de arrendamiento",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 300000.0,
+   "confidence": 0.9,
+   "evidence": "300 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 40.0,
+   "confidence": 0.9,
+   "evidence": "40 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.9,
+   "evidence": "precio 50 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "UPV/EHU - Universidad del País Vasco",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Suministro en régimen de arrendamiento",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish supplies tenders for medical equipment (CPV 33), contracts typically receive a median of 2 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Tomografía computarizada Micro CT"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33115100",
+      "division": "33",
+      "es": "CT Escáneres para tomografía computerizada",
+      "en": "CT scanners"
+     },
+     {
+      "code": "33115000",
+      "division": "33",
+      "es": "Tomógrafos",
+      "en": "Tomography devices"
+     },
+     {
+      "code": "33115200",
+      "division": "33",
+      "es": "Tomógrafos para TAC",
+      "en": "CAT scanners"
+     },
+     {
+      "code": "50312420",
+      "division": "50",
+      "es": "Reparación de microordenadores",
+      "en": "Repair of microcomputers"
+     },
+     {
+      "code": "33111650",
+      "division": "33",
+      "es": "Aparatos para mamografías",
+      "en": "Mammography devices"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "300 000,00 EUR"
+   },
+   "result": {
+    "amount": 300000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "33",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 33, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 8014,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5409,
+ "tokens_out": 493,
+ "latency_s": 3.788,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

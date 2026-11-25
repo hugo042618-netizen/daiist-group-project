@@ -1,0 +1,8 @@
+{
+ "label": 1,
+ "explanation": "The assistant correctly identified the tender details, value, and procedure from the text, and its decision is based on a valid reading of the contract data.",
+ "tokens_in": 606,
+ "tokens_out": 41,
+ "judge_version": "judge-v1",
+ "model": "gemini-3.5-flash-lite"
+}

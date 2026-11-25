@@ -102,10 +102,22 @@ def drift(reference: pd.DataFrame, current: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows, columns=DRIFT_COLUMNS)
 
 
+def _numbers(logs: pd.DataFrame, column: str) -> pd.Series:
+    """A log column as floats, with NaN for whatever is missing or not a number.
+
+    Logs come back from JSON (files or Postgres), so a column may hold None, pd.NA or text:
+    `feedback` is all pd.NA until somebody rates a request, and `.astype(float)` fails on that.
+    """
+    if column not in logs.columns:
+        return pd.Series(np.nan, index=logs.index, dtype=float)
+    return pd.to_numeric(logs[column], errors="coerce").astype(float)
+
+
 def live_features(logs: pd.DataFrame) -> pd.DataFrame:
-    """The features of the last WINDOW logged requests, without the `f_` prefix."""
+    """The features of the last WINDOW logged requests, without the `f_` prefix, as numbers."""
     columns = [c for c in logs.columns if c.startswith("f_")]
-    return logs[columns].tail(WINDOW).rename(columns=lambda c: c[2:])
+    window = logs[columns].tail(WINDOW).apply(pd.to_numeric, errors="coerce")
+    return window.rename(columns=lambda c: c[2:])
 
 
 def quality(logs: pd.DataFrame, window: int = 10) -> pd.DataFrame:
@@ -115,15 +127,17 @@ def quality(logs: pd.DataFrame, window: int = 10) -> pd.DataFrame:
     down, the last `window` rated requests). With little traffic, hourly averages would
     be a single dot; a rolling average shows the trend from the first requests on.
     """
-    if logs.empty:
-        return pd.DataFrame(columns=["time", "signal", "value"])
+    empty = pd.DataFrame(columns=["time", "signal", "value"])
+    if logs.empty or "timestamp" not in logs.columns:
+        return empty
     df = logs.sort_values("timestamp")
     signals = pd.DataFrame({"time": df["timestamp"]})
-    signals["share sent to review"] = df["review"].astype(float).rolling(window, min_periods=1).mean()
+    signals["share sent to review"] = _numbers(df, "review").rolling(window, min_periods=1).mean()
     if "f_confidence" in df:
-        signals["mean confidence"] = df["f_confidence"].astype(float).rolling(window, min_periods=1).mean()
-    rated = df["feedback"].astype(float)
-    signals["share 👎 (of rated)"] = (rated < 0).where(rated.notna()).astype(float).dropna().rolling(window, min_periods=1).mean()
+        signals["mean confidence"] = _numbers(df, "f_confidence").rolling(window, min_periods=1).mean()
+    rated = _numbers(df, "feedback").dropna()
+    if len(rated):
+        signals["share 👎 (of rated)"] = (rated < 0).astype(float).rolling(window, min_periods=1).mean()
     long = signals.melt("time", var_name="signal", value_name="value")
     return long.dropna().reset_index(drop=True)
 
@@ -133,15 +147,16 @@ def kpis(logs: pd.DataFrame) -> dict:
     if logs.empty:
         return {"requests": 0, "thumbs_down_share": None, "rated": 0, "review_share": None, "mean_cost_eur": None,
                 "mean_latency_s": None, "total_cost_eur": 0.0}
-    rated = logs["feedback"].dropna().astype(float)
+    rated = _numbers(logs, "feedback").dropna()
+    review, cost, latency = _numbers(logs, "review").dropna(), _numbers(logs, "cost_eur").dropna(), _numbers(logs, "latency_s").dropna()
     return {
         "requests": int(len(logs)),
         "rated": int(len(rated)),
         "thumbs_down_share": float((rated < 0).mean()) if len(rated) else None,
-        "review_share": float(logs["review"].mean()),
-        "mean_cost_eur": float(logs["cost_eur"].mean()),
-        "mean_latency_s": float(logs["latency_s"].mean()),
-        "total_cost_eur": float(logs["cost_eur"].sum()),
+        "review_share": float(review.mean()) if len(review) else None,
+        "mean_cost_eur": float(cost.mean()) if len(cost) else None,
+        "mean_latency_s": float(latency.mean()) if len(latency) else None,
+        "total_cost_eur": float(cost.sum()),
     }
 
 
@@ -151,11 +166,11 @@ def summary(logs: pd.DataFrame) -> pd.DataFrame:
     k = kpis(logs)
     rows = {
         "requests": k["requests"],
-        "sent to review": f"{k['review_share']:.0%}",
+        "sent to review": f"{k['review_share']:.0%}" if k["review_share"] is not None else "-",
         "rated 👍/👎": k["rated"],
         "share 👎 (of rated)": f"{k['thumbs_down_share']:.0%}" if k["rated"] else "-",
-        "mean latency (s)": round(k["mean_latency_s"], 2),
-        "mean cost per request (€)": round(k["mean_cost_eur"], 5),
+        "mean latency (s)": round(k["mean_latency_s"], 2) if k["mean_latency_s"] is not None else "-",
+        "mean cost per request (€)": round(k["mean_cost_eur"], 5) if k["mean_cost_eur"] is not None else "-",
         "total cost (€)": round(k["total_cost_eur"], 4),
     }
     return pd.DataFrame({"metric": list(rows), "value": [str(v) for v in rows.values()]})
@@ -170,15 +185,17 @@ def recent(logs: pd.DataFrame, n: int = 25) -> pd.DataFrame:
     for record in logs.tail(n).iloc[::-1].to_dict("records"):
         outputs = record.get("outputs") if isinstance(record.get("outputs"), dict) else {}
         prediction = outputs.get("model") or {}
-        feedback = record.get("feedback")
+        feedback = pd.to_numeric(record.get("feedback"), errors="coerce")   # None, pd.NA or text -> NaN
+        cost = pd.to_numeric(record.get("cost_eur"), errors="coerce")
+        stamp = record.get("timestamp")
         rows.append({
-            "time (UTC)": record["timestamp"].strftime("%d %b %H:%M"),
+            "time (UTC)": stamp.strftime("%d %b %H:%M") if hasattr(stamp, "strftime") and not pd.isna(stamp) else "",
             "input summary": record.get("input_summary", ""),
             "decision": record.get("decision") or (outputs.get("decision") or {}).get("decision", ""),
             "expected bidders": prediction.get("expected_bidders", ""),
             "confidence": record.get("f_confidence", ""),
             "latency (s)": record.get("latency_s", ""),
-            "cost (€)": round(float(record.get("cost_eur", 0)), 5),
+            "cost (€)": "" if pd.isna(cost) else round(float(cost), 5),
             "feedback": "" if pd.isna(feedback) else ("👍" if float(feedback) > 0 else "👎"),
         })
     return pd.DataFrame(rows, columns=columns)
@@ -192,7 +209,7 @@ def alerts(logs: pd.DataFrame, reference: pd.DataFrame | None) -> list[str]:
         report = drift(reference, live_features(window))
         for row in report[report["alert"]].itertuples():
             fired.append(f"Drift in `{row.feature}`: {row.metric} {row.value} > {row.threshold} over the last {len(window)} requests.")
-    rated = window["feedback"].dropna().astype(float) if not window.empty else pd.Series(dtype=float)
+    rated = _numbers(window, "feedback").dropna()
     if len(rated) >= MIN_WINDOW and (rated < 0).mean() > THUMBS_DOWN_ALERT:
         fired.append(f"{(rated < 0).mean():.0%} of the last {len(rated)} rated requests are 👎 (> {THUMBS_DOWN_ALERT:.0%}).")
     return fired

@@ -1,0 +1,183 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.95,
+   "evidence": "Título: Servicio de atención informática",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72500000",
+   "confidence": 0.7,
+   "evidence": "Servicio de atención informática",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.7,
+   "evidence": "Servicio de atención informática",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.95,
+   "evidence": "Servicio de atención informática",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 953000.0,
+   "confidence": 0.95,
+   "evidence": "Valor estimado sin IVA: 953 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 0.95,
+   "evidence": "Duración del contrato: 24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.95,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 71.0,
+   "confidence": 0.95,
+   "evidence": "precio 71 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.95,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "Ferrocarriles de la Generalitat de Cataluña",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Ferrocarrils de la Generalitat de Catalunya",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.95,
+   "evidence": "Servicio de atención informática",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish tenders for computer-related services, the median number of bidders was 2 (with 25% getting over 4).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Servicio de atención informática Centro de atención a los Usuarios CAU"
+   },
+   "result": "{'results': [{'code': '79342320', 'division': '79', 'es': 'Servicios de atención al cliente', 'en': 'Customer-care services'}, {'code': '80533100', 'division': '80', 'es': 'Servicios de formación informática', 'en': 'Computer training services'}, {'code': '33192600', 'division': '33', 'es': 'Equipos elevadores para los servicios de atención sanitaria', 'en': 'Lifting equipment for health care sector'}, {'code': '72700000', 'division': '72', 'es': 'Servicios de red informática', 'en': 'Computer network services'}, {'code': '63513000', 'division': '63', 'es': 'Servicios de información turística'…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "953 000,00 EUR"
+   },
+   "result": {
+    "amount": 953000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Centro de atención a los Usuarios CAU informatica"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "80533100",
+      "division": "80",
+      "es": "Servicios de formación informática",
+      "en": "Computer training services"
+     },
+     {
+      "code": "48810000",
+      "division": "48",
+      "es": "Sistemas de información",
+      "en": "Information systems"
+     },
+     {
+      "code": "72700000",
+      "division": "72",
+      "es": "Servicios de red informática",
+      "en": "Computer network services"
+     },
+     {
+      "code": "63513000",
+      "division": "63",
+      "es": "Servicios de información turística",
+      "en": "Tourist information services"
+     },
+     {
+      "code": "39134000",
+      "division": "39",
+      "es": "Mobiliario de informática",
+      "en": "Computer furniture"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "72500000"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "72500000",
+      "division": "72",
+      "es": "Servicios informáticos",
+      "en": "Computer-related services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "72",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 14347,
+ "tokens_out": 555,
+ "latency_s": 4.594,
+ "requests": 5,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

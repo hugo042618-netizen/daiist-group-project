@@ -1,0 +1,8 @@
+{
+ "label": 1,
+ "explanation": "The assistant correctly extracted the contract value, duration, and other details matching the tender text, and the recommendation to review due to the high value is reasonable.",
+ "tokens_in": 1037,
+ "tokens_out": 42,
+ "judge_version": "judge-v1",
+ "model": "gemini-3.5-flash-lite"
+}

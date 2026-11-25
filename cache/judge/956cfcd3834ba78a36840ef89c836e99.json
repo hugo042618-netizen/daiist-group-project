@@ -1,0 +1,8 @@
+{
+ "label": 1,
+ "explanation": "The extracted facts and the contract value are fully supported by the tender text, and the recommendation to review follows correctly from the high contract value.",
+ "tokens_in": 651,
+ "tokens_out": 39,
+ "judge_version": "judge-v1",
+ "model": "gemini-3.5-flash-lite"
+}

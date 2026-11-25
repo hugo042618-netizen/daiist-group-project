@@ -1,0 +1,174 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: Servicio para el seguimiento hidrogeológico...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "71313450",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "71",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicio para el seguimiento hidrogeológico",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 738240.0,
+   "confidence": 1.0,
+   "evidence": "Valor estimado sin IVA: 738 240,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 60.0,
+   "confidence": 1.0,
+   "evidence": "Duración del contrato: 60 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 42.0,
+   "confidence": 1.0,
+   "evidence": "precio 42 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 1.0,
+   "evidence": "Lugar de ejecución: ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Euskal Trenbide Sarea - ETS",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Servicio para el seguimiento hidrogeológico de las obras",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish service tenders under CPV division 71, the median number of bidders is 6 (based on past TED data).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "seguimiento hidrogeologico obras construccion ferroviaria"
+   },
+   "result": "{'results': [{'code': '45234100', 'division': '45', 'es': 'Trabajos de construcción ferroviaria', 'en': 'Railway construction works'}, {'code': '45234112', 'division': '45', 'es': 'Trabajos de construcción de depósitos ferroviarios', 'en': 'Railway depot construction work'}, {'code': '45213322', 'division': '45', 'es': 'Trabajos de construcción de edificios de terminales ferroviarias', 'en': 'Rail terminal building construction work'}, {'code': '45234180', 'division': '45', 'es': 'Trabajos de construcción para talleres ferroviarios', 'en': 'Construction work for railways workshop'}, {'code': '…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "738 240,00 EUR"
+   },
+   "result": {
+    "amount": 738240.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "seguimiento hidrogeologico"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "24111600",
+      "division": "24",
+      "es": "Hidrógeno",
+      "en": "Hydrogen"
+     },
+     {
+      "code": "71351911",
+      "division": "71",
+      "es": "Servicios de fotogeología",
+      "en": "Photogeology services"
+     },
+     {
+      "code": "51216000",
+      "division": "51",
+      "es": "Servicios de instalación de equipos geológicos",
+      "en": "Installation services of geological equipment"
+     },
+     {
+      "code": "71351910",
+      "division": "71",
+      "es": "Servicios de geología",
+      "en": "Geology services"
+     },
+     {
+      "code": "90741100",
+      "division": "90",
+      "es": "Servicios de seguimiento de vertidos de hidrocarburos",
+      "en": "Oil spillage monitoring services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "seguimiento ambiental hidrologico hidrogeologico obras"
+   },
+   "result": "{'results': [{'code': '71313450', 'division': '71', 'es': 'Seguimiento ambiental para la construcción', 'en': 'Environmental monitoring for construction'}, {'code': '24111600', 'division': '24', 'es': 'Hidrógeno', 'en': 'Hydrogen'}, {'code': '71351900', 'division': '71', 'es': 'Servicios de geología, oceanografía e hidrología', 'en': 'Geology, oceanography and hydrology services'}, {'code': '51216000', 'division': '51', 'es': 'Servicios de instalación de equipos geológicos', 'en': 'Installation services of geological equipment'}, {'code': '71351911', 'division': '71', 'es': 'Servicios de fotog…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "71",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 71, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5136,
+     "q25": 3.0,
+     "median": 6.0,
+     "q75": 11.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 14873,
+ "tokens_out": 526,
+ "latency_s": 4.19,
+ "requests": 5,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

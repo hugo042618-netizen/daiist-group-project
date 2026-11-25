@@ -1,0 +1,92 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "aprobó ayer en junta de gobierno la adjudicación",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "90511000",
+   "confidence": 0.8,
+   "evidence": "recogida de basuras y limpieza viaria",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "90",
+   "confidence": 0.8,
+   "evidence": "90",
+   "evidence_found": false
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "servicio de recogida de basuras y limpieza viaria",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 19000000.0,
+   "confidence": 0.8,
+   "evidence": "19 millones de euros",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 96.0,
+   "confidence": 0.9,
+   "evidence": "ocho años",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.7,
+   "evidence": "Al concurso, publicado el pasado mes de marzo",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "region": {
+   "value": "ES52",
+   "confidence": 0.9,
+   "evidence": "Valencia",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "city_council",
+   "confidence": 0.9,
+   "evidence": "El ayuntamiento de una ciudad",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "El ayuntamiento de una ciudad del área metropolitana de Valencia",
+   "evidence_found": true
+  }
+ },
+ "is_tender": false,
+ "not_tender_reason": "The text is a news report about an already decided contract award, not an open call for tenders.",
+ "market_note": "",
+ "steps": [],
+ "tokens_in": 2483,
+ "tokens_out": 597,
+ "latency_s": 2.919,
+ "requests": 1,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

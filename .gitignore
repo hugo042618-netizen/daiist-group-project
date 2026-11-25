@@ -17,3 +17,6 @@ data/raw/
 
 # Excel lock files
 ~$*
+
+# before/after screenshots of the interface (not part of the product)
+screenshots/

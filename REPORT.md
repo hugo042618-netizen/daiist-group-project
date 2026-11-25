@@ -145,16 +145,40 @@ and they are marked as used in `eval/candidates/` so that no test case comes fro
 
 ### End to end
 
+**Measured on 25 Nov 2026** on the team's 30 cases (`eval/cases.csv` → `eval/results.csv`, `eval/metrics.json`), every
+case read by `gemini-3.5-flash-lite` with prompt `extract-v3`, model `bidders-hgb-v3`, bid cost €11,400, margin 6%:
+
+| Kind | Cases | Product correct | Baseline today (bid on every tender) correct | Median-per-CPV-division rule correct | Sent to review |
+|---|---|---|---|---|---|
+| normal | 17 | 10 (59%) | 10 (59%) | 10 (59%) | 4 |
+| hard | 5 | 0 | 2 | 0 | 0 |
+| review | 5 | 4 | 0 | 5 | 4 |
+| out of scope | 3 | 3 | 3 | 3 | 0 |
+| **All** | **30** | **17 (57%)** | **15 (50%)** | **18 (60%)** | **8** |
+
+- "Correct" means the app's decision is the `expected` word of the case. The expected answers come from the
+  rule applied to the real number of offers, so the comparison measures how far the predicted number of bidders
+  (and the agent's reading) moves the decision.
+- All 5 `hard` cases were answered OUT OF SCOPE: they are pages copied from TED result notices ("Tipo de
+  formulario: Resultados"), and the agent says an award notice is not a call for tenders.
+- Of the 7 `normal` cases it got wrong, 4 were sent to review (2 for a confidence of 0.5 on the CPV code, 2 as
+  close calls) and 3 got the opposite decision because the model expected fewer or more bidders than came.
+- LLM judge (rubric in `bidsense/judge.py`): 30 cases judged, 27 labelled as matching (90%). The 3 it rejected
+  are close-call reviews: its explanations compare the "expected value" of the bid with the contract's
+  estimated value, which are different things.
+- The personal-data filter also removes lines that start with "Nombre:" in a pasted TED page; in `hard_04`
+  those are the names of the award criteria, not of people.
+
 **TEAM TO WRITE.** How you wrote `eval/cases.csv` (counts by kind, two examples). Results against the two
 baselines (`baseline` column, and the median-per-CPV-division rule) from `eval/results.csv`. The judge's rubric
 is in `bidsense/judge.py`; report your agreement with it on your own labels (Cohen's kappa in `eval/metrics.json`).
 
 ### Cost and latency
 
-*To fill from `eval/metrics.json` → `cost_per_request` once `eval/cases.csv` exists.* Measured so far on the
-40 extraction notices with `gemini-3.5-flash-lite` (25 Nov 2026): 3.5 requests, 10,011 input tokens and 508
-output tokens per tender on average, €0.0039 per tender; the agent took 3.6 s (median) and 5.0 s (mean) per
-tender, retries included. The cost is an
+Measured on the 30 test cases (`eval/metrics.json` → `cost_per_request`, 25 Nov 2026, `gemini-3.5-flash-lite`):
+8,619 input tokens and 524 output tokens per request, €0.0036 per request; latency 3.3 s (median) and 4.8 s (mean),
+retries included. On the 40 extraction notices: 3.5 requests to Gemini per tender, €0.0039 per tender, 3.6 s
+(median). The judge adds one request per case (37,720 input tokens for the 30 cases, about €0.013 in all). The cost is an
 estimate at Gemini's paid-tier prices for the model that answered (`config.py`: for `gemini-3.5-flash-lite`,
 $0.30 per million input tokens and $2.50 per million output tokens); on the free tier the app costs nothing,
 but it is limited as follows. The scikit-learn model costs nothing per request.
@@ -283,6 +307,10 @@ the order of the commits on the `bidsense` branch:
 - the bandit module and its simulator; the "How to run" section of the README and the skeleton of this report;
 - at the team's request: the final refit on 2018–2022, the buyer-type experiment, the stricter name filter on
   the agent's output, and the `used_in` column of the candidate files;
+- at the team's request, on 25 Nov 2026: the retraining with the prompt's buyer types, the sensitivity table of the
+  bid cost, the conversion of the team's filled sheet into `eval/cases.csv` (labels and notes as the team typed
+  them), the labelling sheet for the human labels, the fix of the Monitoring tab and the redesign of the
+  interface;
 - at the team's request, on 25 Nov 2026: the buyer-type definition of the prompt rewritten from TED's code list,
   and `eval/case_picker.xlsx` (the unused candidates with empty columns for the team) with the script that
   copies the filled sheet into `eval/cases.csv`. Claude also collected 40 more candidate notices

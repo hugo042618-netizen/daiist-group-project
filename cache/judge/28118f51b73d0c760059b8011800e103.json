@@ -1,0 +1,8 @@
+{
+ "label": 1,
+ "explanation": "The extracted facts accurately reflect the tender text, and the recommendation to bid logically follows the positive expected value.",
+ "tokens_in": 604,
+ "tokens_out": 32,
+ "judge_version": "judge-v1",
+ "model": "gemini-3.5-flash-lite"
+}

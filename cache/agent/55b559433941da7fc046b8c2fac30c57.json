@@ -1,0 +1,167 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.5,
+   "evidence": "Suministro en alquiler, mantenimiento e instalación... Tipo de procedimiento: abierto",
+   "evidence_found": false
+  },
+  "cpv_code": {
+   "value": "30232110",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "30",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "Suministro en alquiler",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 375098.88,
+   "confidence": 0.95,
+   "evidence": "Valor estimado sin IVA: 375 098,88 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 36.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.95,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.95,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.95,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Corporació de Salut del Maresme i la Selva",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Suministro en alquiler...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In similar Spanish supplies tenders under CPV division 30, the median number of bidders is 3.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "impresoras alquiler mantenimiento coste por copia"
+   },
+   "result": "{'results': [{'code': '50531300', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de compresores', 'en': 'Repair and maintenance services of compressors'}, {'code': '50313200', 'division': '50', 'es': 'Servicios de mantenimiento de fotocopiadoras', 'en': 'Photocopier maintenance services'}, {'code': '30232110', 'division': '30', 'es': 'Impresoras láser', 'en': 'Laser printers'}, {'code': '70321000', 'division': '70', 'es': 'Servicios de alquiler de terrenos', 'en': 'Land rental services'}, {'code': '42991230', 'division': '42', 'es': 'Impresoras de billetes', 'en': 'Ticket pri…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "375 098,88 EUR"
+   },
+   "result": {
+    "amount": 375098.88,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "alquiler de impresoras mantenimiento"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "50531300",
+      "division": "50",
+      "es": "Servicios de reparación y mantenimiento de compresores",
+      "en": "Repair and maintenance services of compressors"
+     },
+     {
+      "code": "70321000",
+      "division": "70",
+      "es": "Servicios de alquiler de terrenos",
+      "en": "Land rental services"
+     },
+     {
+      "code": "30232110",
+      "division": "30",
+      "es": "Impresoras láser",
+      "en": "Laser printers"
+     },
+     {
+      "code": "42991230",
+      "division": "42",
+      "es": "Impresoras de billetes",
+      "en": "Ticket printers"
+     },
+     {
+      "code": "50324100",
+      "division": "50",
+      "es": "Servicios de mantenimiento de sistemas",
+      "en": "System maintenance services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "30",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 30, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1788,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 6.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8292,
+ "tokens_out": 520,
+ "latency_s": 3.054,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

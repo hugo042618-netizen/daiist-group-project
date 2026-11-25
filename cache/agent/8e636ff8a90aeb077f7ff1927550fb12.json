@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Elaboración del Plan Estratégico de Tecnologías...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72222000",
+   "confidence": 0.8,
+   "evidence": "Elaboración del Plan Estratégico de Tecnologías de la Información",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.8,
+   "evidence": "72222000",
+   "evidence_found": false
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Elaboración del Plan Estratégico de Tecnologías...",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 991735.55,
+   "confidence": 0.9,
+   "evidence": "991 735,55 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 52.0,
+   "confidence": 0.9,
+   "evidence": "52 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 41.0,
+   "confidence": 0.9,
+   "evidence": "precio 41 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Gobierno Vasco - Seguridad",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Elaboración del Plan Estratégico de Tecnologías...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish IT services tenders (CPV division 72), the median number of bidders is 2, with 75% of tenders receiving 4 or fewer offers.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Plan Estratégico de Tecnologías de la Información y Comunicaciones"
+   },
+   "result": "{'results': [{'code': '72222000', 'division': '72', 'es': 'Servicios de planificación y revisión estratégica de sistemas de información o de tecnología de la información', 'en': 'Information systems or technology strategic review and planning services'}, {'code': '72222100', 'division': '72', 'es': 'Servicios de revisión estratégica de sistemas de información o de tecnología de la información', 'en': 'Information systems or technology strategic review services'}, {'code': '72222300', 'division': '72', 'es': 'Servicios de tecnología de la información', 'en': 'Information technology services'}, …"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "991 735,55 EUR"
+   },
+   "result": {
+    "amount": 991735.55,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "72"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5367,
+ "tokens_out": 526,
+ "latency_s": 2.735,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

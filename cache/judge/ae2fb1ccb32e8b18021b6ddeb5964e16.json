@@ -1,0 +1,8 @@
+{
+ "label": 1,
+ "explanation": "The assistant correctly identified that the document is a contract award notice rather than an active tender call, and classified it as out of scope.",
+ "tokens_in": 2985,
+ "tokens_out": 38,
+ "judge_version": "judge-v1",
+ "model": "gemini-3.5-flash-lite"
+}

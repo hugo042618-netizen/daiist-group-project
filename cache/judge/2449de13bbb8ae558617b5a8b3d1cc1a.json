@@ -1,0 +1,8 @@
+{
+ "label": 1,
+ "explanation": "The assistant correctly identified the contract value, duration, and type of contract from the tender text, making the factual basis of the response accurate.",
+ "tokens_in": 727,
+ "tokens_out": 39,
+ "judge_version": "judge-v1",
+ "model": "gemini-3.5-flash-lite"
+}

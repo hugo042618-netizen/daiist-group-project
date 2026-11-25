@@ -1,0 +1,120 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Anuncio de adjudicación de contrato o concesión.",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "98371110",
+   "confidence": 0.9,
+   "evidence": "Clasificación principal (cpv): 98371110 Servicios de cementerio",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "98",
+   "confidence": 0.9,
+   "evidence": "Clasificación principal (cpv): 98371110",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Naturaleza del contrato: Servicios",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 360151.11,
+   "confidence": 0.9,
+   "evidence": "Valor estimado, IVA excluido: 360 151,11 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 36.0,
+   "confidence": 0.9,
+   "evidence": "Duración: 3 Años",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: Abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.9,
+   "evidence": "Lote: LOT-0001",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 0.5,
+   "evidence": "Nombre: [NAME]",
+   "evidence_found": false
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Ningún acuerdo marco",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "Subdivisión del país (NUTS): Tarragona (ES514)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "city_council",
+   "confidence": 0.9,
+   "evidence": "Naturaleza jurídica del comprador: Autoridad local",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Español",
+   "evidence_found": true
+  }
+ },
+ "is_tender": false,
+ "not_tender_reason": "The text is an award notice (Anuncio de adjudicación de contrato o concesión), not a call for tenders.",
+ "market_note": "Similar Spanish tenders for other other services usually receive around 3 bidders (median 2.5).",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "360 151,11 EUR"
+   },
+   "result": {
+    "amount": 360151.11,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "98"
+   },
+   "result": {
+    "scope": "CPV division 98, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1144,
+     "q25": 1.0,
+     "median": 2.5,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 10434,
+ "tokens_out": 558,
+ "latency_s": 2.718,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

@@ -1,0 +1,8 @@
+{
+ "label": 0,
+ "explanation": "The stated reason relies on an incorrect expected value calculation that does not match the actual tender text.",
+ "tokens_in": 557,
+ "tokens_out": 30,
+ "judge_version": "judge-v1",
+ "model": "gemini-3.5-flash-lite"
+}

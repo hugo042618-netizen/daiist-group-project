@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: DIRECCIÓN DE OBRA Y COORDINACIÓN...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "71317200",
+   "confidence": 0.8,
+   "evidence": "DIRECCIÓN DE OBRA Y COORDINACIÓN DE SEGURIDAD Y SALUD",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "71",
+   "confidence": 0.8,
+   "evidence": "DIRECCIÓN DE OBRA Y COORDINACIÓN DE SEGURIDAD Y SALUD",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "servicio para la DIRECCIÓN DE OBRA",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 546845.76,
+   "confidence": 0.9,
+   "evidence": "546 845,76 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 37.0,
+   "confidence": 0.9,
+   "evidence": "37 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES61",
+   "confidence": 0.9,
+   "evidence": "ES615 (Andalucía)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: DIRECCIÓN DE OBRA...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish architecture and engineering services tenders (CPV 71), tenders typically receive a median of 6 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "dirección de obra y coordinación de seguridad y salud"
+   },
+   "result": "{'results': [{'code': '71317200', 'division': '71', 'es': 'Servicios de salud y seguridad', 'en': 'Health and safety services'}, {'code': '63731100', 'division': '63', 'es': 'Servicios de coordinación de franjas horarias en los aeropuertos', 'en': 'Airport slot coordination services'}, {'code': '71317210', 'division': '71', 'es': 'Servicios de consultoría en salud y seguridad', 'en': 'Health and safety consultancy services'}, {'code': '79710000', 'division': '79', 'es': 'Servicios de seguridad', 'en': 'Security services'}, {'code': '34928430', 'division': '34', 'es': 'Conos de seguridad', 'en'…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "546 845,76 EUR"
+   },
+   "result": {
+    "amount": 546845.76,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "71"
+   },
+   "result": {
+    "scope": "CPV division 71, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5136,
+     "q25": 3.0,
+     "median": 6.0,
+     "q75": 11.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5452,
+ "tokens_out": 514,
+ "latency_s": 2.23,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}
