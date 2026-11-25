@@ -1,0 +1,360 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: High performance 50kV e-beam lithography system",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "38510000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "38",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.8,
+   "evidence": "High performance 50kV e-beam lithography system",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 998500.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 998 500,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 36.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 36 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES212 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Centro de Investigación Cooperativa en Nanociencias CIC nanoGUNE",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: High performance 50kV e-beam lithography system",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish supplies tenders in this CPV division typically receive a median of 1 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "e-beam lithography system"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "79822400",
+      "division": "79",
+      "es": "Servicios de litografía",
+      "en": "Lithographic services"
+     },
+     {
+      "code": "32427000",
+      "division": "32",
+      "es": "Sistema de red",
+      "en": "Network system"
+     },
+     {
+      "code": "33115000",
+      "division": "33",
+      "es": "Tomógrafos",
+      "en": "Tomography devices"
+     },
+     {
+      "code": "33111600",
+      "division": "33",
+      "es": "Aparatos para radiografías",
+      "en": "Radiography devices"
+     },
+     {
+      "code": "79961200",
+      "division": "79",
+      "es": "Servicios de fotografía aérea",
+      "en": "Aerial photography services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "998 500,00 EUR"
+   },
+   "result": {
+    "amount": 998500.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "lithography system"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "79822400",
+      "division": "79",
+      "es": "Servicios de litografía",
+      "en": "Lithographic services"
+     },
+     {
+      "code": "32427000",
+      "division": "32",
+      "es": "Sistema de red",
+      "en": "Network system"
+     },
+     {
+      "code": "33115000",
+      "division": "33",
+      "es": "Tomógrafos",
+      "en": "Tomography devices"
+     },
+     {
+      "code": "33111600",
+      "division": "33",
+      "es": "Aparatos para radiografías",
+      "en": "Radiography devices"
+     },
+     {
+      "code": "79961200",
+      "division": "79",
+      "es": "Servicios de fotografía aérea",
+      "en": "Aerial photography services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "equipment"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "32420000",
+      "division": "32",
+      "es": "Equipo de red",
+      "en": "Network equipment"
+     },
+     {
+      "code": "32580000",
+      "division": "32",
+      "es": "Equipo de datos",
+      "en": "Data equipment"
+     },
+     {
+      "code": "32344210",
+      "division": "32",
+      "es": "Equipo de radio",
+      "en": "Radio equipment"
+     },
+     {
+      "code": "32342410",
+      "division": "32",
+      "es": "Equipo de sonido",
+      "en": "Sound equipment"
+     },
+     {
+      "code": "43100000",
+      "division": "43",
+      "es": "Equipo para minería",
+      "en": "Mining equipment"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "machinery"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "43132100",
+      "division": "43",
+      "es": "Equipo de sondeo",
+      "en": "Drilling machinery"
+     },
+     {
+      "code": "42997000",
+      "division": "42",
+      "es": "Equipo para conducciones",
+      "en": "Pipeline machinery"
+     },
+     {
+      "code": "43124000",
+      "division": "43",
+      "es": "Máquinas perforadoras",
+      "en": "Boring machinery"
+     },
+     {
+      "code": "42991200",
+      "division": "42",
+      "es": "Maquinaria de imprenta",
+      "en": "Printing machinery"
+     },
+     {
+      "code": "43610000",
+      "division": "43",
+      "es": "Partes para máquinas de sondeo",
+      "en": "Parts for boring machinery"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "semiconductor equipment"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "31712330",
+      "division": "31",
+      "es": "Semiconductores",
+      "en": "Semiconductors"
+     },
+     {
+      "code": "44318000",
+      "division": "44",
+      "es": "Conductores",
+      "en": "Conductors"
+     },
+     {
+      "code": "44141000",
+      "division": "44",
+      "es": "Conductos",
+      "en": "Conduit"
+     },
+     {
+      "code": "31157000",
+      "division": "31",
+      "es": "Inductores",
+      "en": "Inductors"
+     },
+     {
+      "code": "32420000",
+      "division": "32",
+      "es": "Equipo de red",
+      "en": "Network equipment"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "microscope"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "38510000",
+      "division": "38",
+      "es": "Microscopios",
+      "en": "Microscopes"
+     },
+     {
+      "code": "38519640",
+      "division": "38",
+      "es": "Tubos de microscopio",
+      "en": "Microscope tubes"
+     },
+     {
+      "code": "38519660",
+      "division": "38",
+      "es": "Fundas para microscopio",
+      "en": "Microscope covers"
+     },
+     {
+      "code": "38519650",
+      "division": "38",
+      "es": "Platinas de microscopio",
+      "en": "Microscope stages"
+     },
+     {
+      "code": "38512100",
+      "division": "38",
+      "es": "Microscopios de iones",
+      "en": "Ion microscopes"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "38"
+   },
+   "result": {
+    "scope": "CPV division 38, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1439,
+     "q25": 1.0,
+     "median": 1.0,
+     "q75": 2.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 25889,
+ "tokens_out": 605,
+ "latency_s": 9.629,
+ "requests": 8,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

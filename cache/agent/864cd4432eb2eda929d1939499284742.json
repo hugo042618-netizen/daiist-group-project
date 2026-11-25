@@ -1,0 +1,174 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Titre: GESTION ET MAINTENANCE DE DEUX AIRES D'ACCUEIL DES GENS DU VOYAGE",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "50000000",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "50",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "GESTION ET MAINTENANCE",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1600000.0,
+   "confidence": 0.9,
+   "evidence": "1 600 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "12 mois",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "procédure ouverte",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 0.9,
+   "evidence": "prix 40 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "non",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Communauté de Communes Pays du Mont Blanc",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "fr",
+   "confidence": 0.9,
+   "evidence": "Titre: GESTION ET MAINTENANCE DE DEUX AIRES D'ACCUEIL DES GENS DU VOYAGE",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 50 and services, similar Spanish tenders usually get a median of 3 bidders (interquartile range 1.5 to 6).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "gestion et maintenance aires d accueil gens du voyage"
+   },
+   "result": "{'results': [{'code': '50000000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento', 'en': 'Repair and maintenance services'}, {'code': '50532300', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de generadores', 'en': 'Repair and maintenance services of generators'}, {'code': '45261920', 'division': '45', 'es': 'Mantenimiento de tejados', 'en': 'Roof maintenance work'}, {'code': '50246200', 'division': '50', 'es': 'Servicios de mantenimiento de boyas', 'en': 'Buoy maintenance services'}, {'code': '72514300', 'division': '72', 'es': 'Servicios de gestión de ins…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "maintenance aires d accueil"
+   },
+   "result": "{'results': [{'code': '50000000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento', 'en': 'Repair and maintenance services'}, {'code': '45261920', 'division': '45', 'es': 'Mantenimiento de tejados', 'en': 'Roof maintenance work'}, {'code': '50324100', 'division': '50', 'es': 'Servicios de mantenimiento de sistemas', 'en': 'System maintenance services'}, {'code': '50211100', 'division': '50', 'es': 'Servicios de mantenimiento de aeronaves', 'en': 'Aircraft maintenance services'}, {'code': '77313000', 'division': '77', 'es': 'Servicios de mantenimiento de parques', 'en': 'Parks …"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "gestion aires"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "90731100",
+      "division": "90",
+      "es": "Gestión de la calidad del aire",
+      "en": "Air quality management"
+     },
+     {
+      "code": "71540000",
+      "division": "71",
+      "es": "Servicios de gestión de obras",
+      "en": "Construction management services"
+     },
+     {
+      "code": "55410000",
+      "division": "55",
+      "es": "Servicios de gestión de bares",
+      "en": "Bar management services"
+     },
+     {
+      "code": "72322000",
+      "division": "72",
+      "es": "Servicios de gestión de datos",
+      "en": "Data management services"
+     },
+     {
+      "code": "98362000",
+      "division": "98",
+      "es": "Servicios de gestión de puertos",
+      "en": "Port management services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 600 000,00 EUR"
+   },
+   "result": {
+    "amount": 1600000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "50"
+   },
+   "result": {
+    "scope": "CPV division 50, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 7454,
+     "q25": 1.5,
+     "median": 3.0,
+     "q75": 6.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 17726,
+ "tokens_out": 547,
+ "latency_s": 6.151,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

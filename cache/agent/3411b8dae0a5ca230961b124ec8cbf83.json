@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Gestión de la Oficina para la atención y acompañamiento a los agentes culturales de Gipuzkoa",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "92500000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "92",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Gestión de la Oficina",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 586106.97,
+   "confidence": 0.9,
+   "evidence": "586 106,97 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES212",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Diputación Foral de Gipuzkoa",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Gestión de la Oficina para la atención",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 92 services, similar Spanish tenders typically received a median of 3 bidders (interquartile range 1 to 5).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "gestión oficina agentes culturales cultura"
+   },
+   "result": "{'results': [{'code': '45212300', 'division': '45', 'es': 'Trabajos de construcción de edificios culturales y relacionados con el arte', 'en': 'Construction work for art and cultural buildings'}, {'code': '79952100', 'division': '79', 'es': 'Servicios de organización de eventos culturales', 'en': 'Cultural event organisation services'}, {'code': '92000000', 'division': '92', 'es': 'Servicios de esparcimiento, culturales y deportivos', 'en': 'Recreational, cultural and sporting services'}, {'code': '03100000', 'division': '03', 'es': 'Productos de la agricultura y horticultura', 'en': 'Agricult…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "586 106,97 EUR"
+   },
+   "result": {
+    "amount": 586106.97,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "92"
+   },
+   "result": {
+    "scope": "CPV division 92, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1474,
+     "q25": 1.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios culturales"
+   },
+   "result": "{'results': [{'code': '79952100', 'division': '79', 'es': 'Servicios de organización de eventos culturales', 'en': 'Cultural event organisation services'}, {'code': '92000000', 'division': '92', 'es': 'Servicios de esparcimiento, culturales y deportivos', 'en': 'Recreational, cultural and sporting services'}, {'code': '45212300', 'division': '45', 'es': 'Trabajos de construcción de edificios culturales y relacionados con el arte', 'en': 'Construction work for art and cultural buildings'}, {'code': '92500000', 'division': '92', 'es': 'Servicios de bibliotecas, archivos, museos y otros servicios…"
+  }
+ ],
+ "tokens_in": 8450,
+ "tokens_out": 499,
+ "latency_s": 3.14,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

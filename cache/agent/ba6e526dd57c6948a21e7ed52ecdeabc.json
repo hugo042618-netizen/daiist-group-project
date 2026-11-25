@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: servicio de actualización certificado B",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "80500000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "80",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "servicio de actualización certificado B",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 300000.0,
+   "confidence": 0.9,
+   "evidence": "300 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 0.9,
+   "evidence": "24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 94.0,
+   "confidence": 0.9,
+   "evidence": "precio 94 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES513",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "FGC RAIL, S.A",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: servicio de actualización certificado B",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish tenders in this CPV division and contract type get a median of 3 bidders (middle 50% range 1 to 5).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicio de actualización certificado B de los maquinistas"
+   },
+   "result": "{'results': [{'code': '79132000', 'division': '79', 'es': 'Servicios de certificación', 'en': 'Certification services'}, {'code': '72540000', 'division': '72', 'es': 'Servicios de actualización informática', 'en': 'Computer upgrade services'}, {'code': '32428000', 'division': '32', 'es': 'Actualización de la red', 'en': 'Network upgrade'}, {'code': '45259900', 'division': '45', 'es': 'Actualización de instalaciones', 'en': 'Plant upgrade work'}, {'code': '79130000', 'division': '79', 'es': 'Servicios de documentación y certificación jurídicas', 'en': 'Legal documentation and certification serv…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "300 000,00 EUR"
+   },
+   "result": {
+    "amount": 300000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "formación maquinistas ferrocarril servicios"
+   },
+   "result": "{'results': [{'code': '66514130', 'division': '66', 'es': 'Servicios de seguros de ferrocarril', 'en': 'Railway insurance services'}, {'code': '51143000', 'division': '51', 'es': 'Servicios de instalación de motores de ferrocarril', 'en': 'Installation services of railway engines'}, {'code': '34622400', 'division': '34', 'es': 'Vagones de ferrocarril', 'en': 'Railway carriages'}, {'code': '45213321', 'division': '45', 'es': 'Trabajos de construcción de estaciones de ferrocarril', 'en': 'Railway station construction work'}, {'code': '80500000', 'division': '80', 'es': 'Servicios de formación', …"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "80"
+   },
+   "result": {
+    "scope": "CPV division 80, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1317,
+     "q25": 1.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8223,
+ "tokens_out": 487,
+ "latency_s": 3.397,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

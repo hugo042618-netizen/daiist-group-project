@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Exp 25-61 suministros, instalación y funcionamiento de 29 parquímetros",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "38730000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "38",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "suministros, instalación y funcionamiento de 29 parquímetros",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 371039.79,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 371 039,79 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 60.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 60 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Empresa Municipal de Promoción Social, Urbana y Económica de Cornellá",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "",
+   "evidence_found": null
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 38 supplies tenders, the median number of bidders is 1, with 75% of tenders receiving 2 or fewer offers.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "parquímetros"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "38730000",
+      "division": "38",
+      "es": "Parquímetros",
+      "en": "Parking meters"
+     },
+     {
+      "code": "51214000",
+      "division": "51",
+      "es": "Servicios de instalación de equipos de parquímetros",
+      "en": "Installation services of parking meter equipment"
+     },
+     {
+      "code": "38700000",
+      "division": "38",
+      "es": "Registradores de asistencia y contadores similares; parquímetros",
+      "en": "Time registers and the like; parking meters"
+     },
+     {
+      "code": "44112240",
+      "division": "44",
+      "es": "Parqué",
+      "en": "Parquet"
+     },
+     {
+      "code": "38527200",
+      "division": "38",
+      "es": "Dosímetros",
+      "en": "Dosimeters"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "371 039,79 EUR"
+   },
+   "result": {
+    "amount": 371039.79,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "38",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 38, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1439,
+     "q25": 1.0,
+     "median": 1.0,
+     "q75": 2.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8165,
+ "tokens_out": 524,
+ "latency_s": 3.432,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

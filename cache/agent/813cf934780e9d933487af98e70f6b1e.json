@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Suministro e instalación de monitores",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "33195100",
+   "confidence": 0.8,
+   "evidence": "Equipos de monitorización",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "33",
+   "confidence": 0.8,
+   "evidence": "Equipos de monitorización",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "Suministro e instalación de monitores",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1874750.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 1 874 750,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 5.0,
+   "confidence": 0.9,
+   "evidence": "5 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 0.9,
+   "evidence": "precio 40 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES11",
+   "confidence": 0.9,
+   "evidence": "ES111 (Galicia)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "SERGAS. Servicio Gallego de Salud",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Suministro e instalación de monitores",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In supplies tenders for medical equipment and products (CPV 33), similar Spanish procedures receive a median of 2 bidders.",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 874 750,00 EUR"
+   },
+   "result": {
+    "amount": 1874750.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "monitores hospitalarios equipos de monitorizacion"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33195100",
+      "division": "33",
+      "es": "Monitores",
+      "en": "Monitors"
+     },
+     {
+      "code": "63711100",
+      "division": "63",
+      "es": "Servicios de monitorización de trenes",
+      "en": "Train monitoring services"
+     },
+     {
+      "code": "71700000",
+      "division": "71",
+      "es": "Servicios de monitorización y control",
+      "en": "Monitoring and control services"
+     },
+     {
+      "code": "63712710",
+      "division": "63",
+      "es": "Servicios de monitorización del tráfico",
+      "en": "Traffic monitoring services"
+     },
+     {
+      "code": "85111000",
+      "division": "85",
+      "es": "Servicios hospitalarios",
+      "en": "Hospital services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "33",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 33, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 8014,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8114,
+ "tokens_out": 504,
+ "latency_s": 3.679,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

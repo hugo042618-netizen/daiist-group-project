@@ -1,0 +1,162 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.5,
+   "evidence": "Órgano de contratación: AGENCIA DE VIVIENDA Y REHABILITACION DE ANDALUCIA",
+   "evidence_found": false
+  },
+  "cpv_code": {
+   "value": "50700000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "50",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "SERVICIO DE ADECUACIONES DE VIVIENDAS",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 867768.57,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 867 768,57 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES61",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES617 (Andalucía)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.5,
+   "evidence": "AGENCIA DE VIVIENDA Y REHABILITACION DE ANDALUCIA",
+   "evidence_found": false
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "SERVICIO DE ADECUACIONES DE VIVIENDAS",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish services contracts in CPV division 50 typically receive a median of 3 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "adecuaciones de viviendas elementos y zonas comunes de edificios residenciales"
+   },
+   "result": "{'results': [{'code': '70311000', 'division': '70', 'es': 'Servicios de alquiler o venta de edificios residenciales', 'en': 'Residential building rental or sale services'}, {'code': '70333000', 'division': '70', 'es': 'Servicios relacionados con viviendas', 'en': 'Housing services'}, {'code': '70123100', 'division': '70', 'es': 'Venta de bienes raíces residenciales', 'en': 'Sale of residential real estate'}, {'code': '85144000', 'division': '85', 'es': 'Servicios de instituciones residenciales de salud', 'en': 'Residential health facilities services'}, {'code': '45211300', 'division': '45', 'e…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "867 768,57 EUR"
+   },
+   "result": {
+    "amount": 867768.57,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "rehabilitacion de edificios viviendas reparacion mantenimiento"
+   },
+   "result": "{'results': [{'code': '85312500', 'division': '85', 'es': 'Servicios de rehabilitación', 'en': 'Rehabilitation services'}, {'code': '45112360', 'division': '45', 'es': 'Trabajos de rehabilitación del suelo', 'en': 'Land rehabilitation work'}, {'code': '85312510', 'division': '85', 'es': 'Servicios de rehabilitación profesional', 'en': 'Vocational rehabilitation services'}, {'code': '90722000', 'division': '90', 'es': 'Rehabilitación medioambiental', 'en': 'Environmental rehabilitation'}, {'code': '85111400', 'division': '85', 'es': 'Servicios hospitalarios de rehabilitación', 'en': 'Rehabilita…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "reparacion mantenimiento edificios"
+   },
+   "result": "{'results': [{'code': '50700000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de equipos de edificios', 'en': 'Repair and maintenance services of building installations'}, {'code': '50000000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento', 'en': 'Repair and maintenance services'}, {'code': '45259000', 'division': '45', 'es': 'Reparación y mantenimiento de instalaciones', 'en': 'Repair and maintenance of plant'}, {'code': '50711000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de equipos eléctricos de edificios', 'en': 'Repair and ma…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "rehabilitacion viviendas"
+   },
+   "result": "{'results': [{'code': '85312500', 'division': '85', 'es': 'Servicios de rehabilitación', 'en': 'Rehabilitation services'}, {'code': '45112360', 'division': '45', 'es': 'Trabajos de rehabilitación del suelo', 'en': 'Land rehabilitation work'}, {'code': '85312510', 'division': '85', 'es': 'Servicios de rehabilitación profesional', 'en': 'Vocational rehabilitation services'}, {'code': '90722000', 'division': '90', 'es': 'Rehabilitación medioambiental', 'en': 'Environmental rehabilitation'}, {'code': '85111400', 'division': '85', 'es': 'Servicios hospitalarios de rehabilitación', 'en': 'Rehabilita…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "mantenimiento edificios residenciales"
+   },
+   "result": "{'results': [{'code': '70311000', 'division': '70', 'es': 'Servicios de alquiler o venta de edificios residenciales', 'en': 'Residential building rental or sale services'}, {'code': '70123100', 'division': '70', 'es': 'Venta de bienes raíces residenciales', 'en': 'Sale of residential real estate'}, {'code': '70331000', 'division': '70', 'es': 'Servicios relacionados con propiedades residenciales', 'en': 'Residential property services'}, {'code': '45215214', 'division': '45', 'es': 'Trabajos de construcción de hogares residenciales', 'en': 'Residential homes construction work'}, {'code': '70123…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de mantenimiento y reparacion de edificios"
+   },
+   "result": "{'results': [{'code': '50700000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de equipos de edificios', 'en': 'Repair and maintenance services of building installations'}, {'code': '50000000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento', 'en': 'Repair and maintenance services'}, {'code': '50711000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de equipos eléctricos de edificios', 'en': 'Repair and maintenance services of electrical building installations'}, {'code': '50712000', 'division': '50', 'es': 'Servicios de reparación y man…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "50"
+   },
+   "result": {
+    "scope": "CPV division 50, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 7454,
+     "q25": 1.5,
+     "median": 3.0,
+     "q75": 6.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 27294,
+ "tokens_out": 646,
+ "latency_s": 7.254,
+ "requests": 8,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

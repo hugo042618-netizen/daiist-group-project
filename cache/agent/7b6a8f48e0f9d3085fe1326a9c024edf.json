@@ -1,0 +1,207 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Suministro de equipos de electrónica de red de datos corporativa",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "32400000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "32",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 1.0,
+   "evidence": "Suministro de equipos de electrónica",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 299998.97,
+   "confidence": 1.0,
+   "evidence": "299 998,97 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 1.0,
+   "evidence": "12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 93.0,
+   "confidence": 1.0,
+   "evidence": "precio 93 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Ferrocarrils de la Generalitat de Catalunya",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Suministro de equipos de electrónica",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar tenders in Spain (CPV division 32, supplies) typically receive a median of 3 bidders (interquartile range 2 to 5).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "equipos de electrónica de red de datos corporativa"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "18222000",
+      "division": "18",
+      "es": "Indumentaria corporativa",
+      "en": "Corporate clothing"
+     },
+     {
+      "code": "31710000",
+      "division": "31",
+      "es": "Equipo electrónico",
+      "en": "Electronic equipment"
+     },
+     {
+      "code": "48613000",
+      "division": "48",
+      "es": "Gestión electrónica de datos",
+      "en": "Electronic data management (EDM)"
+     },
+     {
+      "code": "79342410",
+      "division": "79",
+      "es": "Servicios de subasta electrónica",
+      "en": "Electronic auction services"
+     },
+     {
+      "code": "30237131",
+      "division": "30",
+      "es": "Fichas electrónicas",
+      "en": "Electronic cards"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "299 998,97 EUR"
+   },
+   "result": {
+    "amount": 299998.97,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "32",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 32, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 853,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "red de datos equipos electrónica"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "31710000",
+      "division": "31",
+      "es": "Equipo electrónico",
+      "en": "Electronic equipment"
+     },
+     {
+      "code": "48613000",
+      "division": "48",
+      "es": "Gestión electrónica de datos",
+      "en": "Electronic data management (EDM)"
+     },
+     {
+      "code": "30237131",
+      "division": "30",
+      "es": "Fichas electrónicas",
+      "en": "Electronic cards"
+     },
+     {
+      "code": "79342410",
+      "division": "79",
+      "es": "Servicios de subasta electrónica",
+      "en": "Electronic auction services"
+     },
+     {
+      "code": "64216110",
+      "division": "64",
+      "es": "Servicios de intercambio electrónico de datos",
+      "en": "Electronic data exchange services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "redes de datos"
+   },
+   "result": "{'results': [{'code': '72315200', 'division': '72', 'es': 'Servicios de gestión de redes de datos', 'en': 'Data network management services'}, {'code': '72315100', 'division': '72', 'es': 'Servicios de apoyo a redes de datos', 'en': 'Data network support services'}, {'code': '50312320', 'division': '50', 'es': 'Reparación de equipos de redes de datos', 'en': 'Repair of data network equipment'}, {'code': '50312310', 'division': '50', 'es': 'Mantenimiento de equipos de redes de datos', 'en': 'Maintenance of data network equipment'}, {'code': '32400000', 'division': '32', 'es': 'Redes', 'en': 'Ne…"
+  }
+ ],
+ "tokens_in": 11622,
+ "tokens_out": 507,
+ "latency_s": 3.742,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

@@ -1,0 +1,167 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.95,
+   "evidence": "Título: Servicio de asistencia técnica a la organización de actividades deportivas",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "92600000",
+   "confidence": 0.7,
+   "evidence": "Servicio de asistencia técnica a la organización de actividades deportivas",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "92",
+   "confidence": 0.7,
+   "evidence": "Servicio de asistencia técnica a la organización de actividades deportivas",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.95,
+   "evidence": "Servicio de asistencia técnica",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 530957.5,
+   "confidence": 0.95,
+   "evidence": "530 957,50 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 0.95,
+   "evidence": "24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.95,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.95,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.95,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES23",
+   "confidence": 0.95,
+   "evidence": "ES230 (La Rioja)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Universidad de La Rioja",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.95,
+   "evidence": "Servicio de asistencia técnica a la organización de actividades deportivas de la Universidad de La Rioja.",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar tenders in this sector (CPV division 92) usually receive a median of 3 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "asistencia técnica actividades deportivas"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "71356200",
+      "division": "71",
+      "es": "Servicios de asistencia técnica",
+      "en": "Technical assistance services"
+     },
+     {
+      "code": "37416000",
+      "division": "37",
+      "es": "Equipo para actividades de ocio",
+      "en": "Leisure equipment"
+     },
+     {
+      "code": "18223100",
+      "division": "18",
+      "es": "Chaquetas deportivas",
+      "en": "Blazers"
+     },
+     {
+      "code": "92600000",
+      "division": "92",
+      "es": "Servicios deportivos",
+      "en": "Sporting services"
+     },
+     {
+      "code": "45212213",
+      "division": "45",
+      "es": "Trabajos de marcado para instalaciones deportivas",
+      "en": "Sport markings works"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "530 957,50 EUR"
+   },
+   "result": {
+    "amount": 530957.5,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "92"
+   },
+   "result": {
+    "scope": "CPV division 92, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1474,
+     "q25": 1.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Servicios deportivos"
+   },
+   "result": "{'results': [{'code': '92600000', 'division': '92', 'es': 'Servicios deportivos', 'en': 'Sporting services'}, {'code': '77320000', 'division': '77', 'es': 'Servicios de mantenimiento de campos deportivos', 'en': 'Sports fields maintenance services'}, {'code': '34522000', 'division': '34', 'es': 'Barcos de recreo y deportivos', 'en': 'Pleasure and sporting boats'}, {'code': '45242200', 'division': '45', 'es': 'Trabajos de construcción de puertos deportivos', 'en': 'Marina construction work'}, {'code': '92000000', 'division': '92', 'es': 'Servicios de esparcimiento, culturales y deportivos', 'en…"
+  }
+ ],
+ "tokens_in": 8309,
+ "tokens_out": 520,
+ "latency_s": 3.353,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

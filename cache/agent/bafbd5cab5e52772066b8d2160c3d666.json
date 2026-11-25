@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Contratación del suministro e instalación",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "42416100",
+   "confidence": 0.7,
+   "evidence": "ascensores",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "42",
+   "confidence": 0.7,
+   "evidence": "ascensores",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "suministro e instalación",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 478068.83,
+   "confidence": 0.9,
+   "evidence": "478 068,83 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 10.8,
+   "confidence": 0.9,
+   "evidence": "10.8 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 60.0,
+   "confidence": 0.9,
+   "evidence": "precio 60 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "l’Institut Català de Finances",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Contratación del suministro...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 42 supplies, Spanish tenders typically receive an average of 2 bidders (median of 742 analysed procedures).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "ascensores suministro instalación"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "45313100",
+      "division": "45",
+      "es": "Instalación de ascensores",
+      "en": "Lift installation work"
+     },
+     {
+      "code": "42416100",
+      "division": "42",
+      "es": "Ascensores",
+      "en": "Lifts"
+     },
+     {
+      "code": "42419510",
+      "division": "42",
+      "es": "Partes de ascensores",
+      "en": "Parts of lifts"
+     },
+     {
+      "code": "45313000",
+      "division": "45",
+      "es": "Instalación de ascensores y escaleras mecánicas",
+      "en": "Lift and escalator installation work"
+     },
+     {
+      "code": "45315300",
+      "division": "45",
+      "es": "Instalaciones de suministro de electricidad",
+      "en": "Electricity supply installations"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "478 068,83 EUR"
+   },
+   "result": {
+    "amount": 478068.83,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "42"
+   },
+   "result": {
+    "scope": "CPV division 42, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 742,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5495,
+ "tokens_out": 477,
+ "latency_s": 2.751,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

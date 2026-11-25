@@ -1,0 +1,230 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": false,
+   "confidence": 0.8,
+   "evidence": "Mission d'aide à la préparation des logements...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "90922000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "90",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Mission d'aide à la préparation des logements",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 600000.0,
+   "confidence": 0.9,
+   "evidence": "Valeur estimée hors TVA: 600 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 48.0,
+   "confidence": 0.9,
+   "evidence": "Durée du marché: 48 mois",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "negotiated",
+   "confidence": 0.9,
+   "evidence": "Type de procédure: procédure négociée",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 0.9,
+   "evidence": "prix 40 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Accord-cadre: oui",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Lyon Métropole Habitat",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "fr",
+   "confidence": 1.0,
+   "evidence": "Titre: Mission d'aide...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": false,
+ "not_tender_reason": "This tender is in France (Lyon Métropole Habitat), outside Spain, and the prompt requires it to be a Spanish public contract.",
+ "market_note": "In Spanish tenders for services under CPV division 90, the median number of bidders is 4 (based on past data).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "punaises de lit desinsectisation aide logement"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "24452000",
+      "division": "24",
+      "es": "Insecticidas",
+      "en": "Insecticides"
+     },
+     {
+      "code": "03117130",
+      "division": "03",
+      "es": "Plantas utilizadas en la elaboración de insecticidas",
+      "en": "Plants used for insecticidal purposes"
+     },
+     {
+      "code": "19522000",
+      "division": "19",
+      "es": "Resinas",
+      "en": "Resins"
+     },
+     {
+      "code": "33691000",
+      "division": "33",
+      "es": "Productos antiparasitarios, insecticidas y repelentes",
+      "en": "Antiparasitic products, insecticides and repellents"
+     },
+     {
+      "code": "39330000",
+      "division": "39",
+      "es": "Equipo de desinfección",
+      "en": "Disinfection equipment"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "services de desinsectisation"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "24452000",
+      "division": "24",
+      "es": "Insecticidas",
+      "en": "Insecticides"
+     },
+     {
+      "code": "03117130",
+      "division": "03",
+      "es": "Plantas utilizadas en la elaboración de insecticidas",
+      "en": "Plants used for insecticidal purposes"
+     },
+     {
+      "code": "79957000",
+      "division": "79",
+      "es": "Servicios de organización de subastas",
+      "en": "Auction organisation services"
+     },
+     {
+      "code": "19522000",
+      "division": "19",
+      "es": "Resinas",
+      "en": "Resins"
+     },
+     {
+      "code": "79996000",
+      "division": "79",
+      "es": "Servicios de organización de empresas",
+      "en": "Business organisation services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "pest control services"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "77231200",
+      "division": "77",
+      "es": "Servicios de control de plagas forestales",
+      "en": "Forest pest control services"
+     },
+     {
+      "code": "90922000",
+      "division": "90",
+      "es": "Servicios de control de plagas",
+      "en": "Pest-control services"
+     },
+     {
+      "code": "90742100",
+      "division": "90",
+      "es": "Servicios de control del ruido",
+      "en": "Noise control services"
+     },
+     {
+      "code": "71356100",
+      "division": "71",
+      "es": "Servicios de control técnico",
+      "en": "Technical control services"
+     },
+     {
+      "code": "63712700",
+      "division": "63",
+      "es": "Servicios de control del tráfico",
+      "en": "Traffic control services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "90"
+   },
+   "result": {
+    "scope": "CPV division 90, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 6091,
+     "q25": 2.0,
+     "median": 4.0,
+     "q75": 7.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 15208,
+ "tokens_out": 526,
+ "latency_s": 5.484,
+ "requests": 5,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

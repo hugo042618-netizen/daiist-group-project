@@ -1,0 +1,167 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Servicios de diseño y desarrollo de algoritmos avanzados",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72212180",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Servicios de diseño y desarrollo de algoritmos",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 480000.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 480 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 9.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 9 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.9,
+   "evidence": "precio 50 %, calidad 50 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES11",
+   "confidence": 0.9,
+   "evidence": "ES111 (Galicia)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Servicio Gallego de Salud",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Servicios de diseño y desarrollo de algoritmos",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 72 services, similar Spanish tenders usually get a median of 2 bidders (meanwhile Q25 is 1 and Q75 is 4).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "algoritmos descubrimiento de patrones diabetes medicina"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33615000",
+      "division": "33",
+      "es": "Antidiabéticos",
+      "en": "Medicinal products used in diabetes"
+     },
+     {
+      "code": "44113330",
+      "division": "44",
+      "es": "Materiales de recubrimiento",
+      "en": "Coating materials"
+     },
+     {
+      "code": "45261210",
+      "division": "45",
+      "es": "Trabajos de recubrimiento",
+      "en": "Roof-covering work"
+     },
+     {
+      "code": "45261222",
+      "division": "45",
+      "es": "Recubrimiento de cubiertas con cemento",
+      "en": "Cement roof-coating work"
+     },
+     {
+      "code": "24111500",
+      "division": "24",
+      "es": "Gases medicinales",
+      "en": "Medical gases"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "480 000,00 EUR"
+   },
+   "result": {
+    "amount": 480000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "72",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "desarrollo de software algoritmos servicios"
+   },
+   "result": "{'results': [{'code': '72262000', 'division': '72', 'es': 'Servicios de desarrollo de software', 'en': 'Software development services'}, {'code': '72212983', 'division': '72', 'es': 'Servicios de desarrollo de software de desarrollo', 'en': 'Development software development services'}, {'code': '72212517', 'division': '72', 'es': 'Servicios de desarrollo de software de TI', 'en': 'IT software development services'}, {'code': '72212931', 'division': '72', 'es': 'Servicios de desarrollo de software de formación', 'en': 'Training software development services'}, {'code': '72212180', 'division': '…"
+  }
+ ],
+ "tokens_in": 8803,
+ "tokens_out": 524,
+ "latency_s": 3.851,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

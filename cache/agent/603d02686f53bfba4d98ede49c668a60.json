@@ -1,0 +1,256 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: CSE/AH04/1101452065/26/PO",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "50000000",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "50",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "SERVEI DE MANTENIMENT",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 356953.08,
+   "confidence": 0.9,
+   "evidence": "356 953,08 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES512 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Hospital Dr.[NAME]",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "ca",
+   "confidence": 0.9,
+   "evidence": "SERVEI DE MANTENIMENT DE PORTES AUTOMÀTIQUES",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In similar Spanish tenders for repair and maintenance services, the median number of bidders is 3.",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "356 953,08 EUR"
+   },
+   "result": {
+    "amount": 356953.08,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "manteniment de portes automàtiques i cristalleria"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "48921000",
+      "division": "48",
+      "es": "Sistema de automatización",
+      "en": "Automation system"
+     },
+     {
+      "code": "30177000",
+      "division": "30",
+      "es": "Sistemas automáticos de etiquetado",
+      "en": "Automatic labelling systems"
+     },
+     {
+      "code": "30144400",
+      "division": "30",
+      "es": "Sistema de cobro automático",
+      "en": "Automatic fare collection"
+     },
+     {
+      "code": "30123200",
+      "division": "30",
+      "es": "Cajeros automáticos",
+      "en": "Automatic cash dispensers"
+     },
+     {
+      "code": "30178000",
+      "division": "30",
+      "es": "Sistemas semiautomáticos de etiquetado",
+      "en": "Semi automatic labelling systems"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "mantenimiento de puertas automaticas y cristaleria"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "50112200",
+      "division": "50",
+      "es": "Servicios de mantenimiento de automóviles",
+      "en": "Car maintenance services"
+     },
+     {
+      "code": "48921000",
+      "division": "48",
+      "es": "Sistema de automatización",
+      "en": "Automation system"
+     },
+     {
+      "code": "44221200",
+      "division": "44",
+      "es": "Puertas",
+      "en": "Doors"
+     },
+     {
+      "code": "30144400",
+      "division": "30",
+      "es": "Sistema de cobro automático",
+      "en": "Automatic fare collection"
+     },
+     {
+      "code": "30123200",
+      "division": "30",
+      "es": "Cajeros automáticos",
+      "en": "Automatic cash dispensers"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "mantenimiento de puertas"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "44221200",
+      "division": "44",
+      "es": "Puertas",
+      "en": "Doors"
+     },
+     {
+      "code": "50324100",
+      "division": "50",
+      "es": "Servicios de mantenimiento de sistemas",
+      "en": "System maintenance services"
+     },
+     {
+      "code": "45261920",
+      "division": "45",
+      "es": "Mantenimiento de tejados",
+      "en": "Roof maintenance work"
+     },
+     {
+      "code": "50000000",
+      "division": "50",
+      "es": "Servicios de reparación y mantenimiento",
+      "en": "Repair and maintenance services"
+     },
+     {
+      "code": "77313000",
+      "division": "77",
+      "es": "Servicios de mantenimiento de parques",
+      "en": "Parks maintenance services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "50000000"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "50000000",
+      "division": "50",
+      "es": "Servicios de reparación y mantenimiento",
+      "en": "Repair and maintenance services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "50",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 50, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 7454,
+     "q25": 1.5,
+     "median": 3.0,
+     "q75": 6.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 18153,
+ "tokens_out": 554,
+ "latency_s": 6.319,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

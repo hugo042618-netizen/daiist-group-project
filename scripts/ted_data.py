@@ -141,26 +141,34 @@ def _region(nuts: pd.Series) -> pd.Series:
 
 
 _CITY = r"ayuntamiento|ajuntament|concello|\budala?\b|alcald[ií]a|junta de gobierno local|[áa]rea de gobierno"
+# Local entities that are not town halls: TED's code list "buyer legal type" files them as local authorities too.
+# ("Diputación General de Aragón" is the regional government of Aragon, so it is left out.)
+_LOCAL = (r"diputaci[oó]n?(?! general)\b|cabildo|consell insular|consejo insular|mancomuni(?:dad|tat)|"
+          r"\bcomarca\b|conse(?:ll|jo) comarcal|foru aldundi")
 _REGIONAL = (r"generalitat|xunta|junta de (?:andaluc|castilla|extremadura|comunidades)|gobierno (?:de|del|vasco)|govern de|eusko jaurlaritza|"
              r"comunidad (?:de madrid|aut[oó]noma|foral)|consejer[ií]a|conseller[ií]a|\bdepartament|principado de asturias|"
              r"servicio \w+ de (?:salud|salut)|servei \w+ de salut|servicio de salud|osakidetza|sergas|gerencia regional")
 
 
 def buyer_type(cae_type: pd.Series, cae_name: pd.Series) -> pd.Series:
-    """city_council / regional_government / ministry / other, as a reader of the tender would call the buyer.
+    """city_council / regional_government / ministry / other: the classes of the agent's prompt.
 
-    TED's own code (CAE_TYPE) puts town halls and regional governments in one class and
-    is filled in loosely, so the buyer's name decides first and the code only breaks ties:
-    national authorities (1, N) are "ministry", regional or local ones (3, R) "regional_government".
+    The classes follow TED's code list "buyer legal type" (central government, regional and local
+    authority, everything else). The TED CSV of 2018-2023 has an older code (CAE_TYPE) that puts
+    regional and local authorities in one class and is filled in loosely, so the buyer's name decides
+    first and the code only breaks ties: national authorities (1, N) are "ministry", regional or local
+    ones (3, R) "regional_government", and by name town halls and the other local entities
+    (provincial and island councils, comarcas, mancomunidades) are "city_council".
     """
     name = cae_name.fillna("").str.split("---").str[0].str.lower()
-    city, regional = name.str.contains(_CITY, regex=True), name.str.contains(_REGIONAL, regex=True)
+    local = name.str.contains(_CITY, regex=True) | name.str.contains(_LOCAL, regex=True)
+    regional = name.str.contains(_REGIONAL, regex=True)
     national = cae_type.isin(["1", "N"]) | name.str.contains(r"ministerio", regex=True)
     result = pd.Series("other", index=cae_type.index)
     result[cae_type.isin(["3", "R"])] = "regional_government"
     result[national] = "ministry"
     result[regional] = "regional_government"
-    result[city] = "city_council"
+    result[local] = "city_council"
     return result
 
 

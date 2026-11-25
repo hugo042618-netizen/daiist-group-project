@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Servicio de mantenimiento integral",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "50114000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "50",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicio de mantenimiento integral",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1671956.04,
+   "confidence": 1.0,
+   "evidence": "1 671 956,04 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 1.0,
+   "evidence": "24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 30.0,
+   "confidence": 1.0,
+   "evidence": "precio 30 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 1.0,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Instituto Municipal de Parques y Jardines de Barcelona",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Servicio de mantenimiento integral",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish service tenders under CPV division 50, the median number of bidders is 3, with 75% of tenders receiving 6 or fewer bids.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "mantenimiento de vehículos camiones furgonetas turismos"
+   },
+   "result": "{'results': [{'code': '50114200', 'division': '50', 'es': 'Servicios de mantenimiento de camiones', 'en': 'Truck maintenance services'}, {'code': '34136000', 'division': '34', 'es': 'Camionetas', 'en': 'Vans'}, {'code': '34144400', 'division': '34', 'es': 'Vehículos para el mantenimiento de carreteras', 'en': 'Road-maintenance vehicles'}, {'code': '50114000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento de camiones', 'en': 'Repair and maintenance services of trucks'}, {'code': '34621200', 'division': '34', 'es': 'Vehículos de mantenimiento o de servicio para ferrocarril', '…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 671 956,04 EUR"
+   },
+   "result": {
+    "amount": 1671956.04,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "50",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 50, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 7454,
+     "q25": 1.5,
+     "median": 3.0,
+     "q75": 6.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5339,
+ "tokens_out": 458,
+ "latency_s": 2.831,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

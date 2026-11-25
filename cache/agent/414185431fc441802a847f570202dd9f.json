@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Servicio de limpieza...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "90910000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "90",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Servicio de limpieza",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1100000.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 1 100 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 60.0,
+   "confidence": 0.9,
+   "evidence": "precio 60 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES212 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "OSAKIDETZA - Servicio Vasco de Salud",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Servicio de limpieza",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish tenders for this sector, the median number of bidders was 4.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "limpieza centros de salud"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "90910000",
+      "division": "90",
+      "es": "Servicios de limpieza",
+      "en": "Cleaning services"
+     },
+     {
+      "code": "85100000",
+      "division": "85",
+      "es": "Servicios de salud",
+      "en": "Health services"
+     },
+     {
+      "code": "39830000",
+      "division": "39",
+      "es": "Productos de limpieza",
+      "en": "Cleaning products"
+     },
+     {
+      "code": "42972000",
+      "division": "42",
+      "es": "Partes de máquinas de limpieza",
+      "en": "Parts of cleaning machines"
+     },
+     {
+      "code": "90919200",
+      "division": "90",
+      "es": "Servicios de limpieza de oficinas",
+      "en": "Office cleaning services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 100 000,00 EUR"
+   },
+   "result": {
+    "amount": 1100000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "90",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 90, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 6091,
+     "q25": 2.0,
+     "median": 4.0,
+     "q75": 7.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5277,
+ "tokens_out": 459,
+ "latency_s": 3.176,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

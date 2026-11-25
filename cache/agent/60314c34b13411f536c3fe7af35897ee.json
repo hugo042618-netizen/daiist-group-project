@@ -1,0 +1,214 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: ICP20250042-ARTIGOS ESPECIFICOS PARA NEUROCIRURGIA",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "33141200",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "33",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "ARTIGOS ESPECIFICOS PARA NEUROCIRURGIA",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 235790.87,
+   "confidence": 1.0,
+   "evidence": "Valor estimado sem IVA: 235 790,87 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "concurso público",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 16,
+   "confidence": 1.0,
+   "evidence": "Lotes: 16",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acordo-quadro: não",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "PT300",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Serviço de Saúde da Região Autónoma da Madeira",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 1.0,
+   "evidence": "ARTIGOS ESPECIFICOS PARA NEUROCIRURGIA",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish public tenders for medical supplies (CPV 33), similar contracts usually receive a median of 2 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "neurocirurgia artigos especificos"
+   },
+   "result": "{'results': [{'code': '03117000', 'division': '03', 'es': 'Plantas utilizadas para usos específicos', 'en': 'Plants used in specific fields'}, {'code': '03117200', 'division': '03', 'es': 'Semillas de plantas utilizadas para usos específicos', 'en': 'Seeds of plants used in specific fields'}, {'code': '24950000', 'division': '24', 'es': 'Productos químicos para fines específicos', 'en': 'Specialised chemical products'}, {'code': '48100000', 'division': '48', 'es': 'Paquetes de software específico de un sector económico', 'en': 'Industry specific software package'}, {'code': '72212100', 'divisi…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "235 790,87 EUR"
+   },
+   "result": {
+    "amount": 235790.87,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "artigos neurocirurgia"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33161000",
+      "division": "33",
+      "es": "Unidad de electrocirugía",
+      "en": "Electrosurgical unit"
+     },
+     {
+      "code": "37453700",
+      "division": "37",
+      "es": "Testigos",
+      "en": "Batons"
+     },
+     {
+      "code": "18913000",
+      "division": "18",
+      "es": "Látigos",
+      "en": "Whips"
+     },
+     {
+      "code": "33141420",
+      "division": "33",
+      "es": "Guantes quirúrgicos",
+      "en": "Surgical gloves"
+     },
+     {
+      "code": "33169300",
+      "division": "33",
+      "es": "Carro para material quirúrgico",
+      "en": "Surgical trays"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "neurosurgery medical devices"
+   },
+   "result": "{'results': [{'code': '33128000', 'division': '33', 'es': 'Láseres médicos distintos de los usados en cirugía', 'en': 'Medical laser other than for surgery'}, {'code': '33182300', 'division': '33', 'es': 'Aparatos de cirugía cardíaca', 'en': 'Cardiac surgery devices'}, {'code': '33157400', 'division': '33', 'es': 'Respiradores para uso médico', 'en': 'Medical breathing devices'}, {'code': '66512220', 'division': '66', 'es': 'Servicios de seguros médicos', 'en': 'Medical insurance services'}, {'code': '33168000', 'division': '33', 'es': 'Aparatos de endoscopia y endocirugía', 'en': 'Endoscopy, …"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "cateter drenagem neurocirurgia"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "33141200",
+      "division": "33",
+      "es": "Catéteres",
+      "en": "Catheters"
+     },
+     {
+      "code": "33141240",
+      "division": "33",
+      "es": "Accesorios para catéter",
+      "en": "Catheter accessories"
+     },
+     {
+      "code": "45215148",
+      "division": "45",
+      "es": "Trabajos de construcción de salas de catéteres",
+      "en": "Catheter room construction work"
+     },
+     {
+      "code": "33141210",
+      "division": "33",
+      "es": "Catéteres de balón",
+      "en": "Balloon catheters"
+     },
+     {
+      "code": "33161000",
+      "division": "33",
+      "es": "Unidad de electrocirugía",
+      "en": "Electrosurgical unit"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "33",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 33, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 8014,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 19159,
+ "tokens_out": 564,
+ "latency_s": 5.602,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

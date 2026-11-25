@@ -1,0 +1,167 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "SERVICIO DE LIMPIEZA Y DESINFECCIÓN DE LOS VEHÍCULOS DE METRO DE MADRID",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "90917000",
+   "confidence": 0.8,
+   "evidence": "SERVICIO DE LIMPIEZA Y DESINFECCIÓN DE LOS VEHÍCULOS DE METRO DE MADRID",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "90",
+   "confidence": 0.8,
+   "evidence": "SERVICIO DE LIMPIEZA Y DESINFECCIÓN DE LOS VEHÍCULOS DE METRO DE MADRID",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "SERVICIO DE LIMPIEZA Y DESINFECCIÓN DE LOS VEHÍCULOS DE METRO DE MADRID",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 598244.4,
+   "confidence": 1.0,
+   "evidence": "598 244,40 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 48.0,
+   "confidence": 1.0,
+   "evidence": "48 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES30",
+   "confidence": 0.9,
+   "evidence": "ES300 (Madrid)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Metro de Madrid, S.A.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "SERVICIO DE LIMPIEZA Y DESINFECCIÓN DE LOS VEHÍCULOS DE METRO DE MADRID",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish public services tenders under CPV division 90, the median number of bidders is 4 (based on past TED data).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "limpieza y desinfeccion de vehiculos"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "39330000",
+      "division": "39",
+      "es": "Equipo de desinfección",
+      "en": "Disinfection equipment"
+     },
+     {
+      "code": "90921000",
+      "division": "90",
+      "es": "Servicios de desinfección y exterminio",
+      "en": "Disinfecting and exterminating services"
+     },
+     {
+      "code": "90910000",
+      "division": "90",
+      "es": "Servicios de limpieza",
+      "en": "Cleaning services"
+     },
+     {
+      "code": "24455000",
+      "division": "24",
+      "es": "Desinfectantes",
+      "en": "Disinfectants"
+     },
+     {
+      "code": "34100000",
+      "division": "34",
+      "es": "Vehículos de motor",
+      "en": "Motor vehicles"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "598 244,40 EUR"
+   },
+   "result": {
+    "amount": 598244.4,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "90",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 90, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 6091,
+     "q25": 2.0,
+     "median": 4.0,
+     "q75": 7.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "limpieza vehiculos transporte"
+   },
+   "result": "{'results': [{'code': '90917000', 'division': '90', 'es': 'Servicios de limpieza de medios de transporte', 'en': 'Cleaning services of transport equipment'}, {'code': '34115300', 'division': '34', 'es': 'Vehículos de transporte usados', 'en': 'Second-hand transport vehicles'}, {'code': '34114122', 'division': '34', 'es': 'Vehículos para transporte de pacientes', 'en': 'Patient-transport vehicles'}, {'code': '34130000', 'division': '34', 'es': 'Vehículos de motor para el transporte de mercancías', 'en': 'Motor vehicles for the transport of goods'}, {'code': '34120000', 'division': '34', 'es': '…"
+  }
+ ],
+ "tokens_in": 8381,
+ "tokens_out": 557,
+ "latency_s": 4.08,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Ajuste Direto n.º 08/DRL/DA/2025",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72267000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Aquisição de serviços",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 292000.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sem IVA: 292 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": null,
+   "confidence": 0.0,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "restricted",
+   "confidence": 0.9,
+   "evidence": "concurso limitado",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.9,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "preço 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acordo-quadro: não",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Local de execução: PT1A0",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Ministério da Administração Interna - Guarda Nacional Republicana",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 0.9,
+   "evidence": "Título: Ajuste Direto",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish tenders for services under CPV division 72, the median number of bidders is 2 (based on past data).",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "292 000,00 EUR"
+   },
+   "result": {
+    "amount": 292000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "manutenção de software sistemas de informação polícia"
+   },
+   "result": "{'results': [{'code': '48000000', 'division': '48', 'es': 'Paquetes de software y sistemas de información', 'en': 'Software package and information systems'}, {'code': '48810000', 'division': '48', 'es': 'Sistemas de información', 'en': 'Information systems'}, {'code': '75241100', 'division': '75', 'es': 'Servicios de policía', 'en': 'Police services'}, {'code': '48814000', 'division': '48', 'es': 'Sistemas de información médica', 'en': 'Medical information systems'}, {'code': '48900000', 'division': '48', 'es': 'Paquetes de software y sistemas informáticos diversos', 'en': 'Miscellaneous soft…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "software maintenance services"
+   },
+   "result": "{'results': [{'code': '72267000', 'division': '72', 'es': 'Servicios de mantenimiento y reparación de software', 'en': 'Software maintenance and repair services'}, {'code': '50324100', 'division': '50', 'es': 'Servicios de mantenimiento de sistemas', 'en': 'System maintenance services'}, {'code': '50000000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento', 'en': 'Repair and maintenance services'}, {'code': '72261000', 'division': '72', 'es': 'Servicios de apoyo al software', 'en': 'Software support services'}, {'code': '72262000', 'division': '72', 'es': 'Servicios de desarro…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "72"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 11451,
+ "tokens_out": 499,
+ "latency_s": 3.998,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

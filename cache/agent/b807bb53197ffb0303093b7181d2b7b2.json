@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: Servicios de consultoría",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72220000",
+   "confidence": 0.8,
+   "evidence": "Servicios de consultoría para la migración y puesta en marcha a Adobe AEM Forms",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.8,
+   "evidence": "Servicios de consultoría para la migración y puesta en marcha a Adobe AEM Forms",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicios de consultoría",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 266000.0,
+   "confidence": 1.0,
+   "evidence": "Valor estimado sin IVA: 266 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 28.0,
+   "confidence": 1.0,
+   "evidence": "Duración del contrato: 28 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 80.0,
+   "confidence": 1.0,
+   "evidence": "precio 80 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "LANTIK - LANTIK",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Servicios de consultoría para la migración y puesta en marcha a Adobe AEM Forms",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In similar IT services tenders in Spain, the median number of bidders is 2, with 75% of tenders receiving 4 or fewer offers.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Adobe AEM Forms consultoria migracion suscripciones"
+   },
+   "result": "{'results': [{'code': '79980000', 'division': '79', 'es': 'Servicios de suscripción', 'en': 'Subscription services'}, {'code': '72220000', 'division': '72', 'es': 'Servicios de consultoría en sistemas y consultoría técnica', 'en': 'Systems and technical consultancy services'}, {'code': '71530000', 'division': '71', 'es': 'Servicios de consultoría en materia de construcción', 'en': 'Construction consultancy services'}, {'code': '72246000', 'division': '72', 'es': 'Servicios de consultoría en sistemas', 'en': 'Systems consultancy services'}, {'code': '72227000', 'division': '72', 'es': 'Servicio…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "266 000,00 EUR"
+   },
+   "result": {
+    "amount": 266000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "72"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 10772,
+ "tokens_out": 514,
+ "latency_s": 3.873,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

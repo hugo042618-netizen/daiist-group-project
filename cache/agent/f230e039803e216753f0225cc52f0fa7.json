@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Contratación de los servicios de consultoría",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72266000",
+   "confidence": 0.7,
+   "evidence": "servicios de consultoría, definición e implementación de guías clínicas",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.7,
+   "evidence": "72266000",
+   "evidence_found": false
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "servicios de consultoría",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1152451.2,
+   "confidence": 0.9,
+   "evidence": "1 152 451,20 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 8.0,
+   "confidence": 0.9,
+   "evidence": "8 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.9,
+   "evidence": "precio 50 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES11",
+   "confidence": 0.9,
+   "evidence": "ES111 (Galicia)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Servicio Gallego de Salud",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Contratación de los servicios",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish IT services tenders (CPV 72), the median number of bidders is 2, with 75% of tenders receiving 4 or fewer offers.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de consultoria clinica informatica software"
+   },
+   "result": "{'results': [{'code': '72266000', 'division': '72', 'es': 'Servicios de consultoría en software', 'en': 'Software consultancy services'}, {'code': '48814400', 'division': '48', 'es': 'Sistema de información clínica', 'en': 'Clinical information system'}, {'code': '72100000', 'division': '72', 'es': 'Servicios de consultoría en equipo informático', 'en': 'Hardware consultancy services'}, {'code': '72150000', 'division': '72', 'es': 'Servicios de consultoría en auditoría informática y en equipo informático', 'en': 'Computer audit consultancy and hardware consultancy services'}, {'code': '7260000…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 152 451,20 EUR"
+   },
+   "result": {
+    "amount": 1152451.2,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "72",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 11327,
+ "tokens_out": 507,
+ "latency_s": 3.746,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

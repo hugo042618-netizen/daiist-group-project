@@ -63,13 +63,19 @@ tender text (pasted)
 - Features, all of them fields the agent extracts: CPV division and group, contract type, procedure, region,
   buyer type, estimated value (log), duration, number of lots, weight of price, framework agreement. Duration
   and the estimated value come from the contract notice linked to each award; the awarded price is never used.
-- Buyer type (city council, regional government, ministry, other public body) was added after an experiment
-  decided on the validation year: validation MAE 2.308 without it, 2.288 with it (gain 0.020 bidders, 95%
-  interval 0.010 to 0.030; `models/experiment_buyer_type.json`). In training it is derived from the buyer's
-  name and TED's buyer code; the buyer's name itself is not kept.
+- Buyer type (city council or other local authority, regional government, ministry, other public body) was
+  added after an experiment decided on the validation year: validation MAE 2.308 without it, 2.284 with it (gain
+  0.024 bidders, 95% interval 0.014 to 0.034; `models/experiment_buyer_type.json`). The classes are those of
+  TED's code list "buyer legal type", the same definition the agent's prompt uses. In training the class is
+  derived from the buyer's name and TED's older buyer code; the buyer's name itself is not kept.
+- The buyer-type rule changed once, on 25 Nov 2026: provincial and island councils (diputaciones, cabildos,
+  consells: 4.6% of the training notices) moved from `regional_government` to `city_council`, so that training
+  and the prompt agree, and the models were retrained (`bidders-hgb-v3`). With the earlier rule the experiment
+  gave 2.308 and 2.288, and the test-year MAE of the median model was 2.239.
 - Awards without a call for competition are excluded: nobody can bid for them.
 - Time split: settings chosen by training on 2018–2021 (57,114) and validating on 2022 (19,580); final models
-  refitted on 2018–2022 (76,694) and tested once on 2023 (19,786). `scripts/train.py` rebuilds everything;
+  refitted on 2018–2022 (76,694) and tested on 2023 (19,786), twice: before and after the change of the
+  buyer-type rule described above. `scripts/train.py` rebuilds everything;
   raw TED files are never committed.
 - Personal data: the training table only reads structured columns (no names, addresses or ids). Candidate
   texts hold the notice's title, description and conditions; the results section and contact details are
@@ -87,43 +93,52 @@ tender text (pasted)
 | | MAE (bidders) | Bucket accuracy (1–2 / 3–5 / 6+) |
 |---|---|---|
 | Baseline: median offers per CPV division | 2.419 | 48.5% |
-| Model, median (used by the app) | 2.239 | 52.5% |
-| Model, Poisson mean | 2.480 | 44.4% |
+| Model, median (used by the app) | 2.243 | 52.4% |
+| Model, Poisson mean | 2.461 | 44.8% |
 
-The 80% range covers 90.2% of test cases; its lower bound is always 1 bidder. (An earlier version trained on
+The 80% range covers 91.0% of test cases; its lower bound is always 1 bidder. (An earlier version trained on
 2018–2021 only, without buyer type, scored 2.323 against a baseline of 2.442.)
 
 **Component 1, agent** (`uv run python main.py evaluate` → `eval/metrics.json`, `eval/extraction_results.csv`):
 field accuracy against TED's official fields on 40 notices of `eval/extraction_truth.csv`.
 
 All 40 notices were read by `gemini-3.5-flash-lite`, the app's default model, and by no other
-(`eval/extraction_results.csv`, column `model`). Measured on 24 Nov 2026, prompt `extract-v1`.
-The prompt was changed after this measurement (25 Nov 2026, `extract-v3`: the buyer-type classes now follow
-TED's code list); the numbers below are still those of `extract-v1` until the new measurement is in.
+(`eval/extraction_results.csv`, column `model`). **There are two measurements, because the prompt changed
+after the first one.** On 24 Nov 2026 the agent was measured with prompt `extract-v1`. On 25 Nov the
+definition of buyer type in the prompt was rewritten from TED's code list "buyer legal type" (prompt
+`extract-v3`; nothing else in the prompt changed, and the 40 answers were not read one by one to write it),
+and the same 40 notices were read again. They are therefore no longer unseen notices for the current prompt,
+and they are marked as used in `eval/candidates/` so that no test case comes from them.
 
-| Field | Accuracy | n |
-|---|---|---|
-| CPV division (2 digits) | 75% | 40 |
-| CPV group (3 digits) | 60% | 40 |
-| Contract type | 95% | 40 |
-| Estimated value (within 1%) | 100% | 40 |
-| Duration in months (within 1) | 100% | 37 |
-| Procedure | 100% | 40 |
-| Number of lots | 98% | 40 |
-| Weight of price (within 2 points) | 100% | 37 |
-| Framework agreement | 100% | 40 |
-| Region | 100% | 40 |
-| Buyer type | 64% | 39 |
+| Field | `extract-v1` (24 Nov) | `extract-v3` (25 Nov, current) | n |
+|---|---|---|---|
+| CPV division (2 digits) | 75% | 75% | 40 |
+| CPV group (3 digits) | 60% | 57% | 40 |
+| Contract type | 95% | 98% | 40 |
+| Estimated value (within 1%) | 100% | 100% | 40 |
+| Duration in months (within 1) | 100% | 100% | 37 |
+| Procedure | 100% | 100% | 40 |
+| Number of lots | 98% | 100% | 40 |
+| Weight of price (within 2 points) | 100% | 100% | 37 |
+| Framework agreement | 100% | 100% | 40 |
+| Region | 100% | 100% | 40 |
+| Buyer type | 64% | 62% | 39 |
 
-- Recognised as a tender: 39 of 40. The one it refused is an award notice, which the agent said is not a
-  call for tenders.
+- One notice is 2.5 points, so every difference between the two columns is a single notice. The new
+  definition of buyer type did not raise the agreement with TED.
+- Buyer type, current prompt: 24 of 39 agree. Of the 15 differences, 11 are buyers that TED files as a
+  regional authority and the agent called "other", 2 the other way round, and 2 are local authorities the
+  agent called "other". The agent's confidence was 0.84 on average when it agreed and 0.81 when it did not.
+  The truth for this field is the legal type the buyer declared in its TED notice, not a label written by a
+  person.
+- Recognised as a tender: 39 of 40 in both measurements. The one it refuses is an award notice, which the
+  agent says is not a call for tenders.
 - CPV: the test texts do not state the CPV code, so the agent has to choose it from the description with
-  `lookup_cpv`. In the 16 notices where the group differs it gave a confidence of 0.6 to 0.8.
-- Buyer type: 10 of the 14 differences are bodies that TED files under a regional government and the agent
-  called "other public body"; the truth for this field is derived from TED's buyer code and name
-  (`scripts/ted_data.py`), not written by a person.
-- Hand-off (40 notices from 2026 whose real number of offers is known): MAE of the expected bidders 1.756
-  with the agent's fields, 1.651 with TED's official fields, 1.788 for the baseline. Small sample.
+  `lookup_cpv`.
+- Hand-off (40 notices from 2026 whose real number of offers is known, current prompt and current model): MAE
+  of the expected bidders 1.720 with the agent's fields, 1.675 with TED's official fields, 1.788 for the
+  baseline. Small sample. (First measurement, with the earlier model: 1.756, 1.651 and 1.788.)
+- The first measurement is kept in `eval/extraction_results_v1.csv`.
 
 **TEAM TO WRITE:** what these numbers mean for the product; which fields the agent gets wrong and why it matters
 (or not) for the decision; the hand-off cost (model error with the agent's fields vs with the official fields).
@@ -137,10 +152,9 @@ is in `bidsense/judge.py`; report your agreement with it on your own labels (Coh
 ### Cost and latency
 
 *To fill from `eval/metrics.json` → `cost_per_request` once `eval/cases.csv` exists.* Measured so far on the
-40 extraction notices with `gemini-3.5-flash-lite`: 3.4 requests, 9,032 input tokens and 507 output tokens per
-tender on average, €0.0037 per tender; one live request took 3.9 s. (The latencies stored in the cache were
-taken while many inputs ran at once and include waiting for the per-minute throttle, so they are not the time
-one user waits.) The cost is an
+40 extraction notices with `gemini-3.5-flash-lite` (25 Nov 2026): 3.5 requests, 10,011 input tokens and 508
+output tokens per tender on average, €0.0039 per tender; the agent took 3.6 s (median) and 5.0 s (mean) per
+tender, retries included. The cost is an
 estimate at Gemini's paid-tier prices for the model that answered (`config.py`: for `gemini-3.5-flash-lite`,
 $0.30 per million input tokens and $2.50 per million output tokens); on the free tier the app costs nothing,
 but it is limited as follows. The scikit-learn model costs nothing per request.
@@ -158,10 +172,11 @@ but it is limited as follows. The scikit-learn model costs nothing per request.
   of `gemini-3.5-flash-lite` and all 20 of each larger model while building and testing.
 - The app sends at most 80% of a model's per-minute limit (12 requests a minute on the lite models), moves to
   the next model when one is busy or out of quota, and says so in the answer when none is available.
-- Filling the cache was finished on the paid tier (billing was added to the project on the evening of
-  24 Nov 2026): 167 requests to `gemini-3.5-flash-lite`, 453,345 input and 24,214 output tokens, €0.18. All 105
-  cached inputs together (45 reference, 20 shifted, 40 extraction notices) come to €0.41 at the paid prices;
-  the part read earlier on the free tier was not charged. The app's defaults stay those of the free tier.
+- Billing was added to the project on the evening of 24 Nov 2026, so the cache was filled on the paid tier
+  from then on: €0.18 to finish the first reading (167 requests), and €0.47 to read all 105 inputs again with
+  the current prompt on 25 Nov (420 requests to `gemini-3.5-flash-lite`, 1,238,743 input and 54,011 output
+  tokens). What was read earlier on the free tier was not charged. The app's defaults stay those of the free
+  tier.
 - The evaluation inputs are answered from the committed cache (`cache/`), so `check.py`, `main.py evaluate` and
   `main.py drift-demo` do not use the quota of whoever runs them; `cache/agent_models.csv` records which model
   answered each input.
@@ -200,12 +215,8 @@ what you would fix first. Known limits to consider:
   model is three years behind the tenders it will see.
 - The model beats the baseline by 0.18 bidders (about 7%): a real but modest gain.
 - Buyer type adds only 0.02 bidders, and that was measured with labels derived from TED data; the agent's own
-  reading of the buyer may not match them.
-- Buyer type means slightly different things in training and in the prompt. The training data (TED CSV,
-  2018–2023) has one code for "regional or local authority", so only town halls were told apart by name, and
-  provincial and island councils (diputaciones, cabildos, consells: 4.6% of the training notices) were trained
-  as `regional_government`. The prompt follows today's TED code list, where they are local authorities, so the
-  agent files them under `city_council`. Retraining with that rule would remove the difference.
+  reading of the buyer may not match them. The test year was also read twice (see Data), so the second
+  figure is not a first look at unseen data; it moved by 0.004 bidders.
 - Name removal is rule-based: in the tender text, a name in free prose, without a label or a title, is not
   caught. What the agent writes back (evidence quotes, notes, tool calls) goes through a stricter filter that
   also removes common given names followed by surnames, before it is cached or logged.
@@ -217,19 +228,27 @@ what you would fix first. Known limits to consider:
 
 | Setting | Value | Source |
 |---|---|---|
-| Cost of preparing one bid | €3,000 | PwC, London Economics and Ecorys for the European Commission, [*Public procurement in Europe: cost and effectiveness*](https://op.europa.eu/en/publication-detail/-/publication/0cfa3445-7724-4af5-8c2b-d657cd690c03) (2011), Figure 2.12, p. 88: €3,000 per bid for a firm in Spain; €3,800 on average in Europe |
+| Cost of preparing one bid | €11,400 | Ecorys and Capgemini Invent for the European Commission, [*Cost-benefit analysis on the quality and efficiency of public procurement procedures*](https://public-buyers-community.ec.europa.eu/resources/evaluation-public-procurement-directives-external-studies) (2025), section 5.2: €11,400 per bidder and procedure above the EU thresholds, 2019–2024 (€10,900 in open procedures) |
 | Margin on the contract value | 6% | Art. 131 of the general regulation of the public contracts law ([Real Decreto 1098/2001](https://www.boe.es/buscar/act.php?id=BOE-A-2001-19995)): 6% of the budget as the contractor's industrial profit |
 
-- About the sources: the study's figure is staff time at 2009 wages, for tenders published in TED. A later study
-  for the Commission (Ecorys and Capgemini Invent, [*Cost-benefit analysis on the quality and efficiency of public
-  procurement procedures*](https://public-buyers-community.ec.europa.eu/resources/evaluation-public-procurement-directives-external-studies),
-  2025) puts one bid at €11,400 across the EU for 2019–2024, with no figure for Spain. Article 131 sets the 6%
-  for the budgets of works contracts; using it for supplies and services is the team's assumption.
-- What the two values do to the rule: with a €2,000 close-call band (`CLOSE_CALL_EUR`), the rule says BID when
-  the contract value divided by the number of bidders is above €83,333, DON'T BID when it is below €16,667, and
-  sends the tender to review in between. Told the real number of offers, it gives 46 BID, 31 REVIEW (24 for a value
-  above €5 million, 7 close calls) and no DON'T BID on the 77 unused tender candidates
-  (`eval/case_picker.xlsx`), whose values all start above €240,000.
+- About the sources: the €11,400 is an EU average from a survey, with no figure for Spain. The earlier study for
+  the Commission (PwC, London Economics and Ecorys, [*Public procurement in Europe: cost and effectiveness*](https://op.europa.eu/en/publication-detail/-/publication/0cfa3445-7724-4af5-8c2b-d657cd690c03),
+  2011, Figure 2.12, p. 88) gave €3,000 per bid for a firm in Spain and €3,800 on average in Europe, at 2009
+  wages. Article 131 sets the 6% for the budgets of works contracts; using it for supplies and services is the
+  team's assumption.
+- Why not €3,000: with it the rule never says DON'T BID on tenders of the size TED publishes (table below).
+
+**Sensitivity to the bid cost.** What the rule answers when it is told TED's official fields and the real
+number of offers, on the 77 unused tender candidates with a known number of offers (`eval/case_picker.xlsx`;
+values from €245,000 up, margin 6%, close-call band €2,000, review above €5 million;
+`scripts/build_case_picker.py --mix 3000 11400`):
+
+| Bid cost | BID | DON'T BID | REVIEW | BID when value ÷ bidders is above | DON'T BID when it is below |
+|---|---|---|---|---|---|
+| €3,000 | 46 | 0 | 31 | €83,333 | €16,667 |
+| €11,400 (default) | 33 | 14 | 30 | €223,333 | €156,667 |
+
+In both rows 24 of the reviews are contracts above €5 million; the others are close calls (7 and 6).
 
 **TEAM TO WRITE.** Which cases go to a person: the rule (`config.py`: value above `REVIEW_VALUE_EUR`, a key
 field missing, confidence below `MIN_CONFIDENCE`, expected value within `CLOSE_CALL_EUR` of zero) and how many

@@ -1,0 +1,214 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Servicio de renovación tecnológica",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72700000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Servicio de renovación tecnológica",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 347720.0,
+   "confidence": 0.9,
+   "evidence": "347 720,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 60.0,
+   "confidence": 0.9,
+   "evidence": "60 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 51.0,
+   "confidence": 0.9,
+   "evidence": "precio 51 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES213",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Euskal Trenbide Sarea - ETS",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Servicio de renovación tecnológica",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish computer network services tenders (CPV 72), the median number of bidders is 2.",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "347 720,00 EUR"
+   },
+   "result": {
+    "amount": 347720.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "renovación tecnológica de FW NGFW red corporativa"
+   },
+   "result": "{'results': [{'code': '18222000', 'division': '18', 'es': 'Indumentaria corporativa', 'en': 'Corporate clothing'}, {'code': '45442180', 'division': '45', 'es': 'Trabajos de renovación de pintura', 'en': 'Repainting work'}, {'code': '45221119', 'division': '45', 'es': 'Trabajos de renovación de puentes', 'en': 'Bridge renewal construction work'}, {'code': '72222300', 'division': '72', 'es': 'Servicios de tecnología de la información', 'en': 'Information technology services'}, {'code': '50312620', 'division': '50', 'es': 'Reparación de equipo de tecnología de la información', 'en': 'Repair of in…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "NGFW firewall seguridad de redes"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "79710000",
+      "division": "79",
+      "es": "Servicios de seguridad",
+      "en": "Security services"
+     },
+     {
+      "code": "34928430",
+      "division": "34",
+      "es": "Conos de seguridad",
+      "en": "Beacons"
+     },
+     {
+      "code": "35113000",
+      "division": "35",
+      "es": "Equipo de seguridad",
+      "en": "Safety equipment"
+     },
+     {
+      "code": "44421722",
+      "division": "44",
+      "es": "Cajas de seguridad",
+      "en": "Safety cases"
+     },
+     {
+      "code": "18444200",
+      "division": "18",
+      "es": "Cascos de seguridad",
+      "en": "Hard hats"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "firewall network security"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "79710000",
+      "division": "79",
+      "es": "Servicios de seguridad",
+      "en": "Security services"
+     },
+     {
+      "code": "35121400",
+      "division": "35",
+      "es": "Sacos de seguridad",
+      "en": "Security bags"
+     },
+     {
+      "code": "35121300",
+      "division": "35",
+      "es": "Accesorios de seguridad",
+      "en": "Security fittings"
+     },
+     {
+      "code": "35125300",
+      "division": "35",
+      "es": "Cámaras de seguridad",
+      "en": "Security cameras"
+     },
+     {
+      "code": "32400000",
+      "division": "32",
+      "es": "Redes",
+      "en": "Networks"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de redes informáticas"
+   },
+   "result": "{'results': [{'code': '72700000', 'division': '72', 'es': 'Servicios de red informática', 'en': 'Computer network services'}, {'code': '80533100', 'division': '80', 'es': 'Servicios de formación informática', 'en': 'Computer training services'}, {'code': '63513000', 'division': '63', 'es': 'Servicios de información turística', 'en': 'Tourist information services'}, {'code': '30237130', 'division': '30', 'es': 'Fichas informáticas', 'en': 'Computer cards'}, {'code': '72514000', 'division': '72', 'es': 'Servicios de gestión de instalaciones informáticas', 'en': 'Computer facilities management se…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "72",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 18227,
+ "tokens_out": 519,
+ "latency_s": 5.816,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

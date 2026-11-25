@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Suministro de servidores",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "48820000",
+   "confidence": 0.8,
+   "evidence": "Suministro de servidores de grabación y repeticiones",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "48",
+   "confidence": 0.8,
+   "evidence": "Suministro de servidores de grabación y repeticiones",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "Suministro de servidores",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 398200.0,
+   "confidence": 0.9,
+   "evidence": "398 200,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Grupo Euskal Irrati Telebista",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Suministro de servidores de grabación",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "For supplies contracts in CPV division 48, Spanish tenders typically attract a median of 2 bidders (based on past data).",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "398 200,00 EUR"
+   },
+   "result": {
+    "amount": 398200.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servidores de grabación y repeticiones sistemas de gestión de contenidos"
+   },
+   "result": "{'results': [{'code': '48800000', 'division': '48', 'es': 'Sistemas y servidores de información', 'en': 'Information systems and servers'}, {'code': '72212780', 'division': '72', 'es': 'Servicios de desarrollo de software de gestión de sistemas, almacenamiento y contenido', 'en': 'System, storage and content management software development services'}, {'code': '48820000', 'division': '48', 'es': 'Servidores', 'en': 'Servers'}, {'code': '48780000', 'division': '48', 'es': 'Paquetes de software de gestión de sistemas, almacenamiento y contenido', 'en': 'System, storage and content management sof…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "48"
+   },
+   "result": {
+    "scope": "CPV division 48, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1180,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8103,
+ "tokens_out": 491,
+ "latency_s": 3.585,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

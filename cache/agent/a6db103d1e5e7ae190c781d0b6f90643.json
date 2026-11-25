@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: Servicio de traslado...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "60120000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "60",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicio de traslado",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 528000.0,
+   "confidence": 1.0,
+   "evidence": "528 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 1.0,
+   "evidence": "24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES212 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Gobierno Vasco - Justicia y Derechos Humanos",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Servicio de traslado",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 60 services, similar Spanish tenders average 2 bidders (median, Q25=1, Q75=3 based on 2128 tenders).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Servicio de traslado individual en turismo"
+   },
+   "result": "{'results': [{'code': '35810000', 'division': '35', 'es': 'Equipo individual', 'en': 'Individual equipment'}, {'code': '35800000', 'division': '35', 'es': 'Equipo individual y de apoyo', 'en': 'Individual and support equipment'}, {'code': '66521000', 'division': '66', 'es': 'Servicios de planes de pensiones individuales', 'en': 'Individual pension services'}, {'code': '98392000', 'division': '98', 'es': 'Servicios de traslado', 'en': 'Relocation services'}, {'code': '92312250', 'division': '92', 'es': 'Servicios prestados por artistas que trabajan individualmente', 'en': 'Services provided by …"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "528 000,00 EUR"
+   },
+   "result": {
+    "amount": 528000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "60",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 60, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 2128,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 3.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "transporte de pasajeros en taxi o turismo"
+   },
+   "result": "{'results': [{'code': '60140000', 'division': '60', 'es': 'Transporte no regular de pasajeros', 'en': 'Non-scheduled passenger transport'}, {'code': '60120000', 'division': '60', 'es': 'Servicios de taxi', 'en': 'Taxi services'}, {'code': '60150000', 'division': '60', 'es': 'Transporte de pasajeros en vehículos de tracción animal', 'en': 'Passenger transport by animal-drawn vehicles'}, {'code': '60170000', 'division': '60', 'es': 'Alquiler de vehículos para el transporte de pasajeros con conductor', 'en': 'Hire of passenger transport vehicles with driver'}, {'code': '45234124', 'division': '45…"
+  }
+ ],
+ "tokens_in": 8373,
+ "tokens_out": 479,
+ "latency_s": 3.887,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

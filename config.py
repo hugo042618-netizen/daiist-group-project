@@ -14,7 +14,7 @@ MODELS_DIR = ROOT / "models"
 
 # --- Component 2: the bidders model (scripts/train.py) -------------------------
 
-MODEL_VERSION = "bidders-hgb-v2"
+MODEL_VERSION = "bidders-hgb-v3"
 
 # TED CSV open data (https://data.europa.eu/data/datasets/ted-csv), used offline only.
 TED_CAN_URL = "https://data.europa.eu/api/hub/store/data/ted-contract-award-notices-2018-2023.zip"
@@ -86,9 +86,9 @@ USE_CACHE = True
 # expected_value  = win_chance * contract_value * margin - bid_cost
 # BID if expected_value > 0, DON'T BID if < 0, SEND TO REVIEW if any rule below applies.
 
-# Set by the team on 25 Nov 2026 (sources in REPORT.md, "The decision and review rule"). Both are the
+# Set by the team on 25 Nov 2026 (sources and a sensitivity table in REPORT.md, "Decision"). Both are the
 # defaults of the two boxes in the app: each company can type its own.
-DEFAULT_BID_COST_EUR = 3_000             # TEAM DECISION: cost of preparing one bid; EU studies put one bid at about EUR 3,000
+DEFAULT_BID_COST_EUR = 11_400            # TEAM DECISION: cost of preparing one bid; the European Commission's 2025 study (EU, 2019-2024)
 DEFAULT_MARGIN_PCT = 6.0                 # TEAM DECISION: profit on the contract value; the 6% industrial profit of Spanish procurement rules
 REVIEW_VALUE_EUR = 5_000_000             # TEAM TO SET: contracts above this always go to a person
 CLOSE_CALL_EUR = 2_000                   # TEAM TO SET: |expected value| below this is too close to call

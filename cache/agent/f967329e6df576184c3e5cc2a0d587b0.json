@@ -1,0 +1,174 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Renovación de las suscripciones de Keepit para Microsoft 365",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "48517000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "48",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.8,
+   "evidence": "Renovación de las suscripciones de Keepit",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 263692.08,
+   "confidence": 1.0,
+   "evidence": "Valor estimado sin IVA: 263 692,08 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 36.0,
+   "confidence": 1.0,
+   "evidence": "Duración del contrato: 36 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "LANTIK - LANTIK",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Renovación de las suscripciones de Keepit para Microsoft 365",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 48, similar supply tenders typically attract a median of 2 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "suscripciones software Keepit Microsoft 365"
+   },
+   "result": "{'results': [{'code': '79980000', 'division': '79', 'es': 'Servicios de suscripción', 'en': 'Subscription services'}, {'code': '72254000', 'division': '72', 'es': 'Ensayo de software', 'en': 'Software testing'}, {'code': '48517000', 'division': '48', 'es': 'Paquetes de software de TI', 'en': 'IT software package'}, {'code': '72261000', 'division': '72', 'es': 'Servicios de apoyo al software', 'en': 'Software support services'}, {'code': '48217300', 'division': '48', 'es': 'Paquetes de software de proceso de transacciones para microordenadores', 'en': 'Microcomputer transaction processing softw…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "263 692,08 EUR"
+   },
+   "result": {
+    "amount": 263692.08,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "72",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 72, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 66,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "software subscription"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "79980000",
+      "division": "79",
+      "es": "Servicios de suscripción",
+      "en": "Subscription services"
+     },
+     {
+      "code": "72254000",
+      "division": "72",
+      "es": "Ensayo de software",
+      "en": "Software testing"
+     },
+     {
+      "code": "48517000",
+      "division": "48",
+      "es": "Paquetes de software de TI",
+      "en": "IT software package"
+     },
+     {
+      "code": "48470000",
+      "division": "48",
+      "es": "Paquetes de software de subastas",
+      "en": "Auction software package"
+     },
+     {
+      "code": "72261000",
+      "division": "72",
+      "es": "Servicios de apoyo al software",
+      "en": "Software support services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "licencias de software"
+   },
+   "result": "{'results': [{'code': '48218000', 'division': '48', 'es': 'Paquetes de software de gestión de licencias', 'en': 'License management software package'}, {'code': '72212218', 'division': '72', 'es': 'Servicios de desarrollo de software de gestión de licencias', 'en': 'License management software development services'}, {'code': '72254000', 'division': '72', 'es': 'Ensayo de software', 'en': 'Software testing'}, {'code': '48517000', 'division': '48', 'es': 'Paquetes de software de TI', 'en': 'IT software package'}, {'code': '72261000', 'division': '72', 'es': 'Servicios de apoyo al software', 'en…"
+  }
+ ],
+ "tokens_in": 11623,
+ "tokens_out": 545,
+ "latency_s": 4.181,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

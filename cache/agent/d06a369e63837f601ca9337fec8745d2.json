@@ -1,0 +1,254 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Órgano de contratación: Agencia de Gestión Agraria y Pesquera de Andalucía",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "38000000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "38",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "SUMINISTRO MEDIANTE SUMINISTRO DE EQUIPAMIENTO TÉCNICO",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 999739.19,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 999 739,19 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 1.5,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 1.5 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES61",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES615 (Andalucía)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Agencia de Gestión Agraria y Pesquera de Andalucía",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "SUMINISTRO MEDIANTE SUMINISTRO DE EQUIPAMIENTO TÉCNICO",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish supplies tenders in CPV division 38 usually receive a median of 1 bidder.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "equipamiento técnico laboratorio biotoxinas pesqueras"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "51430000",
+      "division": "51",
+      "es": "Servicios de instalación de equipo técnico de laboratorio",
+      "en": "Installation services of laboratory equipment"
+     },
+     {
+      "code": "71900000",
+      "division": "71",
+      "es": "Servicios de laboratorio",
+      "en": "Laboratory services"
+     },
+     {
+      "code": "39181000",
+      "division": "39",
+      "es": "Bancos de laboratorio",
+      "en": "Laboratory benching"
+     },
+     {
+      "code": "39180000",
+      "division": "39",
+      "es": "Mobiliario de laboratorio",
+      "en": "Laboratory furniture"
+     },
+     {
+      "code": "33696500",
+      "division": "33",
+      "es": "Reactivos de laboratorio",
+      "en": "Laboratory reagents"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "999 739,19 EUR"
+   },
+   "result": {
+    "amount": 999739.19,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "38",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 38, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1439,
+     "q25": 1.0,
+     "median": 1.0,
+     "q75": 2.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "equipamiento de laboratorio"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "71900000",
+      "division": "71",
+      "es": "Servicios de laboratorio",
+      "en": "Laboratory services"
+     },
+     {
+      "code": "51430000",
+      "division": "51",
+      "es": "Servicios de instalación de equipo técnico de laboratorio",
+      "en": "Installation services of laboratory equipment"
+     },
+     {
+      "code": "39181000",
+      "division": "39",
+      "es": "Bancos de laboratorio",
+      "en": "Laboratory benching"
+     },
+     {
+      "code": "39180000",
+      "division": "39",
+      "es": "Mobiliario de laboratorio",
+      "en": "Laboratory furniture"
+     },
+     {
+      "code": "33696500",
+      "division": "33",
+      "es": "Reactivos de laboratorio",
+      "en": "Laboratory reagents"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "equipo de laboratorio"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "71900000",
+      "division": "71",
+      "es": "Servicios de laboratorio",
+      "en": "Laboratory services"
+     },
+     {
+      "code": "51430000",
+      "division": "51",
+      "es": "Servicios de instalación de equipo técnico de laboratorio",
+      "en": "Installation services of laboratory equipment"
+     },
+     {
+      "code": "39181000",
+      "division": "39",
+      "es": "Bancos de laboratorio",
+      "en": "Laboratory benching"
+     },
+     {
+      "code": "39180000",
+      "division": "39",
+      "es": "Mobiliario de laboratorio",
+      "en": "Laboratory furniture"
+     },
+     {
+      "code": "33696500",
+      "division": "33",
+      "es": "Reactivos de laboratorio",
+      "en": "Laboratory reagents"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "equipamiento científico"
+   },
+   "result": "{'results': [{'code': '33100000', 'division': '33', 'es': 'Equipamiento médico', 'en': 'Medical equipments'}, {'code': '45214630', 'division': '45', 'es': 'Instalaciones científicas', 'en': 'Scientific installations'}, {'code': '48461000', 'division': '48', 'es': 'Paquetes de software analítico o científico', 'en': 'Analytical or scientific software package'}, {'code': '39162000', 'division': '39', 'es': 'Equipamiento de enseñanza', 'en': 'Educational equipment'}, {'code': '72212461', 'division': '72', 'es': 'Servicios de desarrollo de software analítico o científico', 'en': 'Analytical or sci…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "38"
+   },
+   "result": "{'results': [{'code': '38000000', 'division': '38', 'es': 'Equipo de laboratorio, óptico y de precisión (excepto gafas)', 'en': 'Laboratory, optical and precision equipments (excl. glasses)'}, {'code': '38100000', 'division': '38', 'es': 'Instrumentos de navegación y meteorológicos', 'en': 'Navigational and meteorological instruments'}, {'code': '38110000', 'division': '38', 'es': 'Instrumentos de navegación', 'en': 'Navigational instruments'}, {'code': '38111000', 'division': '38', 'es': 'Equipo de radiogoniometría', 'en': 'Direction-finding equipment'}, {'code': '38111100', 'division': '38',…"
+  }
+ ],
+ "tokens_in": 20210,
+ "tokens_out": 597,
+ "latency_s": 7.669,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Contratación de Suministro e Instalación del Equipamiento del Gimnasio",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "37420000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "37",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "Contratación de Suministro e Instalación",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 247933.88,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 247 933,88 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 2.3,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 2.3 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES22",
+   "confidence": 0.9,
+   "evidence": "ES220 (Navarra)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "city_council",
+   "confidence": 0.9,
+   "evidence": "Ayuntamiento de Aranguren",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Contratación de Suministro e Instalación",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In supplies for CPV division 37, Spanish tenders usually receive a median of 3 bidders (interquartile range 2 to 5).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "equipamiento gimnasio sala fitness polideportivo"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "37420000",
+      "division": "37",
+      "es": "Equipo de gimnasio",
+      "en": "Gymnasium equipment"
+     },
+     {
+      "code": "45212225",
+      "division": "45",
+      "es": "Trabajos de construcción de polideportivos",
+      "en": "Sports hall construction work"
+     },
+     {
+      "code": "37440000",
+      "division": "37",
+      "es": "Equipo para el ejercicio físico",
+      "en": "Fitness equipments"
+     },
+     {
+      "code": "33100000",
+      "division": "33",
+      "es": "Equipamiento médico",
+      "en": "Medical equipments"
+     },
+     {
+      "code": "45212222",
+      "division": "45",
+      "es": "Trabajos de construcción de gimnasios",
+      "en": "Gymnasium construction work"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "247 933,88 EUR"
+   },
+   "result": {
+    "amount": 247933.88,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "37"
+   },
+   "result": {
+    "scope": "CPV division 37, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 230,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5623,
+ "tokens_out": 503,
+ "latency_s": 2.423,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

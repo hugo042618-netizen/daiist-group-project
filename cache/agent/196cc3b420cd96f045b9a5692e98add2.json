@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: suministro para la instalación de una fotovoltaica",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "09331200",
+   "confidence": 0.8,
+   "evidence": "fotovoltaica de autoconsumo colectivo",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "09",
+   "confidence": 0.8,
+   "evidence": "fotovoltaica de autoconsumo colectivo",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "suministro para la instalación de una fotovoltaica",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1493320.04,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 1 493 320,04 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 16.0,
+   "confidence": 0.9,
+   "evidence": "16 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.5,
+   "evidence": "-",
+   "evidence_found": false
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Área Metropolitana de Barcelona",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: suministro para la instalación de una fotovoltaica",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In similar Spanish supplies tenders for electricity, gas, nuclear and solar energy (division 09), the median number of bidders is 3.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "fotovoltaica autoconsumo paneles solares"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "09331200",
+      "division": "09",
+      "es": "Módulos solares fotovoltaicos",
+      "en": "Solar photovoltaic modules"
+     },
+     {
+      "code": "31712331",
+      "division": "31",
+      "es": "Células fotovoltaicas",
+      "en": "Photovoltaic cells"
+     },
+     {
+      "code": "09331000",
+      "division": "09",
+      "es": "Placas solares",
+      "en": "Solar panels"
+     },
+     {
+      "code": "44175000",
+      "division": "44",
+      "es": "Paneles",
+      "en": "Panels"
+     },
+     {
+      "code": "45451200",
+      "division": "45",
+      "es": "Revestimiento con paneles",
+      "en": "Panelling work"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 493 320,04 EUR"
+   },
+   "result": {
+    "amount": 1493320.04,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "09",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 09, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 2497,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5302,
+ "tokens_out": 515,
+ "latency_s": 2.519,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

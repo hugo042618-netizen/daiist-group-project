@@ -1,0 +1,167 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: IMPARTICIÓN DE ACCIONES DE DESARROLLO DE COMPETENCIAS",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "80500000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "80",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "IMPARTICIÓN DE ACCIONES DE DESARROLLO DE COMPETENCIAS",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 600000.0,
+   "confidence": 1.0,
+   "evidence": "600 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES30",
+   "confidence": 0.9,
+   "evidence": "ES300 (Madrid)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "ASOCIACIÓN INSERTA EMPLEO",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: IMPARTICIÓN DE ACCIONES...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spain, service contracts in CPV division 80 typically receive around 3 bidders (median).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "formación empleo jóvenes discapacidad talleres"
+   },
+   "result": "{'results': [{'code': '85312120', 'division': '85', 'es': 'Servicios de cuidado diurno para niños y jóvenes discapacitados', 'en': 'Daycare services for handicapped children and young people'}, {'code': '43800000', 'division': '43', 'es': 'Equipo de talleres', 'en': 'Workshop equipment'}, {'code': '45213252', 'division': '45', 'es': 'Trabajos de construcción de talleres', 'en': 'Workshops construction work'}, {'code': '63711200', 'division': '63', 'es': 'Servicios de talleres móviles', 'en': 'Moving workshops services'}, {'code': '34950000', 'division': '34', 'es': 'Equipamiento con amplia cap…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "600 000,00 EUR"
+   },
+   "result": {
+    "amount": 600000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "training services"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "80500000",
+      "division": "80",
+      "es": "Servicios de formación",
+      "en": "Training services"
+     },
+     {
+      "code": "80511000",
+      "division": "80",
+      "es": "Servicios de formación del personal",
+      "en": "Staff training services"
+     },
+     {
+      "code": "80533100",
+      "division": "80",
+      "es": "Servicios de formación informática",
+      "en": "Computer training services"
+     },
+     {
+      "code": "80532000",
+      "division": "80",
+      "es": "Servicios de formación en materia de gestión",
+      "en": "Management training services"
+     },
+     {
+      "code": "80531200",
+      "division": "80",
+      "es": "Servicios de formación técnica",
+      "en": "Technical training services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "80"
+   },
+   "result": {
+    "scope": "CPV division 80, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1317,
+     "q25": 1.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 12997,
+ "tokens_out": 490,
+ "latency_s": 4.2,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

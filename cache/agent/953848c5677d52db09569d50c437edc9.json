@@ -1,0 +1,174 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: Servicio de Delegado de Protección de Datos...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "79111000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "79",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicio de Delegado de Protección de Datos",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 500000.0,
+   "confidence": 1.0,
+   "evidence": "Valor estimado sin IVA: 500 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 48.0,
+   "confidence": 1.0,
+   "evidence": "48 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 26.0,
+   "confidence": 1.0,
+   "evidence": "precio 26 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 1.0,
+   "evidence": "ES514 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "city_council",
+   "confidence": 1.0,
+   "evidence": "Ayuntamiento de Reus",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Servicio de Delegado de Protección de Datos",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish service tenders within CPV division 79, the median number of bidders is 3 (based on historical market statistics).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Delegado de Protección de Datos asesoramiento consultoria proteccion de datos"
+   },
+   "result": "{'results': [{'code': '71317000', 'division': '71', 'es': 'Servicios de consultoría en protección y control de riesgos', 'en': 'Hazard protection and control consultancy services'}, {'code': '31219000', 'division': '31', 'es': 'Cajas de protección', 'en': 'Protection boxes'}, {'code': '71318000', 'division': '71', 'es': 'Servicios de asesoramiento y consultoría en ingeniería', 'en': 'Advisory and consultative engineering services'}, {'code': '71317100', 'division': '71', 'es': 'Servicios de consultoría en protección y control de incendios y explosiones', 'en': 'Fire and explosion protection an…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "500 000,00 EUR"
+   },
+   "result": {
+    "amount": 500000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "79"
+   },
+   "result": {
+    "scope": "CPV division 79, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5286,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "proteccion de datos"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "31219000",
+      "division": "31",
+      "es": "Cajas de protección",
+      "en": "Protection boxes"
+     },
+     {
+      "code": "33711510",
+      "division": "33",
+      "es": "Productos de protección solar",
+      "en": "Sun protection products"
+     },
+     {
+      "code": "35113490",
+      "division": "35",
+      "es": "Vestidos de protección",
+      "en": "Protective frock"
+     },
+     {
+      "code": "18143000",
+      "division": "18",
+      "es": "Indumentaria de protección",
+      "en": "Protective gear"
+     },
+     {
+      "code": "18830000",
+      "division": "18",
+      "es": "Calzado de protección",
+      "en": "Protective footwear"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "legal advisory services"
+   },
+   "result": "{'results': [{'code': '79111000', 'division': '79', 'es': 'Servicios de asesoría jurídica', 'en': 'Legal advisory services'}, {'code': '79140000', 'division': '79', 'es': 'Servicios de asesoría e información jurídica', 'en': 'Legal advisory and information services'}, {'code': '79110000', 'division': '79', 'es': 'Servicios de asesoría y representación jurídicas', 'en': 'Legal advisory and representation services'}, {'code': '90732400', 'division': '90', 'es': 'Servicios de asesoramiento sobre la contaminación del suelo', 'en': 'Soil pollution advisory services'}, {'code': '71210000', 'division…"
+  }
+ ],
+ "tokens_in": 11938,
+ "tokens_out": 503,
+ "latency_s": 4.056,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

@@ -1,0 +1,157 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.95,
+   "evidence": "Servicio de apoyo ADMINISTRATIVO del Teatro Arriaga",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "79900000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "79",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.95,
+   "evidence": "Servicio de apoyo ADMINISTRATIVO",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 280000.0,
+   "confidence": 0.95,
+   "evidence": "Valor estimado sin IVA: 280 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.95,
+   "evidence": "Duración del contrato: 12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.95,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 52.0,
+   "confidence": 0.95,
+   "evidence": "Criterios de adjudicación: precio 52 %, calidad 48 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.95,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.95,
+   "evidence": "Lugar de ejecución: ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Centro de Actividades Culturales Teatro Arriaga S.A.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.95,
+   "evidence": "Servicio de apoyo ADMINISTRATIVO",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish tenders for business services (CPV 79), the median number of bidders is 3, with 75% of tenders receiving 5 or fewer bids.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Servicio de apoyo administrativo"
+   },
+   "result": "{'results': [{'code': '85321000', 'division': '85', 'es': 'Servicios sociales administrativos', 'en': 'Administrative social services'}, {'code': '75123000', 'division': '75', 'es': 'Servicios administrativos de alojamiento', 'en': 'Administrative housing services'}, {'code': '75120000', 'division': '75', 'es': 'Servicios administrativos de agencias', 'en': 'Administrative services of agencies'}, {'code': '75100000', 'division': '75', 'es': 'Servicios de administración pública', 'en': 'Administration services'}, {'code': '75121000', 'division': '75', 'es': 'Servicios administrativos educativos…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "280 000,00 EUR"
+   },
+   "result": {
+    "amount": 280000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios administrativos"
+   },
+   "result": "{'results': [{'code': '85321000', 'division': '85', 'es': 'Servicios sociales administrativos', 'en': 'Administrative social services'}, {'code': '75121000', 'division': '75', 'es': 'Servicios administrativos educativos', 'en': 'Administrative educational services'}, {'code': '75123000', 'division': '75', 'es': 'Servicios administrativos de alojamiento', 'en': 'Administrative housing services'}, {'code': '75120000', 'division': '75', 'es': 'Servicios administrativos de agencias', 'en': 'Administrative services of agencies'}, {'code': '75100000', 'division': '75', 'es': 'Servicios de administra…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "79",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 79, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5286,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "administrative support services"
+   },
+   "result": "{'results': [{'code': '85321000', 'division': '85', 'es': 'Servicios sociales administrativos', 'en': 'Administrative social services'}, {'code': '75123000', 'division': '75', 'es': 'Servicios administrativos de alojamiento', 'en': 'Administrative housing services'}, {'code': '75120000', 'division': '75', 'es': 'Servicios administrativos de agencias', 'en': 'Administrative services of agencies'}, {'code': '75100000', 'division': '75', 'es': 'Servicios de administración pública', 'en': 'Administration services'}, {'code': '75121000', 'division': '75', 'es': 'Servicios administrativos educativos…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "79900000"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "79900000",
+      "division": "79",
+      "es": "Servicios comerciales diversos y otros servicios conexos",
+      "en": "Miscellaneous business and business-related services"
+     }
+    ]
+   }
+  }
+ ],
+ "tokens_in": 14865,
+ "tokens_out": 586,
+ "latency_s": 4.836,
+ "requests": 5,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

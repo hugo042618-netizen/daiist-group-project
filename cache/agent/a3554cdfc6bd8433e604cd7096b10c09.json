@@ -1,0 +1,286 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Renovación del sistema de información al viajero y CCTV",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "34940000",
+   "confidence": 0.5,
+   "evidence": "34940000",
+   "evidence_found": false
+  },
+  "cpv_division": {
+   "value": "34",
+   "confidence": 0.5,
+   "evidence": "34940000",
+   "evidence_found": false
+  },
+  "contract_type": {
+   "value": "works",
+   "confidence": 0.8,
+   "evidence": "Renovación del sistema de información al viajero y CCTV",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1540516.2,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 1 540 516,20 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 20.0,
+   "confidence": 0.9,
+   "evidence": "20 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Consorcio de Transportes de Bizkaia",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Renovación del sistema...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Spanish works tenders in this division typically get a median of 2 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "sistema de información al viajero y CCTV"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "48813000",
+      "division": "48",
+      "es": "Sistema de información al pasajero",
+      "en": "Passenger information system"
+     },
+     {
+      "code": "48810000",
+      "division": "48",
+      "es": "Sistemas de información",
+      "en": "Information systems"
+     },
+     {
+      "code": "48814000",
+      "division": "48",
+      "es": "Sistemas de información médica",
+      "en": "Medical information systems"
+     },
+     {
+      "code": "48800000",
+      "division": "48",
+      "es": "Sistemas y servidores de información",
+      "en": "Information systems and servers"
+     },
+     {
+      "code": "48814400",
+      "division": "48",
+      "es": "Sistema de información clínica",
+      "en": "Clinical information system"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 540 516,20 EUR"
+   },
+   "result": {
+    "amount": 1540516.2,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "34"
+   },
+   "result": {
+    "scope": "CPV division 34, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 61,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 3.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "CCTV transportes"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "60400000",
+      "division": "60",
+      "es": "Servicios de transporte aéreo",
+      "en": "Air transport services"
+     },
+     {
+      "code": "34980000",
+      "division": "34",
+      "es": "Billetes de transporte",
+      "en": "Transport tickets"
+     },
+     {
+      "code": "60161000",
+      "division": "60",
+      "es": "Servicios de transporte de paquetes",
+      "en": "Parcel transport services"
+     },
+     {
+      "code": "60100000",
+      "division": "60",
+      "es": "Servicios de transporte por carretera",
+      "en": "Road transport services"
+     },
+     {
+      "code": "90513700",
+      "division": "90",
+      "es": "Servicios de transporte de lodos",
+      "en": "Sludge transport services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "CCTV"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "92232000",
+      "division": "92",
+      "es": "Televisión por cable",
+      "en": "Cable TV"
+     },
+     {
+      "code": "32324600",
+      "division": "32",
+      "es": "Descodificadores para televisión digital",
+      "en": "Digital-TV boxes"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de instalaciones o mantenimiento de CCTV y sistemas de información"
+   },
+   "result": "{'results': [{'code': '72514300', 'division': '72', 'es': 'Servicios de gestión de instalaciones para el mantenimiento de sistemas informáticos', 'en': 'Facilities management services for computer systems maintenance'}, {'code': '48810000', 'division': '48', 'es': 'Sistemas de información', 'en': 'Information systems'}, {'code': '50324100', 'division': '50', 'es': 'Servicios de mantenimiento de sistemas', 'en': 'System maintenance services'}, {'code': '48800000', 'division': '48', 'es': 'Sistemas y servidores de información', 'en': 'Information systems and servers'}, {'code': '45259000', 'divi…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "equipamiento ferroviario CCTV"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "34940000",
+      "division": "34",
+      "es": "Equipo ferroviario",
+      "en": "Railway equipment"
+     },
+     {
+      "code": "34946120",
+      "division": "34",
+      "es": "Material ferroviario",
+      "en": "Railway materials"
+     },
+     {
+      "code": "33100000",
+      "division": "33",
+      "es": "Equipamiento médico",
+      "en": "Medical equipments"
+     },
+     {
+      "code": "60200000",
+      "division": "60",
+      "es": "Servicios de transporte ferroviario",
+      "en": "Railway transport services"
+     },
+     {
+      "code": "39162000",
+      "division": "39",
+      "es": "Equipamiento de enseñanza",
+      "en": "Educational equipment"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "34",
+    "contract_type": "works"
+   },
+   "result": {
+    "scope": "CPV division 34",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 3583,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 22356,
+ "tokens_out": 616,
+ "latency_s": 6.388,
+ "requests": 7,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

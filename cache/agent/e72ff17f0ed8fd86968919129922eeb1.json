@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Servicios de radiodiagnóstico para Badalona Servicios Asistenciales.",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "33124200",
+   "confidence": 0.7,
+   "evidence": "Servicios de radiodiagnóstico",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "33",
+   "confidence": 0.7,
+   "evidence": "Servicios de radiodiagnóstico",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicios de radiodiagnóstico",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 796900.0,
+   "confidence": 1.0,
+   "evidence": "796 900,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 1.0,
+   "evidence": "24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Badalona Serveis Assistencials, SA.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Servicios de radiodiagnóstico",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish tenders for health and medical services (CPV 33), the median number of bidders is 2.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "radiodiagnóstico"
+   },
+   "result": "{'results': [{'code': '33124200', 'division': '33', 'es': 'Aparatos para radiodiagnóstico', 'en': 'Radiodiagnostic devices'}, {'code': '33124210', 'division': '33', 'es': 'Material para radiodiagnóstico', 'en': 'Radiodiagnostic supplies'}, {'code': '33124000', 'division': '33', 'es': 'Aparatos y material para diagnóstico y radiodiagnóstico', 'en': 'Diagnostics and radiodiagnostic devices and supplies'}, {'code': '33111800', 'division': '33', 'es': 'Radiodiagnosis', 'en': 'Diagnostic X-ray system'}, {'code': '33124100', 'division': '33', 'es': 'Aparatos para diagnóstico', 'en': 'Diagnostic devi…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "796 900,00 EUR"
+   },
+   "result": {
+    "amount": 796900.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Servicios de radiodiagnóstico"
+   },
+   "result": "{'results': [{'code': '33124200', 'division': '33', 'es': 'Aparatos para radiodiagnóstico', 'en': 'Radiodiagnostic devices'}, {'code': '33124210', 'division': '33', 'es': 'Material para radiodiagnóstico', 'en': 'Radiodiagnostic supplies'}, {'code': '33124000', 'division': '33', 'es': 'Aparatos y material para diagnóstico y radiodiagnóstico', 'en': 'Diagnostics and radiodiagnostic devices and supplies'}, {'code': '33111800', 'division': '33', 'es': 'Radiodiagnosis', 'en': 'Diagnostic X-ray system'}, {'code': '33694000', 'division': '33', 'es': 'Medios de diagnóstico', 'en': 'Diagnostic agents'}…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "33"
+   },
+   "result": {
+    "scope": "CPV division 33, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 25,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 3.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8261,
+ "tokens_out": 489,
+ "latency_s": 3.003,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

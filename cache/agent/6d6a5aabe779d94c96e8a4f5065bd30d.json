@@ -1,0 +1,174 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: 2025-148 Suministro de licencias del software VMWARE",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "48517000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "48",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 1.0,
+   "evidence": "Suministro de licencias del software VMWARE",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 287148.0,
+   "confidence": 1.0,
+   "evidence": "Valor estimado sin IVA: 287 148,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 1.0,
+   "evidence": "Lugar de ejecución: ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "CONSORCI HOSPITAL CLÍNIC DE BARCELONA (HCB)",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Suministro de licencias del software VMWARE",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Spanish supplies tenders in CPV division 48 typically receive a median of 2 bidders (Q25=1, Q75=4, based on 1180 historical tenders).",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "287 148,00 EUR"
+   },
+   "result": {
+    "amount": 287148.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "licencias software VMWARE"
+   },
+   "result": "{'results': [{'code': '48218000', 'division': '48', 'es': 'Paquetes de software de gestión de licencias', 'en': 'License management software package'}, {'code': '72212218', 'division': '72', 'es': 'Servicios de desarrollo de software de gestión de licencias', 'en': 'License management software development services'}, {'code': '72254000', 'division': '72', 'es': 'Ensayo de software', 'en': 'Software testing'}, {'code': '48517000', 'division': '48', 'es': 'Paquetes de software de TI', 'en': 'IT software package'}, {'code': '72261000', 'division': '72', 'es': 'Servicios de apoyo al software', 'en…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "software licenses"
+   },
+   "result": "{'results': [{'code': '48218000', 'division': '48', 'es': 'Paquetes de software de gestión de licencias', 'en': 'License management software package'}, {'code': '72212218', 'division': '72', 'es': 'Servicios de desarrollo de software de gestión de licencias', 'en': 'License management software development services'}, {'code': '72254000', 'division': '72', 'es': 'Ensayo de software', 'en': 'Software testing'}, {'code': '48517000', 'division': '48', 'es': 'Paquetes de software de TI', 'en': 'IT software package'}, {'code': '72261000', 'division': '72', 'es': 'Servicios de apoyo al software', 'en…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "software VMWARE"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "72254000",
+      "division": "72",
+      "es": "Ensayo de software",
+      "en": "Software testing"
+     },
+     {
+      "code": "48517000",
+      "division": "48",
+      "es": "Paquetes de software de TI",
+      "en": "IT software package"
+     },
+     {
+      "code": "72261000",
+      "division": "72",
+      "es": "Servicios de apoyo al software",
+      "en": "Software support services"
+     },
+     {
+      "code": "72262000",
+      "division": "72",
+      "es": "Servicios de desarrollo de software",
+      "en": "Software development services"
+     },
+     {
+      "code": "48931000",
+      "division": "48",
+      "es": "Paquetes de software de formación",
+      "en": "Training software package"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "48",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 48, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1180,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 14777,
+ "tokens_out": 550,
+ "latency_s": 5.716,
+ "requests": 5,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

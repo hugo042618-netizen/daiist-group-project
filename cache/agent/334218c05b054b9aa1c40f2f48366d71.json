@@ -1,0 +1,167 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Aquisição de serviços de comunicações unificadas",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "64200000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "64",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Aquisição de serviços de comunicações unificadas",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 500000.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sem IVA: 500 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 5.9,
+   "confidence": 0.9,
+   "evidence": "Duração do contrato: 5.9 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimento: outro",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "Critérios de adjudicação: preço 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acordo-quadro: não",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Local de execução: PT170",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Autoridade Tributária e Aduaneira",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 0.9,
+   "evidence": "Aquisição de serviços de comunicações unificadas",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 64 services, similar Spanish tenders usually receive a median of 2 bidders.",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "500 000,00 EUR"
+   },
+   "result": {
+    "amount": 500000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "comunicações unificadas"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "32412000",
+      "division": "32",
+      "es": "Red de comunicaciones",
+      "en": "Communications network"
+     },
+     {
+      "code": "32570000",
+      "division": "32",
+      "es": "Equipo de comunicaciones",
+      "en": "Communications equipment"
+     },
+     {
+      "code": "32572000",
+      "division": "32",
+      "es": "Cable de comunicaciones",
+      "en": "Communications cable"
+     },
+     {
+      "code": "48510000",
+      "division": "48",
+      "es": "Paquetes de software de comunicación",
+      "en": "Communication software package"
+     },
+     {
+      "code": "32573000",
+      "division": "32",
+      "es": "Sistema de control de comunicaciones",
+      "en": "Communications control system"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "serviços de comunicações"
+   },
+   "result": "{'results': [{'code': '32412000', 'division': '32', 'es': 'Red de comunicaciones', 'en': 'Communications network'}, {'code': '32570000', 'division': '32', 'es': 'Equipo de comunicaciones', 'en': 'Communications equipment'}, {'code': '32572000', 'division': '32', 'es': 'Cable de comunicaciones', 'en': 'Communications cable'}, {'code': '51300000', 'division': '51', 'es': 'Servicios de instalación de equipos de comunicaciones', 'en': 'Installation services of communications equipment'}, {'code': '64200000', 'division': '64', 'es': 'Servicios de telecomunicaciones', 'en': 'Telecommunications servi…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "64"
+   },
+   "result": {
+    "scope": "CPV division 64, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1056,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 3.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 11272,
+ "tokens_out": 513,
+ "latency_s": 4.292,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

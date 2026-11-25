@@ -1,0 +1,160 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "ACUERDO MARCO PARA EL SUMINISTRO...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "31440000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "31",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "SUMINISTRO E INSTALACIÓN DE BATERÍAS",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 550000.0,
+   "confidence": 0.9,
+   "evidence": "550 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 48.0,
+   "confidence": 0.9,
+   "evidence": "48 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: sí",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES30",
+   "confidence": 0.9,
+   "evidence": "ES300 (Madrid)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Metro de Madrid, S.A.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: ACUERDO MARCO...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In past Spanish supplies tenders of CPV division 31, the median number of bidders was 3 (based on 1092 tenders).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "baterias cuartos tecnicos"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "31440000",
+      "division": "31",
+      "es": "Baterías",
+      "en": "Batteries"
+     },
+     {
+      "code": "71356000",
+      "division": "71",
+      "es": "Servicios técnicos",
+      "en": "Technical services"
+     },
+     {
+      "code": "45211310",
+      "division": "45",
+      "es": "Trabajos de construcción de cuartos de baño",
+      "en": "Bathrooms construction work"
+     },
+     {
+      "code": "31422000",
+      "division": "31",
+      "es": "Paquetes de baterías",
+      "en": "Battery packs"
+     },
+     {
+      "code": "31421000",
+      "division": "31",
+      "es": "Baterías de plomo",
+      "en": "Lead batteries"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "550 000,00 EUR"
+   },
+   "result": {
+    "amount": 550000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "31"
+   },
+   "result": {
+    "scope": "CPV division 31, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1092,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 6.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8179,
+ "tokens_out": 477,
+ "latency_s": 3.553,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

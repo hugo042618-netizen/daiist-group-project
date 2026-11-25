@@ -1,0 +1,148 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "Dépannage/stockage/Pose/dépose et achat des illuminations festives",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "45316100",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "45",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.8,
+   "evidence": "Dépannage/stockage/Pose/dépose et achat des illuminations festives",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1600000.0,
+   "confidence": 1.0,
+   "evidence": "Valeur estimée hors TVA: 1 600 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 48.0,
+   "confidence": 1.0,
+   "evidence": "48 mois",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "procédure ouverte",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 60.0,
+   "confidence": 1.0,
+   "evidence": "prix 60 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Accord-cadre: oui",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Ville de Saint-Paul",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "fr",
+   "confidence": 1.0,
+   "evidence": "Titre: Dépannage/stockage/Pose/dépose et achat des illuminations festives",
+   "evidence_found": true
+  }
+ },
+ "is_tender": false,
+ "not_tender_reason": "The text is in French and concerns a French municipality (Ville de Saint-Paul), therefore it is not a Spanish public tender.",
+ "market_note": "",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "illuminations festives"
+   },
+   "result": "{'results': [{'code': '34994000', 'division': '34', 'es': 'Alumbrado para orientación e iluminación de barcos', 'en': 'Lighting for ship guidance and illumination'}, {'code': '34995000', 'division': '34', 'es': 'Alumbrado para orientación e iluminación de aeronaves', 'en': 'Lighting for aircraft guidance and illumination'}, {'code': '34994100', 'division': '34', 'es': 'Alumbrado para orientación e iluminación fluvial', 'en': 'Lighting for river guidance and illumination'}, {'code': '79953000', 'division': '79', 'es': 'Servicios de organización de festivales', 'en': 'Festival organisation servi…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "achat des illuminations festives"
+   },
+   "result": "{'results': [{'code': '34994000', 'division': '34', 'es': 'Alumbrado para orientación e iluminación de barcos', 'en': 'Lighting for ship guidance and illumination'}, {'code': '34995000', 'division': '34', 'es': 'Alumbrado para orientación e iluminación de aeronaves', 'en': 'Lighting for aircraft guidance and illumination'}, {'code': '34994100', 'division': '34', 'es': 'Alumbrado para orientación e iluminación fluvial', 'en': 'Lighting for river guidance and illumination'}, {'code': '79953000', 'division': '79', 'es': 'Servicios de organización de festivales', 'en': 'Festival organisation servi…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "éclairage festif de Noël"
+   },
+   "result": "{'results': [{'code': '79953000', 'division': '79', 'es': 'Servicios de organización de festivales', 'en': 'Festival organisation services'}, {'code': '19514000', 'division': '19', 'es': 'Caucho regenerado', 'en': 'Reclaimed rubber'}, {'code': '48782000', 'division': '48', 'es': 'Paquetes de software de gestión de almacenamiento', 'en': 'Storage management software package'}, {'code': '90480000', 'division': '90', 'es': 'Servicios de gestión de alcantarillados', 'en': 'Sewerage management services'}, {'code': '63121100', 'division': '63', 'es': 'Servicios de almacenamiento', 'en': 'Storage ser…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "lampadaire guirlande illumination"
+   },
+   "result": "{'results': [{'code': '34994000', 'division': '34', 'es': 'Alumbrado para orientación e iluminación de barcos', 'en': 'Lighting for ship guidance and illumination'}, {'code': '34995000', 'division': '34', 'es': 'Alumbrado para orientación e iluminación de aeronaves', 'en': 'Lighting for aircraft guidance and illumination'}, {'code': '34994100', 'division': '34', 'es': 'Alumbrado para orientación e iluminación fluvial', 'en': 'Lighting for river guidance and illumination'}, {'code': '45316100', 'division': '45', 'es': 'Instalación de equipo de alumbrado exterior', 'en': 'Installation of outdoor…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 600 000,00 EUR"
+   },
+   "result": {
+    "amount": 1600000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "45"
+   },
+   "result": {
+    "scope": "CPV division 45, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 305,
+     "q25": 2.0,
+     "median": 4.0,
+     "q75": 7.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 21732,
+ "tokens_out": 558,
+ "latency_s": 6.749,
+ "requests": 7,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

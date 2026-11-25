@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Servicios de impresión.",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "79810000",
+   "confidence": 0.9,
+   "evidence": "Servicios de impresión.",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "79",
+   "confidence": 0.9,
+   "evidence": "Servicios de impresión.",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicios de impresión.",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 479000.0,
+   "confidence": 1.0,
+   "evidence": "479 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 1.0,
+   "evidence": "12 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 1.0,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Institut Català de les Empreses Culturals",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Servicios de impresión.",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish tenders for services under CPV division 79, the median number of bidders is 3.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Servicios de impresión"
+   },
+   "result": "{'results': [{'code': '79810000', 'division': '79', 'es': 'Servicios de impresión', 'en': 'Printing services'}, {'code': '79800000', 'division': '79', 'es': 'Servicios de impresión y servicios conexos', 'en': 'Printing and related services'}, {'code': '79820000', 'division': '79', 'es': 'Servicios relacionados con la impresión', 'en': 'Services related to printing'}, {'code': '79823000', 'division': '79', 'es': 'Servicios de impresión y entrega', 'en': 'Printing and delivery services'}, {'code': '79821000', 'division': '79', 'es': 'Servicios de acabado de impresiones', 'en': 'Print finishing s…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "479 000,00 EUR"
+   },
+   "result": {
+    "amount": 479000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "79"
+   },
+   "result": {
+    "scope": "CPV division 79, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5286,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 8030,
+ "tokens_out": 442,
+ "latency_s": 2.84,
+ "requests": 3,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

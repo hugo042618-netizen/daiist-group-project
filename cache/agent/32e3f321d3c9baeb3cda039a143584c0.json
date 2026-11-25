@@ -1,0 +1,127 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Título: Servicio de implementación de un servicio de gestión documental",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72512000",
+   "confidence": 0.8,
+   "evidence": "Servicio de gestión documental",
+   "evidence_found": true
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.8,
+   "evidence": "Servicio de gestión documental",
+   "evidence_found": true
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicio de implementación",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 282840.0,
+   "confidence": 1.0,
+   "evidence": "282 840,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 19.0,
+   "confidence": 1.0,
+   "evidence": "19 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 60.0,
+   "confidence": 1.0,
+   "evidence": "precio 60 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Ferrocarrils de la Generalitat de Catalunya",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Título: Servicio de implementación",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar tenders in CPV division 72 for services usually receive a median of 2 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "gestión documental ingeniería documental documentación técnica"
+   },
+   "result": "{'results': [{'code': '79131000', 'division': '79', 'es': 'Servicios de documentación', 'en': 'Documentation services'}, {'code': '72512000', 'division': '72', 'es': 'Servicios de gestión de documentos', 'en': 'Document management services'}, {'code': '48311100', 'division': '48', 'es': 'Sistema de gestión de documentos', 'en': 'Document management system'}, {'code': '48311000', 'division': '48', 'es': 'Paquetes de software de gestión de documentos', 'en': 'Document management software package'}, {'code': '72212311', 'division': '72', 'es': 'Servicios de desarrollo de software de gestión de do…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "282 840,00 EUR"
+   },
+   "result": {
+    "amount": 282840.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "72",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 5287,
+ "tokens_out": 444,
+ "latency_s": 2.831,
+ "requests": 2,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

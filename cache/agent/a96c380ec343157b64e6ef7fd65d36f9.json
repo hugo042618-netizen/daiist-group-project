@@ -1,0 +1,157 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 1.0,
+   "evidence": "Órgano de contratación: BTO CONSULTORA DIGITAL, SL",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "79340000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "79",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 1.0,
+   "evidence": "Servicio de difusión y comunicación",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 306480.0,
+   "confidence": 1.0,
+   "evidence": "306 480,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 18.0,
+   "confidence": 1.0,
+   "evidence": "18 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 1.0,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 1.0,
+   "evidence": "precio 40 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 1.0,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES11",
+   "confidence": 0.9,
+   "evidence": "ES111 (Galicia)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "BTO CONSULTORA DIGITAL, SL",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Servicio de difusión y comunicación",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In similar Spanish services tenders (CPV 79), the median number of bidders is 3.",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "306 480,00 EUR"
+   },
+   "result": {
+    "amount": 306480.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicio de difusión y comunicación"
+   },
+   "result": "{'results': [{'code': '32412000', 'division': '32', 'es': 'Red de comunicaciones', 'en': 'Communications network'}, {'code': '32570000', 'division': '32', 'es': 'Equipo de comunicaciones', 'en': 'Communications equipment'}, {'code': '51300000', 'division': '51', 'es': 'Servicios de instalación de equipos de comunicaciones', 'en': 'Installation services of communications equipment'}, {'code': '32572000', 'division': '32', 'es': 'Cable de comunicaciones', 'en': 'Communications cable'}, {'code': '72212510', 'division': '72', 'es': 'Servicios de desarrollo de software de comunicación', 'en': 'Comm…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "difusión y comunicación"
+   },
+   "result": "{'results': [{'code': '32412000', 'division': '32', 'es': 'Red de comunicaciones', 'en': 'Communications network'}, {'code': '32570000', 'division': '32', 'es': 'Equipo de comunicaciones', 'en': 'Communications equipment'}, {'code': '32572000', 'division': '32', 'es': 'Cable de comunicaciones', 'en': 'Communications cable'}, {'code': '48510000', 'division': '48', 'es': 'Paquetes de software de comunicación', 'en': 'Communication software package'}, {'code': '45231600', 'division': '45', 'es': 'Trabajos de construcción de líneas de comunicación', 'en': 'Construction work for communication lines…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de comunicación"
+   },
+   "result": "{'results': [{'code': '51300000', 'division': '51', 'es': 'Servicios de instalación de equipos de comunicaciones', 'en': 'Installation services of communications equipment'}, {'code': '32412000', 'division': '32', 'es': 'Red de comunicaciones', 'en': 'Communications network'}, {'code': '32570000', 'division': '32', 'es': 'Equipo de comunicaciones', 'en': 'Communications equipment'}, {'code': '64200000', 'division': '64', 'es': 'Servicios de telecomunicaciones', 'en': 'Telecommunications services'}, {'code': '72212510', 'division': '72', 'es': 'Servicios de desarrollo de software de comunicació…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "79340000"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "79340000",
+      "division": "79",
+      "es": "Servicios de publicidad y de marketing",
+      "en": "Advertising and marketing services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "79"
+   },
+   "result": {
+    "scope": "CPV division 79, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5286,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 18665,
+ "tokens_out": 503,
+ "latency_s": 6.051,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

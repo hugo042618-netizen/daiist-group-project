@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "CONSULTORÍA Y ASISTENCIA PARA EL CONTROL DE LA EJECUCIÓN",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "71311230",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "71",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "CONSULTORÍA Y ASISTENCIA PARA EL CONTROL DE LA EJECUCIÓN",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 896203.66,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 896 203,66 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 30.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 30 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES61",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES613 (Andalucía)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Administrador de Infraestructuras Ferroviarias",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: CONSULTORÍA Y ASISTENCIA...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish tenders in this category typically receive around 6 bidders (median of 5136 past tenders).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "consultoria control ejecucion obras ferroviarias"
+   },
+   "result": "{'results': [{'code': '71313100', 'division': '71', 'es': 'Servicios de consultoría en control del ruido', 'en': 'Noise-control consultancy services'}, {'code': '45234100', 'division': '45', 'es': 'Trabajos de construcción ferroviaria', 'en': 'Railway construction works'}, {'code': '71317000', 'division': '71', 'es': 'Servicios de consultoría en protección y control de riesgos', 'en': 'Hazard protection and control consultancy services'}, {'code': '48140000', 'division': '48', 'es': 'Paquetes de software de control del tráfico ferroviario', 'en': 'Railway traffic control software package'}, {'…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "896 203,66 EUR"
+   },
+   "result": {
+    "amount": 896203.66,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de ingenieria control de obras"
+   },
+   "result": "{'results': [{'code': '71300000', 'division': '71', 'es': 'Servicios de ingeniería', 'en': 'Engineering services'}, {'code': '45220000', 'division': '45', 'es': 'Obras de ingeniería y trabajos de construcción', 'en': 'Engineering works and construction works'}, {'code': '66519200', 'division': '66', 'es': 'Servicios de seguros de ingeniería', 'en': 'Engineering insurance services'}, {'code': '71311220', 'division': '71', 'es': 'Servicios de ingeniería de caminos', 'en': 'Highways engineering services'}, {'code': '71311230', 'division': '71', 'es': 'Servicios de ingeniería ferroviaria', 'en': '…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "71"
+   },
+   "result": {
+    "scope": "CPV division 71, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5136,
+     "q25": 3.0,
+     "median": 6.0,
+     "q75": 11.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 11531,
+ "tokens_out": 530,
+ "latency_s": 4.737,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

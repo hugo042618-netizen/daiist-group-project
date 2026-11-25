@@ -1,0 +1,240 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "PROCEDIMENTO Nº4/2025",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "15511000",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "15",
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.9,
+   "evidence": "FORNECIMENTO DE LEITE ESCOLAR",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 447350.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sem IVA: 447 350,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.9,
+   "evidence": "PELO PERÍODO DE UM ANO",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "concurso público",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "preço 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acordo-quadro: não",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "buyer_type": {
+   "value": "city_council",
+   "confidence": 0.8,
+   "evidence": "Município da Maia",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 0.9,
+   "evidence": "Título: PROCEDIMENTO Nº4/2025 - AQUISIÇÃO E FORNECIMENTO",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish tenders for food, beverages, tobacco and related products supplies, a median of 2 bidders typically compete.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "leite escolar"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "39162110",
+      "division": "39",
+      "es": "Material escolar",
+      "en": "Teaching supplies"
+     },
+     {
+      "code": "39160000",
+      "division": "39",
+      "es": "Mobiliario escolar",
+      "en": "School furniture"
+     },
+     {
+      "code": "22111000",
+      "division": "22",
+      "es": "Libros escolares",
+      "en": "School books"
+     },
+     {
+      "code": "80410000",
+      "division": "80",
+      "es": "Servicios escolares diversos",
+      "en": "Various school services"
+     },
+     {
+      "code": "45214200",
+      "division": "45",
+      "es": "Trabajos de construcción de edificios escolares",
+      "en": "Construction work for school buildings"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "leite"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "15621000",
+      "division": "15",
+      "es": "Aceite de maíz",
+      "en": "Corn oil"
+     },
+     {
+      "code": "30124110",
+      "division": "30",
+      "es": "Aceite para fusores",
+      "en": "Fuser oil"
+     },
+     {
+      "code": "15411200",
+      "division": "15",
+      "es": "Aceite de cocina",
+      "en": "Cooking oil"
+     },
+     {
+      "code": "42913300",
+      "division": "42",
+      "es": "Filtros de aceite",
+      "en": "Oil filters"
+     },
+     {
+      "code": "09242100",
+      "division": "09",
+      "es": "Aceite de alquitrán",
+      "en": "Coal oil"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "milk"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "15511000",
+      "division": "15",
+      "es": "Leche",
+      "en": "Milk"
+     },
+     {
+      "code": "15511700",
+      "division": "15",
+      "es": "Leche en polvo",
+      "en": "Milk powder"
+     },
+     {
+      "code": "15511210",
+      "division": "15",
+      "es": "Leche UHT",
+      "en": "UHT milk"
+     },
+     {
+      "code": "03331200",
+      "division": "03",
+      "es": "Leche de cabra",
+      "en": "Goats' milk"
+     },
+     {
+      "code": "38434530",
+      "division": "38",
+      "es": "Analizadores de leche",
+      "en": "Milk analysers"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "447 350,00 EUR"
+   },
+   "result": {
+    "amount": 447350.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "15"
+   },
+   "result": {
+    "scope": "CPV division 15, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 945,
+     "q25": 1.5,
+     "median": 2.0,
+     "q75": 3.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 18370,
+ "tokens_out": 515,
+ "latency_s": 5.625,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

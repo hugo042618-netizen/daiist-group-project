@@ -1,5 +1,5 @@
 {
- "model_version": "bidders-hgb-v2",
+ "model_version": "bidders-hgb-v3",
  "sklearn_version": "1.9.1",
  "features": [
   "cpv_division",
@@ -55,12 +55,12 @@
  "settings": {
   "mean": {
    "params": {
-    "max_leaf_nodes": 63,
-    "min_samples_leaf": 100,
-    "l2_regularization": 5.0
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 50,
+    "l2_regularization": 1.0
    },
-   "n_trees": 250,
-   "validation_score": 2.5088
+   "n_trees": 583,
+   "validation_score": 2.4804
   },
   "q10": {
    "params": {
@@ -77,17 +77,17 @@
     "min_samples_leaf": 100,
     "l2_regularization": 5.0
    },
-   "n_trees": 593,
-   "validation_score": 1.1439
+   "n_trees": 578,
+   "validation_score": 1.1418
   },
   "q90": {
    "params": {
-    "max_leaf_nodes": 63,
+    "max_leaf_nodes": 31,
     "min_samples_leaf": 100,
     "l2_regularization": 5.0
    },
-   "n_trees": 571,
-   "validation_score": 0.8146
+   "n_trees": 584,
+   "validation_score": 0.8225
   }
  },
  "validation": {
@@ -99,22 +99,22 @@
    "bucket_accuracy": 0.4827
   },
   "model_median": {
-   "mae": 2.2878,
-   "rmse": 4.658,
-   "poisson_deviance": 2.6751,
-   "bucket_accuracy": 0.5257
+   "mae": 2.2837,
+   "rmse": 4.6483,
+   "poisson_deviance": 2.6791,
+   "bucket_accuracy": 0.5267
   },
   "model_poisson_mean": {
-   "mae": 2.5579,
-   "rmse": 4.5961,
-   "poisson_deviance": 2.5088,
-   "bucket_accuracy": 0.4235
+   "mae": 2.5454,
+   "rmse": 4.6551,
+   "poisson_deviance": 2.4804,
+   "bucket_accuracy": 0.4454
   },
   "range_80": {
-   "coverage": 0.8993,
+   "coverage": 0.9104,
    "share_below_low": 0.0,
-   "share_above_high": 0.1007,
-   "mean_width": 6.98
+   "share_above_high": 0.0896,
+   "mean_width": 7.24
   }
  },
  "test": {
@@ -126,22 +126,22 @@
    "bucket_accuracy": 0.4851
   },
   "model_median": {
-   "mae": 2.2388,
-   "rmse": 5.1122,
-   "poisson_deviance": 2.6905,
-   "bucket_accuracy": 0.5254
+   "mae": 2.2433,
+   "rmse": 5.1164,
+   "poisson_deviance": 2.7029,
+   "bucket_accuracy": 0.5239
   },
   "model_poisson_mean": {
-   "mae": 2.4796,
-   "rmse": 4.9908,
-   "poisson_deviance": 2.4957,
-   "bucket_accuracy": 0.4438
+   "mae": 2.4613,
+   "rmse": 4.9656,
+   "poisson_deviance": 2.4903,
+   "bucket_accuracy": 0.4481
   },
   "range_80": {
-   "coverage": 0.9016,
+   "coverage": 0.9099,
    "share_below_low": 0.0,
-   "share_above_high": 0.0984,
-   "mean_width": 6.94
+   "share_above_high": 0.0901,
+   "mean_width": 7.1
   }
  }
 }

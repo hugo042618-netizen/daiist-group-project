@@ -1,0 +1,200 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "PROCEDIMENTO Nº1109/2025",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "79714000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "79",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "AQUISIÇÃO DE SERVIÇOS DE VIGILÂNCIA HUMANA",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 382617.54,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sem IVA: 382 617,54 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 3.0,
+   "confidence": 0.9,
+   "evidence": "PELO PRAZO DE 3 MESES",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "negotiated",
+   "confidence": 0.7,
+   "evidence": "AJUSTE DIRETO",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 70.0,
+   "confidence": 0.9,
+   "evidence": "preço 70 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "ACORDO QUADRO",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "MUNICÍPIO DA MAIA",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "MUNICÍPIO DA MAIA",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 0.9,
+   "evidence": "MUNICÍPIO DA MAIA",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 79 services, similar Spanish tenders usually get a median of 3 bidders (quartiles: 2 to 5).",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "382 617,54 EUR"
+   },
+   "result": {
+    "amount": 382617.54,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "vigilancia humana seguridad privada"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "35120000",
+      "division": "35",
+      "es": "Sistemas y dispositivos de vigilancia y seguridad",
+      "en": "Surveillance and security systems and devices"
+     },
+     {
+      "code": "79714000",
+      "division": "79",
+      "es": "Servicios de vigilancia",
+      "en": "Surveillance services"
+     },
+     {
+      "code": "35125000",
+      "division": "35",
+      "es": "Sistema de vigilancia",
+      "en": "Surveillance system"
+     },
+     {
+      "code": "33141570",
+      "division": "33",
+      "es": "Sangre humana",
+      "en": "Human blood"
+     },
+     {
+      "code": "34521100",
+      "division": "34",
+      "es": "Barcos de vigilancia",
+      "en": "Surveillance boats"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "serviços de vigilância humana"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "79714000",
+      "division": "79",
+      "es": "Servicios de vigilancia",
+      "en": "Surveillance services"
+     },
+     {
+      "code": "34521100",
+      "division": "34",
+      "es": "Barcos de vigilancia",
+      "en": "Surveillance boats"
+     },
+     {
+      "code": "98341140",
+      "division": "98",
+      "es": "Servicios de vigilancia de inmuebles",
+      "en": "Caretaker services"
+     },
+     {
+      "code": "35125000",
+      "division": "35",
+      "es": "Sistema de vigilancia",
+      "en": "Surveillance system"
+     },
+     {
+      "code": "33141570",
+      "division": "33",
+      "es": "Sangre humana",
+      "en": "Human blood"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "79"
+   },
+   "result": {
+    "scope": "CPV division 79, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5286,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 11752,
+ "tokens_out": 520,
+ "latency_s": 4.306,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

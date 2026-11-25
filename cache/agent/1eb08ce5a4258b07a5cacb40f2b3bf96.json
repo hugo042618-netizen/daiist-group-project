@@ -1,0 +1,174 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: SERVICIO DE TRANSPORTE Y DISTRIBUCIÓN",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "60161000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "60",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "SERVICIO DE TRANSPORTE Y DISTRIBUCIÓN INTERCENTROS",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 512748.44,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 512 748,44 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES11",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES114 (Galicia)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "XUNTA DE GALICIA/CONSELLERIA DE SANIDADE/SERGAS",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: SERVICIO DE TRANSPORTE Y DISTRIBUCIÓN",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In Spanish transport services tenders, a median of 2 bidders compete for the contract.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "transporte farmaceutico sanitario"
+   },
+   "result": "{'results': [{'code': '33600000', 'division': '33', 'es': 'Productos farmacéuticos', 'en': 'Pharmaceutical products'}, {'code': '33680000', 'division': '33', 'es': 'Artículos farmacéuticos', 'en': 'Pharmaceutical articles'}, {'code': '33792000', 'division': '33', 'es': 'Artículos de vidrio para uso farmacéutico', 'en': 'Pharmaceutical glassware'}, {'code': '85149000', 'division': '85', 'es': 'Servicios farmacéuticos', 'en': 'Pharmacy services'}, {'code': '45253500', 'division': '45', 'es': 'Trabajos de construcción de plantas farmacéuticas', 'en': 'Construction work for pharmaceutical plant'}]…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de transporte farmaceutico"
+   },
+   "result": "{'results': [{'code': '85149000', 'division': '85', 'es': 'Servicios farmacéuticos', 'en': 'Pharmacy services'}, {'code': '33600000', 'division': '33', 'es': 'Productos farmacéuticos', 'en': 'Pharmaceutical products'}, {'code': '33680000', 'division': '33', 'es': 'Artículos farmacéuticos', 'en': 'Pharmaceutical articles'}, {'code': '33792000', 'division': '33', 'es': 'Artículos de vidrio para uso farmacéutico', 'en': 'Pharmaceutical glassware'}, {'code': '45253500', 'division': '45', 'es': 'Trabajos de construcción de plantas farmacéuticas', 'en': 'Construction work for pharmaceutical plant'}]…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "transport services"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "60400000",
+      "division": "60",
+      "es": "Servicios de transporte aéreo",
+      "en": "Air transport services"
+     },
+     {
+      "code": "60100000",
+      "division": "60",
+      "es": "Servicios de transporte por carretera",
+      "en": "Road transport services"
+     },
+     {
+      "code": "60161000",
+      "division": "60",
+      "es": "Servicios de transporte de paquetes",
+      "en": "Parcel transport services"
+     },
+     {
+      "code": "90513700",
+      "division": "90",
+      "es": "Servicios de transporte de lodos",
+      "en": "Sludge transport services"
+     },
+     {
+      "code": "60500000",
+      "division": "60",
+      "es": "Servicios de transporte espacial",
+      "en": "Space transport services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "512 748,44 EUR"
+   },
+   "result": {
+    "amount": 512748.44,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "60"
+   },
+   "result": {
+    "scope": "CPV division 60, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 2128,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 3.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 19410,
+ "tokens_out": 560,
+ "latency_s": 5.7,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

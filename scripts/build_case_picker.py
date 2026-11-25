@@ -10,7 +10,7 @@ text, TED's official fields and the real number of offers, four empty columns fo
 bidders and the official fields. The helper is not the expected answer: the team decides it.
 
 Run again after changing a threshold in config.py: what the team already typed is kept
-(matched by notice id). `scripts/cases_from_picker.py` turns the filled sheet into eval/cases.csv.
+(matched by notice id). `--mix 3000 11400` prints the rule's answers for several bid costs instead. `scripts/cases_from_picker.py` turns the filled sheet into eval/cases.csv.
 openpyxl is only needed by these two scripts, not by the app.
 """
 
@@ -58,8 +58,9 @@ def number(text):
     return None if math.isnan(value) else value
 
 
-def rule(row: dict) -> dict:
+def rule(row: dict, bid_cost_eur: float | None = None) -> dict:
     """What the decision rule gives for this notice with the official fields and the real number of offers."""
+    bid_cost_eur = config.DEFAULT_BID_COST_EUR if bid_cost_eur is None else bid_cost_eur
     if row["group"] == "not_a_tender":
         return {"rule": decision.OUT_OF_SCOPE, "win": None, "ev": None}
     offers = number(row.get("offers"))
@@ -67,7 +68,7 @@ def rule(row: dict) -> dict:
               "estimated_value_eur": number(row.get("estimated_value_eur"))}
     if offers is None:
         return {"rule": "", "win": None, "ev": None}
-    outcome = decision.decide(fields, 1.0, offers, config.DEFAULT_BID_COST_EUR, config.DEFAULT_MARGIN_PCT)
+    outcome = decision.decide(fields, 1.0, offers, bid_cost_eur, config.DEFAULT_MARGIN_PCT)
     return {"rule": outcome["decision"], "win": outcome["win_chance"], "ev": outcome["expected_value_eur"]}
 
 
@@ -223,6 +224,20 @@ def legend(book: Workbook, rows: list[dict]) -> None:
         b.alignment = Alignment(wrap_text=True, vertical="top")
 
 
+def mix(bid_costs: list[float]) -> None:
+    """The rule's answers on the tender candidates with a known number of offers, for several bid costs."""
+    rows = [row for row in candidates() if row["group"] != "not_a_tender" and row["rule"]]
+    print(f"{len(rows)} tender candidates with a known number of offers, margin {config.DEFAULT_MARGIN_PCT:g}%")
+    for cost in bid_costs:
+        answers = [rule(row, cost)["rule"] for row in rows]
+        big = sum(number(row.get("estimated_value_eur")) > config.REVIEW_VALUE_EUR for row in rows)
+        print(f"  bid cost EUR {cost:,.0f}: " + ", ".join(f"{word} {answers.count(word)}" for word in DECISIONS[:3])
+              + f" (of the reviews, {big} for a value above EUR {config.REVIEW_VALUE_EUR:,.0f})")
+
+
 if __name__ == "__main__":
+    if len(sys.argv) > 2 and sys.argv[1] == "--mix":
+        mix([float(value) for value in sys.argv[2:]])
+        raise SystemExit
     total, per_group = build()
     print(f"{OUT.relative_to(ROOT)}: {total} candidates (" + ", ".join(f"{group} {n}" for group, n in per_group.items()) + ")")

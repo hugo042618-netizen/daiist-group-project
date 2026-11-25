@@ -1,0 +1,240 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "CONCURSO PÚBLICO INTERNACIONAL",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "32420000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "32",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.5,
+   "evidence": "Renovação de equipamentos de switching data center... Hardware/Software",
+   "evidence_found": false
+  },
+  "estimated_value_eur": {
+   "value": 381126.5,
+   "confidence": 0.9,
+   "evidence": "381 126,50 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 12.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "concurso público",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 2,
+   "confidence": 0.9,
+   "evidence": "dividido em dois lotes",
+   "evidence_found": true
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "preço 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "não",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "PT1A0",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Agência para a Modernização Administrativa, I. P.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 0.9,
+   "evidence": "Entidade adjudicante",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Tenders for network equipment supplies usually receive a median of 3 bidders in Spain.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "switching data center hardware software"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "44316400",
+      "division": "44",
+      "es": "Artículos de ferretería",
+      "en": "Hardware"
+     },
+     {
+      "code": "48732000",
+      "division": "48",
+      "es": "Paquetes de software de seguridad de datos",
+      "en": "Data security software package"
+     },
+     {
+      "code": "48219500",
+      "division": "48",
+      "es": "Paquetes de software de desvío o conmutación",
+      "en": "Switch or router software package"
+     },
+     {
+      "code": "72254000",
+      "division": "72",
+      "es": "Ensayo de software",
+      "en": "Software testing"
+     },
+     {
+      "code": "48611000",
+      "division": "48",
+      "es": "Paquetes de software de bases de datos",
+      "en": "Database software package"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "381 126,50 EUR"
+   },
+   "result": {
+    "amount": 381126.5,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "datacenter switches hardware software"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "44316400",
+      "division": "44",
+      "es": "Artículos de ferretería",
+      "en": "Hardware"
+     },
+     {
+      "code": "31214100",
+      "division": "31",
+      "es": "Interruptores",
+      "en": "Switches"
+     },
+     {
+      "code": "48219500",
+      "division": "48",
+      "es": "Paquetes de software de desvío o conmutación",
+      "en": "Switch or router software package"
+     },
+     {
+      "code": "48611000",
+      "division": "48",
+      "es": "Paquetes de software de bases de datos",
+      "en": "Database software package"
+     },
+     {
+      "code": "72254000",
+      "division": "72",
+      "es": "Ensayo de software",
+      "en": "Software testing"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "networking equipment switches"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "32420000",
+      "division": "32",
+      "es": "Equipo de red",
+      "en": "Network equipment"
+     },
+     {
+      "code": "31214100",
+      "division": "31",
+      "es": "Interruptores",
+      "en": "Switches"
+     },
+     {
+      "code": "39340000",
+      "division": "39",
+      "es": "Equipo para red de distribución de gas",
+      "en": "Gas network equipment"
+     },
+     {
+      "code": "32541000",
+      "division": "32",
+      "es": "Equipo de conmutador",
+      "en": "Switchboard equipment"
+     },
+     {
+      "code": "32429000",
+      "division": "32",
+      "es": "Equipo de red telefónica",
+      "en": "Telephone network equipment"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "supplies",
+    "cpv_division": "32"
+   },
+   "result": {
+    "scope": "CPV division 32, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 853,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 15015,
+ "tokens_out": 505,
+ "latency_s": 4.471,
+ "requests": 5,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

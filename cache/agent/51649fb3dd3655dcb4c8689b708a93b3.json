@@ -1,0 +1,167 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: SERVICIOS DE TRASLADO...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "98392000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "98",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "SERVICIOS DE TRASLADO",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 439477.07,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 439 477,07 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 4.1,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 4.1 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Barcelona d'Infraestructures Municipals, SA",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: SERVICIOS DE TRASLADO...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "In CPV division 98, services tenders usually get a median of 2.5 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "translado reservas colecciones museo mudanza"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "92533000",
+      "division": "92",
+      "es": "Servicios de reservas naturales",
+      "en": "Nature reserve services"
+     },
+     {
+      "code": "92521000",
+      "division": "92",
+      "es": "Servicios de museos",
+      "en": "Museum services"
+     },
+     {
+      "code": "79530000",
+      "division": "79",
+      "es": "Servicios de traducción",
+      "en": "Translation services"
+     },
+     {
+      "code": "15235000",
+      "division": "15",
+      "es": "Conservas de pescado",
+      "en": "Preserved fish"
+     },
+     {
+      "code": "45212313",
+      "division": "45",
+      "es": "Trabajos de construcción de museos",
+      "en": "Museum construction work"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "439 477,07 EUR"
+   },
+   "result": {
+    "amount": 439477.07,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de traslado mudanza"
+   },
+   "result": "{'results': [{'code': '98392000', 'division': '98', 'es': 'Servicios de traslado', 'en': 'Relocation services'}, {'code': '33948000', 'division': '33', 'es': 'Dispositivos para la elevación o traslado de cadáveres', 'en': 'Cadaver lifter or transfer devices'}, {'code': '80000000', 'division': '80', 'es': 'Servicios de enseñanza y formación', 'en': 'Education and training services'}, {'code': '92342000', 'division': '92', 'es': 'Servicios de enseñanza de baile', 'en': 'Dance-instruction services'}, {'code': '80400000', 'division': '80', 'es': 'Servicios de enseñanza para adultos y otros servici…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "98"
+   },
+   "result": {
+    "scope": "CPV division 98, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1144,
+     "q25": 1.0,
+     "median": 2.5,
+     "q75": 5.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 11504,
+ "tokens_out": 513,
+ "latency_s": 3.786,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

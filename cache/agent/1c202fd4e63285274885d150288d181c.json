@@ -1,0 +1,174 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Fornecimento, Instalação e Comissionamento de um Sistema OPS",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "45315300",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "45",
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "supplies",
+   "confidence": 0.8,
+   "evidence": "Fornecimento, Instalação e Comissionamento",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 8000000.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sem IVA: 8 000 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 15.8,
+   "confidence": 0.9,
+   "evidence": "Duração do contrato: 15.8 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.8,
+   "evidence": "concurso público",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 50.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acordo-quadro: não",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "Local de execução: PT11A",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "APDL - Administração dos Portos do Douro, Leixões e Viana do Castelo, S.A.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "pt",
+   "confidence": 0.9,
+   "evidence": "Fornecimento, Instalação e Comissionamento de um Sistema OPS",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish supplies tenders in CPV division 31 typically get an average of 3 bidders.",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Sistema OPS Porto"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "15931300",
+      "division": "15",
+      "es": "Oporto",
+      "en": "Port"
+     },
+     {
+      "code": "32427000",
+      "division": "32",
+      "es": "Sistema de red",
+      "en": "Network system"
+     },
+     {
+      "code": "42965110",
+      "division": "42",
+      "es": "Sistema de depósito",
+      "en": "Depot system"
+     },
+     {
+      "code": "48444100",
+      "division": "48",
+      "es": "Sistema de facturación",
+      "en": "Billing system"
+     },
+     {
+      "code": "44221300",
+      "division": "44",
+      "es": "Portones",
+      "en": "Gates"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "Instalação Sistema OPS"
+   },
+   "result": "{'results': [{'code': '45231112', 'division': '45', 'es': 'Instalación de sistema de tuberías', 'en': 'Installation of pipe system'}, {'code': '51550000', 'division': '51', 'es': 'Servicios de instalación de sistemas de armas', 'en': 'Installation services of weapon systems'}, {'code': '45312000', 'division': '45', 'es': 'Instalación de sistemas de alarma y antenas', 'en': 'Alarm system and antenna installation work'}, {'code': '32427000', 'division': '32', 'es': 'Sistema de red', 'en': 'Network system'}, {'code': '45312100', 'division': '45', 'es': 'Instalación de sistemas de alarma contra in…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "electrical supply installation system"
+   },
+   "result": "{'results': [{'code': '45310000', 'division': '45', 'es': 'Trabajos de instalación eléctrica', 'en': 'Electrical installation work'}, {'code': '45315300', 'division': '45', 'es': 'Instalaciones de suministro de electricidad', 'en': 'Electricity supply installations'}, {'code': '45317000', 'division': '45', 'es': 'Otros trabajos de instalación eléctrica', 'en': 'Other electrical installation work'}, {'code': '51110000', 'division': '51', 'es': 'Servicios de instalación de equipo eléctrico', 'en': 'Installation services of electrical equipment'}, {'code': '65320000', 'division': '65', 'es': 'Exp…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "8 000 000,00 EUR"
+   },
+   "result": {
+    "amount": 8000000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "31",
+    "contract_type": "supplies"
+   },
+   "result": {
+    "scope": "CPV division 31, supplies",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 1092,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 6.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 17690,
+ "tokens_out": 550,
+ "latency_s": 6.144,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

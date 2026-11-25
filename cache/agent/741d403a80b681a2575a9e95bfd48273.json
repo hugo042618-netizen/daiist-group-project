@@ -1,0 +1,272 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.95,
+   "evidence": "Órgano de contratación: Consorci Sanitari del Maresme",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72500000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Servicio gestionado de detección y respuesta de amenazas avanzadas (MDR)",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 695960.0,
+   "confidence": 0.95,
+   "evidence": "Valor estimado sin IVA: 695 960,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 36.0,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.95,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.95,
+   "evidence": "Criterios de adjudicación: precio 100 %, calidad 0 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.95,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "Consorci Sanitari del Maresme",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 1.0,
+   "evidence": "Servicio gestionado de detección y respuesta de amenazas avanzadas",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish tenders in IT services usually receive a median of 2 bidders (quartiles: 1 and 4).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "MDR detección y respuesta de amenazas seguridad informática servicios"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "80533100",
+      "division": "80",
+      "es": "Servicios de formación informática",
+      "en": "Computer training services"
+     },
+     {
+      "code": "79710000",
+      "division": "79",
+      "es": "Servicios de seguridad",
+      "en": "Security services"
+     },
+     {
+      "code": "72700000",
+      "division": "72",
+      "es": "Servicios de red informática",
+      "en": "Computer network services"
+     },
+     {
+      "code": "63513000",
+      "division": "63",
+      "es": "Servicios de información turística",
+      "en": "Tourist information services"
+     },
+     {
+      "code": "80550000",
+      "division": "80",
+      "es": "Servicios de formación en materia de seguridad",
+      "en": "Safety training services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "695 960,00 EUR"
+   },
+   "result": {
+    "amount": 695960.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "72"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de seguridad informática"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "79710000",
+      "division": "79",
+      "es": "Servicios de seguridad",
+      "en": "Security services"
+     },
+     {
+      "code": "80533100",
+      "division": "80",
+      "es": "Servicios de formación informática",
+      "en": "Computer training services"
+     },
+     {
+      "code": "72700000",
+      "division": "72",
+      "es": "Servicios de red informática",
+      "en": "Computer network services"
+     },
+     {
+      "code": "63513000",
+      "division": "63",
+      "es": "Servicios de información turística",
+      "en": "Tourist information services"
+     },
+     {
+      "code": "80550000",
+      "division": "80",
+      "es": "Servicios de formación en materia de seguridad",
+      "en": "Safety training services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "seguridad de la información"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "80550000",
+      "division": "80",
+      "es": "Servicios de formación en materia de seguridad",
+      "en": "Safety training services"
+     },
+     {
+      "code": "48810000",
+      "division": "48",
+      "es": "Sistemas de información",
+      "en": "Information systems"
+     },
+     {
+      "code": "79710000",
+      "division": "79",
+      "es": "Servicios de seguridad",
+      "en": "Security services"
+     },
+     {
+      "code": "35261000",
+      "division": "35",
+      "es": "Paneles de información",
+      "en": "Information panels"
+     },
+     {
+      "code": "34928430",
+      "division": "34",
+      "es": "Conos de seguridad",
+      "en": "Beacons"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "72262000"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "72262000",
+      "division": "72",
+      "es": "Servicios de desarrollo de software",
+      "en": "Software development services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "72500000"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "72500000",
+      "division": "72",
+      "es": "Servicios informáticos",
+      "en": "Computer-related services"
+     }
+    ]
+   }
+  }
+ ],
+ "tokens_in": 18309,
+ "tokens_out": 597,
+ "latency_s": 53.554,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

@@ -1,0 +1,141 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Prestación de los servicios de asistencia técnica...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "72267000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "72",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Prestación de los servicios de asistencia técnica",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 300857.08,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 300 857,08 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 144.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 144 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 51.0,
+   "confidence": 0.9,
+   "evidence": "precio 51 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES211 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "HAZI Desarrollo Rural Litoral y Alimentario",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Prestación de los servicios de asistencia técnica",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish tenders in CPV division 72 usually get a median of 2 bidders (interquartile range 1 to 4).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "sistema de informacion pesquero asistencia tecnica mantenimiento"
+   },
+   "result": "{'results': [{'code': '71356200', 'division': '71', 'es': 'Servicios de asistencia técnica', 'en': 'Technical assistance services'}, {'code': '48810000', 'division': '48', 'es': 'Sistemas de información', 'en': 'Information systems'}, {'code': '48814400', 'division': '48', 'es': 'Sistema de información clínica', 'en': 'Clinical information system'}, {'code': '50312610', 'division': '50', 'es': 'Mantenimiento de equipo de tecnología de la información', 'en': 'Maintenance of information technology equipment'}, {'code': '48814000', 'division': '48', 'es': 'Sistemas de información médica', 'en': '…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "300 857,08 EUR"
+   },
+   "result": {
+    "amount": 300857.08,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "cpv_division": "72",
+    "contract_type": "services"
+   },
+   "result": {
+    "scope": "CPV division 72, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5212,
+     "q25": 1.0,
+     "median": 2.0,
+     "q75": 4.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "mantenimiento de sistema de informacion"
+   },
+   "result": "{'results': [{'code': '48810000', 'division': '48', 'es': 'Sistemas de información', 'en': 'Information systems'}, {'code': '50324100', 'division': '50', 'es': 'Servicios de mantenimiento de sistemas', 'en': 'System maintenance services'}, {'code': '48814000', 'division': '48', 'es': 'Sistemas de información médica', 'en': 'Medical information systems'}, {'code': '48800000', 'division': '48', 'es': 'Sistemas y servidores de información', 'en': 'Information systems and servers'}, {'code': '50312610', 'division': '50', 'es': 'Mantenimiento de equipo de tecnología de la información', 'en': 'Maint…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "software maintenance services"
+   },
+   "result": "{'results': [{'code': '72267000', 'division': '72', 'es': 'Servicios de mantenimiento y reparación de software', 'en': 'Software maintenance and repair services'}, {'code': '50324100', 'division': '50', 'es': 'Servicios de mantenimiento de sistemas', 'en': 'System maintenance services'}, {'code': '50000000', 'division': '50', 'es': 'Servicios de reparación y mantenimiento', 'en': 'Repair and maintenance services'}, {'code': '72261000', 'division': '72', 'es': 'Servicios de apoyo al software', 'en': 'Software support services'}, {'code': '72262000', 'division': '72', 'es': 'Servicios de desarro…"
+  }
+ ],
+ "tokens_in": 11711,
+ "tokens_out": 544,
+ "latency_s": 3.996,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

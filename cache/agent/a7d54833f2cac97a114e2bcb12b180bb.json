@@ -1,0 +1,296 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "2025-58 Servicio de soporte de picking",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "63110000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "63",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Servicio de soporte de picking",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1527817.19,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 1 527 817,19 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 24.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 24 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.5,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES51",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES511 (Cataluña)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.8,
+   "evidence": "CONSORCI HOSPITAL CLÍNIC DE BARCELONA (HCB)",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Servicio de soporte de picking",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar tenders in this CPV division usually receive around 3 bidders (median).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "picking distribución colocación de materiales logística hospital"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "65110000",
+      "division": "65",
+      "es": "Distribución de agua",
+      "en": "Water distribution"
+     },
+     {
+      "code": "65210000",
+      "division": "65",
+      "es": "Distribución de gas",
+      "en": "Gas distribution"
+     },
+     {
+      "code": "33192120",
+      "division": "33",
+      "es": "Camas de hospital",
+      "en": "Hospital beds"
+     },
+     {
+      "code": "39518000",
+      "division": "39",
+      "es": "Ropa de hospital",
+      "en": "Hospital linen"
+     },
+     {
+      "code": "31213000",
+      "division": "31",
+      "es": "Equipo de distribución",
+      "en": "Distribution equipment"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 527 817,19 EUR"
+   },
+   "result": {
+    "amount": 1527817.19,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "63"
+   },
+   "result": {
+    "scope": "CPV division 63, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 797,
+     "q25": 2.0,
+     "median": 3.0,
+     "q75": 5.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "logistica almacenaje transporte picking"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "60400000",
+      "division": "60",
+      "es": "Servicios de transporte aéreo",
+      "en": "Air transport services"
+     },
+     {
+      "code": "34980000",
+      "division": "34",
+      "es": "Billetes de transporte",
+      "en": "Transport tickets"
+     },
+     {
+      "code": "60100000",
+      "division": "60",
+      "es": "Servicios de transporte por carretera",
+      "en": "Road transport services"
+     },
+     {
+      "code": "90513700",
+      "division": "90",
+      "es": "Servicios de transporte de lodos",
+      "en": "Sludge transport services"
+     },
+     {
+      "code": "60161000",
+      "division": "60",
+      "es": "Servicios de transporte de paquetes",
+      "en": "Parcel transport services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de logistica"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "76522000",
+      "division": "76",
+      "es": "Servicios en alta mar de buques de apoyo logístico",
+      "en": "Offshore supply-vessel services"
+     },
+     {
+      "code": "85121292",
+      "division": "85",
+      "es": "Servicios urológicos",
+      "en": "Urologist services"
+     },
+     {
+      "code": "79330000",
+      "division": "79",
+      "es": "Servicios estadísticos",
+      "en": "Statistical services"
+     },
+     {
+      "code": "92312000",
+      "division": "92",
+      "es": "Servicios artísticos",
+      "en": "Artistic services"
+     },
+     {
+      "code": "85121281",
+      "division": "85",
+      "es": "Servicios oftalmológicos",
+      "en": "Ophthalmologist services"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "storage distribution services"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "65210000",
+      "division": "65",
+      "es": "Distribución de gas",
+      "en": "Gas distribution"
+     },
+     {
+      "code": "65110000",
+      "division": "65",
+      "es": "Distribución de agua",
+      "en": "Water distribution"
+     },
+     {
+      "code": "79824000",
+      "division": "79",
+      "es": "Servicios de impresión y distribución",
+      "en": "Printing and distribution services"
+     },
+     {
+      "code": "31213000",
+      "division": "31",
+      "es": "Equipo de distribución",
+      "en": "Distribution equipment"
+     },
+     {
+      "code": "31213400",
+      "division": "31",
+      "es": "Sistema de distribución",
+      "en": "Distribution system"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "63110000"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "63110000",
+      "division": "63",
+      "es": "Servicios de manipulación de la carga",
+      "en": "Cargo handling services"
+     }
+    ]
+   }
+  }
+ ],
+ "tokens_in": 18773,
+ "tokens_out": 574,
+ "latency_s": 5.44,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

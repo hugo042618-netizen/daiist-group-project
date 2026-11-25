@@ -1,0 +1,151 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Título: Apoyo a la revisión y actualización de los planes...",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "71313000",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "71",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "Apoyo a la revisión y actualización de los planes...",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 490000.0,
+   "confidence": 0.9,
+   "evidence": "Valor estimado sin IVA: 490 000,00 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 36.0,
+   "confidence": 0.9,
+   "evidence": "Duración del contrato: 36 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "Tipo de procedimiento: abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.8,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 40.0,
+   "confidence": 0.9,
+   "evidence": "Criterios de adjudicación: precio 40 %, calidad 60 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "Acuerdo marco: no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES21",
+   "confidence": 0.9,
+   "evidence": "Lugar de ejecución: ES213 (País Vasco)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "regional_government",
+   "confidence": 0.9,
+   "evidence": "Gobierno Vasco - Agencia Vasca del Agua",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "Título: Apoyo a la revisión...",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish tenders in this CPV division typically receive a median of 6 bidders (25th-75th percentiles: 3-11).",
+ "steps": [
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "planes de gestión del riesgo de inundación"
+   },
+   "result": "{'results': [{'code': '45246400', 'division': '45', 'es': 'Obras de protección contra inundaciones', 'en': 'Flood-prevention works'}, {'code': '71313410', 'division': '71', 'es': 'Evaluación del riesgo o peligro para la construcción', 'en': 'Risk or hazard assessment for construction'}, {'code': '66513200', 'division': '66', 'es': 'Servicios de seguros de todo riesgo para la construcción', 'en': \"Contractor's all-risk insurance services\"}, {'code': '66517300', 'division': '66', 'es': 'Servicios de seguros de administración de riesgos', 'en': 'Risk management insurance services'}, {'code': '661…"
+  },
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "490 000,00 EUR"
+   },
+   "result": {
+    "amount": 490000.0,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "90"
+   },
+   "result": {
+    "scope": "CPV division 90, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 6091,
+     "q25": 2.0,
+     "median": 4.0,
+     "q75": 7.0
+    }
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de consultoria ambiental gestion de inundaciones"
+   },
+   "result": "{'results': [{'code': '71313000', 'division': '71', 'es': 'Servicios de consultoría en ingeniería ambiental', 'en': 'Environmental engineering consultancy services'}, {'code': '79415000', 'division': '79', 'es': 'Servicios de consultoría en gestión de la producción', 'en': 'Production management consultancy services'}, {'code': '79411000', 'division': '79', 'es': 'Servicios generales de consultoría en gestión', 'en': 'General management consultancy services'}, {'code': '79410000', 'division': '79', 'es': 'Servicios de consultoría comercial y en gestión', 'en': 'Business and management consulta…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "71"
+   },
+   "result": {
+    "scope": "CPV division 71, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 5136,
+     "q25": 3.0,
+     "median": 6.0,
+     "q75": 11.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 11686,
+ "tokens_out": 572,
+ "latency_s": 4.385,
+ "requests": 4,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}

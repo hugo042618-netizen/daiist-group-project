@@ -1,0 +1,214 @@
+{
+ "fields": {
+  "is_tender": {
+   "value": true,
+   "confidence": 0.9,
+   "evidence": "Órgano de contratación: CANAL DE [NAME], M.P.",
+   "evidence_found": true
+  },
+  "cpv_code": {
+   "value": "90513800",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "cpv_division": {
+   "value": "90",
+   "confidence": 0.7,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "contract_type": {
+   "value": "services",
+   "confidence": 0.9,
+   "evidence": "SERVICIOS DE GESTIÓN DE FANGOS",
+   "evidence_found": true
+  },
+  "estimated_value_eur": {
+   "value": 1230315.5,
+   "confidence": 0.9,
+   "evidence": "1 230 315,50 EUR",
+   "evidence_found": true
+  },
+  "duration_months": {
+   "value": 48.0,
+   "confidence": 0.9,
+   "evidence": "48 meses",
+   "evidence_found": true
+  },
+  "procedure": {
+   "value": "open",
+   "confidence": 0.9,
+   "evidence": "abierto",
+   "evidence_found": true
+  },
+  "lots_number": {
+   "value": 1,
+   "confidence": 0.6,
+   "evidence": "",
+   "evidence_found": null
+  },
+  "price_weight_pct": {
+   "value": 100.0,
+   "confidence": 0.9,
+   "evidence": "precio 100 %",
+   "evidence_found": true
+  },
+  "is_framework_agreement": {
+   "value": false,
+   "confidence": 0.9,
+   "evidence": "no",
+   "evidence_found": true
+  },
+  "region": {
+   "value": "ES30",
+   "confidence": 0.9,
+   "evidence": "ES300 (Madrid)",
+   "evidence_found": true
+  },
+  "buyer_type": {
+   "value": "other",
+   "confidence": 0.9,
+   "evidence": "CANAL DE [NAME], M.P.",
+   "evidence_found": true
+  },
+  "language": {
+   "value": "es",
+   "confidence": 0.9,
+   "evidence": "SERVICIOS DE GESTIÓN DE FANGOS DE LA EDAR",
+   "evidence_found": true
+  }
+ },
+ "is_tender": true,
+ "not_tender_reason": "",
+ "market_note": "Similar Spanish tenders for services in CPV division 90 usually get a median of 4 bidders (quartiles: 2 and 7).",
+ "steps": [
+  {
+   "tool": "parse_amount",
+   "args": {
+    "text": "1 230 315,50 EUR"
+   },
+   "result": {
+    "amount": 1230315.5,
+    "currency": "EUR"
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "gestión de fangos depuradora"
+   },
+   "result": "{'results': [{'code': '45252200', 'division': '45', 'es': 'Equipo de planta depuradora', 'en': 'Purification plant equipment'}, {'code': '45232420', 'division': '45', 'es': 'Construcción de planta depuradora de aguas residuales', 'en': 'Sewage work'}, {'code': '45252130', 'division': '45', 'es': 'Equipo de planta depuradora de aguas residuales', 'en': 'Sewage plant equipment'}, {'code': '42956000', 'division': '42', 'es': 'Partes de máquinas depuradoras', 'en': 'Parts of purifying machinery'}, {'code': '65120000', 'division': '65', 'es': 'Explotación de una planta depuradora de agua', 'en': 'O…"
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "servicios de gestion de fangos"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "71540000",
+      "division": "71",
+      "es": "Servicios de gestión de obras",
+      "en": "Construction management services"
+     },
+     {
+      "code": "72322000",
+      "division": "72",
+      "es": "Servicios de gestión de datos",
+      "en": "Data management services"
+     },
+     {
+      "code": "55410000",
+      "division": "55",
+      "es": "Servicios de gestión de bares",
+      "en": "Bar management services"
+     },
+     {
+      "code": "98362000",
+      "division": "98",
+      "es": "Servicios de gestión de puertos",
+      "en": "Port management services"
+     },
+     {
+      "code": "03222113",
+      "division": "03",
+      "es": "Mangos",
+      "en": "Mangoes"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "fangos EDAR"
+   },
+   "result": {
+    "results": [
+     {
+      "code": "03222113",
+      "division": "03",
+      "es": "Mangos",
+      "en": "Mangoes"
+     },
+     {
+      "code": "44514100",
+      "division": "44",
+      "es": "Mangos de herramientas",
+      "en": "Tool handles"
+     },
+     {
+      "code": "44514000",
+      "division": "44",
+      "es": "Mangos y piezas de herramientas",
+      "en": "Tool handles and tool parts"
+     },
+     {
+      "code": "37452420",
+      "division": "37",
+      "es": "Mangos para raquetbol",
+      "en": "Racquetball grips"
+     },
+     {
+      "code": "37452400",
+      "division": "37",
+      "es": "Pelotas, mangos y cuerdas para raquetbol",
+      "en": "Racquetball balls, grips and strings"
+     }
+    ]
+   }
+  },
+  {
+   "tool": "lookup_cpv",
+   "args": {
+    "query": "tratamiento de lodos depuradora"
+   },
+   "result": "{'results': [{'code': '90513800', 'division': '90', 'es': 'Servicios de tratamiento de lodos', 'en': 'Sludge treatment services'}, {'code': '45232422', 'division': '45', 'es': 'Planta de tratamiento de lodos', 'en': 'Sludge-treatment works'}, {'code': '42996900', 'division': '42', 'es': 'Equipo para el tratamiento de lodos', 'en': 'Sludge-processing equipment'}, {'code': '45252200', 'division': '45', 'es': 'Equipo de planta depuradora', 'en': 'Purification plant equipment'}, {'code': '45232420', 'division': '45', 'es': 'Construcción de planta depuradora de aguas residuales', 'en': 'Sewage work…"
+  },
+  {
+   "tool": "market_stats",
+   "args": {
+    "contract_type": "services",
+    "cpv_division": "90"
+   },
+   "result": {
+    "scope": "CPV division 90, services",
+    "source": "Spanish award notices in TED, 2018-2022",
+    "bidders": {
+     "n": 6091,
+     "q25": 2.0,
+     "median": 4.0,
+     "q75": 7.0
+    }
+   }
+  }
+ ],
+ "tokens_in": 18644,
+ "tokens_out": 576,
+ "latency_s": 6.852,
+ "requests": 6,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "extract-v3"
+}
