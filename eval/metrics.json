@@ -123,9 +123,9 @@
   "judge": {
    "judged": 31,
    "judge_match_rate": 0.8387,
-   "human_labels": 22,
-   "agreement": 0.5455,
-   "cohen_kappa": -0.0476
+   "human_labels": 31,
+   "agreement": 0.5806,
+   "cohen_kappa": 0.0098
   },
   "cost_per_request": {
    "tokens_in": 9583.5,

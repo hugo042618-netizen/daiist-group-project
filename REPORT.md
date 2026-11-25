@@ -191,6 +191,23 @@ case read by `gemini-3.5-flash-lite` with prompt `extract-v3`, model `bidders-hg
 - LLM judge (rubric in `bidsense/judge.py`): 31 cases judged, 26 labelled as matching (84%). The 5 it rejected
   are all close-call reviews: its explanations compare the "expected value" of the bid with the contract's
   estimated value, which are different things.
+- **Agreement between the team's labels and the judge** (`eval/human_labels.csv`, all 31 cases labelled by the
+  team without seeing the judge's labels; `eval/metrics.json`): they agree on 18 of 31 cases (58%), Cohen's
+  kappa 0.01, which is the agreement chance alone would give. The team labelled 19 cases as matching and 12 as
+  not; the judge 26 and 5.
+
+  | | Judge: mismatch | Judge: match |
+  |---|---|---|
+  | **Team: mismatch** | 2 | 10 |
+  | **Team: match** | 3 | 16 |
+
+  By kind they agree on 10 of 17 normal cases, 2 of 5 review, 2 of 5 hard and 4 of 4 out of scope. In the 10
+  cases the team rejects and the judge accepts (`normal_02`, `normal_06`, `normal_07`, `normal_10`,
+  `normal_11`, `normal_15`, `review_02`, `review_05`, `hard_02`, `hard_05`), the team's comments name an
+  extracted fact with no basis in the text: a duration (5 cases), a 50% weight of price where the text gives no
+  award criteria (5), a CPV code that does not fit (1), a region reported missing although the text gives it
+  (1). In the 3 cases the judge rejects and the team accepts (`review_01`, `normal_16`, `hard_04`), the app
+  sent a close call to review and the judge took the bid's expected value for the contract's value.
 - An out-of-scope answer shows no confidence, in the app and in `eval/results.csv`: no field was extracted, so
   the 0 that is logged for it means nothing.
 - The personal-data filter also removes lines that start with "Nombre:" in a pasted TED page; in `hard_04`

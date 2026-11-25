@@ -21,3 +21,12 @@ normal_17,0,"Column C describes printer rental, installation and maintenance but
 review_03,1,
 review_04,1,
 review_05,0,"The extracted 50% price weight has no basis in column C. The four-lot count does have support in ""Lotes: 4,"" although the description also enumerates six."
+hard_01,0,Column C lists price as an award criterion but gives no basis for the app's 50% price weight.
+hard_02,0,Column C says the duration is unknown and gives no percentage for price. The app assigns 12 months and a 50% price weight.
+hard_03,1,
+hard_04,1,
+hard_05,0,"Column C lists Madrid (ES300) under the procedure's place of performance, but the app marks the region as missing."
+oos_01,1,
+oos_02,1,
+oos_03,1,
+oos_04,1,
