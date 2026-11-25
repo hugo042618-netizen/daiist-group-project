@@ -1,0 +1,8 @@
+{
+ "label": 0,
+ "explanation": "price_weight_pct is guessed as there are no explicit weights given in the award criteria.",
+ "tokens_in": 6441,
+ "tokens_out": 30,
+ "judge_version": "judge-v2",
+ "model": "gemini-3.5-flash-lite"
+}

@@ -127,6 +127,13 @@
    "agreement": 0.5806,
    "cohen_kappa": 0.0098
   },
+  "judge_v2_tuned_on_the_same_labels": {
+   "judged": 31,
+   "judge_match_rate": 0.6452,
+   "human_labels": 31,
+   "agreement": 0.8387,
+   "cohen_kappa": 0.6548
+  },
   "cost_per_request": {
    "tokens_in": 9583.5,
    "tokens_out": 501.9,

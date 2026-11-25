@@ -1,0 +1,8 @@
+{
+ "label": 1,
+ "explanation": "All extracted facts match the tender text and the recommendation follows the stated reason.",
+ "tokens_in": 1042,
+ "tokens_out": 26,
+ "judge_version": "judge-v2",
+ "model": "gemini-3.5-flash-lite"
+}

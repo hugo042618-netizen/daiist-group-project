@@ -1,0 +1,8 @@
+{
+ "label": 0,
+ "explanation": "price_weight_pct is reported as 50.0 but the text gives no award criteria weights.",
+ "tokens_in": 5887,
+ "tokens_out": 33,
+ "judge_version": "judge-v2",
+ "model": "gemini-3.5-flash-lite"
+}

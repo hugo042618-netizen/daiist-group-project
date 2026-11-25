@@ -1,0 +1,8 @@
+{
+ "label": 0,
+ "explanation": "The duration_months is extracted as 12.0, but the tender text does not state the duration.",
+ "tokens_in": 1033,
+ "tokens_out": 34,
+ "judge_version": "judge-v2",
+ "model": "gemini-3.5-flash-lite"
+}

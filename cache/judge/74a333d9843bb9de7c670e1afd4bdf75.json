@@ -1,0 +1,8 @@
+{
+ "label": 0,
+ "explanation": "The price_weight_pct of 50.0 is not stated in the tender text and is a guess.",
+ "tokens_in": 1108,
+ "tokens_out": 35,
+ "judge_version": "judge-v2",
+ "model": "gemini-3.5-flash-lite"
+}

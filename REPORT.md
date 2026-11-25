@@ -208,6 +208,23 @@ case read by `gemini-3.5-flash-lite` with prompt `extract-v3`, model `bidders-hg
   award criteria (5), a CPV code that does not fit (1), a region reported missing although the text gives it
   (1). In the 3 cases the judge rejects and the team accepts (`review_01`, `normal_16`, `hard_04`), the app
   sent a close call to review and the judge took the bid's expected value for the contract's value.
+- **A second rubric, `judge-v2`: tuned on the same labels, so optimistic.** After that comparison the rubric was
+  rewritten once to fix the two patterns above: it is told that "expected value" is the expected profit of
+  bidding and not the contract's value, and to check every extracted fact for a basis in the text and fail
+  guessed ones. Same 31 cases, same texts, same answers of the app, same model; run once and not adjusted
+  again. `judge-v1` stays the judge of this evaluation.
+
+  | Judge | Cases it accepts | Agreement with the team's labels | Cohen's kappa |
+  |---|---|---|---|
+  | `judge-v1` (written before any label) | 26 of 31 | 18 of 31 (58%) | 0.01 |
+  | `judge-v2` (tuned on the same labels, so optimistic) | 20 of 31 | 26 of 31 (84%) | 0.65 |
+
+  `judge-v2` agrees with the team on 10 cases where `judge-v1` did not, and disagrees on 2 where `judge-v1`
+  agreed: on `normal_01` and `normal_04` it rejects the region "ES21" because the text says "ES213", although
+  the app reports regions at that level on purpose. It still accepts `normal_02`, `normal_06` and `normal_10`,
+  which the team rejects. Its 84% was measured on the labels it was written from, so it says how far the
+  rubric can be bent towards these 31 labels, not how well it would agree with the team on new cases; that
+  needs cases labelled after the rubric is frozen.
 - An out-of-scope answer shows no confidence, in the app and in `eval/results.csv`: no field was extracted, so
   the 0 that is logged for it means nothing.
 - The personal-data filter also removes lines that start with "Nombre:" in a pasted TED page; in `hard_04`

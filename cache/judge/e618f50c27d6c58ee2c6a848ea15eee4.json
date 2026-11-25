@@ -1,0 +1,8 @@
+{
+ "label": 0,
+ "explanation": "duration_months and price_weight_pct are guessed since the text does not state them.",
+ "tokens_in": 3983,
+ "tokens_out": 508,
+ "judge_version": "judge-v2",
+ "model": "gemini-3.5-flash-lite"
+}

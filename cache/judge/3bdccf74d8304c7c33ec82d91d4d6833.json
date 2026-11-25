@@ -1,0 +1,8 @@
+{
+ "label": 1,
+ "explanation": "The assistant correctly identified that the text is a news report about an award rather than an active tender.",
+ "tokens_in": 986,
+ "tokens_out": 31,
+ "judge_version": "judge-v2",
+ "model": "gemini-3.5-flash-lite"
+}

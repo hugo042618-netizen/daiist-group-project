@@ -1,0 +1,8 @@
+{
+ "label": 0,
+ "explanation": "The text lists 6 lots in the description, but the assistant extracted 4 lots.",
+ "tokens_in": 1418,
+ "tokens_out": 29,
+ "judge_version": "judge-v2",
+ "model": "gemini-3.5-flash-lite"
+}

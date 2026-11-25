@@ -1,0 +1,8 @@
+{
+ "label": 0,
+ "explanation": "The region ES21 does not match the text which states ES213.",
+ "tokens_in": 1017,
+ "tokens_out": 28,
+ "judge_version": "judge-v2",
+ "model": "gemini-3.5-flash-lite"
+}

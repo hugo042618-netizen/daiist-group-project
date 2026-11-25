@@ -193,12 +193,17 @@ def evaluate_cases() -> dict:
         quotes = evidence.check(agent_output.get("fields"), read)                         # reported only: changes no decision
         answer = {"recommendation": result["decision"], "reason": outputs["decision"]["reason"],
                   "fields": {n: f["value"] for n, f in (agent_output.get("fields") or {}).items()}}
-        verdict = {}
+        verdict, tuned = {}, {}
         if not agent_output.get("error"):
             try:
                 verdict = judge.judge(redact(pipeline.read_input(case["input"]))[0], answer, default_model_only=True)
             except agent.AgentError as error:
                 verdict = {"error": str(error)}
+            try:   # the tuned rubric, for comparison only: same text, same answer
+                tuned = judge.judge(redact(pipeline.read_input(case["input"]))[0], answer, default_model_only=True,
+                                    version=judge.TUNED_VERSION)
+            except agent.AgentError as error:
+                tuned = {"error": str(error)}
         baseline_decision = (outputs["baseline"] or {}).get("decision") or result["decision"]
         expected = as_decision(case["expected"])
         rows.append({
@@ -222,6 +227,8 @@ def evaluate_cases() -> dict:
             "evidence_not_found_fields": ", ".join(quotes["missing"]),
             "judge_label": verdict.get("label"),
             "judge_explanation": verdict.get("explanation", verdict.get("error", "")),
+            "judge_v2_label": tuned.get("label"),
+            "judge_v2_explanation": tuned.get("explanation", tuned.get("error", "")),
             "latency_s": round(agent_output.get("latency_s", elapsed) if result["cached"] else elapsed, 3),
             "tokens_in": result["tokens_in"],
             "tokens_out": result["tokens_out"],
@@ -273,6 +280,9 @@ def evaluate_cases() -> dict:
           + (f" ({1 - missing / total:.1%}); {missing} do not. {shortened} of those found are quotes the agent shortened with dots." if total else "."))
 
     summary["judge"] = judge_agreement(results)
+    summary["judge_v2_tuned_on_the_same_labels"] = judge_agreement(
+        results, column="judge_v2_label",
+        title=f"{judge.TUNED_VERSION}: rubric rewritten after seeing the team's labels, so its agreement is optimistic")
     summary["cost_per_request"] = {
         "tokens_in": round(float(results["tokens_in"].mean()), 1), "tokens_out": round(float(results["tokens_out"].mean()), 1),
         "cost_eur": round(float(results["cost_eur"].mean()), 6), "latency_s_mean": round(float(results["latency_s"].mean()), 2),
@@ -284,10 +294,11 @@ def evaluate_cases() -> dict:
     return summary
 
 
-def judge_agreement(results: pd.DataFrame) -> dict:
-    print("\n=== LLM judge: do the reasons match the tender? ===")
-    judged = results.dropna(subset=["judge_label"])
-    report = {"judged": int(len(judged)), "judge_match_rate": round(float(judged["judge_label"].mean()), 4) if len(judged) else None}
+def judge_agreement(results: pd.DataFrame, column: str = "judge_label",
+                    title: str = "LLM judge: do the reasons match the tender?") -> dict:
+    print(f"\n=== {title} ===")
+    judged = results.dropna(subset=[column])
+    report = {"judged": int(len(judged)), "judge_match_rate": round(float(judged[column].mean()), 4) if len(judged) else None}
     print(f"  Judge: {report['judged']} cases judged" + (f", {report['judge_match_rate']:.0%} labelled as matching." if len(judged) else "."))
     labels = {r["id"].strip(): r["label"].strip().lower() for r in read_rows(HUMAN_LABELS)}
     human = {case_id: {"1": 1, "0": 0, "yes": 1, "no": 0, "match": 1, "mismatch": 0}.get(label) for case_id, label in labels.items()}
@@ -297,7 +308,7 @@ def judge_agreement(results: pd.DataFrame) -> dict:
         return report | {"human_labels": int(len(both))}
     from sklearn.metrics import cohen_kappa_score
 
-    mine, theirs = both["id"].map(human).astype(int), both["judge_label"].astype(int)
+    mine, theirs = both["id"].map(human).astype(int), both[column].astype(int)
     kappa = cohen_kappa_score(mine, theirs) if mine.nunique() + theirs.nunique() > 2 else float("nan")
     report |= {"human_labels": int(len(both)), "agreement": round(float((mine == theirs).mean()), 4),
                "cohen_kappa": None if np.isnan(kappa) else round(float(kappa), 4)}
