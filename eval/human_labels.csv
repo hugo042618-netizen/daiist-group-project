@@ -1,1 +1,23 @@
 id,label,comment
+normal_01,1,
+normal_02,0,"The internet-services classification is plausible, but 2026-2029 alone doesn't establish 36 months."
+normal_03,1,
+normal_04,1,
+normal_05,1,
+normal_06,0,Column C gives no duration or dates to support the extracted 24 months.
+normal_07,0,"Column F assigns a 50% price weight, but column C gives no award criteria."
+normal_08,1,
+review_01,1,
+normal_09,1,
+review_02,0,Column C gives no duration or dates to support the extracted 12 months.
+normal_10,0,"Column C describes overhead support cable and contact wire. The extracted CPV 34946120 covers railway-track materials, so it's a poor fit for the items described."
+normal_11,0,Column C gives no basis for either the 12-month duration or the 50% price weight.
+normal_12,1,
+normal_13,1,
+normal_14,1,
+normal_15,0,Column C gives a 36-month lease for defibrillators but provides no award criteria to support the extracted 50% price weight.
+normal_16,1,
+normal_17,0,"Column C describes printer rental, installation and maintenance but gives no dates or term to support 36 months."
+review_03,1,
+review_04,1,
+review_05,0,"The extracted 50% price weight has no basis in column C. The four-lot count does have support in ""Lotes: 4,"" although the description also enumerates six."
